@@ -1,5 +1,8 @@
  set romsize 16k
  set kernel_options player1colors pfcolors no_blank_lines
+ set optimization speed
+ set smartbranching on
+ set optimization noinlinedata
  set optimization inlinerand
 
    ;  Standard used in North America and most of South America.
@@ -13,7 +16,6 @@
 
    ;  Keeps the reset switch from repeating when pressed.
    dim _Bit0_Reset_Restrainer = y
-   dim _Bit2_Game_Control = y
 
    ;  Clears all normal variables and the extra 9.
    a = 0 : b = 0 : c = 0 : d = 0 : e = 0 : f = 0 : g = 0 : h = 0 : i = 0
@@ -38,10 +40,10 @@
  dim _Ch0_Duration4 = x
 
  const pfscore = 1
- pfscore1 = %10101010
- COLUBK = $CE
- 
+ COLUP0=$B4
+ pfscore1=%10101010
  scorecolor=$B4
+ pfscorecolor=$B4
 
 titlepage
  gosub titledrawscreen bank2
@@ -52,9 +54,9 @@ titlepage
  rem *** Our fake game start. If you move the joystick it goes back to the
  rem *** title screen.
 gamestart
-
- _Bit2_Game_Control{2} = 0
  _Ch0_Sound = 0
+  pfscore1 = %10101010
+
  player0x = 50
  player0y = 80
 
@@ -103,16 +105,14 @@ end
 end
 
  player1:
-  %11111000
-  %11111000
+  %11111100
   %11111111
-  %11111001
-  %11111001
-  %11111001
+  %11111101
+  %11111101
   %11111111
-  %11111000
-  %11111000
-  %11111000
+  %11111100
+  %11111100
+  %11111100
 end
 
  player0color:
@@ -130,8 +130,6 @@ end
 end
  
  player1color:
-   $1C;
-   $1C;
    $1C;
    $1C;
    $1C;
@@ -221,7 +219,7 @@ end
   if joy0down then player0y = player0y + 1
   if player0y >= 80 then player0y = 80
   if player0x <=1 then player0x = 1
-  if player0x >= 123 then player0x = 123
+  if player0x >= 153 then player0x = 153
 
   if collision(player0, player1) then score = score + 10 : player1y = 20 : player1x = rand16&127 : goto play_hit_sound
   if player1y = 80 && !collision(player0, player1) then missed = missed + 1 : player1y = 20 : player1x = rand16&127: pfscore1 = pfscore1/4: goto play_miss_sound 
@@ -270,7 +268,6 @@ end
 
  bank 3
 __Game_Over_Setup
-
      player0y = 200: player1y = 200
 
      playfield:
@@ -286,23 +283,9 @@ __Game_Over_Setup
    ...XX..XX.XX..XX.XX....XX..XX...
    ...XXXXXX...XX...XXXXX.XX..XX...
    end
-
-    pfcolors:
-   $CA
-   $CA
-   $CA
-   $CA
-   $CA
-   $CA
-   $CA
-   $CA
-   $CA
-   $CA
-   $CA
-end
 end
 
 gameover_loop
  drawscreen
- if joy0fire || switchreset then player0y=200:goto gamestart
+ if joy0fire || switchreset then goto gamestart
  goto gameover_loop
