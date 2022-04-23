@@ -35,6 +35,7 @@
  dim _Ch0_Duration1 = q
  dim _Ch0_Duration2 = v
  dim _Ch0_Duration3 = w
+ dim _Ch0_Duration4 = x
 
  const pfscore = 1
  pfscore1 = %10101010
@@ -222,18 +223,25 @@ end
   if player0x <=1 then player0x = 1
   if player0x >= 123 then player0x = 123
 
-  if collision(player0, player1) then score = score + 10 : player1y = 20 : player1x = rand16&127 : goto play_sound
-  if player1y = 80 && !collision(player0, player1) then missed = missed + 1 : player1y = 20 : player1x = rand16&127: pfscore1 = pfscore1/4 
+  if collision(player0, player1) then score = score + 10 : player1y = 20 : player1x = rand16&127 : goto play_hit_sound
+  if player1y = 80 && !collision(player0, player1) then missed = missed + 1 : player1y = 20 : player1x = rand16&127: pfscore1 = pfscore1/4: goto play_miss_sound 
   if missed = 4 then goto __Game_Over_Setup bank3
 
  goto gameloop
 
-play_sound
- if !_Ch0_Sound then _Ch0_Sound = 1 : _Ch0_Duration1 = 255 : _Ch0_Duration2 = 255 :  _Ch0_Duration3 = 255
+play_hit_sound
+ if !_Ch0_Sound then _Ch0_Sound = 1 : _Ch0_Duration1 = 255 : _Ch0_Duration2 = 255 :  _Ch0_Duration3 = 255 :  _Ch0_Duration4 = 255
  AUDC0 = 4 : AUDV0 = 15 : AUDF0 = 24
  _Ch0_Duration1 = _Ch0_Duration1 - 1
  if _Ch0_Duration1 = 0 then goto minus_dur2
- goto play_sound
+ goto play_hit_sound
+
+play_miss_sound
+ if !_Ch0_Sound then _Ch0_Sound = 1 : _Ch0_Duration1 = 255 : _Ch0_Duration2 = 255 :  _Ch0_Duration3 = 255:  _Ch0_Duration4 = 255
+ AUDC0 = 12 : AUDV0 = 15 : AUDF0 = 26
+ _Ch0_Duration1 = _Ch0_Duration1 - 1
+ if _Ch0_Duration1 = 0 then goto minus_dur2
+ goto play_miss_sound
 
 minus_dur2
   _Ch0_Duration2 = _Ch0_Duration2 - 1
@@ -242,8 +250,13 @@ minus_dur2
 
 minus_dur3
   _Ch0_Duration3 = _Ch0_Duration3 - 1
-  if _Ch0_Duration3 = 0 then goto __Clear_Ch_0
+  if _Ch0_Duration3 = 0 then goto minus_dur4
   goto minus_dur3
+
+minus_dur4
+  _Ch0_Duration4 = _Ch0_Duration4 - 1
+  if _Ch0_Duration4 = 0 then goto __Clear_Ch_0
+  goto minus_dur4
 
 __Clear_Ch_0
    _Ch0_Sound = 0 : AUDV0 = 0
