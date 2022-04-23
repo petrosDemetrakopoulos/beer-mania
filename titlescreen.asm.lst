@@ -1,0 +1,3494 @@
+------- FILE titlescreen.asm LEVEL 1 PASS 3
+      1  01cc ????
+------- FILE titlescreen/asm/layoutmacros.asm LEVEL 2 PASS 3
+      0  01cc ????				      include	"titlescreen/asm/layoutmacros.asm"
+      1  01cc ????
+      2  01cc ????						; the macro's used in the "titlescreen_layout.asm" file
+      3  01cc ????
+      4  01cc ????				      MAC	draw_96x2_1
+      5  01cc ????			   mk_96x2_1_on =	1
+      6  01cc ????				      jsr	draw_bmp_96x2_1
+      7  01cc ????				      ENDM
+      8  01cc ????
+      9  01cc ????				      MAC	draw_96x2_2
+     10  01cc ????			   mk_96x2_2_on =	1
+     11  01cc ????				      jsr	draw_bmp_96x2_2
+     12  01cc ????				      ENDM
+     13  01cc ????
+     14  01cc ????				      MAC	draw_96x2_3
+     15  01cc ????			   mk_96x2_3_on =	1
+     16  01cc ????				      jsr	draw_bmp_96x2_3
+     17  01cc ????				      ENDM
+     18  01cc ????
+     19  01cc ????				      MAC	draw_96x2_4
+     20  01cc ????			   mk_96x2_4_on =	1
+     21  01cc ????				      jsr	draw_bmp_96x2_4
+     22  01cc ????				      ENDM
+     23  01cc ????
+     24  01cc ????				      MAC	draw_96x2_5
+     25  01cc ????			   mk_96x2_5_on =	1
+     26  01cc ????				      jsr	draw_bmp_96x2_5
+     27  01cc ????				      ENDM
+     28  01cc ????
+     29  01cc ????				      MAC	draw_96x2_6
+     30  01cc ????			   mk_96x2_6_on =	1
+     31  01cc ????				      jsr	draw_bmp_96x2_6
+     32  01cc ????				      ENDM
+     33  01cc ????
+     34  01cc ????				      MAC	draw_96x2_7
+     35  01cc ????			   mk_96x2_7_on =	1
+     36  01cc ????				      jsr	draw_bmp_96x2_7
+     37  01cc ????				      ENDM
+     38  01cc ????
+     39  01cc ????				      MAC	draw_96x2_8
+     40  01cc ????			   mk_96x2_8_on =	1
+     41  01cc ????				      jsr	draw_bmp_96x2_8
+     42  01cc ????				      ENDM
+     43  01cc ????
+     44  01cc ????				      MAC	draw_48x1_1
+     45  01cc ????			   mk_48x1_X_on =	1
+     46  01cc ????			   mk_48x1_1_on =	1
+     47  01cc ????				      jsr	draw_bmp_48x1_1
+     48  01cc ????				      ENDM
+     49  01cc ????
+     50  01cc ????				      MAC	draw_48x1_2
+     51  01cc ????			   mk_48x1_X_on =	1
+     52  01cc ????			   mk_48x1_2_on =	1
+     53  01cc ????				      jsr	draw_bmp_48x1_2
+     54  01cc ????				      ENDM
+     55  01cc ????
+     56  01cc ????				      MAC	draw_48x1_3
+     57  01cc ????			   mk_48x1_X_on =	1
+     58  01cc ????			   mk_48x1_3_on =	1
+     59  01cc ????				      jsr	draw_bmp_48x1_3
+     60  01cc ????				      ENDM
+     61  01cc ????
+     62  01cc ????				      MAC	draw_48x1_4
+     63  01cc ????			   mk_48x1_X_on =	1
+     64  01cc ????			   mk_48x1_4_on =	1
+     65  01cc ????				      jsr	draw_bmp_48x1_4
+     66  01cc ????				      ENDM
+     67  01cc ????
+     68  01cc ????				      MAC	draw_48x1_5
+     69  01cc ????			   mk_48x1_X_on =	1
+     70  01cc ????			   mk_48x1_5_on =	1
+     71  01cc ????				      jsr	draw_bmp_48x1_5
+     72  01cc ????				      ENDM
+     73  01cc ????
+     74  01cc ????				      MAC	draw_48x1_6
+     75  01cc ????			   mk_48x1_X_on =	1
+     76  01cc ????			   mk_48x1_6_on =	1
+     77  01cc ????				      jsr	draw_bmp_48x1_6
+     78  01cc ????				      ENDM
+     79  01cc ????
+     80  01cc ????				      MAC	draw_48x1_7
+     81  01cc ????			   mk_48x1_X_on =	1
+     82  01cc ????			   mk_48x1_7_on =	1
+     83  01cc ????				      jsr	draw_bmp_48x1_7
+     84  01cc ????				      ENDM
+     85  01cc ????
+     86  01cc ????				      MAC	draw_48x1_8
+     87  01cc ????			   mk_48x1_X_on =	1
+     88  01cc ????			   mk_48x1_8_on =	1
+     89  01cc ????				      jsr	draw_bmp_48x1_8
+     90  01cc ????				      ENDM
+     91  01cc ????
+     92  01cc ????
+     93  01cc ????				      MAC	draw_48x2_1
+     94  01cc ????			   mk_48x2_X_on =	1
+     95  01cc ????			   mk_48x2_1_on =	1
+     96  01cc ????				      jsr	draw_bmp_48x2_1
+     97  01cc ????				      ENDM
+     98  01cc ????
+     99  01cc ????				      MAC	draw_48x2_2
+    100  01cc ????			   mk_48x2_X_on =	1
+    101  01cc ????			   mk_48x2_2_on =	1
+    102  01cc ????				      jsr	draw_bmp_48x2_2
+    103  01cc ????				      ENDM
+    104  01cc ????
+    105  01cc ????				      MAC	draw_48x2_3
+    106  01cc ????			   mk_48x2_X_on =	1
+    107  01cc ????			   mk_48x2_3_on =	1
+    108  01cc ????				      jsr	draw_bmp_48x2_3
+    109  01cc ????				      ENDM
+    110  01cc ????
+    111  01cc ????				      MAC	draw_48x2_4
+    112  01cc ????			   mk_48x2_X_on =	1
+    113  01cc ????			   mk_48x2_4_on =	1
+    114  01cc ????				      jsr	draw_bmp_48x2_4
+    115  01cc ????				      ENDM
+    116  01cc ????
+    117  01cc ????				      MAC	draw_48x2_5
+    118  01cc ????			   mk_48x2_X_on =	1
+    119  01cc ????			   mk_48x2_5_on =	1
+    120  01cc ????				      jsr	draw_bmp_48x2_5
+    121  01cc ????				      ENDM
+    122  01cc ????
+    123  01cc ????				      MAC	draw_48x2_6
+    124  01cc ????			   mk_48x2_X_on =	1
+    125  01cc ????			   mk_48x2_6_on =	1
+    126  01cc ????				      jsr	draw_bmp_48x2_6
+    127  01cc ????				      ENDM
+    128  01cc ????
+    129  01cc ????				      MAC	draw_48x2_7
+    130  01cc ????			   mk_48x2_X_on =	1
+    131  01cc ????			   mk_48x2_7_on =	1
+    132  01cc ????				      jsr	draw_bmp_48x2_7
+    133  01cc ????				      ENDM
+    134  01cc ????
+    135  01cc ????				      MAC	draw_48x2_8
+    136  01cc ????			   mk_48x2_X_on =	1
+    137  01cc ????			   mk_48x2_8_on =	1
+    138  01cc ????				      jsr	draw_bmp_48x2_8
+    139  01cc ????				      ENDM
+    140  01cc ????
+    141  01cc ????				      MAC	draw_player
+    142  01cc ????			   mk_player_on =	1
+    143  01cc ????				      jsr	draw_player_display
+    144  01cc ????				      ENDM
+    145  01cc ????
+    146  01cc ????				      MAC	draw_score
+    147  01cc ????			   mk_score_on =	1
+    148  01cc ????			   mk_48x1_X_on =	1
+    149  01cc ????				      jsr	draw_score_display
+    150  01cc ????				      ENDM
+    151  01cc ????
+    152  01cc ????				      MAC	draw_gameselect
+    153  01cc ????			   mk_gameselect_on =	1
+    154  01cc ????			   mk_48x1_X_on =	1
+    155  01cc ????				      jsr	draw_gameselect_display
+    156  01cc ????				      ENDM
+    157  01cc ????
+    158  01cc ????				      MAC	draw_space
+    159  01cc ????				      ldy	#{1}
+    160  01cc ????			   .loop
+    161  01cc ????				      sta	WSYNC
+    162  01cc ????				      dey
+    163  01cc ????				      bne	.loop
+    164  01cc ????				      ENDM
+    165  01cc ????
+------- FILE titlescreen.asm
+------- FILE titlescreen/asm/dpcfix.asm LEVEL 2 PASS 3
+      0  01cc ????				      include	"titlescreen/asm/dpcfix.asm"
+      1  01cc ????						; reassign variables that DPC+ doesn't have
+      2  01cc ????
+      3  01cc ????				      ifnconst	aux2
+      4  01cc ????	       00 00	   aux2       =	player2x
+      5  01cc ????				      endif
+      6  01cc ????				      ifnconst	aux4
+      7  01cc ????	       00 00	   aux4       =	player4x
+      8  01cc ????				      endif
+      9  01cc ????				      ifnconst	aux5
+     10  01cc ????	       00 00	   aux5       =	player5x
+     11  01cc ????				      endif
+     12  01cc ????				      ifnconst	aux6
+     13  01cc ????	       00 00	   aux6       =	player6x
+     14  01cc ????				      endif
+     15  01cc ????
+     16  01cc ????				      ifnconst	player0pointer
+     17  01cc ????	       00 00	   player0pointer =	player2y
+     18  01cc ????				      endif
+     19  01cc ????				      ifnconst	player1pointer
+     20  01cc ????	       00 00	   player1pointer =	player2height	; to player3height
+     21  01cc ????				      endif
+     22  01cc ????				      ifnconst	player1color
+     23  01cc ????	       00 00	   player1color =	player4height	; to player5height
+     24  01cc ????				      endif
+     25  01cc ????				      ifnconst	scorepointers
+     26  01cc ????	       00 00	   scorepointers =	player6height	; to NUSIZ8
+     27  01cc ????				      endif
+------- FILE titlescreen.asm
+------- FILE titlescreen/titlescreen_layout.asm LEVEL 2 PASS 3
+      0  01cc ????				      include	"titlescreen/titlescreen_layout.asm"
+      1  01cc ????
+      2  01cc ????						; To use a minikernel, just list it below. They'll be drawn on the screen in
+      3  01cc ????						; in the order they were listed.
+      4  01cc ????						;
+      5  01cc ????						; If a minikernel isn't listed, it won't be compiled into your program, and
+      6  01cc ????						; it won't use any rom space.
+      7  01cc ????
+      8  01cc ????				      MAC	titlescreenlayout
+      9  01cc ????				      draw_48x1_1
+     10  01cc ????						;draw_48x1_3
+     11  01cc ????						;draw_48x2_1
+     12  01cc ????						;draw_48x2_2
+     13  01cc ????						;draw_48x2_3
+     14  01cc ????				      draw_player
+     15  01cc ????				      draw_space	25
+     16  01cc ????				      draw_48x1_2
+     17  01cc ????						;draw_gameselect
+     18  01cc ????				      draw_score
+     19  01cc ????				      ENDM
+     20  01cc ????
+     21  01cc ????						; minikernel choices are:
+     22  01cc ????						; 
+     23  01cc ????						; draw_48x1_1, draw_48x1_2, draw_48x1_3 
+     24  01cc ????						;	The first, second, and third 48-wide single-line bitmap minikernels
+     25  01cc ????						;
+     26  01cc ????						; draw_48x2_1, draw_48x2_2, draw_48x2_3 
+     27  01cc ????						;	The first, second, and third 48-wide double-line bitmap minikernels
+     28  01cc ????						;
+     29  01cc ????						; draw_96x2_1, draw_96x2_2, draw_96x2_3 
+     30  01cc ????						;	The first, second, and third 96-wide double-line bitmap minikernels
+     31  01cc ????						;
+     32  01cc ????						; draw_gameselect
+     33  01cc ????						;	The game selection display minikernel
+     34  01cc ????						;
+     35  01cc ????						; draw_score
+     36  01cc ????						;	A minikernel that draws the score
+     37  01cc ????						;
+     38  01cc ????						; draw_space 10
+     39  01cc ????						;	A minikernel used to add blank space between other minikernels
+------- FILE titlescreen.asm
+      5  01cc ????
+      6  01cc ????			   .titledrawscreen
+      7  01cc ????			   title_eat_overscan
+      8  01cc ????						;bB runs in overscan. Wait for the overscan to run out...
+titlescreen.asm (9): error: Unknown Mnemonic 'clc'.
+      9  01cc ????				      clc
+titlescreen.asm (10): error: Unknown Mnemonic 'lda'.
+     10  01cc ????				      lda	INTIM
+titlescreen.asm (11): error: Unknown Mnemonic 'bmi'.
+     11  01cc ????				      bmi	title_eat_overscan
+titlescreen.asm (12): error: Unknown Mnemonic 'jmp'.
+     12  01cc ????				      jmp	title_do_vertical_sync
+     13  01cc ????
+     14  01cc ????			   title_do_vertical_sync
+titlescreen.asm (15): error: Unknown Mnemonic 'lda'.
+     15  01cc ????				      lda	#2
+titlescreen.asm (16): error: Unknown Mnemonic 'sta'.
+     16  01cc ????				      sta	WSYNC	;one line with VSYNC
+titlescreen.asm (17): error: Unknown Mnemonic 'sta'.
+     17  01cc ????				      sta	VSYNC	;enable VSYNC
+titlescreen.asm (18): error: Unknown Mnemonic 'sta'.
+     18  01cc ????				      sta	WSYNC	;one line with VSYNC
+titlescreen.asm (19): error: Unknown Mnemonic 'sta'.
+     19  01cc ????				      sta	WSYNC	;one line with VSYNC
+titlescreen.asm (20): error: Unknown Mnemonic 'lda'.
+     20  01cc ????				      lda	#0
+titlescreen.asm (21): error: Unknown Mnemonic 'sta'.
+     21  01cc ????				      sta	WSYNC	;one line with VSYNC
+titlescreen.asm (22): error: Unknown Mnemonic 'sta'.
+     22  01cc ????				      sta	VSYNC	;turn off VSYNC
+     23  01cc ????
+     24  01cc ????						;lda #42+128
+     25  01cc ????				      ifnconst	vblank_time
+titlescreen.asm (26): error: Unknown Mnemonic 'lda'.
+     26  01cc ????				      lda	#42+128
+     27  01cc ????			  -	      else
+     28  01cc ????			  -	      lda	#vblank_time+128
+     29  01cc ????				      endif
+     30  01cc ????
+titlescreen.asm (31): error: Unknown Mnemonic 'sta'.
+     31  01cc ????				      sta	TIM64T
+     32  01cc ????
+     33  01cc ????	       00 00	   titleframe =	missile0x
+titlescreen.asm (34): error: Unknown Mnemonic 'inc'.
+     34  01cc ????				      inc	titleframe	; increment the frame counter
+     35  01cc ????
+     36  01cc ????			  -	      ifconst	.title_vblank
+     37  01cc ????			  -	      jsr	.title_vblank
+     38  01cc ????				      endif
+     39  01cc ????
+     40  01cc ????			   title_vblank_loop
+titlescreen.asm (41): error: Unknown Mnemonic 'lda'.
+     41  01cc ????				      lda	INTIM
+titlescreen.asm (42): error: Unknown Mnemonic 'bmi'.
+     42  01cc ????				      bmi	title_vblank_loop
+titlescreen.asm (43): error: Unknown Mnemonic 'lda'.
+     43  01cc ????				      lda	#0
+titlescreen.asm (44): error: Unknown Mnemonic 'sta'.
+     44  01cc ????				      sta	WSYNC
+titlescreen.asm (45): error: Unknown Mnemonic 'sta'.
+     45  01cc ????				      sta	VBLANK
+titlescreen.asm (46): error: Unknown Mnemonic 'sta'.
+     46  01cc ????				      sta	ENAM0
+titlescreen.asm (47): error: Unknown Mnemonic 'sta'.
+     47  01cc ????				      sta	ENABL
+     48  01cc ????
+     49  01cc ????			   title_playfield
+     50  01cc ????
+     51  01cc ????						; ======== BEGIN of the custom kernel!!!!! All of the work is done in the playfield.
+     52  01cc ????
+titlescreen.asm (53): error: Unknown Mnemonic 'lda'.
+     53  01cc ????				      lda	#230
+titlescreen.asm (54): error: Unknown Mnemonic 'sta'.
+     54  01cc ????				      sta	TIM64T
+     55  01cc ????
+titlescreen.asm (56): error: Unknown Mnemonic 'lda'.
+     56  01cc ????				      lda	#1
+titlescreen.asm (57): error: Unknown Mnemonic 'sta'.
+     57  01cc ????				      sta	CTRLPF
+titlescreen.asm (58): error: Unknown Mnemonic 'clc'.
+     58  01cc ????				      clc
+     59  01cc ????
+titlescreen.asm (60): error: Unknown Mnemonic 'lda'.
+     60  01cc ????				      lda	#0
+titlescreen.asm (61): error: Unknown Mnemonic 'sta'.
+     61  01cc ????				      sta	REFP0
+titlescreen.asm (62): error: Unknown Mnemonic 'sta'.
+     62  01cc ????				      sta	REFP1
+titlescreen.asm (63): error: Unknown Mnemonic 'sta'.
+     63  01cc ????				      sta	WSYNC
+titlescreen.asm (64): error: Unknown Mnemonic 'lda'.
+     64  01cc ????				      lda	titlescreencolor
+titlescreen.asm (65): error: Unknown Mnemonic 'sta'.
+     65  01cc ????				      sta	COLUBK
+     66  01cc ????
+      0  01cc ????				      titlescreenlayout
+      0  01cc ????				      draw_48x1_1
+      1  01cc ????	       00 01	   mk_48x1_X_on =	1
+      2  01cc ????	       00 01	   mk_48x1_1_on =	1
+titlescreen.asm (67): error: Unknown Mnemonic 'jsr'.
+      3  01cc ????				      jsr	draw_bmp_48x1_1
+      2  01cc ????
+      3  01cc ????
+      4  01cc ????
+      5  01cc ????
+      0  01cc ????				      draw_player
+      1  01cc ????	       00 01	   mk_player_on =	1
+titlescreen.asm (67): error: Unknown Mnemonic 'jsr'.
+      2  01cc ????				      jsr	draw_player_display
+      0  01cc ????				      draw_space	25
+titlescreen.asm (67): error: Unknown Mnemonic 'ldy'.
+      1  01cc ????				      ldy	#25
+      2  01cc ????			   .loop
+titlescreen.asm (67): error: Unknown Mnemonic 'sta'.
+      3  01cc ????				      sta	WSYNC
+titlescreen.asm (67): error: Unknown Mnemonic 'dey'.
+      4  01cc ????				      dey
+titlescreen.asm (67): error: Unknown Mnemonic 'bne'.
+      5  01cc ????				      bne	.loop
+      0  01cc ????				      draw_48x1_2
+      1  01cc ????	       00 01	   mk_48x1_X_on =	1
+      2  01cc ????	       00 01	   mk_48x1_2_on =	1
+titlescreen.asm (67): error: Unknown Mnemonic 'jsr'.
+      3  01cc ????				      jsr	draw_bmp_48x1_2
+      9  01cc ????
+      0  01cc ????				      draw_score
+      1  01cc ????	       00 01	   mk_score_on =	1
+      2  01cc ????	       00 01	   mk_48x1_X_on =	1
+titlescreen.asm (67): error: Unknown Mnemonic 'jsr'.
+      3  01cc ????				      jsr	draw_score_display
+     68  01cc ????
+titlescreen.asm (69): error: Unknown Mnemonic 'jmp'.
+     69  01cc ????				      jmp	PFWAIT	; kernel is done. Finish off the screen
+     70  01cc ????
+------- FILE titlescreen/asm/position48.asm LEVEL 2 PASS 3
+      0  01cc ????				      include	"titlescreen/asm/position48.asm"
+      1  01cc ????
+      2  01cc ????			   position48
+      3  01cc ????
+      4  01cc ????						;postion P0 and P1
+      5  01cc ????
+titlescreen/asm/position48.asm (6): error: Unknown Mnemonic 'sta'.
+      6  01cc ????				      sta	WSYNC
+      7  01cc ????
+titlescreen/asm/position48.asm (8): error: Unknown Mnemonic 'lda'.
+      8  01cc ????				      lda	#$90	;2
+titlescreen/asm/position48.asm (9): error: Unknown Mnemonic 'sta'.
+      9  01cc ????				      sta	HMP0	;3
+titlescreen/asm/position48.asm (10): error: Unknown Mnemonic 'lda'.
+     10  01cc ????				      lda	#$A0	;2
+titlescreen/asm/position48.asm (11): error: Unknown Mnemonic 'sta'.
+     11  01cc ????				      sta	HMP1	;3
+     12  01cc ????
+titlescreen/asm/position48.asm (13): error: Unknown Mnemonic 'inc'.
+     13  01cc ????				      inc	temp1
+titlescreen/asm/position48.asm (14): error: Unknown Mnemonic 'dec'.
+     14  01cc ????				      dec	temp1
+titlescreen/asm/position48.asm (15): error: Unknown Mnemonic 'inc'.
+     15  01cc ????				      inc	temp1
+titlescreen/asm/position48.asm (16): error: Unknown Mnemonic 'dec'.
+     16  01cc ????				      dec	temp1
+titlescreen/asm/position48.asm (17): error: Unknown Mnemonic 'inc'.
+     17  01cc ????				      inc	temp1
+titlescreen/asm/position48.asm (18): error: Unknown Mnemonic 'sleep'.
+     18  01cc ????				      sleep	2
+titlescreen/asm/position48.asm (19): error: Unknown Mnemonic 'sta'.
+     19  01cc ????				      sta	RESP0	;  +3
+titlescreen/asm/position48.asm (20): error: Unknown Mnemonic 'sta'.
+     20  01cc ????				      sta	RESP1	;  +3
+titlescreen/asm/position48.asm (21): error: Unknown Mnemonic 'dec'.
+     21  01cc ????				      dec	temp1	;  +5
+titlescreen/asm/position48.asm (22): error: Unknown Mnemonic 'inc'.
+     22  01cc ????				      inc	temp1	;  +5
+titlescreen/asm/position48.asm (23): error: Unknown Mnemonic 'dec'.
+     23  01cc ????				      dec	temp1	;  +5
+titlescreen/asm/position48.asm (24): error: Unknown Mnemonic 'inc'.
+     24  01cc ????				      inc	temp1	;  +5
+titlescreen/asm/position48.asm (25): error: Unknown Mnemonic 'dec'.
+     25  01cc ????				      dec	temp1	;  +5
+titlescreen/asm/position48.asm (26): error: Unknown Mnemonic 'sleep'.
+     26  01cc ????				      sleep	3
+titlescreen/asm/position48.asm (27): error: Unknown Mnemonic 'sta'.
+     27  01cc ????				      sta	HMOVE	; +76
+titlescreen/asm/position48.asm (28): error: Unknown Mnemonic 'RTS'.
+     28  01cc ????				      RTS
+     29  01cc ????
+------- FILE titlescreen.asm
+------- FILE titlescreen/titlescreen_color.asm LEVEL 2 PASS 3
+      0  01cc ????				      include	"titlescreen/titlescreen_color.asm"
+      1  01cc ????
+      2  01cc ????						; This is where the titlescreen background color gets set. 
+      3  01cc ????						; You can also do a "dim titlescreencolor=[letter]" in bB
+      4  01cc ????						; if you want to change the color on the fly.
+      5  01cc ????
+      6  01cc ????				      ifnconst	titlescreencolor
+      7  01cc ????			   titlescreencolor
+      8  01cc ????				      endif
+      9  01cc ????	       00		      .byte.b	$00
+     10  01cd ????
+------- FILE titlescreen.asm
+     73  01cd ????
+     74  01cd ????				      ifconst	mk_48x1_1_on
+------- FILE titlescreen/asm/48x1_1_kernel.asm LEVEL 2 PASS 3
+      0  01cd ????				      include	"titlescreen/asm/48x1_1_kernel.asm"
+      1  01cd ????
+      2  01cd ????			   draw_bmp_48x1_1
+      3  01cd ????
+titlescreen/asm/48x1_1_kernel.asm (4): error: Unknown Mnemonic 'lda'.
+      4  01cd ????				      lda	#0
+titlescreen/asm/48x1_1_kernel.asm (5): error: Unknown Mnemonic 'sta'.
+      5  01cd ????				      sta	GRP0
+titlescreen/asm/48x1_1_kernel.asm (6): error: Unknown Mnemonic 'sta'.
+      6  01cd ????				      sta	GRP1
+      7  01cd ????
+titlescreen/asm/48x1_1_kernel.asm (8): error: Unknown Mnemonic 'ldy'.
+      8  01cd ????				      ldy	#11
+      9  01cd ????			   bmp_48x1_1_pointersetup
+titlescreen/asm/48x1_1_kernel.asm (10): error: Unknown Mnemonic 'lda'.
+     10  01cd ????				      lda	bmp_48x1_1_values,y
+titlescreen/asm/48x1_1_kernel.asm (11): error: Unknown Mnemonic 'sta'.
+     11  01cd ????				      sta	scorepointers,y
+titlescreen/asm/48x1_1_kernel.asm (12): error: Unknown Mnemonic 'dey'.
+     12  01cd ????				      dey
+titlescreen/asm/48x1_1_kernel.asm (13): error: Unknown Mnemonic 'lda'.
+     13  01cd ????				      lda	bmp_48x1_1_values,y
+     14  01cd ????			  -	      ifconst	bmp_48x1_1_index
+     15  01cd ????			  -	      sec
+     16  01cd ????			  -	      sbc	bmp_48x1_1_index
+     17  01cd ????				      endif
+titlescreen/asm/48x1_1_kernel.asm (18): error: Unknown Mnemonic 'sta'.
+     18  01cd ????				      sta	scorepointers,y
+titlescreen/asm/48x1_1_kernel.asm (19): error: Unknown Mnemonic 'dey'.
+     19  01cd ????				      dey
+titlescreen/asm/48x1_1_kernel.asm (20): error: Unknown Mnemonic 'bpl'.
+     20  01cd ????				      bpl	bmp_48x1_1_pointersetup
+     21  01cd ????
+titlescreen/asm/48x1_1_kernel.asm (22): error: Unknown Mnemonic 'ldy'.
+     22  01cd ????				      ldy	(#bmp_48x1_1_window-1)
+titlescreen/asm/48x1_1_kernel.asm (23): error: Unknown Mnemonic 'sty'.
+     23  01cd ????				      sty	aux2
+     24  01cd ????
+     25  01cd ????			  -	      ifconst	bmp_48x1_1_background
+     26  01cd ????			  -	      lda	bmp_48x1_1_background
+     27  01cd ????				      else
+titlescreen/asm/48x1_1_kernel.asm (28): error: Unknown Mnemonic 'lda'.
+     28  01cd ????				      lda	titlescreencolor
+     29  01cd ????				      endif
+titlescreen/asm/48x1_1_kernel.asm (30): error: Unknown Mnemonic 'sta'.
+     30  01cd ????				      sta	aux4
+     31  01cd ????
+titlescreen/asm/48x1_1_kernel.asm (32): error: Unknown Mnemonic 'lda'.
+     32  01cd ????				      lda	bmp_48x1_1_color
+titlescreen/asm/48x1_1_kernel.asm (33): error: Unknown Mnemonic 'sta'.
+     33  01cd ????				      sta	COLUP0	;3
+titlescreen/asm/48x1_1_kernel.asm (34): error: Unknown Mnemonic 'sta'.
+     34  01cd ????				      sta	COLUP1	;3
+titlescreen/asm/48x1_1_kernel.asm (35): error: Unknown Mnemonic 'sta'.
+     35  01cd ????				      sta	HMCLR	;3
+     36  01cd ????
+titlescreen/asm/48x1_1_kernel.asm (37): error: Unknown Mnemonic 'lda'.
+     37  01cd ????				      lda	titlescreencolor
+titlescreen/asm/48x1_1_kernel.asm (38): error: Unknown Mnemonic 'sta'.
+     38  01cd ????				      sta	COLUPF
+     39  01cd ????
+     40  01cd ????			  -	      ifconst	bmp_48x1_1_PF1
+     41  01cd ????			  -	      lda	bmp_48x1_1_PF1
+     42  01cd ????				      else
+titlescreen/asm/48x1_1_kernel.asm (43): error: Unknown Mnemonic 'lda'.
+     43  01cd ????				      lda	#0
+titlescreen/asm/48x1_1_kernel.asm (44): error: Unknown Mnemonic 'nop'.
+     44  01cd ????				      nop
+     45  01cd ????				      endif
+titlescreen/asm/48x1_1_kernel.asm (46): error: Unknown Mnemonic 'sta'.
+     46  01cd ????				      sta	PF1
+     47  01cd ????
+     48  01cd ????			  -	      ifconst	bmp_48x1_1_PF2
+     49  01cd ????			  -	      lda	bmp_48x1_1_PF2
+     50  01cd ????				      else
+titlescreen/asm/48x1_1_kernel.asm (51): error: Unknown Mnemonic 'lda'.
+     51  01cd ????				      lda	#0
+titlescreen/asm/48x1_1_kernel.asm (52): error: Unknown Mnemonic 'nop'.
+     52  01cd ????				      nop
+     53  01cd ????				      endif
+titlescreen/asm/48x1_1_kernel.asm (54): error: Unknown Mnemonic 'sta'.
+     54  01cd ????				      sta	PF2
+     55  01cd ????
+titlescreen/asm/48x1_1_kernel.asm (56): error: Unknown Mnemonic 'jmp'.
+     56  01cd ????				      jmp	draw_bmp_48x1_X	; the common 1lk bitmap minikernel
+     57  01cd ????
+     58  01cd ????			   bmp_48x1_1_values
+     59  01cd ????	       00 00		      .word.w	(bmp_48x1_1_00+#bmp_48x1_1_height-#bmp_48x1_1_window)
+     60  01cf ????	       00 00		      .word.w	(bmp_48x1_1_01+#bmp_48x1_1_height-#bmp_48x1_1_window)
+     61  01d1 ????	       00 00		      .word.w	(bmp_48x1_1_02+#bmp_48x1_1_height-#bmp_48x1_1_window)
+     62  01d3 ????	       00 00		      .word.w	(bmp_48x1_1_03+#bmp_48x1_1_height-#bmp_48x1_1_window)
+     63  01d5 ????	       00 00		      .word.w	(bmp_48x1_1_04+#bmp_48x1_1_height-#bmp_48x1_1_window)
+     64  01d7 ????	       00 00		      .word.w	(bmp_48x1_1_05+#bmp_48x1_1_height-#bmp_48x1_1_window)
+     65  01d9 ????
+------- FILE titlescreen.asm
+     76  01d9 ????				      endif		;mk_48x1_1_on
+     77  01d9 ????
+     78  01d9 ????				      ifconst	mk_48x1_2_on
+------- FILE titlescreen/asm/48x1_2_kernel.asm LEVEL 2 PASS 3
+      0  01d9 ????				      include	"titlescreen/asm/48x1_2_kernel.asm"
+      1  01d9 ????
+      2  01d9 ????			   draw_bmp_48x1_2
+      3  01d9 ????
+titlescreen/asm/48x1_2_kernel.asm (4): error: Unknown Mnemonic 'lda'.
+      4  01d9 ????				      lda	#0
+titlescreen/asm/48x1_2_kernel.asm (5): error: Unknown Mnemonic 'sta'.
+      5  01d9 ????				      sta	GRP0
+titlescreen/asm/48x1_2_kernel.asm (6): error: Unknown Mnemonic 'sta'.
+      6  01d9 ????				      sta	GRP1
+      7  01d9 ????
+titlescreen/asm/48x1_2_kernel.asm (8): error: Unknown Mnemonic 'ldy'.
+      8  01d9 ????				      ldy	#11
+      9  01d9 ????			   bmp_48x1_2_pointersetup
+titlescreen/asm/48x1_2_kernel.asm (10): error: Unknown Mnemonic 'lda'.
+     10  01d9 ????				      lda	bmp_48x1_2_values,y
+titlescreen/asm/48x1_2_kernel.asm (11): error: Unknown Mnemonic 'sta'.
+     11  01d9 ????				      sta	scorepointers,y
+titlescreen/asm/48x1_2_kernel.asm (12): error: Unknown Mnemonic 'dey'.
+     12  01d9 ????				      dey
+titlescreen/asm/48x1_2_kernel.asm (13): error: Unknown Mnemonic 'lda'.
+     13  01d9 ????				      lda	bmp_48x1_2_values,y
+     14  01d9 ????			  -	      ifconst	bmp_48x1_2_index
+     15  01d9 ????			  -	      sec
+     16  01d9 ????			  -	      sbc	bmp_48x1_2_index
+     17  01d9 ????				      endif
+titlescreen/asm/48x1_2_kernel.asm (18): error: Unknown Mnemonic 'sta'.
+     18  01d9 ????				      sta	scorepointers,y
+titlescreen/asm/48x1_2_kernel.asm (19): error: Unknown Mnemonic 'dey'.
+     19  01d9 ????				      dey
+titlescreen/asm/48x1_2_kernel.asm (20): error: Unknown Mnemonic 'bpl'.
+     20  01d9 ????				      bpl	bmp_48x1_2_pointersetup
+     21  01d9 ????
+titlescreen/asm/48x1_2_kernel.asm (22): error: Unknown Mnemonic 'ldy'.
+     22  01d9 ????				      ldy	(#bmp_48x1_2_window-1)
+titlescreen/asm/48x1_2_kernel.asm (23): error: Unknown Mnemonic 'sty'.
+     23  01d9 ????				      sty	aux2
+     24  01d9 ????
+     25  01d9 ????			  -	      ifconst	bmp_48x1_2_background
+     26  01d9 ????			  -	      lda	bmp_48x1_2_background
+     27  01d9 ????				      else
+titlescreen/asm/48x1_2_kernel.asm (28): error: Unknown Mnemonic 'lda'.
+     28  01d9 ????				      lda	titlescreencolor
+     29  01d9 ????				      endif
+titlescreen/asm/48x1_2_kernel.asm (30): error: Unknown Mnemonic 'sta'.
+     30  01d9 ????				      sta	aux4
+     31  01d9 ????
+titlescreen/asm/48x1_2_kernel.asm (32): error: Unknown Mnemonic 'lda'.
+     32  01d9 ????				      lda	bmp_48x1_2_color
+titlescreen/asm/48x1_2_kernel.asm (33): error: Unknown Mnemonic 'sta'.
+     33  01d9 ????				      sta	COLUP0	;3
+titlescreen/asm/48x1_2_kernel.asm (34): error: Unknown Mnemonic 'sta'.
+     34  01d9 ????				      sta	COLUP1	;3
+titlescreen/asm/48x1_2_kernel.asm (35): error: Unknown Mnemonic 'sta'.
+     35  01d9 ????				      sta	HMCLR	;3
+     36  01d9 ????
+titlescreen/asm/48x1_2_kernel.asm (37): error: Unknown Mnemonic 'lda'.
+     37  01d9 ????				      lda	titlescreencolor
+titlescreen/asm/48x1_2_kernel.asm (38): error: Unknown Mnemonic 'sta'.
+     38  01d9 ????				      sta	COLUPF
+     39  01d9 ????
+     40  01d9 ????			  -	      ifconst	bmp_48x1_2_PF1
+     41  01d9 ????			  -	      lda	bmp_48x1_2_PF1
+     42  01d9 ????				      else
+titlescreen/asm/48x1_2_kernel.asm (43): error: Unknown Mnemonic 'lda'.
+     43  01d9 ????				      lda	#0
+titlescreen/asm/48x1_2_kernel.asm (44): error: Unknown Mnemonic 'nop'.
+     44  01d9 ????				      nop
+     45  01d9 ????				      endif
+titlescreen/asm/48x1_2_kernel.asm (46): error: Unknown Mnemonic 'sta'.
+     46  01d9 ????				      sta	PF1
+     47  01d9 ????
+     48  01d9 ????			  -	      ifconst	bmp_48x1_2_PF2
+     49  01d9 ????			  -	      lda	bmp_48x1_2_PF2
+     50  01d9 ????				      else
+titlescreen/asm/48x1_2_kernel.asm (51): error: Unknown Mnemonic 'lda'.
+     51  01d9 ????				      lda	#0
+titlescreen/asm/48x1_2_kernel.asm (52): error: Unknown Mnemonic 'nop'.
+     52  01d9 ????				      nop
+     53  01d9 ????				      endif
+titlescreen/asm/48x1_2_kernel.asm (54): error: Unknown Mnemonic 'sta'.
+     54  01d9 ????				      sta	PF2
+     55  01d9 ????
+titlescreen/asm/48x1_2_kernel.asm (56): error: Unknown Mnemonic 'jmp'.
+     56  01d9 ????				      jmp	draw_bmp_48x1_X	; the common 1lk bitmap minikernel
+     57  01d9 ????
+     58  01d9 ????			   bmp_48x1_2_values
+     59  01d9 ????	       00 00		      .word.w	(bmp_48x1_2_00+#bmp_48x1_2_height-#bmp_48x1_2_window)
+     60  01db ????	       00 00		      .word.w	(bmp_48x1_2_01+#bmp_48x1_2_height-#bmp_48x1_2_window)
+     61  01dd ????	       00 00		      .word.w	(bmp_48x1_2_02+#bmp_48x1_2_height-#bmp_48x1_2_window)
+     62  01df ????	       00 00		      .word.w	(bmp_48x1_2_03+#bmp_48x1_2_height-#bmp_48x1_2_window)
+     63  01e1 ????	       00 00		      .word.w	(bmp_48x1_2_04+#bmp_48x1_2_height-#bmp_48x1_2_window)
+     64  01e3 ????	       00 00		      .word.w	(bmp_48x1_2_05+#bmp_48x1_2_height-#bmp_48x1_2_window)
+     65  01e5 ????
+------- FILE titlescreen.asm
+     80  01e5 ????				      endif		;mk_48x1_2_on
+     81  01e5 ????
+     82  01e5 ????			  -	      ifconst	mk_48x1_3_on
+     83  01e5 ????			  -	      include	"titlescreen/asm/48x1_3_kernel.asm"
+     84  01e5 ????				      endif		;mk_48x1_3_on
+     85  01e5 ????
+     86  01e5 ????			  -	      ifconst	mk_48x1_4_on
+     87  01e5 ????			  -	      include	"titlescreen/asm/48x1_4_kernel.asm"
+     88  01e5 ????				      endif		;mk_48x1_4_on
+     89  01e5 ????
+     90  01e5 ????			  -	      ifconst	mk_48x1_5_on
+     91  01e5 ????			  -	      include	"titlescreen/asm/48x1_5_kernel.asm"
+     92  01e5 ????				      endif		;mk_48x1_5_on
+     93  01e5 ????
+     94  01e5 ????			  -	      ifconst	mk_48x1_6_on
+     95  01e5 ????			  -	      include	"titlescreen/asm/48x1_6_kernel.asm"
+     96  01e5 ????				      endif		;mk_48x1_6_on
+     97  01e5 ????
+     98  01e5 ????			  -	      ifconst	mk_48x1_7_on
+     99  01e5 ????			  -	      include	"titlescreen/asm/48x1_7_kernel.asm"
+    100  01e5 ????				      endif		;mk_48x1_7_on
+    101  01e5 ????
+    102  01e5 ????			  -	      ifconst	mk_48x1_8_on
+    103  01e5 ????			  -	      include	"titlescreen/asm/48x1_8_kernel.asm"
+    104  01e5 ????				      endif		;mk_48x1_8_on
+    105  01e5 ????
+    106  01e5 ????			  -	      ifconst	mk_48x2_1_on
+    107  01e5 ????			  -	      include	"titlescreen/asm/48x2_1_kernel.asm"
+    108  01e5 ????				      endif		;mk_48x2_1_on
+    109  01e5 ????
+    110  01e5 ????			  -	      ifconst	mk_48x2_2_on
+    111  01e5 ????			  -	      include	"titlescreen/asm/48x2_2_kernel.asm"
+    112  01e5 ????				      endif		;mk_48x2_2_on
+    113  01e5 ????
+    114  01e5 ????			  -	      ifconst	mk_48x2_3_on
+    115  01e5 ????			  -	      include	"titlescreen/asm/48x2_3_kernel.asm"
+    116  01e5 ????				      endif		;mk_48x2_3_on
+    117  01e5 ????
+    118  01e5 ????			  -	      ifconst	mk_48x2_4_on
+    119  01e5 ????			  -	      include	"titlescreen/asm/48x2_4_kernel.asm"
+    120  01e5 ????				      endif		;mk_48x2_4_on
+    121  01e5 ????
+    122  01e5 ????			  -	      ifconst	mk_48x2_5_on
+    123  01e5 ????			  -	      include	"titlescreen/asm/48x2_5_kernel.asm"
+    124  01e5 ????				      endif		;mk_48x2_5_on
+    125  01e5 ????
+    126  01e5 ????			  -	      ifconst	mk_48x2_6_on
+    127  01e5 ????			  -	      include	"titlescreen/asm/48x2_6_kernel.asm"
+    128  01e5 ????				      endif		;mk_48x2_6_on
+    129  01e5 ????
+    130  01e5 ????			  -	      ifconst	mk_48x2_7_on
+    131  01e5 ????			  -	      include	"titlescreen/asm/48x2_7_kernel.asm"
+    132  01e5 ????				      endif		;mk_48x2_7_on
+    133  01e5 ????
+    134  01e5 ????			  -	      ifconst	mk_48x2_8_on
+    135  01e5 ????			  -	      include	"titlescreen/asm/48x2_8_kernel.asm"
+    136  01e5 ????				      endif		;mk_48x2_8_on
+    137  01e5 ????
+    138  01e5 ????				      ifconst	mk_48x1_X_on
+------- FILE titlescreen/asm/48x1_X_kernel.asm LEVEL 2 PASS 3
+      0  01e5 ????				      include	"titlescreen/asm/48x1_X_kernel.asm"
+      1  01e5 ????			   draw_bmp_48x1_X
+      2  01e5 ????
+titlescreen/asm/48x1_X_kernel.asm (3): error: Unknown Mnemonic 'lda'.
+      3  01e5 ????				      lda	#3
+titlescreen/asm/48x1_X_kernel.asm (4): error: Unknown Mnemonic 'sta'.
+      4  01e5 ????				      sta	NUSIZ0	;3=Player and Missile are drawn twice 32 clocks apart
+titlescreen/asm/48x1_X_kernel.asm (5): error: Unknown Mnemonic 'sta'.
+      5  01e5 ????				      sta	NUSIZ1	;3=Player and Missile are drawn twice 32 clocks apart
+      6  01e5 ????
+titlescreen/asm/48x1_X_kernel.asm (7): error: Unknown Mnemonic 'tsx'.
+      7  01e5 ????				      tsx
+titlescreen/asm/48x1_X_kernel.asm (8): error: Unknown Mnemonic 'stx'.
+      8  01e5 ????				      stx	stack1	;save the stack pointer
+      9  01e5 ????
+titlescreen/asm/48x1_X_kernel.asm (10): error: Unknown Mnemonic 'jsr'.
+     10  01e5 ????				      jsr	position48
+     11  01e5 ????
+titlescreen/asm/48x1_X_kernel.asm (12): error: Unknown Mnemonic 'lda'.
+     12  01e5 ????				      lda	#3	;2
+titlescreen/asm/48x1_X_kernel.asm (13): error: Unknown Mnemonic 'sta'.
+     13  01e5 ????				      sta	VDELP0	;3
+titlescreen/asm/48x1_X_kernel.asm (14): error: Unknown Mnemonic 'sta'.
+     14  01e5 ????				      sta	VDELP1	;3
+     15  01e5 ????
+titlescreen/asm/48x1_X_kernel.asm (16): error: Unknown Mnemonic 'lda'.
+     16  01e5 ????				      lda	#1	;2
+titlescreen/asm/48x1_X_kernel.asm (17): error: Unknown Mnemonic 'sta'.
+     17  01e5 ????				      sta	CTRLPF	;3
+     18  01e5 ????
+     19  01e5 ????						;enough cycles have passed for the HMOV, so we can clear HMCLR
+titlescreen/asm/48x1_X_kernel.asm (20): error: Unknown Mnemonic 'sta'.
+     20  01e5 ????				      sta	HMCLR
+     21  01e5 ????
+titlescreen/asm/48x1_X_kernel.asm (22): error: Unknown Mnemonic 'sta'.
+     22  01e5 ????				      sta	WSYNC
+     23  01e5 ????
+titlescreen/asm/48x1_X_kernel.asm (24): error: Unknown Mnemonic 'inc'.
+     24  01e5 ????				      inc	temp1	;5
+titlescreen/asm/48x1_X_kernel.asm (25): error: Unknown Mnemonic 'dec'.
+     25  01e5 ????				      dec	temp1	;5
+titlescreen/asm/48x1_X_kernel.asm (26): error: Unknown Mnemonic 'inc'.
+     26  01e5 ????				      inc	temp1	;5
+titlescreen/asm/48x1_X_kernel.asm (27): error: Unknown Mnemonic 'dec'.
+     27  01e5 ????				      dec	temp1	;5
+titlescreen/asm/48x1_X_kernel.asm (28): error: Unknown Mnemonic 'inc'.
+     28  01e5 ????				      inc	temp1	;5
+titlescreen/asm/48x1_X_kernel.asm (29): error: Unknown Mnemonic 'dec'.
+     29  01e5 ????				      dec	temp1	;5
+titlescreen/asm/48x1_X_kernel.asm (30): error: Unknown Mnemonic 'inc'.
+     30  01e5 ????				      inc	temp1	;5
+titlescreen/asm/48x1_X_kernel.asm (31): error: Unknown Mnemonic 'dec'.
+     31  01e5 ????				      dec	temp1	;5
+titlescreen/asm/48x1_X_kernel.asm (32): error: Unknown Mnemonic 'inc'.
+     32  01e5 ????				      inc	temp1	;5
+titlescreen/asm/48x1_X_kernel.asm (33): error: Unknown Mnemonic 'dec'.
+     33  01e5 ????				      dec	temp1	;5
+     34  01e5 ????
+titlescreen/asm/48x1_X_kernel.asm (35): error: Unknown Mnemonic 'sleep'.
+     35  01e5 ????				      sleep	5
+     36  01e5 ????
+titlescreen/asm/48x1_X_kernel.asm (37): error: Unknown Mnemonic 'iny'.
+     37  01e5 ????				      iny
+     38  01e5 ????
+titlescreen/asm/48x1_X_kernel.asm (39): error: Unknown Mnemonic 'jmp'.
+     39  01e5 ????				      jmp	pf48x1_X_loop_entry
+     40  01e5 ????
+     41  01e5 ????			  -	      if	>. != >[.+$2a]
+     42  01e5 ????			  -	      align	256
+     43  01e5 ????				      endif
+     44  01e5 ????
+     45  01e5 ????			   pf48x1_X_loop_entry
+     46  01e5 ????			   pf48x1_X_loop
+titlescreen/asm/48x1_X_kernel.asm (47): error: Unknown Mnemonic 'dey'.
+     47  01e5 ????				      dey		;2
+titlescreen/asm/48x1_X_kernel.asm (48): error: Unknown Mnemonic 'sty'.
+     48  01e5 ????				      sty	aux2	;3
+titlescreen/asm/48x1_X_kernel.asm (49): error: Unknown Mnemonic 'lda'.
+     49  01e5 ????				      lda	(scorepointers+0),y	;5
+titlescreen/asm/48x1_X_kernel.asm (50): error: Unknown Mnemonic 'sta'.
+     50  01e5 ????				      sta	GRP0	;3
+     51  01e5 ????
+titlescreen/asm/48x1_X_kernel.asm (52): error: Unknown Mnemonic 'lda'.
+     52  01e5 ????				      lda	(scorepointers+2),y	;5
+titlescreen/asm/48x1_X_kernel.asm (53): error: Unknown Mnemonic 'sta'.
+     53  01e5 ????				      sta	GRP1	;3
+titlescreen/asm/48x1_X_kernel.asm (54): error: Unknown Mnemonic 'lda'.
+     54  01e5 ????				      lda	(scorepointers+4),y	;5
+titlescreen/asm/48x1_X_kernel.asm (55): error: Unknown Mnemonic 'sta'.
+     55  01e5 ????				      sta	GRP0	;3
+     56  01e5 ????
+titlescreen/asm/48x1_X_kernel.asm (57): error: Unknown Mnemonic 'sleep'.
+     57  01e5 ????				      sleep	2	; I could make this indirect, if we want to burn more rom
+titlescreen/asm/48x1_X_kernel.asm (58): error: Unknown Mnemonic 'lda'.
+     58  01e5 ????				      lda	aux4	;3
+titlescreen/asm/48x1_X_kernel.asm (59): error: Unknown Mnemonic 'sta'.
+     59  01e5 ????				      sta	COLUPF	;3 this is a big fat waste...
+     60  01e5 ????
+titlescreen/asm/48x1_X_kernel.asm (61): error: Unknown Mnemonic 'lax'.
+     61  01e5 ????				      lax	(scorepointers+10),y	;5
+titlescreen/asm/48x1_X_kernel.asm (62): error: Unknown Mnemonic 'lda'.
+     62  01e5 ????				      lda	(scorepointers+8),y	;5
+titlescreen/asm/48x1_X_kernel.asm (63): error: Unknown Mnemonic 'sta'.
+     63  01e5 ????				      sta	stack2	;3
+titlescreen/asm/48x1_X_kernel.asm (64): error: Unknown Mnemonic 'lda'.
+     64  01e5 ????				      lda	(scorepointers+6),y	;5
+titlescreen/asm/48x1_X_kernel.asm (65): error: Unknown Mnemonic 'ldy'.
+     65  01e5 ????				      ldy	stack2	;3
+     66  01e5 ????
+titlescreen/asm/48x1_X_kernel.asm (67): error: Unknown Mnemonic 'sta'.
+     67  01e5 ????				      sta	GRP1	;3
+titlescreen/asm/48x1_X_kernel.asm (68): error: Unknown Mnemonic 'sty'.
+     68  01e5 ????				      sty	GRP0	;3
+titlescreen/asm/48x1_X_kernel.asm (69): error: Unknown Mnemonic 'stx'.
+     69  01e5 ????				      stx	GRP1	;3
+titlescreen/asm/48x1_X_kernel.asm (70): error: Unknown Mnemonic 'sty'.
+     70  01e5 ????				      sty	GRP0	;3
+     71  01e5 ????
+titlescreen/asm/48x1_X_kernel.asm (72): error: Unknown Mnemonic 'ldy'.
+     72  01e5 ????				      ldy	aux2	;3
+titlescreen/asm/48x1_X_kernel.asm (73): error: Unknown Mnemonic 'bne'.
+     73  01e5 ????				      bne	pf48x1_X_loop	;2/3
+     74  01e5 ????
+     75  01e5 ????			   pf48x1_X_codeend
+     76  01e5 ????						;echo "critical code in 48x1 is ",(pf48x1_X_codeend-pf48x1_X_loop), " bytes long."
+     77  01e5 ????
+titlescreen/asm/48x1_X_kernel.asm (78): error: Unknown Mnemonic 'lda'.
+     78  01e5 ????				      lda	#0
+titlescreen/asm/48x1_X_kernel.asm (79): error: Unknown Mnemonic 'sta'.
+     79  01e5 ????				      sta	GRP0
+titlescreen/asm/48x1_X_kernel.asm (80): error: Unknown Mnemonic 'sta'.
+     80  01e5 ????				      sta	GRP1
+titlescreen/asm/48x1_X_kernel.asm (81): error: Unknown Mnemonic 'sta'.
+     81  01e5 ????				      sta	GRP0
+titlescreen/asm/48x1_X_kernel.asm (82): error: Unknown Mnemonic 'sta'.
+     82  01e5 ????				      sta	GRP1
+titlescreen/asm/48x1_X_kernel.asm (83): error: Unknown Mnemonic 'sta'.
+     83  01e5 ????				      sta	ENABL
+titlescreen/asm/48x1_X_kernel.asm (84): error: Unknown Mnemonic 'sta'.
+     84  01e5 ????				      sta	ENAM0
+titlescreen/asm/48x1_X_kernel.asm (85): error: Unknown Mnemonic 'sta'.
+     85  01e5 ????				      sta	VDELP0
+titlescreen/asm/48x1_X_kernel.asm (86): error: Unknown Mnemonic 'sta'.
+     86  01e5 ????				      sta	VDELP1
+titlescreen/asm/48x1_X_kernel.asm (87): error: Unknown Mnemonic 'sta'.
+     87  01e5 ????				      sta	PF0
+titlescreen/asm/48x1_X_kernel.asm (88): error: Unknown Mnemonic 'sta'.
+     88  01e5 ????				      sta	PF1
+titlescreen/asm/48x1_X_kernel.asm (89): error: Unknown Mnemonic 'sta'.
+     89  01e5 ????				      sta	PF2
+     90  01e5 ????
+titlescreen/asm/48x1_X_kernel.asm (91): error: Unknown Mnemonic 'ldx'.
+     91  01e5 ????				      ldx	stack1	;restore the stack pointer
+titlescreen/asm/48x1_X_kernel.asm (92): error: Unknown Mnemonic 'txs'.
+     92  01e5 ????				      txs
+titlescreen/asm/48x1_X_kernel.asm (93): error: Unknown Mnemonic 'rts'.
+     93  01e5 ????				      rts
+------- FILE titlescreen.asm
+    140  01e5 ????				      endif		;mk_48x1_X_on
+    141  01e5 ????
+    142  01e5 ????			  -	      ifconst	mk_48x2_X_on
+    143  01e5 ????			  -	      include	"titlescreen/asm/48x2_X_kernel.asm"
+    144  01e5 ????				      endif		;mk_48x2_X_on
+    145  01e5 ????
+    146  01e5 ????
+    147  01e5 ????			  -	      ifconst	mk_96x2_1_on
+    148  01e5 ????			  -	      include	"titlescreen/asm/96x2_1_kernel.asm"
+    149  01e5 ????				      endif		;mk_96x2_1_on
+    150  01e5 ????
+    151  01e5 ????			  -	      ifconst	mk_96x2_2_on
+    152  01e5 ????			  -	      include	"titlescreen/asm/96x2_2_kernel.asm"
+    153  01e5 ????				      endif		;mk_96x2_2_on
+    154  01e5 ????
+    155  01e5 ????			  -	      ifconst	mk_96x2_3_on
+    156  01e5 ????			  -	      include	"titlescreen/asm/96x2_3_kernel.asm"
+    157  01e5 ????				      endif		;mk_96x2_3_on
+    158  01e5 ????
+    159  01e5 ????			  -	      ifconst	mk_96x2_4_on
+    160  01e5 ????			  -	      include	"titlescreen/asm/96x2_4_kernel.asm"
+    161  01e5 ????				      endif		;mk_96x2_4_on
+    162  01e5 ????
+    163  01e5 ????			  -	      ifconst	mk_96x2_5_on
+    164  01e5 ????			  -	      include	"titlescreen/asm/96x2_5_kernel.asm"
+    165  01e5 ????				      endif		;mk_96x2_5_on
+    166  01e5 ????
+    167  01e5 ????			  -	      ifconst	mk_96x2_6_on
+    168  01e5 ????			  -	      include	"titlescreen/asm/96x2_6_kernel.asm"
+    169  01e5 ????				      endif		;mk_96x2_6_on
+    170  01e5 ????
+    171  01e5 ????			  -	      ifconst	mk_96x2_7_on
+    172  01e5 ????			  -	      include	"titlescreen/asm/96x2_7_kernel.asm"
+    173  01e5 ????				      endif		;mk_96x2_7_on
+    174  01e5 ????
+    175  01e5 ????			  -	      ifconst	mk_96x2_8_on
+    176  01e5 ????			  -	      include	"titlescreen/asm/96x2_8_kernel.asm"
+    177  01e5 ????				      endif		;mk_96x2_8_on
+    178  01e5 ????
+    179  01e5 ????				      ifconst	mk_score_on
+------- FILE titlescreen/asm/score_kernel.asm LEVEL 2 PASS 3
+      0  01e5 ????				      include	"titlescreen/asm/score_kernel.asm"
+      1  01e5 ????						; The batari Basic score kernel
+      2  01e5 ????						; This minikernel is not under the same license as the rest of the
+      3  01e5 ????						; titlescreen code. Refer to the bB license before you use this in
+      4  01e5 ????						; a non-bB program.
+      5  01e5 ????
+      6  01e5 ????			   draw_score_display
+      7  01e5 ????
+titlescreen/asm/score_kernel.asm (8): error: Unknown Mnemonic 'lax'.
+      8  01e5 ????				      lax	score+0
+titlescreen/asm/score_kernel.asm (9): error: Unknown Mnemonic 'jsr'.
+      9  01e5 ????				      jsr	miniscorepointerset
+titlescreen/asm/score_kernel.asm (10): error: Unknown Mnemonic 'sty'.
+     10  01e5 ????				      sty	scorepointers+8
+titlescreen/asm/score_kernel.asm (11): error: Unknown Mnemonic 'stx'.
+     11  01e5 ????				      stx	scorepointers+0
+titlescreen/asm/score_kernel.asm (12): error: Unknown Mnemonic 'lax'.
+     12  01e5 ????				      lax	score+1
+titlescreen/asm/score_kernel.asm (13): error: Unknown Mnemonic 'jsr'.
+     13  01e5 ????				      jsr	miniscorepointerset
+titlescreen/asm/score_kernel.asm (14): error: Unknown Mnemonic 'sty'.
+     14  01e5 ????				      sty	scorepointers+4
+titlescreen/asm/score_kernel.asm (15): error: Unknown Mnemonic 'stx'.
+     15  01e5 ????				      stx	scorepointers+6
+titlescreen/asm/score_kernel.asm (16): error: Unknown Mnemonic 'lax'.
+     16  01e5 ????				      lax	score+2
+titlescreen/asm/score_kernel.asm (17): error: Unknown Mnemonic 'jsr'.
+     17  01e5 ????				      jsr	miniscorepointerset
+titlescreen/asm/score_kernel.asm (18): error: Unknown Mnemonic 'sty'.
+     18  01e5 ????				      sty	scorepointers+10
+titlescreen/asm/score_kernel.asm (19): error: Unknown Mnemonic 'stx'.
+     19  01e5 ????				      stx	scorepointers+2
+     20  01e5 ????
+titlescreen/asm/score_kernel.asm (21): error: Unknown Mnemonic 'sta'.
+     21  01e5 ????				      sta	HMCLR
+titlescreen/asm/score_kernel.asm (22): error: Unknown Mnemonic 'tsx'.
+     22  01e5 ????				      tsx
+titlescreen/asm/score_kernel.asm (23): error: Unknown Mnemonic 'stx'.
+     23  01e5 ????				      stx	stack1
+     24  01e5 ????						;ldx #$20
+titlescreen/asm/score_kernel.asm (25): error: Unknown Mnemonic 'ldx'.
+     25  01e5 ????				      ldx	#$60
+titlescreen/asm/score_kernel.asm (26): error: Unknown Mnemonic 'stx'.
+     26  01e5 ????				      stx	HMP0
+     27  01e5 ????
+titlescreen/asm/score_kernel.asm (28): error: Unknown Mnemonic 'ldx'.
+     28  01e5 ????				      ldx	#0
+titlescreen/asm/score_kernel.asm (29): error: Unknown Mnemonic 'sta'.
+     29  01e5 ????				      sta	WSYNC	;   0
+titlescreen/asm/score_kernel.asm (30): error: Unknown Mnemonic 'STx'.
+     30  01e5 ????				      STx	GRP0	; 3 3
+titlescreen/asm/score_kernel.asm (31): error: Unknown Mnemonic 'STx'.
+     31  01e5 ????				      STx	GRP1	; 3 6 seems to be needed because of vdel
+     32  01e5 ????
+titlescreen/asm/score_kernel.asm (33): error: Unknown Mnemonic 'sleep'.
+     33  01e5 ????				      sleep	7	; 7 13
+     34  01e5 ????
+titlescreen/asm/score_kernel.asm (35): error: Unknown Mnemonic 'lda'.
+     35  01e5 ????				      lda	#>miniscoretable	; 2 15
+titlescreen/asm/score_kernel.asm (36): error: Unknown Mnemonic 'sta'.
+     36  01e5 ????				      sta	scorepointers+1,x	; 4 19
+titlescreen/asm/score_kernel.asm (37): error: Unknown Mnemonic 'sta'.
+     37  01e5 ????				      sta	scorepointers+3,x	; 4 23
+titlescreen/asm/score_kernel.asm (38): error: Unknown Mnemonic 'sta'.
+     38  01e5 ????				      sta	scorepointers+5,x	; 4 27
+titlescreen/asm/score_kernel.asm (39): error: Unknown Mnemonic 'sta'.
+     39  01e5 ????				      sta	scorepointers+7,x	; 4 31
+titlescreen/asm/score_kernel.asm (40): error: Unknown Mnemonic 'sta'.
+     40  01e5 ????				      sta	scorepointers+9,x	; 4 35
+titlescreen/asm/score_kernel.asm (41): error: Unknown Mnemonic 'sta'.
+     41  01e5 ????				      sta	scorepointers+11,x	; 4 39
+     42  01e5 ????
+titlescreen/asm/score_kernel.asm (43): error: Unknown Mnemonic 'LDY'.
+     43  01e5 ????				      LDY	#7	; 2 41
+titlescreen/asm/score_kernel.asm (44): error: Unknown Mnemonic 'STA'.
+     44  01e5 ????				      STA	RESP0	; 3 44
+titlescreen/asm/score_kernel.asm (45): error: Unknown Mnemonic 'STA'.
+     45  01e5 ????				      STA	RESP1	; 3 47
+     46  01e5 ????
+titlescreen/asm/score_kernel.asm (47): error: Unknown Mnemonic 'LDA'.
+     47  01e5 ????				      LDA	#$03	; 2 49
+titlescreen/asm/score_kernel.asm (48): error: Unknown Mnemonic 'STA'.
+     48  01e5 ????				      STA	NUSIZ0	; 3 52
+titlescreen/asm/score_kernel.asm (49): error: Unknown Mnemonic 'STA'.
+     49  01e5 ????				      STA	NUSIZ1,x	; 4 56
+titlescreen/asm/score_kernel.asm (50): error: Unknown Mnemonic 'STA'.
+     50  01e5 ????				      STA	VDELP0	; 3 59
+titlescreen/asm/score_kernel.asm (51): error: Unknown Mnemonic 'STA'.
+     51  01e5 ????				      STA	VDELP1	; 3 62
+     52  01e5 ????						;LDA #$30		; 2 64
+titlescreen/asm/score_kernel.asm (53): error: Unknown Mnemonic 'LDA'.
+     53  01e5 ????				      LDA	#$70	; 2 64
+titlescreen/asm/score_kernel.asm (54): error: Unknown Mnemonic 'STA'.
+     54  01e5 ????				      STA	HMP1	; 3 67
+titlescreen/asm/score_kernel.asm (55): error: Unknown Mnemonic 'LDA'.
+     55  01e5 ????				      LDA	scorecolor	; 3 70
+titlescreen/asm/score_kernel.asm (56): error: Unknown Mnemonic 'STA'.
+     56  01e5 ????				      STA	HMOVE	; cycle 73 ?
+     57  01e5 ????			  -	      ifconst	score_kernel_fade
+     58  01e5 ????			  -	      and	score_kernel_fade
+     59  01e5 ????				      endif
+     60  01e5 ????
+titlescreen/asm/score_kernel.asm (61): error: Unknown Mnemonic 'STA'.
+     61  01e5 ????				      STA	COLUP0
+titlescreen/asm/score_kernel.asm (62): error: Unknown Mnemonic 'STA'.
+     62  01e5 ????				      STA	COLUP1
+     63  01e5 ????			  -	      ifconst	scorefade
+     64  01e5 ????			  -	      STA	stack2	; scorefade
+     65  01e5 ????				      endif
+titlescreen/asm/score_kernel.asm (66): error: Unknown Mnemonic 'lda'.
+     66  01e5 ????				      lda	(scorepointers),y
+titlescreen/asm/score_kernel.asm (67): error: Unknown Mnemonic 'sta'.
+     67  01e5 ????				      sta	GRP0
+titlescreen/asm/score_kernel.asm (68): error: Unknown Mnemonic 'lda'.
+     68  01e5 ????				      lda	(scorepointers+8),y
+titlescreen/asm/score_kernel.asm (69): error: Unknown Mnemonic 'sta'.
+     69  01e5 ????				      sta	WSYNC
+titlescreen/asm/score_kernel.asm (70): error: Unknown Mnemonic 'sleep'.
+     70  01e5 ????				      sleep	2
+titlescreen/asm/score_kernel.asm (71): error: Unknown Mnemonic 'jmp'.
+     71  01e5 ????				      jmp	beginscoreloop
+     72  01e5 ????
+     73  01e5 ????			  -	      if	((<*)>$28)
+     74  01e5 ????			  -	      align	256	; kludge that potentially wastes space!  should be fixed!
+     75  01e5 ????				      endif
+     76  01e5 ????
+     77  01e5 ????			   scoreloop2
+     78  01e5 ????			  -	      ifconst	scorefade
+     79  01e5 ????			  -	      lda	stack2
+     80  01e5 ????			  -	      sta	COLUP0
+     81  01e5 ????			  -	      sta	COLUP1
+     82  01e5 ????				      else
+titlescreen/asm/score_kernel.asm (83): error: Unknown Mnemonic 'sleep'.
+     83  01e5 ????				      sleep	9
+     84  01e5 ????				      endif
+titlescreen/asm/score_kernel.asm (85): error: Unknown Mnemonic 'lda'.
+     85  01e5 ????				      lda	(scorepointers),y	;+5  68  204
+titlescreen/asm/score_kernel.asm (86): error: Unknown Mnemonic 'sta'.
+     86  01e5 ????				      sta	GRP0	;+3  71  213	   D1	  --	  --	 --
+titlescreen/asm/score_kernel.asm (87): error: Unknown Mnemonic 'lda'.
+     87  01e5 ????				      lda	(scorepointers+$8),y	;+5   5   15
+     88  01e5 ????						; cycle 0
+     89  01e5 ????			   beginscoreloop
+titlescreen/asm/score_kernel.asm (90): error: Unknown Mnemonic 'sta'.
+     90  01e5 ????				      sta	GRP1	;+3   8   24	   D1	  D1	  D2	 --
+titlescreen/asm/score_kernel.asm (91): error: Unknown Mnemonic 'lda'.
+     91  01e5 ????				      lda	(scorepointers+$6),y	;+5  13   39
+titlescreen/asm/score_kernel.asm (92): error: Unknown Mnemonic 'sta'.
+     92  01e5 ????				      sta	GRP0	;+3  16   48	   D3	  D1	  D2	 D2
+titlescreen/asm/score_kernel.asm (93): error: Unknown Mnemonic 'lax'.
+     93  01e5 ????				      lax	(scorepointers+$2),y	;+5  29   87
+titlescreen/asm/score_kernel.asm (94): error: Unknown Mnemonic 'txs'.
+     94  01e5 ????				      txs
+titlescreen/asm/score_kernel.asm (95): error: Unknown Mnemonic 'lax'.
+     95  01e5 ????				      lax	(scorepointers+$4),y	;+5  36  108
+     96  01e5 ????
+     97  01e5 ????			  -	      ifconst	scorefade
+     98  01e5 ????			  -	      dec	stack2
+     99  01e5 ????				      else
+titlescreen/asm/score_kernel.asm (100): error: Unknown Mnemonic 'sleep'.
+    100  01e5 ????				      sleep	5
+    101  01e5 ????				      endif
+titlescreen/asm/score_kernel.asm (102): error: Unknown Mnemonic 'sleep'.
+    102  01e5 ????				      sleep	2
+    103  01e5 ????
+titlescreen/asm/score_kernel.asm (104): error: Unknown Mnemonic 'lda'.
+    104  01e5 ????				      lda	(scorepointers+$A),y	;+5  21   63 DIGIT 6
+titlescreen/asm/score_kernel.asm (105): error: Unknown Mnemonic 'stx'.
+    105  01e5 ????				      stx	GRP1	;+3  44  132	   D3	  D3	  D4	 D2!
+titlescreen/asm/score_kernel.asm (106): error: Unknown Mnemonic 'tsx'.
+    106  01e5 ????				      tsx
+titlescreen/asm/score_kernel.asm (107): error: Unknown Mnemonic 'stx'.
+    107  01e5 ????				      stx	GRP0	;+3  47  141	   D5	  D3!	  D4	 D4
+titlescreen/asm/score_kernel.asm (108): error: Unknown Mnemonic 'sta'.
+    108  01e5 ????				      sta	GRP1	;+3  50  150	   D5	  D5	  D6	 D4!
+    109  01e5 ????
+titlescreen/asm/score_kernel.asm (110): error: Unknown Mnemonic 'sty'.
+    110  01e5 ????				      sty	GRP0	;+3  53  159	   D4*	  D5!	  D6	 D6
+titlescreen/asm/score_kernel.asm (111): error: Unknown Mnemonic 'dey'.
+    111  01e5 ????				      dey
+titlescreen/asm/score_kernel.asm (112): error: Unknown Mnemonic 'bpl'.
+    112  01e5 ????				      bpl	scoreloop2	;+2  60  180
+    113  01e5 ????			   scoreloop2end
+    114  01e5 ????
+    115  01e5 ????						;echo "critical size: ",(scoreloop2end-scoreloop2)
+    116  01e5 ????
+    117  01e5 ????
+titlescreen/asm/score_kernel.asm (118): error: Unknown Mnemonic 'ldx'.
+    118  01e5 ????				      ldx	stack1
+titlescreen/asm/score_kernel.asm (119): error: Unknown Mnemonic 'txs'.
+    119  01e5 ????				      txs
+    120  01e5 ????
+titlescreen/asm/score_kernel.asm (121): error: Unknown Mnemonic 'LDA'.
+    121  01e5 ????				      LDA	#0
+titlescreen/asm/score_kernel.asm (122): error: Unknown Mnemonic 'sta'.
+    122  01e5 ????				      sta	PF1
+titlescreen/asm/score_kernel.asm (123): error: Unknown Mnemonic 'STA'.
+    123  01e5 ????				      STA	GRP0
+titlescreen/asm/score_kernel.asm (124): error: Unknown Mnemonic 'STA'.
+    124  01e5 ????				      STA	GRP1
+titlescreen/asm/score_kernel.asm (125): error: Unknown Mnemonic 'STA'.
+    125  01e5 ????				      STA	VDELP0
+titlescreen/asm/score_kernel.asm (126): error: Unknown Mnemonic 'STA'.
+    126  01e5 ????				      STA	VDELP1
+titlescreen/asm/score_kernel.asm (127): error: Unknown Mnemonic 'STA'.
+    127  01e5 ????				      STA	NUSIZ0
+titlescreen/asm/score_kernel.asm (128): error: Unknown Mnemonic 'STA'.
+    128  01e5 ????				      STA	NUSIZ1
+    129  01e5 ????
+    130  01e5 ????						; clear out the score pointers in case they're stolen DPC variables...
+titlescreen/asm/score_kernel.asm (131): error: Unknown Mnemonic 'ldx'.
+    131  01e5 ????				      ldx	#11
+    132  01e5 ????			   clearscoreploop
+titlescreen/asm/score_kernel.asm (133): error: Unknown Mnemonic 'sta'.
+    133  01e5 ????				      sta	scorepointers,x
+titlescreen/asm/score_kernel.asm (134): error: Unknown Mnemonic 'dex'.
+    134  01e5 ????				      dex
+titlescreen/asm/score_kernel.asm (135): error: Unknown Mnemonic 'bpl'.
+    135  01e5 ????				      bpl	clearscoreploop
+    136  01e5 ????
+    137  01e5 ????
+    138  01e5 ????						;;ldy temp3
+    139  01e5 ????						;ldy scorepointers+8
+    140  01e5 ????						;sty scorepointers+3
+    141  01e5 ????
+    142  01e5 ????						;;ldy temp5
+    143  01e5 ????						;ldy scorepointers+10
+    144  01e5 ????						;sty scorepointers+5
+titlescreen/asm/score_kernel.asm (145): error: Unknown Mnemonic 'rts'.
+    145  01e5 ????				      rts
+    146  01e5 ????
+    147  01e5 ????			   miniscorepointerset
+titlescreen/asm/score_kernel.asm (148): error: Unknown Mnemonic 'and'.
+    148  01e5 ????				      and	#$0F
+titlescreen/asm/score_kernel.asm (149): error: Unknown Mnemonic 'asl'.
+    149  01e5 ????				      asl
+titlescreen/asm/score_kernel.asm (150): error: Unknown Mnemonic 'asl'.
+    150  01e5 ????				      asl
+titlescreen/asm/score_kernel.asm (151): error: Unknown Mnemonic 'asl'.
+    151  01e5 ????				      asl
+titlescreen/asm/score_kernel.asm (152): error: Unknown Mnemonic 'adc'.
+    152  01e5 ????				      adc	#<miniscoretable
+titlescreen/asm/score_kernel.asm (153): error: Unknown Mnemonic 'tay'.
+    153  01e5 ????				      tay
+titlescreen/asm/score_kernel.asm (154): error: Unknown Mnemonic 'txa'.
+    154  01e5 ????				      txa
+titlescreen/asm/score_kernel.asm (155): error: Unknown Mnemonic 'and'.
+    155  01e5 ????				      and	#$F0
+titlescreen/asm/score_kernel.asm (156): error: Unknown Mnemonic 'lsr'.
+    156  01e5 ????				      lsr
+titlescreen/asm/score_kernel.asm (157): error: Unknown Mnemonic 'adc'.
+    157  01e5 ????				      adc	#<miniscoretable
+titlescreen/asm/score_kernel.asm (158): error: Unknown Mnemonic 'tax'.
+    158  01e5 ????				      tax
+titlescreen/asm/score_kernel.asm (159): error: Unknown Mnemonic 'rts'.
+    159  01e5 ????				      rts
+    160  01e5 ????
+------- FILE titlescreen.asm
+    181  01e5 ????				      endif		;mk_score_on
+    182  01e5 ????
+    183  01e5 ????			  -	      ifconst	mk_gameselect_on
+    184  01e5 ????			  -	      include	"titlescreen/asm/gameselect_kernel.asm"
+    185  01e5 ????				      endif		;mk_gameselect_on
+    186  01e5 ????
+    187  01e5 ????			   PFWAIT
+titlescreen.asm (188): error: Unknown Mnemonic 'lda'.
+    188  01e5 ????				      lda	INTIM
+titlescreen.asm (189): error: Unknown Mnemonic 'bne'.
+    189  01e5 ????				      bne	PFWAIT
+titlescreen.asm (190): error: Unknown Mnemonic 'sta'.
+    190  01e5 ????				      sta	WSYNC
+    191  01e5 ????
+    192  01e5 ????			   OVERSCAN
+    193  01e5 ????				      ifnconst	overscan_time
+titlescreen.asm (194): error: Unknown Mnemonic 'lda'.
+    194  01e5 ????				      lda	#34+128
+    195  01e5 ????			  -	      else
+    196  01e5 ????			  -	      lda	#overscan_time+128-5
+    197  01e5 ????				      endif
+titlescreen.asm (198): error: Unknown Mnemonic 'sta'.
+    198  01e5 ????				      sta	TIM64T
+    199  01e5 ????
+    200  01e5 ????						;fix height variables we borrowed, so DPC doesn't crash on drawscreen...
+    201  01e5 ????			  -	      ifconst	player9height
+    202  01e5 ????			  -	      ldy	#8
+    203  01e5 ????			  -	      lda	#0
+    204  01e5 ????			  -	      sta	player0height
+    205  01e5 ????			  -.playerheightfixloop
+    206  01e5 ????			  -	      sta	player1height,y
+    207  01e5 ????			  -	      ifconst	_NUSIZ1
+    208  01e5 ????			  -	      sta	_NUSIZ1,y
+    209  01e5 ????			  -	      endif
+    210  01e5 ????			  -	      dey
+    211  01e5 ????			  -	      bpl	.playerheightfixloop
+    212  01e5 ????				      endif
+    213  01e5 ????
+titlescreen.asm (214): error: Unknown Mnemonic 'lda'.
+    214  01e5 ????				      lda	#%11000010
+titlescreen.asm (215): error: Unknown Mnemonic 'sta'.
+    215  01e5 ????				      sta	WSYNC
+titlescreen.asm (216): error: Unknown Mnemonic 'sta'.
+    216  01e5 ????				      sta	VBLANK
+titlescreen.asm (217): error: Unknown Mnemonic 'RETURN'.
+    217  01e5 ????				      RETURN
+    218  01e5 ????
+    219  01e5 ????			  -	      ifconst	mk_48x1_3_on
+    220  01e5 ????			  -	      include	"titlescreen/48x1_3_image.asm"
+    221  01e5 ????				      endif
+    222  01e5 ????			  -	      ifconst	mk_48x1_4_on
+    223  01e5 ????			  -	      include	"titlescreen/48x1_4_image.asm"
+    224  01e5 ????				      endif
+    225  01e5 ????			  -	      ifconst	mk_48x1_5_on
+    226  01e5 ????			  -	      include	"titlescreen/48x1_5_image.asm"
+    227  01e5 ????				      endif
+    228  01e5 ????			  -	      ifconst	mk_48x1_6_on
+    229  01e5 ????			  -	      include	"titlescreen/48x1_6_image.asm"
+    230  01e5 ????				      endif
+    231  01e5 ????			  -	      ifconst	mk_48x1_7_on
+    232  01e5 ????			  -	      include	"titlescreen/48x1_7_image.asm"
+    233  01e5 ????				      endif
+    234  01e5 ????			  -	      ifconst	mk_48x1_8_on
+    235  01e5 ????			  -	      include	"titlescreen/48x1_8_image.asm"
+    236  01e5 ????				      endif
+    237  01e5 ????
+    238  01e5 ????
+    239  01e5 ????			  -	      ifconst	mk_48x2_1_on
+    240  01e5 ????			  -	      include	"titlescreen/48x2_1_image.asm"
+    241  01e5 ????				      endif
+    242  01e5 ????			  -	      ifconst	mk_48x2_2_on
+    243  01e5 ????			  -	      include	"titlescreen/48x2_2_image.asm"
+    244  01e5 ????				      endif
+    245  01e5 ????			  -	      ifconst	mk_48x2_3_on
+    246  01e5 ????			  -	      include	"titlescreen/48x2_3_image.asm"
+    247  01e5 ????				      endif
+    248  01e5 ????			  -	      ifconst	mk_48x2_4_on
+    249  01e5 ????			  -	      include	"titlescreen/48x2_4_image.asm"
+    250  01e5 ????				      endif
+    251  01e5 ????			  -	      ifconst	mk_48x2_5_on
+    252  01e5 ????			  -	      include	"titlescreen/48x2_5_image.asm"
+    253  01e5 ????				      endif
+    254  01e5 ????			  -	      ifconst	mk_48x2_6_on
+    255  01e5 ????			  -	      include	"titlescreen/48x2_6_image.asm"
+    256  01e5 ????				      endif
+    257  01e5 ????			  -	      ifconst	mk_48x2_7_on
+    258  01e5 ????			  -	      include	"titlescreen/48x2_7_image.asm"
+    259  01e5 ????				      endif
+    260  01e5 ????
+    261  01e5 ????			  -	      ifconst	mk_48x2_8_on
+    262  01e5 ????			  -	      include	"titlescreen/48x2_8_image.asm"
+    263  01e5 ????				      endif
+    264  01e5 ????
+    265  01e5 ????
+    266  01e5 ????			  -	      ifconst	mk_96x2_1_on
+    267  01e5 ????			  -	      include	"titlescreen/96x2_1_image.asm"
+    268  01e5 ????				      endif
+    269  01e5 ????			  -	      ifconst	mk_96x2_2_on
+    270  01e5 ????			  -	      include	"titlescreen/96x2_2_image.asm"
+    271  01e5 ????				      endif
+    272  01e5 ????			  -	      ifconst	mk_96x2_3_on
+    273  01e5 ????			  -	      include	"titlescreen/96x2_3_image.asm"
+    274  01e5 ????				      endif
+    275  01e5 ????			  -	      ifconst	mk_96x2_4_on
+    276  01e5 ????			  -	      include	"titlescreen/96x2_4_image.asm"
+    277  01e5 ????				      endif
+    278  01e5 ????			  -	      ifconst	mk_96x2_5_on
+    279  01e5 ????			  -	      include	"titlescreen/96x2_5_image.asm"
+    280  01e5 ????				      endif
+    281  01e5 ????			  -	      ifconst	mk_96x2_6_on
+    282  01e5 ????			  -	      include	"titlescreen/96x2_6_image.asm"
+    283  01e5 ????				      endif
+    284  01e5 ????			  -	      ifconst	mk_96x2_7_on
+    285  01e5 ????			  -	      include	"titlescreen/96x2_7_image.asm"
+    286  01e5 ????				      endif
+    287  01e5 ????			  -	      ifconst	mk_96x2_8_on
+    288  01e5 ????			  -	      include	"titlescreen/96x2_8_image.asm"
+    289  01e5 ????				      endif
+    290  01e5 ????
+    291  01e5 ????				      ifconst	mk_player_on
+------- FILE titlescreen/player_image.asm LEVEL 2 PASS 3
+      0  01e5 ????				      include	"titlescreen/player_image.asm"
+      1  01e5 ????
+      2  01e5 ????
+      3  01e5 ????						;*** the height of this mini-kernel.
+      4  01e5 ????	       00 32	   bmp_player_window =	50
+      5  01e5 ????
+      6  01e5 ????						;*** how many scanlines per pixel. 
+      7  01e5 ????	       00 01	   bmp_player_kernellines =	1
+      8  01e5 ????
+      9  01e5 ????						;*** the height of each player.
+     10  01e5 ????	       00 0a	   bmp_player0_height =	10
+     11  01e5 ????	       00 0a	   bmp_player1_height =	10
+     12  01e5 ????
+     13  01e5 ????						;*** NUSIZ0 value. If you want to change it in a variable
+     14  01e5 ????						;*** instead, dim on in bB called "bmp_player0_nusiz"
+     15  01e5 ????				      ifnconst	bmp_player0_nusiz
+     16  01e5 ????			   bmp_player0_nusiz
+     17  01e5 ????				      endif
+     18  01e5 ????	       00		      BYTE.b	0
+     19  01e6 ????
+     20  01e6 ????						;*** NUSIZ1 value. If you want to change it in a variable
+     21  01e6 ????						;*** instead, dim on in bB called "bmp_player1_nusiz"
+     22  01e6 ????				      ifnconst	bmp_player1_nusiz
+     23  01e6 ????			   bmp_player1_nusiz
+     24  01e6 ????				      endif
+     25  01e6 ????	       00		      BYTE.b	0
+     26  01e7 ????
+     27  01e7 ????						;*** REFP0 value. If you want to change it in a variable
+     28  01e7 ????						;*** instead, dim on in bB called "bmp_player0_refp"
+     29  01e7 ????				      ifnconst	bmp_player0_refp
+     30  01e7 ????			   bmp_player0_refp
+     31  01e7 ????				      endif
+     32  01e7 ????	       00		      BYTE.b	0
+     33  01e8 ????
+     34  01e8 ????						;*** REFP1 value. If you want to change it in a variable
+     35  01e8 ????						;*** instead, dim on in bB called "bmp_player1_refp"
+     36  01e8 ????				      ifnconst	bmp_player1_refp
+     37  01e8 ????			   bmp_player1_refp
+     38  01e8 ????				      endif
+     39  01e8 ????	       00		      BYTE.b	0
+     40  01e9 ????
+     41  01e9 ????						;*** the bitmap data for player0
+     42  01e9 ????			   bmp_player0
+     43  01e9 ????	       42		      BYTE.b	%01000010
+     44  01ea ????	       64		      BYTE.b	%01100100
+     45  01eb ????	       1c		      BYTE.b	%00011100
+     46  01ec ????	       3c		      BYTE.b	%00111100
+     47  01ed ????	       1c		      BYTE.b	%00011100
+     48  01ee ????	       18		      BYTE.b	%00011000
+     49  01ef ????	       0c		      BYTE.b	%00001100
+     50  01f0 ????	       0c		      BYTE.b	%00001100
+     51  01f1 ????	       0c		      BYTE.b	%00001100
+     52  01f2 ????	       00		      BYTE.b	%00000000
+     53  01f3 ????
+     54  01f3 ????	       06		      BYTE.b	%00000110
+     55  01f4 ????	       64		      BYTE.b	%01100100
+     56  01f5 ????	       1c		      BYTE.b	%00011100
+     57  01f6 ????	       5a		      BYTE.b	%01011010
+     58  01f7 ????	       3c		      BYTE.b	%00111100
+     59  01f8 ????	       18		      BYTE.b	%00011000
+     60  01f9 ????	       0c		      BYTE.b	%00001100
+     61  01fa ????	       0c		      BYTE.b	%00001100
+     62  01fb ????	       0c		      BYTE.b	%00001100
+     63  01fc ????	       00		      BYTE.b	%00000000
+     64  01fd ????
+     65  01fd ????	       18		      BYTE.b	%00011000
+     66  01fe ????	       38		      BYTE.b	%00111000
+     67  01ff ????	       18		      BYTE.b	%00011000
+     68  0200 ????	       18		      BYTE.b	%00011000
+     69  0201 ????	       18		      BYTE.b	%00011000
+     70  0202 ????	       18		      BYTE.b	%00011000
+     71  0203 ????	       0c		      BYTE.b	%00001100
+     72  0204 ????	       0c		      BYTE.b	%00001100
+     73  0205 ????	       0c		      BYTE.b	%00001100
+     74  0206 ????	       00		      BYTE.b	%00000000
+     75  0207 ????
+     76  0207 ????	       40		      BYTE.b	%01000000
+     77  0208 ????	       50		      BYTE.b	%01010000
+     78  0209 ????	       48		      BYTE.b	%01001000
+     79  020a ????	       38		      BYTE.b	%00111000
+     80  020b ????	       78		      BYTE.b	%01111000
+     81  020c ????	       38		      BYTE.b	%00111000
+     82  020d ????	       30		      BYTE.b	%00110000
+     83  020e ????	       18		      BYTE.b	%00011000
+     84  020f ????	       18		      BYTE.b	%00011000
+     85  0210 ????	       18		      BYTE.b	%00011000
+     86  0211 ????
+     87  0211 ????						;*** the color data for player0
+     88  0211 ????			   bmp_color_player0
+     89  0211 ????	       86		      BYTE.b	$86
+     90  0212 ????	       86		      BYTE.b	$86
+     91  0213 ????	       86		      BYTE.b	$86
+     92  0214 ????	       a6		      BYTE.b	$a6
+     93  0215 ????	       a6		      BYTE.b	$a6
+     94  0216 ????	       a6		      BYTE.b	$a6
+     95  0217 ????	       4a		      BYTE.b	$4a
+     96  0218 ????	       4a		      BYTE.b	$4a
+     97  0219 ????	       f4		      BYTE.b	$f4
+     98  021a ????	       00		      BYTE.b	$00
+     99  021b ????
+    100  021b ????	       86		      BYTE.b	$86
+    101  021c ????	       86		      BYTE.b	$86
+    102  021d ????	       86		      BYTE.b	$86
+    103  021e ????	       a6		      BYTE.b	$a6
+    104  021f ????	       a6		      BYTE.b	$a6
+    105  0220 ????	       a6		      BYTE.b	$a6
+    106  0221 ????	       4a		      BYTE.b	$4a
+    107  0222 ????	       4a		      BYTE.b	$4a
+    108  0223 ????	       f4		      BYTE.b	$f4
+    109  0224 ????	       00		      BYTE.b	$00
+    110  0225 ????
+    111  0225 ????	       86		      BYTE.b	$86
+    112  0226 ????	       86		      BYTE.b	$86
+    113  0227 ????	       86		      BYTE.b	$86
+    114  0228 ????	       a6		      BYTE.b	$a6
+    115  0229 ????	       a6		      BYTE.b	$a6
+    116  022a ????	       a6		      BYTE.b	$a6
+    117  022b ????	       4a		      BYTE.b	$4a
+    118  022c ????	       4a		      BYTE.b	$4a
+    119  022d ????	       f4		      BYTE.b	$f4
+    120  022e ????	       00		      BYTE.b	$00
+    121  022f ????
+    122  022f ????	       86		      BYTE.b	$86
+    123  0230 ????	       86		      BYTE.b	$86
+    124  0231 ????	       86		      BYTE.b	$86
+    125  0232 ????	       86		      BYTE.b	$86
+    126  0233 ????	       a6		      BYTE.b	$a6
+    127  0234 ????	       a6		      BYTE.b	$a6
+    128  0235 ????	       a6		      BYTE.b	$a6
+    129  0236 ????	       4a		      BYTE.b	$4a
+    130  0237 ????	       4a		      BYTE.b	$4a
+    131  0238 ????	       f4		      BYTE.b	$f4
+    132  0239 ????
+    133  0239 ????						;*** the bitmap data for player1
+    134  0239 ????			   bmp_player1
+    135  0239 ????	       3c		      BYTE.b	%00111100
+    136  023a ????	       66		      BYTE.b	%01100110
+    137  023b ????	       c3		      BYTE.b	%11000011
+    138  023c ????	       db		      BYTE.b	%11011011
+    139  023d ????	       ff		      BYTE.b	%11111111
+    140  023e ????	       ff		      BYTE.b	%11111111
+    141  023f ????	       db		      BYTE.b	%11011011
+    142  0240 ????	       db		      BYTE.b	%11011011
+    143  0241 ????	       7e		      BYTE.b	%01111110
+    144  0242 ????	       3c		      BYTE.b	%00111100
+    145  0243 ????
+    146  0243 ????						;*** the color data for player1
+    147  0243 ????			   bmp_color_player1
+    148  0243 ????	       fa		      BYTE.b	$FA
+    149  0244 ????	       fa		      BYTE.b	$FA
+    150  0245 ????	       fa		      BYTE.b	$FA
+    151  0246 ????	       fa		      BYTE.b	$FA
+    152  0247 ????	       fa		      BYTE.b	$FA
+    153  0248 ????	       fa		      BYTE.b	$FA
+    154  0249 ????	       fa		      BYTE.b	$FA
+    155  024a ????	       fa		      BYTE.b	$FA
+    156  024b ????	       fa		      BYTE.b	$FA
+    157  024c ????	       fa		      BYTE.b	$FA
+------- FILE titlescreen.asm
+    293  024d ????				      endif
+    294  024d ????
+    295  024d ????				      ifconst	mk_score_on
+------- FILE titlescreen/score_image.asm LEVEL 2 PASS 3
+      0  024d ????				      include	"titlescreen/score_image.asm"
+      1  024d ????						; feel free to modify the score graphics - just keep each digit 8 high
+      2  024d ????						; if you're looking to want to modify any one font, pick on the 
+      3  024d ????
+      4  024d ????				      ifnconst	scorecolor
+      5  024d ????			   scorecolor
+      6  024d ????				      endif
+      7  024d ????						; ** change this value for a different scorecolor under DPC+
+      8  024d ????						;    for other kernels, just use the scorecolor variable
+      9  024d ????	       0f		      .byte.b	$0f
+     10  024e ????
+     11  024e ????			  -	      ifnconst	NOFONT
+     12  024e ????			  -NOFONT     =	0
+     13  024e ????				      endif
+     14  024e ????			  -	      ifnconst	STOCK
+     15  024e ????			  -STOCK      =	1	;_FONTNAME
+     16  024e ????				      endif
+     17  024e ????			  -	      ifnconst	NEWCENTURY
+     18  024e ????			  -NEWCENTURY =	2	;_FONTNAME
+     19  024e ????				      endif
+     20  024e ????			  -	      ifnconst	WHIMSEY
+     21  024e ????			  -WHIMSEY    =	3	;_FONTNAME
+     22  024e ????				      endif
+     23  024e ????			  -	      ifnconst	ALARMCLOCK
+     24  024e ????			  -ALARMCLOCK =	4	;_FONTNAME
+     25  024e ????				      endif
+     26  024e ????			  -	      ifnconst	HANDWRITTEN
+     27  024e ????			  -HANDWRITTEN =	5	;_FONTNAME
+     28  024e ????				      endif
+     29  024e ????			  -	      ifnconst	INTERRUPTED
+     30  024e ????			  -INTERRUPTED =	6	;_FONTNAME
+     31  024e ????				      endif
+     32  024e ????			  -	      ifnconst	TINY
+     33  024e ????			  -TINY       =	7	;_FONTNAME
+     34  024e ????				      endif
+     35  024e ????			  -	      ifnconst	RETROPUTER
+     36  024e ????			  -RETROPUTER =	8	;_FONTNAME
+     37  024e ????				      endif
+     38  024e ????			  -	      ifnconst	CURVES
+     39  024e ????			  -CURVES     =	9	;_FONTNAME
+     40  024e ????				      endif
+     41  024e ????			  -	      ifnconst	HUSKY
+     42  024e ????			  -HUSKY      =	10	;_FONTNAME
+     43  024e ????				      endif
+     44  024e ????			  -	      ifnconst	SNAKE
+     45  024e ????			  -SNAKE      =	11	;_FONTNAME
+     46  024e ????				      endif
+     47  024e ????			  -	      ifnconst	PLOK
+     48  024e ????			  -PLOK       =	13	;_FONTNAME
+     49  024e ????				      endif
+     50  024e ????
+     51  024e ????			  -	      ifnconst	SYMBOLS
+     52  024e ????			  -SYMBOLS    =	0	;_FONTNAME 
+     53  024e ????				      endif
+     54  024e ????
+     55  024e ????						; ### setup some defaults
+     56  024e ????			  -	      ifnconst	fontstyle
+     57  024e ????			  -fontstyle  =	STOCK
+     58  024e ????				      endif
+     59  024e ????
+     60  024e ????						;fix up the table alignment, if necessary
+     61  024e ????			  -	      if	>. != >[.+81]
+     62  024e ????			  -	      align	256
+     63  024e ????				      endif
+     64  024e ????
+     65  024e ????
+     66  024e ????			   miniscoretable
+     67  024e ????
+     68  024e ????				      if	fontstyle == STOCK
+     69  024e ????
+     70  024e ????						;byte %00000000 ; STOCK
+     71  024e ????
+     72  024e ????	       3c		      .byte.b	%00111100	; STOCK
+     73  024f ????	       66		      .byte.b	%01100110	; STOCK
+     74  0250 ????	       66		      .byte.b	%01100110	; STOCK
+     75  0251 ????	       66		      .byte.b	%01100110	; STOCK
+     76  0252 ????	       66		      .byte.b	%01100110	; STOCK
+     77  0253 ????	       66		      .byte.b	%01100110	; STOCK
+     78  0254 ????	       66		      .byte.b	%01100110	; STOCK
+     79  0255 ????	       3c		      .byte.b	%00111100	; STOCK
+     80  0256 ????
+     81  0256 ????						;byte %00000000 ; STOCK
+     82  0256 ????
+     83  0256 ????	       7e		      .byte.b	%01111110	; STOCK
+     84  0257 ????	       18		      .byte.b	%00011000	; STOCK
+     85  0258 ????	       18		      .byte.b	%00011000	; STOCK
+     86  0259 ????	       18		      .byte.b	%00011000	; STOCK
+     87  025a ????	       18		      .byte.b	%00011000	; STOCK
+     88  025b ????	       38		      .byte.b	%00111000	; STOCK
+     89  025c ????	       18		      .byte.b	%00011000	; STOCK
+     90  025d ????	       08		      .byte.b	%00001000	; STOCK
+     91  025e ????
+     92  025e ????						;byte %00000000 ; STOCK
+     93  025e ????
+     94  025e ????	       7e		      .byte.b	%01111110	; STOCK
+     95  025f ????	       60		      .byte.b	%01100000	; STOCK
+     96  0260 ????	       60		      .byte.b	%01100000	; STOCK
+     97  0261 ????	       3c		      .byte.b	%00111100	; STOCK
+     98  0262 ????	       06		      .byte.b	%00000110	; STOCK
+     99  0263 ????	       06		      .byte.b	%00000110	; STOCK
+    100  0264 ????	       46		      .byte.b	%01000110	; STOCK
+    101  0265 ????	       3c		      .byte.b	%00111100	; STOCK
+    102  0266 ????
+    103  0266 ????						;byte %00000000 ; STOCK
+    104  0266 ????
+    105  0266 ????	       3c		      .byte.b	%00111100	; STOCK
+    106  0267 ????	       46		      .byte.b	%01000110	; STOCK
+    107  0268 ????	       06		      .byte.b	%00000110	; STOCK
+    108  0269 ????	       06		      .byte.b	%00000110	; STOCK
+    109  026a ????	       1c		      .byte.b	%00011100	; STOCK
+    110  026b ????	       06		      .byte.b	%00000110	; STOCK
+    111  026c ????	       46		      .byte.b	%01000110	; STOCK
+    112  026d ????	       3c		      .byte.b	%00111100	; STOCK
+    113  026e ????
+    114  026e ????						;byte %00000000 ; STOCK
+    115  026e ????
+    116  026e ????	       0c		      .byte.b	%00001100	; STOCK
+    117  026f ????	       0c		      .byte.b	%00001100	; STOCK
+    118  0270 ????	       7e		      .byte.b	%01111110	; STOCK
+    119  0271 ????	       4c		      .byte.b	%01001100	; STOCK
+    120  0272 ????	       4c		      .byte.b	%01001100	; STOCK
+    121  0273 ????	       2c		      .byte.b	%00101100	; STOCK
+    122  0274 ????	       1c		      .byte.b	%00011100	; STOCK
+    123  0275 ????	       0c		      .byte.b	%00001100	; STOCK
+    124  0276 ????
+    125  0276 ????						;byte %00000000 ; STOCK
+    126  0276 ????
+    127  0276 ????	       3c		      .byte.b	%00111100	; STOCK
+    128  0277 ????	       46		      .byte.b	%01000110	; STOCK
+    129  0278 ????	       06		      .byte.b	%00000110	; STOCK
+    130  0279 ????	       06		      .byte.b	%00000110	; STOCK
+    131  027a ????	       3c		      .byte.b	%00111100	; STOCK
+    132  027b ????	       60		      .byte.b	%01100000	; STOCK
+    133  027c ????	       60		      .byte.b	%01100000	; STOCK
+    134  027d ????	       7e		      .byte.b	%01111110	; STOCK
+    135  027e ????
+    136  027e ????						;byte %00000000 ; STOCK
+    137  027e ????
+    138  027e ????	       3c		      .byte.b	%00111100	; STOCK
+    139  027f ????	       66		      .byte.b	%01100110	; STOCK
+    140  0280 ????	       66		      .byte.b	%01100110	; STOCK
+    141  0281 ????	       66		      .byte.b	%01100110	; STOCK
+    142  0282 ????	       7c		      .byte.b	%01111100	; STOCK
+    143  0283 ????	       60		      .byte.b	%01100000	; STOCK
+    144  0284 ????	       62		      .byte.b	%01100010	; STOCK
+    145  0285 ????	       3c		      .byte.b	%00111100	; STOCK
+    146  0286 ????
+    147  0286 ????						;byte %00000000 ; STOCK
+    148  0286 ????
+    149  0286 ????	       30		      .byte.b	%00110000	; STOCK
+    150  0287 ????	       30		      .byte.b	%00110000	; STOCK
+    151  0288 ????	       30		      .byte.b	%00110000	; STOCK
+    152  0289 ????	       18		      .byte.b	%00011000	; STOCK
+    153  028a ????	       0c		      .byte.b	%00001100	; STOCK
+    154  028b ????	       06		      .byte.b	%00000110	; STOCK
+    155  028c ????	       42		      .byte.b	%01000010	; STOCK
+    156  028d ????	       3e		      .byte.b	%00111110	; STOCK
+    157  028e ????
+    158  028e ????						;byte %00000000 ; STOCK
+    159  028e ????
+    160  028e ????	       3c		      .byte.b	%00111100	; STOCK
+    161  028f ????	       66		      .byte.b	%01100110	; STOCK
+    162  0290 ????	       66		      .byte.b	%01100110	; STOCK
+    163  0291 ????	       66		      .byte.b	%01100110	; STOCK
+    164  0292 ????	       3c		      .byte.b	%00111100	; STOCK
+    165  0293 ????	       66		      .byte.b	%01100110	; STOCK
+    166  0294 ????	       66		      .byte.b	%01100110	; STOCK
+    167  0295 ????	       3c		      .byte.b	%00111100	; STOCK
+    168  0296 ????
+    169  0296 ????						;byte %00000000 ; STOCK
+    170  0296 ????
+    171  0296 ????	       3c		      .byte.b	%00111100	; STOCK
+    172  0297 ????	       46		      .byte.b	%01000110	; STOCK
+    173  0298 ????	       06		      .byte.b	%00000110	; STOCK
+    174  0299 ????	       3e		      .byte.b	%00111110	; STOCK
+    175  029a ????	       66		      .byte.b	%01100110	; STOCK
+    176  029b ????	       66		      .byte.b	%01100110	; STOCK
+    177  029c ????	       66		      .byte.b	%01100110	; STOCK
+    178  029d ????	       3c		      .byte.b	%00111100	; STOCK
+    179  029e ????
+    180  029e ????				      endif		; STOCK
+    181  029e ????
+    182  029e ????			  -	      if	fontstyle == NEWCENTURY
+    183  029e ????			  -			;byte %00000000 ; NEWCENTURY
+    184  029e ????			  -
+    185  029e ????			  -	      .byte	%00111100	; NEWCENTURY
+    186  029e ????			  -	      .byte	%01000010	; NEWCENTURY
+    187  029e ????			  -	      .byte	%01000010	; NEWCENTURY
+    188  029e ????			  -	      .byte	%01000010	; NEWCENTURY
+    189  029e ????			  -	      .byte	%00100100	; NEWCENTURY
+    190  029e ????			  -	      .byte	%00100100	; NEWCENTURY
+    191  029e ????			  -	      .byte	%00100100	; NEWCENTURY
+    192  029e ????			  -	      .byte	%00011000	; NEWCENTURY
+    193  029e ????			  -
+    194  029e ????			  -			;byte %00000000 ; NEWCENTURY
+    195  029e ????			  -
+    196  029e ????			  -	      .byte	%00001000	; NEWCENTURY
+    197  029e ????			  -	      .byte	%00001000	; NEWCENTURY
+    198  029e ????			  -	      .byte	%00001000	; NEWCENTURY
+    199  029e ????			  -	      .byte	%00001000	; NEWCENTURY
+    200  029e ????			  -	      .byte	%00001000	; NEWCENTURY
+    201  029e ????			  -	      .byte	%00001000	; NEWCENTURY
+    202  029e ????			  -	      .byte	%00001000	; NEWCENTURY
+    203  029e ????			  -	      .byte	%00001000	; NEWCENTURY
+    204  029e ????			  -
+    205  029e ????			  -			;byte %00000000 ; NEWCENTURY
+    206  029e ????			  -
+    207  029e ????			  -	      .byte	%01111110	; NEWCENTURY
+    208  029e ????			  -	      .byte	%01000000	; NEWCENTURY
+    209  029e ????			  -	      .byte	%01000000	; NEWCENTURY
+    210  029e ????			  -	      .byte	%00100000	; NEWCENTURY
+    211  029e ????			  -	      .byte	%00011100	; NEWCENTURY
+    212  029e ????			  -	      .byte	%00000010	; NEWCENTURY
+    213  029e ????			  -	      .byte	%00000010	; NEWCENTURY
+    214  029e ????			  -	      .byte	%00011100	; NEWCENTURY
+    215  029e ????			  -
+    216  029e ????			  -			;byte %00000000 ; NEWCENTURY
+    217  029e ????			  -
+    218  029e ????			  -	      .byte	%01111100	; NEWCENTURY
+    219  029e ????			  -	      .byte	%00000010	; NEWCENTURY
+    220  029e ????			  -	      .byte	%00000010	; NEWCENTURY
+    221  029e ????			  -	      .byte	%00000010	; NEWCENTURY
+    222  029e ????			  -	      .byte	%00111100	; NEWCENTURY
+    223  029e ????			  -	      .byte	%00000010	; NEWCENTURY
+    224  029e ????			  -	      .byte	%00000010	; NEWCENTURY
+    225  029e ????			  -	      .byte	%00011100	; NEWCENTURY
+    226  029e ????			  -
+    227  029e ????			  -			;byte %00000000 ; NEWCENTURY
+    228  029e ????			  -
+    229  029e ????			  -	      .byte	%00000010	; NEWCENTURY
+    230  029e ????			  -	      .byte	%00000010	; NEWCENTURY
+    231  029e ????			  -	      .byte	%00000010	; NEWCENTURY
+    232  029e ????			  -	      .byte	%00111110	; NEWCENTURY
+    233  029e ????			  -	      .byte	%00100010	; NEWCENTURY
+    234  029e ????			  -	      .byte	%00100010	; NEWCENTURY
+    235  029e ????			  -	      .byte	%00010010	; NEWCENTURY
+    236  029e ????			  -	      .byte	%00010010	; NEWCENTURY
+    237  029e ????			  -
+    238  029e ????			  -			;byte %00000000 ; NEWCENTURY
+    239  029e ????			  -
+    240  029e ????			  -	      .byte	%01111100	; NEWCENTURY
+    241  029e ????			  -	      .byte	%00000010	; NEWCENTURY
+    242  029e ????			  -	      .byte	%00000010	; NEWCENTURY
+    243  029e ????			  -	      .byte	%00000010	; NEWCENTURY
+    244  029e ????			  -	      .byte	%01111100	; NEWCENTURY
+    245  029e ????			  -	      .byte	%01000000	; NEWCENTURY
+    246  029e ????			  -	      .byte	%01000000	; NEWCENTURY
+    247  029e ????			  -	      .byte	%01111000	; NEWCENTURY
+    248  029e ????			  -
+    249  029e ????			  -			;byte %00000000 ; NEWCENTURY
+    250  029e ????			  -
+    251  029e ????			  -	      .byte	%00111100	; NEWCENTURY
+    252  029e ????			  -	      .byte	%01000010	; NEWCENTURY
+    253  029e ????			  -	      .byte	%01000010	; NEWCENTURY
+    254  029e ????			  -	      .byte	%01000010	; NEWCENTURY
+    255  029e ????			  -	      .byte	%01111100	; NEWCENTURY
+    256  029e ????			  -	      .byte	%01000000	; NEWCENTURY
+    257  029e ????			  -	      .byte	%01000000	; NEWCENTURY
+    258  029e ????			  -	      .byte	%00110000	; NEWCENTURY
+    259  029e ????			  -
+    260  029e ????			  -			;byte %00000000 ; NEWCENTURY
+    261  029e ????			  -
+    262  029e ????			  -	      .byte	%00010000	; NEWCENTURY
+    263  029e ????			  -	      .byte	%00010000	; NEWCENTURY
+    264  029e ????			  -	      .byte	%00001000	; NEWCENTURY
+    265  029e ????			  -	      .byte	%00001000	; NEWCENTURY
+    266  029e ????			  -	      .byte	%00000100	; NEWCENTURY
+    267  029e ????			  -	      .byte	%00000100	; NEWCENTURY
+    268  029e ????			  -	      .byte	%00000010	; NEWCENTURY
+    269  029e ????			  -	      .byte	%00011110	; NEWCENTURY
+    270  029e ????			  -
+    271  029e ????			  -			;byte %00000000 ; NEWCENTURY
+    272  029e ????			  -
+    273  029e ????			  -	      .byte	%00111100	; NEWCENTURY
+    274  029e ????			  -	      .byte	%01000010	; NEWCENTURY
+    275  029e ????			  -	      .byte	%01000010	; NEWCENTURY
+    276  029e ????			  -	      .byte	%01000010	; NEWCENTURY
+    277  029e ????			  -	      .byte	%00111100	; NEWCENTURY
+    278  029e ????			  -	      .byte	%00100100	; NEWCENTURY
+    279  029e ????			  -	      .byte	%00100100	; NEWCENTURY
+    280  029e ????			  -	      .byte	%00011000	; NEWCENTURY
+    281  029e ????			  -
+    282  029e ????			  -			;byte %00000000 ; NEWCENTURY
+    283  029e ????			  -
+    284  029e ????			  -	      .byte	%00111100	; NEWCENTURY
+    285  029e ????			  -	      .byte	%00000010	; NEWCENTURY
+    286  029e ????			  -	      .byte	%00000010	; NEWCENTURY
+    287  029e ????			  -	      .byte	%00000010	; NEWCENTURY
+    288  029e ????			  -	      .byte	%00001110	; NEWCENTURY
+    289  029e ????			  -	      .byte	%00010010	; NEWCENTURY
+    290  029e ????			  -	      .byte	%00010010	; NEWCENTURY
+    291  029e ????			  -	      .byte	%00001100	; NEWCENTURY
+    292  029e ????			  -
+    293  029e ????				      endif		; NEWCENTURY
+    294  029e ????
+    295  029e ????			  -	      if	fontstyle == WHIMSEY
+    296  029e ????			  -			;byte %00000000 ; WHIMSEY
+    297  029e ????			  -
+    298  029e ????			  -	      .byte	%00111100	; WHIMSEY
+    299  029e ????			  -	      .byte	%01111110	; WHIMSEY
+    300  029e ????			  -	      .byte	%01111110	; WHIMSEY
+    301  029e ????			  -	      .byte	%01111110	; WHIMSEY
+    302  029e ????			  -	      .byte	%01110110	; WHIMSEY
+    303  029e ????			  -	      .byte	%01110110	; WHIMSEY
+    304  029e ????			  -	      .byte	%01110110	; WHIMSEY
+    305  029e ????			  -	      .byte	%00111100	; WHIMSEY
+    306  029e ????			  -
+    307  029e ????			  -			;byte %00000000 ; WHIMSEY
+    308  029e ????			  -
+    309  029e ????			  -	      .byte	%01111110	; WHIMSEY
+    310  029e ????			  -	      .byte	%01111110	; WHIMSEY
+    311  029e ????			  -	      .byte	%01111110	; WHIMSEY
+    312  029e ????			  -	      .byte	%00011000	; WHIMSEY
+    313  029e ????			  -	      .byte	%00011000	; WHIMSEY
+    314  029e ????			  -	      .byte	%00011000	; WHIMSEY
+    315  029e ????			  -	      .byte	%01111000	; WHIMSEY
+    316  029e ????			  -	      .byte	%00011000	; WHIMSEY
+    317  029e ????			  -
+    318  029e ????			  -			;byte %00000000 ; WHIMSEY
+    319  029e ????			  -
+    320  029e ????			  -	      .byte	%01111110	; WHIMSEY
+    321  029e ????			  -	      .byte	%01111110	; WHIMSEY
+    322  029e ????			  -	      .byte	%01111110	; WHIMSEY
+    323  029e ????			  -	      .byte	%01111000	; WHIMSEY
+    324  029e ????			  -	      .byte	%00111100	; WHIMSEY
+    325  029e ????			  -	      .byte	%00001110	; WHIMSEY
+    326  029e ????			  -	      .byte	%01100110	; WHIMSEY
+    327  029e ????			  -	      .byte	%00111100	; WHIMSEY
+    328  029e ????			  -
+    329  029e ????			  -			;byte %00000000 ; WHIMSEY
+    330  029e ????			  -
+    331  029e ????			  -	      .byte	%00111100	; WHIMSEY
+    332  029e ????			  -	      .byte	%01111110	; WHIMSEY
+    333  029e ????			  -	      .byte	%01111110	; WHIMSEY
+    334  029e ????			  -	      .byte	%01101110	; WHIMSEY
+    335  029e ????			  -	      .byte	%00001110	; WHIMSEY
+    336  029e ????			  -	      .byte	%00111100	; WHIMSEY
+    337  029e ????			  -	      .byte	%00011100	; WHIMSEY
+    338  029e ????			  -	      .byte	%01111110	; WHIMSEY
+    339  029e ????			  -
+    340  029e ????			  -			;byte %00000000 ; WHIMSEY
+    341  029e ????			  -
+    342  029e ????			  -	      .byte	%00011100	; WHIMSEY
+    343  029e ????			  -	      .byte	%00011100	; WHIMSEY
+    344  029e ????			  -	      .byte	%01111110	; WHIMSEY
+    345  029e ????			  -	      .byte	%01011100	; WHIMSEY
+    346  029e ????			  -	      .byte	%01011100	; WHIMSEY
+    347  029e ????			  -	      .byte	%00011100	; WHIMSEY
+    348  029e ????			  -	      .byte	%00011100	; WHIMSEY
+    349  029e ????			  -	      .byte	%00011100	; WHIMSEY
+    350  029e ????			  -
+    351  029e ????			  -			;byte %00000000 ; WHIMSEY
+    352  029e ????			  -
+    353  029e ????			  -	      .byte	%00111100	; WHIMSEY
+    354  029e ????			  -	      .byte	%01111110	; WHIMSEY
+    355  029e ????			  -	      .byte	%01111110	; WHIMSEY
+    356  029e ????			  -	      .byte	%01101110	; WHIMSEY
+    357  029e ????			  -	      .byte	%00001110	; WHIMSEY
+    358  029e ????			  -	      .byte	%01111100	; WHIMSEY
+    359  029e ????			  -	      .byte	%01110000	; WHIMSEY
+    360  029e ????			  -	      .byte	%01111110	; WHIMSEY
+    361  029e ????			  -
+    362  029e ????			  -			;byte %00000000 ; WHIMSEY
+    363  029e ????			  -
+    364  029e ????			  -	      .byte	%00111100	; WHIMSEY
+    365  029e ????			  -	      .byte	%01111110	; WHIMSEY
+    366  029e ????			  -	      .byte	%01111110	; WHIMSEY
+    367  029e ????			  -	      .byte	%01110110	; WHIMSEY
+    368  029e ????			  -	      .byte	%01110110	; WHIMSEY
+    369  029e ????			  -	      .byte	%01111100	; WHIMSEY
+    370  029e ????			  -	      .byte	%01110000	; WHIMSEY
+    371  029e ????			  -	      .byte	%00111110	; WHIMSEY
+    372  029e ????			  -
+    373  029e ????			  -			;byte %00000000 ; WHIMSEY
+    374  029e ????			  -
+    375  029e ????			  -	      .byte	%01111000	; WHIMSEY
+    376  029e ????			  -	      .byte	%01111000	; WHIMSEY
+    377  029e ????			  -	      .byte	%01111000	; WHIMSEY
+    378  029e ????			  -	      .byte	%00111100	; WHIMSEY
+    379  029e ????			  -	      .byte	%00011100	; WHIMSEY
+    380  029e ????			  -	      .byte	%00001110	; WHIMSEY
+    381  029e ????			  -	      .byte	%00001110	; WHIMSEY
+    382  029e ????			  -	      .byte	%01111110	; WHIMSEY
+    383  029e ????			  -
+    384  029e ????			  -			;byte %00000000 ; WHIMSEY
+    385  029e ????			  -
+    386  029e ????			  -	      .byte	%00111100	; WHIMSEY
+    387  029e ????			  -	      .byte	%01111110	; WHIMSEY
+    388  029e ????			  -	      .byte	%01111110	; WHIMSEY
+    389  029e ????			  -	      .byte	%01110110	; WHIMSEY
+    390  029e ????			  -	      .byte	%01110110	; WHIMSEY
+    391  029e ????			  -	      .byte	%00111100	; WHIMSEY
+    392  029e ????			  -	      .byte	%01110110	; WHIMSEY
+    393  029e ????			  -	      .byte	%00111100	; WHIMSEY
+    394  029e ????			  -
+    395  029e ????			  -			;byte %00000000 ; WHIMSEY
+    396  029e ????			  -
+    397  029e ????			  -	      .byte	%00111100	; WHIMSEY
+    398  029e ????			  -	      .byte	%01111110	; WHIMSEY
+    399  029e ????			  -	      .byte	%01111110	; WHIMSEY
+    400  029e ????			  -	      .byte	%01110110	; WHIMSEY
+    401  029e ????			  -	      .byte	%00000110	; WHIMSEY
+    402  029e ????			  -	      .byte	%00111110	; WHIMSEY
+    403  029e ????			  -	      .byte	%01110110	; WHIMSEY
+    404  029e ????			  -	      .byte	%00111100	; WHIMSEY
+    405  029e ????			  -
+    406  029e ????				      endif		; WHIMSEY
+    407  029e ????
+    408  029e ????			  -	      if	fontstyle == ALARMCLOCK
+    409  029e ????			  -
+    410  029e ????			  -			;byte %00000000 ; ALARMCLOCK
+    411  029e ????			  -
+    412  029e ????			  -	      .byte	%00111100	; ALARMCLOCK
+    413  029e ????			  -	      .byte	%01000010	; ALARMCLOCK
+    414  029e ????			  -	      .byte	%01000010	; ALARMCLOCK
+    415  029e ????			  -	      .byte	%01000010	; ALARMCLOCK
+    416  029e ????			  -	      .byte	%00000000	; ALARMCLOCK
+    417  029e ????			  -	      .byte	%01000010	; ALARMCLOCK
+    418  029e ????			  -	      .byte	%01000010	; ALARMCLOCK
+    419  029e ????			  -	      .byte	%00111100	; ALARMCLOCK
+    420  029e ????			  -
+    421  029e ????			  -			;byte %00000000 ; ALARMCLOCK
+    422  029e ????			  -
+    423  029e ????			  -	      .byte	%00000000	; ALARMCLOCK
+    424  029e ????			  -	      .byte	%00000010	; ALARMCLOCK
+    425  029e ????			  -	      .byte	%00000010	; ALARMCLOCK
+    426  029e ????			  -	      .byte	%00000010	; ALARMCLOCK
+    427  029e ????			  -	      .byte	%00000000	; ALARMCLOCK
+    428  029e ????			  -	      .byte	%00000010	; ALARMCLOCK
+    429  029e ????			  -	      .byte	%00000010	; ALARMCLOCK
+    430  029e ????			  -	      .byte	%00000000	; ALARMCLOCK
+    431  029e ????			  -
+    432  029e ????			  -			;byte %00000000 ; ALARMCLOCK
+    433  029e ????			  -
+    434  029e ????			  -	      .byte	%00111100	; ALARMCLOCK
+    435  029e ????			  -	      .byte	%01000000	; ALARMCLOCK
+    436  029e ????			  -	      .byte	%01000000	; ALARMCLOCK
+    437  029e ????			  -	      .byte	%01000000	; ALARMCLOCK
+    438  029e ????			  -	      .byte	%00111100	; ALARMCLOCK
+    439  029e ????			  -	      .byte	%00000010	; ALARMCLOCK
+    440  029e ????			  -	      .byte	%00000010	; ALARMCLOCK
+    441  029e ????			  -	      .byte	%00111100	; ALARMCLOCK
+    442  029e ????			  -
+    443  029e ????			  -			;byte %00000000 ; ALARMCLOCK
+    444  029e ????			  -
+    445  029e ????			  -	      .byte	%00111100	; ALARMCLOCK
+    446  029e ????			  -	      .byte	%00000010	; ALARMCLOCK
+    447  029e ????			  -	      .byte	%00000010	; ALARMCLOCK
+    448  029e ????			  -	      .byte	%00000010	; ALARMCLOCK
+    449  029e ????			  -	      .byte	%00111100	; ALARMCLOCK
+    450  029e ????			  -	      .byte	%00000010	; ALARMCLOCK
+    451  029e ????			  -	      .byte	%00000010	; ALARMCLOCK
+    452  029e ????			  -	      .byte	%00111100	; ALARMCLOCK
+    453  029e ????			  -
+    454  029e ????			  -			;byte %00000000 ; ALARMCLOCK
+    455  029e ????			  -
+    456  029e ????			  -	      .byte	%00000000	; ALARMCLOCK
+    457  029e ????			  -	      .byte	%00000010	; ALARMCLOCK
+    458  029e ????			  -	      .byte	%00000010	; ALARMCLOCK
+    459  029e ????			  -	      .byte	%00000010	; ALARMCLOCK
+    460  029e ????			  -	      .byte	%00111100	; ALARMCLOCK
+    461  029e ????			  -	      .byte	%01000010	; ALARMCLOCK
+    462  029e ????			  -	      .byte	%01000010	; ALARMCLOCK
+    463  029e ????			  -	      .byte	%00000000	; ALARMCLOCK
+    464  029e ????			  -
+    465  029e ????			  -			;byte %00000000 ; ALARMCLOCK
+    466  029e ????			  -
+    467  029e ????			  -	      .byte	%00111100	; ALARMCLOCK
+    468  029e ????			  -	      .byte	%00000010	; ALARMCLOCK
+    469  029e ????			  -	      .byte	%00000010	; ALARMCLOCK
+    470  029e ????			  -	      .byte	%00000010	; ALARMCLOCK
+    471  029e ????			  -	      .byte	%00111100	; ALARMCLOCK
+    472  029e ????			  -	      .byte	%01000000	; ALARMCLOCK
+    473  029e ????			  -	      .byte	%01000000	; ALARMCLOCK
+    474  029e ????			  -	      .byte	%00111100	; ALARMCLOCK
+    475  029e ????			  -
+    476  029e ????			  -			;byte %00000000 ; ALARMCLOCK
+    477  029e ????			  -
+    478  029e ????			  -	      .byte	%00111100	; ALARMCLOCK
+    479  029e ????			  -	      .byte	%01000010	; ALARMCLOCK
+    480  029e ????			  -	      .byte	%01000010	; ALARMCLOCK
+    481  029e ????			  -	      .byte	%01000010	; ALARMCLOCK
+    482  029e ????			  -	      .byte	%00111100	; ALARMCLOCK
+    483  029e ????			  -	      .byte	%01000000	; ALARMCLOCK
+    484  029e ????			  -	      .byte	%01000000	; ALARMCLOCK
+    485  029e ????			  -	      .byte	%00111100	; ALARMCLOCK
+    486  029e ????			  -
+    487  029e ????			  -			;byte %00000000 ; ALARMCLOCK
+    488  029e ????			  -
+    489  029e ????			  -	      .byte	%00000000	; ALARMCLOCK
+    490  029e ????			  -	      .byte	%00000010	; ALARMCLOCK
+    491  029e ????			  -	      .byte	%00000010	; ALARMCLOCK
+    492  029e ????			  -	      .byte	%00000010	; ALARMCLOCK
+    493  029e ????			  -	      .byte	%00000000	; ALARMCLOCK
+    494  029e ????			  -	      .byte	%00000010	; ALARMCLOCK
+    495  029e ????			  -	      .byte	%00000010	; ALARMCLOCK
+    496  029e ????			  -	      .byte	%00111100	; ALARMCLOCK
+    497  029e ????			  -
+    498  029e ????			  -			;byte %00000000 ; ALARMCLOCK
+    499  029e ????			  -
+    500  029e ????			  -	      .byte	%00111100	; ALARMCLOCK
+    501  029e ????			  -	      .byte	%01000010	; ALARMCLOCK
+    502  029e ????			  -	      .byte	%01000010	; ALARMCLOCK
+    503  029e ????			  -	      .byte	%01000010	; ALARMCLOCK
+    504  029e ????			  -	      .byte	%00111100	; ALARMCLOCK
+    505  029e ????			  -	      .byte	%01000010	; ALARMCLOCK
+    506  029e ????			  -	      .byte	%01000010	; ALARMCLOCK
+    507  029e ????			  -	      .byte	%00111100	; ALARMCLOCK
+    508  029e ????			  -
+    509  029e ????			  -			;byte %00000000 ; ALARMCLOCK
+    510  029e ????			  -
+    511  029e ????			  -	      .byte	%00111100	; ALARMCLOCK
+    512  029e ????			  -	      .byte	%00000010	; ALARMCLOCK
+    513  029e ????			  -	      .byte	%00000010	; ALARMCLOCK
+    514  029e ????			  -	      .byte	%00000010	; ALARMCLOCK
+    515  029e ????			  -	      .byte	%00111100	; ALARMCLOCK
+    516  029e ????			  -	      .byte	%01000010	; ALARMCLOCK
+    517  029e ????			  -	      .byte	%01000010	; ALARMCLOCK
+    518  029e ????			  -	      .byte	%00111100	; ALARMCLOCK
+    519  029e ????			  -
+    520  029e ????			  -
+    521  029e ????				      endif		; ALARMCLOCK
+    522  029e ????
+    523  029e ????			  -	      if	fontstyle == HANDWRITTEN
+    524  029e ????			  -
+    525  029e ????			  -			;byte %00000000 ; HANDWRITTEN
+    526  029e ????			  -
+    527  029e ????			  -	      .byte	%00110000	; HANDWRITTEN
+    528  029e ????			  -	      .byte	%01001000	; HANDWRITTEN
+    529  029e ????			  -	      .byte	%01001000	; HANDWRITTEN
+    530  029e ????			  -	      .byte	%01001000	; HANDWRITTEN
+    531  029e ????			  -	      .byte	%00100100	; HANDWRITTEN
+    532  029e ????			  -	      .byte	%00100100	; HANDWRITTEN
+    533  029e ????			  -	      .byte	%00010010	; HANDWRITTEN
+    534  029e ????			  -	      .byte	%00001100	; HANDWRITTEN
+    535  029e ????			  -
+    536  029e ????			  -			;byte %00000000 ; HANDWRITTEN
+    537  029e ????			  -
+    538  029e ????			  -	      .byte	%00010000	; HANDWRITTEN
+    539  029e ????			  -	      .byte	%00010000	; HANDWRITTEN
+    540  029e ????			  -	      .byte	%00010000	; HANDWRITTEN
+    541  029e ????			  -	      .byte	%00001000	; HANDWRITTEN
+    542  029e ????			  -	      .byte	%00001000	; HANDWRITTEN
+    543  029e ????			  -	      .byte	%00001000	; HANDWRITTEN
+    544  029e ????			  -	      .byte	%00000100	; HANDWRITTEN
+    545  029e ????			  -	      .byte	%00000100	; HANDWRITTEN
+    546  029e ????			  -
+    547  029e ????			  -			;byte %00000000 ; HANDWRITTEN
+    548  029e ????			  -
+    549  029e ????			  -	      .byte	%01110000	; HANDWRITTEN
+    550  029e ????			  -	      .byte	%01001100	; HANDWRITTEN
+    551  029e ????			  -	      .byte	%01000000	; HANDWRITTEN
+    552  029e ????			  -	      .byte	%00100000	; HANDWRITTEN
+    553  029e ????			  -	      .byte	%00011000	; HANDWRITTEN
+    554  029e ????			  -	      .byte	%00000100	; HANDWRITTEN
+    555  029e ????			  -	      .byte	%00100010	; HANDWRITTEN
+    556  029e ????			  -	      .byte	%00011100	; HANDWRITTEN
+    557  029e ????			  -
+    558  029e ????			  -			;byte %00000000 ; HANDWRITTEN
+    559  029e ????			  -
+    560  029e ????			  -	      .byte	%00110000	; HANDWRITTEN
+    561  029e ????			  -	      .byte	%01001000	; HANDWRITTEN
+    562  029e ????			  -	      .byte	%00000100	; HANDWRITTEN
+    563  029e ????			  -	      .byte	%00000100	; HANDWRITTEN
+    564  029e ????			  -	      .byte	%00011000	; HANDWRITTEN
+    565  029e ????			  -	      .byte	%00000100	; HANDWRITTEN
+    566  029e ????			  -	      .byte	%00100010	; HANDWRITTEN
+    567  029e ????			  -	      .byte	%00011100	; HANDWRITTEN
+    568  029e ????			  -
+    569  029e ????			  -			;byte %00000000 ; HANDWRITTEN
+    570  029e ????			  -
+    571  029e ????			  -	      .byte	%00010000	; HANDWRITTEN
+    572  029e ????			  -	      .byte	%00010000	; HANDWRITTEN
+    573  029e ????			  -	      .byte	%00001000	; HANDWRITTEN
+    574  029e ????			  -	      .byte	%01111000	; HANDWRITTEN
+    575  029e ????			  -	      .byte	%01000100	; HANDWRITTEN
+    576  029e ????			  -	      .byte	%00100100	; HANDWRITTEN
+    577  029e ????			  -	      .byte	%00010010	; HANDWRITTEN
+    578  029e ????			  -	      .byte	%00000010	; HANDWRITTEN
+    579  029e ????			  -
+    580  029e ????			  -			;byte %00000000 ; HANDWRITTEN
+    581  029e ????			  -
+    582  029e ????			  -	      .byte	%00110000	; HANDWRITTEN
+    583  029e ????			  -	      .byte	%01001000	; HANDWRITTEN
+    584  029e ????			  -	      .byte	%00000100	; HANDWRITTEN
+    585  029e ????			  -	      .byte	%00000100	; HANDWRITTEN
+    586  029e ????			  -	      .byte	%00011000	; HANDWRITTEN
+    587  029e ????			  -	      .byte	%00100000	; HANDWRITTEN
+    588  029e ????			  -	      .byte	%00010010	; HANDWRITTEN
+    589  029e ????			  -	      .byte	%00001100	; HANDWRITTEN
+    590  029e ????			  -
+    591  029e ????			  -			;byte %00000000 ; HANDWRITTEN
+    592  029e ????			  -
+    593  029e ????			  -	      .byte	%00010000	; HANDWRITTEN
+    594  029e ????			  -	      .byte	%00101000	; HANDWRITTEN
+    595  029e ????			  -	      .byte	%00100100	; HANDWRITTEN
+    596  029e ????			  -	      .byte	%00100100	; HANDWRITTEN
+    597  029e ????			  -	      .byte	%00011000	; HANDWRITTEN
+    598  029e ????			  -	      .byte	%00010000	; HANDWRITTEN
+    599  029e ????			  -	      .byte	%00001000	; HANDWRITTEN
+    600  029e ????			  -	      .byte	%00000110	; HANDWRITTEN
+    601  029e ????			  -
+    602  029e ????			  -			;byte %00000000 ; HANDWRITTEN
+    603  029e ????			  -
+    604  029e ????			  -	      .byte	%00010000	; HANDWRITTEN
+    605  029e ????			  -	      .byte	%00010000	; HANDWRITTEN
+    606  029e ????			  -	      .byte	%00010000	; HANDWRITTEN
+    607  029e ????			  -	      .byte	%00001000	; HANDWRITTEN
+    608  029e ????			  -	      .byte	%00000100	; HANDWRITTEN
+    609  029e ????			  -	      .byte	%00000100	; HANDWRITTEN
+    610  029e ????			  -	      .byte	%00110010	; HANDWRITTEN
+    611  029e ????			  -	      .byte	%00001110	; HANDWRITTEN
+    612  029e ????			  -
+    613  029e ????			  -			;byte %00000000 ; HANDWRITTEN
+    614  029e ????			  -
+    615  029e ????			  -	      .byte	%00110000	; HANDWRITTEN
+    616  029e ????			  -	      .byte	%01001000	; HANDWRITTEN
+    617  029e ????			  -	      .byte	%01000100	; HANDWRITTEN
+    618  029e ????			  -	      .byte	%00100100	; HANDWRITTEN
+    619  029e ????			  -	      .byte	%00011100	; HANDWRITTEN
+    620  029e ????			  -	      .byte	%00010010	; HANDWRITTEN
+    621  029e ????			  -	      .byte	%00001010	; HANDWRITTEN
+    622  029e ????			  -	      .byte	%00000110	; HANDWRITTEN
+    623  029e ????			  -
+    624  029e ????			  -			;byte %00000000 ; HANDWRITTEN
+    625  029e ????			  -
+    626  029e ????			  -	      .byte	%00010000	; HANDWRITTEN
+    627  029e ????			  -	      .byte	%00010000	; HANDWRITTEN
+    628  029e ????			  -	      .byte	%00001000	; HANDWRITTEN
+    629  029e ????			  -	      .byte	%00001000	; HANDWRITTEN
+    630  029e ????			  -	      .byte	%00011100	; HANDWRITTEN
+    631  029e ????			  -	      .byte	%00100100	; HANDWRITTEN
+    632  029e ????			  -	      .byte	%00010010	; HANDWRITTEN
+    633  029e ????			  -	      .byte	%00001100	; HANDWRITTEN
+    634  029e ????			  -
+    635  029e ????				      endif		; HANDWRITTEN
+    636  029e ????
+    637  029e ????			  -	      if	fontstyle == INTERRUPTED
+    638  029e ????			  -
+    639  029e ????			  -			;byte %00000000 ; INTERRUPTED
+    640  029e ????			  -
+    641  029e ????			  -	      .byte	%00110100	; INTERRUPTED
+    642  029e ????			  -	      .byte	%01100110	; INTERRUPTED
+    643  029e ????			  -	      .byte	%01100110	; INTERRUPTED
+    644  029e ????			  -	      .byte	%01100110	; INTERRUPTED
+    645  029e ????			  -	      .byte	%01100110	; INTERRUPTED
+    646  029e ????			  -	      .byte	%01100110	; INTERRUPTED
+    647  029e ????			  -	      .byte	%01100110	; INTERRUPTED
+    648  029e ????			  -	      .byte	%00110100	; INTERRUPTED
+    649  029e ????			  -
+    650  029e ????			  -			;byte %00000000 ; INTERRUPTED
+    651  029e ????			  -
+    652  029e ????			  -	      .byte	%00111100	; INTERRUPTED
+    653  029e ????			  -	      .byte	%00000000	; INTERRUPTED
+    654  029e ????			  -	      .byte	%00011000	; INTERRUPTED
+    655  029e ????			  -	      .byte	%00011000	; INTERRUPTED
+    656  029e ????			  -	      .byte	%00011000	; INTERRUPTED
+    657  029e ????			  -	      .byte	%00011000	; INTERRUPTED
+    658  029e ????			  -	      .byte	%00011000	; INTERRUPTED
+    659  029e ????			  -	      .byte	%00111000	; INTERRUPTED
+    660  029e ????			  -
+    661  029e ????			  -			;byte %00000000 ; INTERRUPTED
+    662  029e ????			  -
+    663  029e ????			  -	      .byte	%01101110	; INTERRUPTED
+    664  029e ????			  -	      .byte	%01100000	; INTERRUPTED
+    665  029e ????			  -	      .byte	%00110000	; INTERRUPTED
+    666  029e ????			  -	      .byte	%00011000	; INTERRUPTED
+    667  029e ????			  -	      .byte	%00001100	; INTERRUPTED
+    668  029e ????			  -	      .byte	%00000110	; INTERRUPTED
+    669  029e ????			  -	      .byte	%01000110	; INTERRUPTED
+    670  029e ????			  -	      .byte	%00111100	; INTERRUPTED
+    671  029e ????			  -
+    672  029e ????			  -			;byte %00000000 ; INTERRUPTED
+    673  029e ????			  -
+    674  029e ????			  -	      .byte	%01111100	; INTERRUPTED
+    675  029e ????			  -	      .byte	%00000110	; INTERRUPTED
+    676  029e ????			  -	      .byte	%00000110	; INTERRUPTED
+    677  029e ????			  -	      .byte	%00000110	; INTERRUPTED
+    678  029e ????			  -	      .byte	%01110110	; INTERRUPTED
+    679  029e ????			  -	      .byte	%00000110	; INTERRUPTED
+    680  029e ????			  -	      .byte	%00000110	; INTERRUPTED
+    681  029e ????			  -	      .byte	%01110100	; INTERRUPTED
+    682  029e ????			  -
+    683  029e ????			  -			;byte %00000000 ; INTERRUPTED
+    684  029e ????			  -
+    685  029e ????			  -	      .byte	%00000110	; INTERRUPTED
+    686  029e ????			  -	      .byte	%00000110	; INTERRUPTED
+    687  029e ????			  -	      .byte	%00000110	; INTERRUPTED
+    688  029e ????			  -	      .byte	%00000110	; INTERRUPTED
+    689  029e ????			  -	      .byte	%01110110	; INTERRUPTED
+    690  029e ????			  -	      .byte	%01100110	; INTERRUPTED
+    691  029e ????			  -	      .byte	%01100110	; INTERRUPTED
+    692  029e ????			  -	      .byte	%01100110	; INTERRUPTED
+    693  029e ????			  -
+    694  029e ????			  -			;byte %00000000 ; INTERRUPTED
+    695  029e ????			  -
+    696  029e ????			  -	      .byte	%01111100	; INTERRUPTED
+    697  029e ????			  -	      .byte	%00000110	; INTERRUPTED
+    698  029e ????			  -	      .byte	%00000110	; INTERRUPTED
+    699  029e ????			  -	      .byte	%00000110	; INTERRUPTED
+    700  029e ????			  -	      .byte	%01111100	; INTERRUPTED
+    701  029e ????			  -	      .byte	%01100000	; INTERRUPTED
+    702  029e ????			  -	      .byte	%01100000	; INTERRUPTED
+    703  029e ????			  -	      .byte	%01101110	; INTERRUPTED
+    704  029e ????			  -
+    705  029e ????			  -			;byte %00000000 ; INTERRUPTED
+    706  029e ????			  -
+    707  029e ????			  -	      .byte	%00101100	; INTERRUPTED
+    708  029e ????			  -	      .byte	%01100110	; INTERRUPTED
+    709  029e ????			  -	      .byte	%01100110	; INTERRUPTED
+    710  029e ????			  -	      .byte	%01100110	; INTERRUPTED
+    711  029e ????			  -	      .byte	%01101100	; INTERRUPTED
+    712  029e ????			  -	      .byte	%01100000	; INTERRUPTED
+    713  029e ????			  -	      .byte	%00110000	; INTERRUPTED
+    714  029e ????			  -	      .byte	%00011100	; INTERRUPTED
+    715  029e ????			  -
+    716  029e ????			  -			;byte %00000000 ; INTERRUPTED
+    717  029e ????			  -
+    718  029e ????			  -	      .byte	%00011000	; INTERRUPTED
+    719  029e ????			  -	      .byte	%00011000	; INTERRUPTED
+    720  029e ????			  -	      .byte	%00011000	; INTERRUPTED
+    721  029e ????			  -	      .byte	%00011100	; INTERRUPTED
+    722  029e ????			  -	      .byte	%00001110	; INTERRUPTED
+    723  029e ????			  -	      .byte	%00000110	; INTERRUPTED
+    724  029e ????			  -	      .byte	%00000000	; INTERRUPTED
+    725  029e ????			  -	      .byte	%01111110	; INTERRUPTED
+    726  029e ????			  -
+    727  029e ????			  -			;byte %00000000 ; INTERRUPTED
+    728  029e ????			  -
+    729  029e ????			  -	      .byte	%00110100	; INTERRUPTED
+    730  029e ????			  -	      .byte	%01100110	; INTERRUPTED
+    731  029e ????			  -	      .byte	%01100110	; INTERRUPTED
+    732  029e ????			  -	      .byte	%01100110	; INTERRUPTED
+    733  029e ????			  -	      .byte	%00110100	; INTERRUPTED
+    734  029e ????			  -	      .byte	%01100110	; INTERRUPTED
+    735  029e ????			  -	      .byte	%01100110	; INTERRUPTED
+    736  029e ????			  -	      .byte	%00110100	; INTERRUPTED
+    737  029e ????			  -
+    738  029e ????			  -			;byte %00000000 ; INTERRUPTED
+    739  029e ????			  -
+    740  029e ????			  -	      .byte	%00111000	; INTERRUPTED
+    741  029e ????			  -	      .byte	%00001100	; INTERRUPTED
+    742  029e ????			  -	      .byte	%00000110	; INTERRUPTED
+    743  029e ????			  -	      .byte	%00110110	; INTERRUPTED
+    744  029e ????			  -	      .byte	%01100110	; INTERRUPTED
+    745  029e ????			  -	      .byte	%01100110	; INTERRUPTED
+    746  029e ????			  -	      .byte	%01100110	; INTERRUPTED
+    747  029e ????			  -	      .byte	%00110100	; INTERRUPTED
+    748  029e ????			  -
+    749  029e ????				      endif		; INTERRUPTED
+    750  029e ????
+    751  029e ????
+    752  029e ????			  -	      if	fontstyle == TINY
+    753  029e ????			  -
+    754  029e ????			  -			;byte %00000000 ; TINY
+    755  029e ????			  -
+    756  029e ????			  -	      .byte	%00000000	; TINY
+    757  029e ????			  -	      .byte	%00111000	; TINY
+    758  029e ????			  -	      .byte	%00101000	; TINY
+    759  029e ????			  -	      .byte	%00101000	; TINY
+    760  029e ????			  -	      .byte	%00101000	; TINY
+    761  029e ????			  -	      .byte	%00111000	; TINY
+    762  029e ????			  -	      .byte	%00000000	; TINY
+    763  029e ????			  -	      .byte	%00000000	; TINY
+    764  029e ????			  -
+    765  029e ????			  -			;byte %00000000 ; TINY
+    766  029e ????			  -
+    767  029e ????			  -	      .byte	%00000000	; TINY
+    768  029e ????			  -	      .byte	%00010000	; TINY
+    769  029e ????			  -	      .byte	%00010000	; TINY
+    770  029e ????			  -	      .byte	%00010000	; TINY
+    771  029e ????			  -	      .byte	%00010000	; TINY
+    772  029e ????			  -	      .byte	%00010000	; TINY
+    773  029e ????			  -	      .byte	%00000000	; TINY
+    774  029e ????			  -	      .byte	%00000000	; TINY
+    775  029e ????			  -
+    776  029e ????			  -			;byte %00000000 ; TINY
+    777  029e ????			  -
+    778  029e ????			  -	      .byte	%00000000	; TINY
+    779  029e ????			  -	      .byte	%00111000	; TINY
+    780  029e ????			  -	      .byte	%00100000	; TINY
+    781  029e ????			  -	      .byte	%00111000	; TINY
+    782  029e ????			  -	      .byte	%00001000	; TINY
+    783  029e ????			  -	      .byte	%00111000	; TINY
+    784  029e ????			  -	      .byte	%00000000	; TINY
+    785  029e ????			  -	      .byte	%00000000	; TINY
+    786  029e ????			  -
+    787  029e ????			  -			;byte %00000000 ; TINY
+    788  029e ????			  -
+    789  029e ????			  -	      .byte	%00000000	; TINY
+    790  029e ????			  -	      .byte	%00111000	; TINY
+    791  029e ????			  -	      .byte	%00001000	; TINY
+    792  029e ????			  -	      .byte	%00111000	; TINY
+    793  029e ????			  -	      .byte	%00001000	; TINY
+    794  029e ????			  -	      .byte	%00111000	; TINY
+    795  029e ????			  -	      .byte	%00000000	; TINY
+    796  029e ????			  -	      .byte	%00000000	; TINY
+    797  029e ????			  -
+    798  029e ????			  -			;byte %00000000 ; TINY
+    799  029e ????			  -
+    800  029e ????			  -	      .byte	%00000000	; TINY
+    801  029e ????			  -	      .byte	%00001000	; TINY
+    802  029e ????			  -	      .byte	%00001000	; TINY
+    803  029e ????			  -	      .byte	%00111000	; TINY
+    804  029e ????			  -	      .byte	%00101000	; TINY
+    805  029e ????			  -	      .byte	%00101000	; TINY
+    806  029e ????			  -	      .byte	%00000000	; TINY
+    807  029e ????			  -	      .byte	%00000000	; TINY
+    808  029e ????			  -
+    809  029e ????			  -			;byte %00000000 ; TINY
+    810  029e ????			  -
+    811  029e ????			  -	      .byte	%00000000	; TINY
+    812  029e ????			  -	      .byte	%00111000	; TINY
+    813  029e ????			  -	      .byte	%00001000	; TINY
+    814  029e ????			  -	      .byte	%00111000	; TINY
+    815  029e ????			  -	      .byte	%00100000	; TINY
+    816  029e ????			  -	      .byte	%00111000	; TINY
+    817  029e ????			  -	      .byte	%00000000	; TINY
+    818  029e ????			  -	      .byte	%00000000	; TINY
+    819  029e ????			  -
+    820  029e ????			  -			;byte %00000000 ; TINY
+    821  029e ????			  -
+    822  029e ????			  -	      .byte	%00000000	; TINY
+    823  029e ????			  -	      .byte	%00111000	; TINY
+    824  029e ????			  -	      .byte	%00101000	; TINY
+    825  029e ????			  -	      .byte	%00111000	; TINY
+    826  029e ????			  -	      .byte	%00100000	; TINY
+    827  029e ????			  -	      .byte	%00111000	; TINY
+    828  029e ????			  -	      .byte	%00000000	; TINY
+    829  029e ????			  -	      .byte	%00000000	; TINY
+    830  029e ????			  -
+    831  029e ????			  -			;byte %00000000 ; TINY
+    832  029e ????			  -
+    833  029e ????			  -	      .byte	%00000000	; TINY
+    834  029e ????			  -	      .byte	%00001000	; TINY
+    835  029e ????			  -	      .byte	%00001000	; TINY
+    836  029e ????			  -	      .byte	%00001000	; TINY
+    837  029e ????			  -	      .byte	%00001000	; TINY
+    838  029e ????			  -	      .byte	%00111000	; TINY
+    839  029e ????			  -	      .byte	%00000000	; TINY
+    840  029e ????			  -	      .byte	%00000000	; TINY
+    841  029e ????			  -
+    842  029e ????			  -			;byte %00000000 ; TINY
+    843  029e ????			  -
+    844  029e ????			  -	      .byte	%00000000	; TINY
+    845  029e ????			  -	      .byte	%00111000	; TINY
+    846  029e ????			  -	      .byte	%00101000	; TINY
+    847  029e ????			  -	      .byte	%00111000	; TINY
+    848  029e ????			  -	      .byte	%00101000	; TINY
+    849  029e ????			  -	      .byte	%00111000	; TINY
+    850  029e ????			  -	      .byte	%00000000	; TINY
+    851  029e ????			  -	      .byte	%00000000	; TINY
+    852  029e ????			  -
+    853  029e ????			  -			;byte %00000000 ; TINY
+    854  029e ????			  -
+    855  029e ????			  -	      .byte	%00000000	; TINY
+    856  029e ????			  -	      .byte	%00001000	; TINY
+    857  029e ????			  -	      .byte	%00001000	; TINY
+    858  029e ????			  -	      .byte	%00111000	; TINY
+    859  029e ????			  -	      .byte	%00101000	; TINY
+    860  029e ????			  -	      .byte	%00111000	; TINY
+    861  029e ????			  -	      .byte	%00000000	; TINY
+    862  029e ????			  -	      .byte	%00000000	; TINY
+    863  029e ????			  -
+    864  029e ????				      endif		; TINY
+    865  029e ????
+    866  029e ????			  -	      if	fontstyle == RETROPUTER
+    867  029e ????			  -
+    868  029e ????			  -			;byte %00000000 ; RETROPUTER
+    869  029e ????			  -
+    870  029e ????			  -	      .byte	%01111110	; RETROPUTER
+    871  029e ????			  -	      .byte	%01000110	; RETROPUTER
+    872  029e ????			  -	      .byte	%01000110	; RETROPUTER
+    873  029e ????			  -	      .byte	%01000110	; RETROPUTER
+    874  029e ????			  -	      .byte	%01100010	; RETROPUTER
+    875  029e ????			  -	      .byte	%01100010	; RETROPUTER
+    876  029e ????			  -	      .byte	%01100010	; RETROPUTER
+    877  029e ????			  -	      .byte	%01111110	; RETROPUTER
+    878  029e ????			  -
+    879  029e ????			  -			;byte %00000000 ; RETROPUTER
+    880  029e ????			  -
+    881  029e ????			  -	      .byte	%00111000	; RETROPUTER
+    882  029e ????			  -	      .byte	%00111000	; RETROPUTER
+    883  029e ????			  -	      .byte	%00111000	; RETROPUTER
+    884  029e ????			  -	      .byte	%00111000	; RETROPUTER
+    885  029e ????			  -	      .byte	%00011000	; RETROPUTER
+    886  029e ????			  -	      .byte	%00011000	; RETROPUTER
+    887  029e ????			  -	      .byte	%00011000	; RETROPUTER
+    888  029e ????			  -	      .byte	%00011000	; RETROPUTER
+    889  029e ????			  -
+    890  029e ????			  -			;byte %00000000 ; RETROPUTER
+    891  029e ????			  -
+    892  029e ????			  -	      .byte	%01111110	; RETROPUTER
+    893  029e ????			  -	      .byte	%01100000	; RETROPUTER
+    894  029e ????			  -	      .byte	%01100000	; RETROPUTER
+    895  029e ????			  -	      .byte	%01100000	; RETROPUTER
+    896  029e ????			  -	      .byte	%00111110	; RETROPUTER
+    897  029e ????			  -	      .byte	%00000010	; RETROPUTER
+    898  029e ????			  -	      .byte	%01000010	; RETROPUTER
+    899  029e ????			  -	      .byte	%01111110	; RETROPUTER
+    900  029e ????			  -
+    901  029e ????			  -			;byte %00000000 ; RETROPUTER
+    902  029e ????			  -
+    903  029e ????			  -	      .byte	%01111110	; RETROPUTER
+    904  029e ????			  -	      .byte	%01000110	; RETROPUTER
+    905  029e ????			  -	      .byte	%00000110	; RETROPUTER
+    906  029e ????			  -	      .byte	%00000110	; RETROPUTER
+    907  029e ????			  -	      .byte	%00111110	; RETROPUTER
+    908  029e ????			  -	      .byte	%00000010	; RETROPUTER
+    909  029e ????			  -	      .byte	%01000010	; RETROPUTER
+    910  029e ????			  -	      .byte	%01111110	; RETROPUTER
+    911  029e ????			  -
+    912  029e ????			  -			;byte %00000000 ; RETROPUTER
+    913  029e ????			  -
+    914  029e ????			  -	      .byte	%00001100	; RETROPUTER
+    915  029e ????			  -	      .byte	%00001100	; RETROPUTER
+    916  029e ????			  -	      .byte	%00001100	; RETROPUTER
+    917  029e ????			  -	      .byte	%01111110	; RETROPUTER
+    918  029e ????			  -	      .byte	%01000100	; RETROPUTER
+    919  029e ????			  -	      .byte	%01000100	; RETROPUTER
+    920  029e ????			  -	      .byte	%01000100	; RETROPUTER
+    921  029e ????			  -	      .byte	%00000100	; RETROPUTER
+    922  029e ????			  -
+    923  029e ????			  -			;byte %00000000 ; RETROPUTER
+    924  029e ????			  -
+    925  029e ????			  -	      .byte	%01111110	; RETROPUTER
+    926  029e ????			  -	      .byte	%01000110	; RETROPUTER
+    927  029e ????			  -	      .byte	%00000110	; RETROPUTER
+    928  029e ????			  -	      .byte	%00000110	; RETROPUTER
+    929  029e ????			  -	      .byte	%01111100	; RETROPUTER
+    930  029e ????			  -	      .byte	%01000000	; RETROPUTER
+    931  029e ????			  -	      .byte	%01000000	; RETROPUTER
+    932  029e ????			  -	      .byte	%01111110	; RETROPUTER
+    933  029e ????			  -
+    934  029e ????			  -			;byte %00000000 ; RETROPUTER
+    935  029e ????			  -
+    936  029e ????			  -	      .byte	%01111110	; RETROPUTER
+    937  029e ????			  -	      .byte	%01000110	; RETROPUTER
+    938  029e ????			  -	      .byte	%01000110	; RETROPUTER
+    939  029e ????			  -	      .byte	%01000110	; RETROPUTER
+    940  029e ????			  -	      .byte	%01111100	; RETROPUTER
+    941  029e ????			  -	      .byte	%01000000	; RETROPUTER
+    942  029e ????			  -	      .byte	%01000010	; RETROPUTER
+    943  029e ????			  -	      .byte	%01111110	; RETROPUTER
+    944  029e ????			  -
+    945  029e ????			  -			;byte %00000000 ; RETROPUTER
+    946  029e ????			  -
+    947  029e ????			  -	      .byte	%00001100	; RETROPUTER
+    948  029e ????			  -	      .byte	%00001100	; RETROPUTER
+    949  029e ????			  -	      .byte	%00001100	; RETROPUTER
+    950  029e ????			  -	      .byte	%00001100	; RETROPUTER
+    951  029e ????			  -	      .byte	%00000100	; RETROPUTER
+    952  029e ????			  -	      .byte	%00000010	; RETROPUTER
+    953  029e ????			  -	      .byte	%01000010	; RETROPUTER
+    954  029e ????			  -	      .byte	%01111110	; RETROPUTER
+    955  029e ????			  -
+    956  029e ????			  -			;byte %00000000 ; RETROPUTER
+    957  029e ????			  -
+    958  029e ????			  -	      .byte	%01111110	; RETROPUTER
+    959  029e ????			  -	      .byte	%01000110	; RETROPUTER
+    960  029e ????			  -	      .byte	%01000110	; RETROPUTER
+    961  029e ????			  -	      .byte	%01000110	; RETROPUTER
+    962  029e ????			  -	      .byte	%01111110	; RETROPUTER
+    963  029e ????			  -	      .byte	%01000010	; RETROPUTER
+    964  029e ????			  -	      .byte	%01000010	; RETROPUTER
+    965  029e ????			  -	      .byte	%01111110	; RETROPUTER
+    966  029e ????			  -
+    967  029e ????			  -			;byte %00000000 ; RETROPUTER
+    968  029e ????			  -
+    969  029e ????			  -	      .byte	%00000110	; RETROPUTER
+    970  029e ????			  -	      .byte	%00000110	; RETROPUTER
+    971  029e ????			  -	      .byte	%00000110	; RETROPUTER
+    972  029e ????			  -	      .byte	%00000010	; RETROPUTER
+    973  029e ????			  -	      .byte	%01111110	; RETROPUTER
+    974  029e ????			  -	      .byte	%01000010	; RETROPUTER
+    975  029e ????			  -	      .byte	%01000010	; RETROPUTER
+    976  029e ????			  -	      .byte	%01111110	; RETROPUTER
+    977  029e ????			  -
+    978  029e ????				      endif		; RETROPUTER
+    979  029e ????
+    980  029e ????			  -	      if	fontstyle == CURVES
+    981  029e ????			  -
+    982  029e ????			  -			;byte %00000000 ; CURVES
+    983  029e ????			  -
+    984  029e ????			  -	      .byte	%00111100	; CURVES
+    985  029e ????			  -	      .byte	%01111110	; CURVES
+    986  029e ????			  -	      .byte	%01100110	; CURVES
+    987  029e ????			  -	      .byte	%01100110	; CURVES
+    988  029e ????			  -	      .byte	%01100110	; CURVES
+    989  029e ????			  -	      .byte	%01100110	; CURVES
+    990  029e ????			  -	      .byte	%01111110	; CURVES
+    991  029e ????			  -	      .byte	%00111100	; CURVES
+    992  029e ????			  -
+    993  029e ????			  -			;byte %00000000 ; CURVES
+    994  029e ????			  -
+    995  029e ????			  -	      .byte	%00011000	; CURVES
+    996  029e ????			  -	      .byte	%00011000	; CURVES
+    997  029e ????			  -	      .byte	%00011000	; CURVES
+    998  029e ????			  -	      .byte	%00011000	; CURVES
+    999  029e ????			  -	      .byte	%00011000	; CURVES
+   1000  029e ????			  -	      .byte	%00011000	; CURVES
+   1001  029e ????			  -	      .byte	%01111000	; CURVES
+   1002  029e ????			  -	      .byte	%01110000	; CURVES
+   1003  029e ????			  -
+   1004  029e ????			  -			;byte %00000000 ; CURVES
+   1005  029e ????			  -
+   1006  029e ????			  -	      .byte	%01111110	; CURVES
+   1007  029e ????			  -	      .byte	%01111110	; CURVES
+   1008  029e ????			  -	      .byte	%01100000	; CURVES
+   1009  029e ????			  -	      .byte	%01111100	; CURVES
+   1010  029e ????			  -	      .byte	%00111110	; CURVES
+   1011  029e ????			  -	      .byte	%00000110	; CURVES
+   1012  029e ????			  -	      .byte	%01111110	; CURVES
+   1013  029e ????			  -	      .byte	%01111100	; CURVES
+   1014  029e ????			  -
+   1015  029e ????			  -			;byte %00000000 ; CURVES
+   1016  029e ????			  -
+   1017  029e ????			  -	      .byte	%01111100	; CURVES
+   1018  029e ????			  -	      .byte	%01111110	; CURVES
+   1019  029e ????			  -	      .byte	%00001110	; CURVES
+   1020  029e ????			  -	      .byte	%00111100	; CURVES
+   1021  029e ????			  -	      .byte	%00111100	; CURVES
+   1022  029e ????			  -	      .byte	%00001110	; CURVES
+   1023  029e ????			  -	      .byte	%01111110	; CURVES
+   1024  029e ????			  -	      .byte	%01111100	; CURVES
+   1025  029e ????			  -
+   1026  029e ????			  -			;byte %00000000 ; CURVES
+   1027  029e ????			  -
+   1028  029e ????			  -	      .byte	%00000110	; CURVES
+   1029  029e ????			  -	      .byte	%00000110	; CURVES
+   1030  029e ????			  -	      .byte	%00111110	; CURVES
+   1031  029e ????			  -	      .byte	%01111110	; CURVES
+   1032  029e ????			  -	      .byte	%01100110	; CURVES
+   1033  029e ????			  -	      .byte	%01100110	; CURVES
+   1034  029e ????			  -	      .byte	%01100110	; CURVES
+   1035  029e ????			  -	      .byte	%01100110	; CURVES
+   1036  029e ????			  -
+   1037  029e ????			  -			;byte %00000000 ; CURVES
+   1038  029e ????			  -
+   1039  029e ????			  -	      .byte	%01111100	; CURVES
+   1040  029e ????			  -	      .byte	%01111110	; CURVES
+   1041  029e ????			  -	      .byte	%00000110	; CURVES
+   1042  029e ????			  -	      .byte	%01111110	; CURVES
+   1043  029e ????			  -	      .byte	%01111100	; CURVES
+   1044  029e ????			  -	      .byte	%01100000	; CURVES
+   1045  029e ????			  -	      .byte	%01111110	; CURVES
+   1046  029e ????			  -	      .byte	%01111110	; CURVES
+   1047  029e ????			  -
+   1048  029e ????			  -			;byte %00000000 ; CURVES
+   1049  029e ????			  -
+   1050  029e ????			  -	      .byte	%00111100	; CURVES
+   1051  029e ????			  -	      .byte	%01111110	; CURVES
+   1052  029e ????			  -	      .byte	%01100110	; CURVES
+   1053  029e ????			  -	      .byte	%01111110	; CURVES
+   1054  029e ????			  -	      .byte	%01111100	; CURVES
+   1055  029e ????			  -	      .byte	%01100000	; CURVES
+   1056  029e ????			  -	      .byte	%01111110	; CURVES
+   1057  029e ????			  -	      .byte	%00111110	; CURVES
+   1058  029e ????			  -
+   1059  029e ????			  -			;byte %00000000 ; CURVES
+   1060  029e ????			  -
+   1061  029e ????			  -	      .byte	%00000110	; CURVES
+   1062  029e ????			  -	      .byte	%00000110	; CURVES
+   1063  029e ????			  -	      .byte	%00000110	; CURVES
+   1064  029e ????			  -	      .byte	%00000110	; CURVES
+   1065  029e ????			  -	      .byte	%00000110	; CURVES
+   1066  029e ????			  -	      .byte	%01100110	; CURVES
+   1067  029e ????			  -	      .byte	%01111110	; CURVES
+   1068  029e ????			  -	      .byte	%00111100	; CURVES
+   1069  029e ????			  -
+   1070  029e ????			  -			;byte %00000000 ; CURVES
+   1071  029e ????			  -
+   1072  029e ????			  -	      .byte	%00111100	; CURVES
+   1073  029e ????			  -	      .byte	%01111110	; CURVES
+   1074  029e ????			  -	      .byte	%01100110	; CURVES
+   1075  029e ????			  -	      .byte	%01111110	; CURVES
+   1076  029e ????			  -	      .byte	%00111100	; CURVES
+   1077  029e ????			  -	      .byte	%01100110	; CURVES
+   1078  029e ????			  -	      .byte	%01111110	; CURVES
+   1079  029e ????			  -	      .byte	%00111100	; CURVES
+   1080  029e ????			  -
+   1081  029e ????			  -			;byte %00000000 ; CURVES
+   1082  029e ????			  -
+   1083  029e ????			  -	      .byte	%01111100	; CURVES
+   1084  029e ????			  -	      .byte	%01111110	; CURVES
+   1085  029e ????			  -	      .byte	%00000110	; CURVES
+   1086  029e ????			  -	      .byte	%00111110	; CURVES
+   1087  029e ????			  -	      .byte	%01111110	; CURVES
+   1088  029e ????			  -	      .byte	%01100110	; CURVES
+   1089  029e ????			  -	      .byte	%01111110	; CURVES
+   1090  029e ????			  -	      .byte	%00111100	; CURVES
+   1091  029e ????			  -
+   1092  029e ????				      endif		; CURVES
+   1093  029e ????
+   1094  029e ????
+   1095  029e ????			  -	      if	fontstyle == HUSKY
+   1096  029e ????			  -
+   1097  029e ????			  -			;byte %00000000 ; HUSKY
+   1098  029e ????			  -
+   1099  029e ????			  -	      .byte	%01111100	; HUSKY
+   1100  029e ????			  -	      .byte	%11111110	; HUSKY
+   1101  029e ????			  -	      .byte	%11101110	; HUSKY
+   1102  029e ????			  -	      .byte	%11101110	; HUSKY
+   1103  029e ????			  -	      .byte	%11101110	; HUSKY
+   1104  029e ????			  -	      .byte	%11101110	; HUSKY
+   1105  029e ????			  -	      .byte	%11111110	; HUSKY
+   1106  029e ????			  -	      .byte	%01111100	; HUSKY
+   1107  029e ????			  -
+   1108  029e ????			  -			;byte %00000000 ; HUSKY
+   1109  029e ????			  -
+   1110  029e ????			  -	      .byte	%00111000	; HUSKY
+   1111  029e ????			  -	      .byte	%00111000	; HUSKY
+   1112  029e ????			  -	      .byte	%00111000	; HUSKY
+   1113  029e ????			  -	      .byte	%00111000	; HUSKY
+   1114  029e ????			  -	      .byte	%00111000	; HUSKY
+   1115  029e ????			  -	      .byte	%00111000	; HUSKY
+   1116  029e ????			  -	      .byte	%00111000	; HUSKY
+   1117  029e ????			  -	      .byte	%00111000	; HUSKY
+   1118  029e ????			  -
+   1119  029e ????			  -			;byte %00000000 ; HUSKY
+   1120  029e ????			  -
+   1121  029e ????			  -	      .byte	%11111110	; HUSKY
+   1122  029e ????			  -	      .byte	%11111110	; HUSKY
+   1123  029e ????			  -	      .byte	%11100000	; HUSKY
+   1124  029e ????			  -	      .byte	%11111100	; HUSKY
+   1125  029e ????			  -	      .byte	%01111110	; HUSKY
+   1126  029e ????			  -	      .byte	%00001110	; HUSKY
+   1127  029e ????			  -	      .byte	%11111110	; HUSKY
+   1128  029e ????			  -	      .byte	%11111100	; HUSKY
+   1129  029e ????			  -
+   1130  029e ????			  -			;byte %00000000 ; HUSKY
+   1131  029e ????			  -
+   1132  029e ????			  -	      .byte	%11111100	; HUSKY
+   1133  029e ????			  -	      .byte	%11111110	; HUSKY
+   1134  029e ????			  -	      .byte	%00001110	; HUSKY
+   1135  029e ????			  -	      .byte	%11111100	; HUSKY
+   1136  029e ????			  -	      .byte	%11111100	; HUSKY
+   1137  029e ????			  -	      .byte	%00001110	; HUSKY
+   1138  029e ????			  -	      .byte	%11111110	; HUSKY
+   1139  029e ????			  -	      .byte	%11111100	; HUSKY
+   1140  029e ????			  -
+   1141  029e ????			  -			;byte %00000000 ; HUSKY
+   1142  029e ????			  -
+   1143  029e ????			  -	      .byte	%00011100	; HUSKY
+   1144  029e ????			  -	      .byte	%00011100	; HUSKY
+   1145  029e ????			  -	      .byte	%11111110	; HUSKY
+   1146  029e ????			  -	      .byte	%11111110	; HUSKY
+   1147  029e ????			  -	      .byte	%11011100	; HUSKY
+   1148  029e ????			  -	      .byte	%11011100	; HUSKY
+   1149  029e ????			  -	      .byte	%00011100	; HUSKY
+   1150  029e ????			  -	      .byte	%00011100	; HUSKY
+   1151  029e ????			  -
+   1152  029e ????			  -			;byte %00000000 ; HUSKY
+   1153  029e ????			  -
+   1154  029e ????			  -	      .byte	%11111100	; HUSKY
+   1155  029e ????			  -	      .byte	%11111110	; HUSKY
+   1156  029e ????			  -	      .byte	%00001110	; HUSKY
+   1157  029e ????			  -	      .byte	%11111110	; HUSKY
+   1158  029e ????			  -	      .byte	%11111100	; HUSKY
+   1159  029e ????			  -	      .byte	%11100000	; HUSKY
+   1160  029e ????			  -	      .byte	%11111110	; HUSKY
+   1161  029e ????			  -	      .byte	%11111110	; HUSKY
+   1162  029e ????			  -
+   1163  029e ????			  -			;byte %00000000 ; HUSKY
+   1164  029e ????			  -
+   1165  029e ????			  -	      .byte	%01111100	; HUSKY
+   1166  029e ????			  -	      .byte	%11111110	; HUSKY
+   1167  029e ????			  -	      .byte	%11101110	; HUSKY
+   1168  029e ????			  -	      .byte	%11111110	; HUSKY
+   1169  029e ????			  -	      .byte	%11111100	; HUSKY
+   1170  029e ????			  -	      .byte	%11100000	; HUSKY
+   1171  029e ????			  -	      .byte	%11111110	; HUSKY
+   1172  029e ????			  -	      .byte	%01111110	; HUSKY
+   1173  029e ????			  -
+   1174  029e ????			  -			;byte %00000000 ; HUSKY
+   1175  029e ????			  -
+   1176  029e ????			  -	      .byte	%00111000	; HUSKY
+   1177  029e ????			  -	      .byte	%00111000	; HUSKY
+   1178  029e ????			  -	      .byte	%00111000	; HUSKY
+   1179  029e ????			  -	      .byte	%00111000	; HUSKY
+   1180  029e ????			  -	      .byte	%00011100	; HUSKY
+   1181  029e ????			  -	      .byte	%00001110	; HUSKY
+   1182  029e ????			  -	      .byte	%11111110	; HUSKY
+   1183  029e ????			  -	      .byte	%11111110	; HUSKY
+   1184  029e ????			  -
+   1185  029e ????			  -			;byte %00000000 ; HUSKY
+   1186  029e ????			  -
+   1187  029e ????			  -	      .byte	%01111100	; HUSKY
+   1188  029e ????			  -	      .byte	%11111110	; HUSKY
+   1189  029e ????			  -	      .byte	%11101110	; HUSKY
+   1190  029e ????			  -	      .byte	%11111110	; HUSKY
+   1191  029e ????			  -	      .byte	%01111100	; HUSKY
+   1192  029e ????			  -	      .byte	%11101110	; HUSKY
+   1193  029e ????			  -	      .byte	%11111110	; HUSKY
+   1194  029e ????			  -	      .byte	%01111100	; HUSKY
+   1195  029e ????			  -
+   1196  029e ????			  -			;byte %00000000 ; HUSKY
+   1197  029e ????			  -
+   1198  029e ????			  -	      .byte	%11111100	; HUSKY
+   1199  029e ????			  -	      .byte	%11111110	; HUSKY
+   1200  029e ????			  -	      .byte	%00001110	; HUSKY
+   1201  029e ????			  -	      .byte	%01111110	; HUSKY
+   1202  029e ????			  -	      .byte	%11111110	; HUSKY
+   1203  029e ????			  -	      .byte	%11101110	; HUSKY
+   1204  029e ????			  -	      .byte	%11111110	; HUSKY
+   1205  029e ????			  -	      .byte	%01111100	; HUSKY
+   1206  029e ????			  -
+   1207  029e ????				      endif		; HUSKY
+   1208  029e ????
+   1209  029e ????
+   1210  029e ????			  -	      if	fontstyle == SNAKE
+   1211  029e ????			  -
+   1212  029e ????			  -			;byte %00000000 ; SNAKE
+   1213  029e ????			  -
+   1214  029e ????			  -	      .byte	%01111110	; SNAKE
+   1215  029e ????			  -	      .byte	%01000010	; SNAKE
+   1216  029e ????			  -	      .byte	%01000010	; SNAKE
+   1217  029e ????			  -	      .byte	%01000010	; SNAKE
+   1218  029e ????			  -	      .byte	%01000010	; SNAKE
+   1219  029e ????			  -	      .byte	%01000010	; SNAKE
+   1220  029e ????			  -	      .byte	%01000010	; SNAKE
+   1221  029e ????			  -	      .byte	%01111110	; SNAKE
+   1222  029e ????			  -
+   1223  029e ????			  -			;byte %00000000 ; SNAKE
+   1224  029e ????			  -
+   1225  029e ????			  -	      .byte	%00111000	; SNAKE
+   1226  029e ????			  -	      .byte	%00101000	; SNAKE
+   1227  029e ????			  -	      .byte	%00001000	; SNAKE
+   1228  029e ????			  -	      .byte	%00001000	; SNAKE
+   1229  029e ????			  -	      .byte	%00001000	; SNAKE
+   1230  029e ????			  -	      .byte	%00001000	; SNAKE
+   1231  029e ????			  -	      .byte	%00001000	; SNAKE
+   1232  029e ????			  -	      .byte	%00111000	; SNAKE
+   1233  029e ????			  -
+   1234  029e ????			  -			;byte %00000000 ; SNAKE
+   1235  029e ????			  -
+   1236  029e ????			  -	      .byte	%01111110	; SNAKE
+   1237  029e ????			  -	      .byte	%01000010	; SNAKE
+   1238  029e ????			  -	      .byte	%01000110	; SNAKE
+   1239  029e ????			  -	      .byte	%01000000	; SNAKE
+   1240  029e ????			  -	      .byte	%01111110	; SNAKE
+   1241  029e ????			  -	      .byte	%00000010	; SNAKE
+   1242  029e ????			  -	      .byte	%01000010	; SNAKE
+   1243  029e ????			  -	      .byte	%01111110	; SNAKE
+   1244  029e ????			  -
+   1245  029e ????			  -			;byte %00000000 ; SNAKE
+   1246  029e ????			  -
+   1247  029e ????			  -	      .byte	%01111110	; SNAKE
+   1248  029e ????			  -	      .byte	%01000010	; SNAKE
+   1249  029e ????			  -	      .byte	%01100010	; SNAKE
+   1250  029e ????			  -	      .byte	%00000010	; SNAKE
+   1251  029e ????			  -	      .byte	%01111110	; SNAKE
+   1252  029e ????			  -	      .byte	%00000010	; SNAKE
+   1253  029e ????			  -	      .byte	%01000010	; SNAKE
+   1254  029e ????			  -	      .byte	%01111110	; SNAKE
+   1255  029e ????			  -
+   1256  029e ????			  -			;byte %00000000 ; SNAKE
+   1257  029e ????			  -
+   1258  029e ????			  -	      .byte	%00001110	; SNAKE
+   1259  029e ????			  -	      .byte	%00001010	; SNAKE
+   1260  029e ????			  -	      .byte	%00000010	; SNAKE
+   1261  029e ????			  -	      .byte	%01111110	; SNAKE
+   1262  029e ????			  -	      .byte	%01000010	; SNAKE
+   1263  029e ????			  -	      .byte	%01000010	; SNAKE
+   1264  029e ????			  -	      .byte	%01000010	; SNAKE
+   1265  029e ????			  -	      .byte	%01100110	; SNAKE
+   1266  029e ????			  -
+   1267  029e ????			  -			;byte %00000000 ; SNAKE
+   1268  029e ????			  -
+   1269  029e ????			  -	      .byte	%01111110	; SNAKE
+   1270  029e ????			  -	      .byte	%01000010	; SNAKE
+   1271  029e ????			  -	      .byte	%01100010	; SNAKE
+   1272  029e ????			  -	      .byte	%00000010	; SNAKE
+   1273  029e ????			  -	      .byte	%01111110	; SNAKE
+   1274  029e ????			  -	      .byte	%01000000	; SNAKE
+   1275  029e ????			  -	      .byte	%01000010	; SNAKE
+   1276  029e ????			  -	      .byte	%01111110	; SNAKE
+   1277  029e ????			  -
+   1278  029e ????			  -			;byte %00000000 ; SNAKE
+   1279  029e ????			  -
+   1280  029e ????			  -	      .byte	%01111110	; SNAKE
+   1281  029e ????			  -	      .byte	%01000010	; SNAKE
+   1282  029e ????			  -	      .byte	%01000010	; SNAKE
+   1283  029e ????			  -	      .byte	%01111110	; SNAKE
+   1284  029e ????			  -	      .byte	%01000000	; SNAKE
+   1285  029e ????			  -	      .byte	%01000110	; SNAKE
+   1286  029e ????			  -	      .byte	%01000010	; SNAKE
+   1287  029e ????			  -	      .byte	%01111110	; SNAKE
+   1288  029e ????			  -
+   1289  029e ????			  -			;byte %00000000 ; SNAKE
+   1290  029e ????			  -
+   1291  029e ????			  -	      .byte	%00000110	; SNAKE
+   1292  029e ????			  -	      .byte	%00000010	; SNAKE
+   1293  029e ????			  -	      .byte	%00000010	; SNAKE
+   1294  029e ????			  -	      .byte	%00000010	; SNAKE
+   1295  029e ????			  -	      .byte	%00000010	; SNAKE
+   1296  029e ????			  -	      .byte	%01100010	; SNAKE
+   1297  029e ????			  -	      .byte	%01000010	; SNAKE
+   1298  029e ????			  -	      .byte	%01111110	; SNAKE
+   1299  029e ????			  -
+   1300  029e ????			  -			;byte %00000000 ; SNAKE
+   1301  029e ????			  -
+   1302  029e ????			  -	      .byte	%01111110	; SNAKE
+   1303  029e ????			  -	      .byte	%01000010	; SNAKE
+   1304  029e ????			  -	      .byte	%01000010	; SNAKE
+   1305  029e ????			  -	      .byte	%01000010	; SNAKE
+   1306  029e ????			  -	      .byte	%01111110	; SNAKE
+   1307  029e ????			  -	      .byte	%01000010	; SNAKE
+   1308  029e ????			  -	      .byte	%01000010	; SNAKE
+   1309  029e ????			  -	      .byte	%01111110	; SNAKE
+   1310  029e ????			  -
+   1311  029e ????			  -			;byte %00000000 ; SNAKE
+   1312  029e ????			  -
+   1313  029e ????			  -	      .byte	%00001110	; SNAKE
+   1314  029e ????			  -	      .byte	%00001010	; SNAKE
+   1315  029e ????			  -	      .byte	%00000010	; SNAKE
+   1316  029e ????			  -	      .byte	%00000010	; SNAKE
+   1317  029e ????			  -	      .byte	%01111110	; SNAKE
+   1318  029e ????			  -	      .byte	%01000010	; SNAKE
+   1319  029e ????			  -	      .byte	%01000010	; SNAKE
+   1320  029e ????			  -	      .byte	%01111110	; SNAKE
+   1321  029e ????			  -
+   1322  029e ????			  -
+   1323  029e ????				      endif		; SNAKE
+   1324  029e ????
+   1325  029e ????			  -	      if	fontstyle == PLOK
+   1326  029e ????			  -
+   1327  029e ????			  -			;byte %00000000 ; PLOK
+   1328  029e ????			  -
+   1329  029e ????			  -	      .byte	%00000000	; PLOK
+   1330  029e ????			  -	      .byte	%00111000	; PLOK
+   1331  029e ????			  -	      .byte	%01100100	; PLOK
+   1332  029e ????			  -	      .byte	%01100010	; PLOK
+   1333  029e ????			  -	      .byte	%01100010	; PLOK
+   1334  029e ????			  -	      .byte	%00110110	; PLOK
+   1335  029e ????			  -	      .byte	%00011100	; PLOK
+   1336  029e ????			  -	      .byte	%00000000	; PLOK
+   1337  029e ????			  -
+   1338  029e ????			  -			;byte %00000000 ; PLOK
+   1339  029e ????			  -
+   1340  029e ????			  -	      .byte	%00000000	; PLOK
+   1341  029e ????			  -	      .byte	%00010000	; PLOK
+   1342  029e ????			  -	      .byte	%00011100	; PLOK
+   1343  029e ????			  -	      .byte	%00011100	; PLOK
+   1344  029e ????			  -	      .byte	%00011000	; PLOK
+   1345  029e ????			  -	      .byte	%00111000	; PLOK
+   1346  029e ????			  -	      .byte	%00011000	; PLOK
+   1347  029e ????			  -	      .byte	%00000000	; PLOK
+   1348  029e ????			  -
+   1349  029e ????			  -			;byte %00000000 ; PLOK
+   1350  029e ????			  -
+   1351  029e ????			  -	      .byte	%00000000	; PLOK
+   1352  029e ????			  -	      .byte	%00001110	; PLOK
+   1353  029e ????			  -	      .byte	%01111110	; PLOK
+   1354  029e ????			  -	      .byte	%00011000	; PLOK
+   1355  029e ????			  -	      .byte	%00001100	; PLOK
+   1356  029e ????			  -	      .byte	%00000110	; PLOK
+   1357  029e ????			  -	      .byte	%00111100	; PLOK
+   1358  029e ????			  -	      .byte	%00000000	; PLOK
+   1359  029e ????			  -
+   1360  029e ????			  -			;byte %00000000 ; PLOK
+   1361  029e ????			  -
+   1362  029e ????			  -	      .byte	%00000000	; PLOK
+   1363  029e ????			  -	      .byte	%00111100	; PLOK
+   1364  029e ????			  -	      .byte	%01101110	; PLOK
+   1365  029e ????			  -	      .byte	%00001110	; PLOK
+   1366  029e ????			  -	      .byte	%00011100	; PLOK
+   1367  029e ????			  -	      .byte	%00000110	; PLOK
+   1368  029e ????			  -	      .byte	%01111100	; PLOK
+   1369  029e ????			  -	      .byte	%00000000	; PLOK
+   1370  029e ????			  -
+   1371  029e ????			  -			;byte %00000000 ; PLOK
+   1372  029e ????			  -
+   1373  029e ????			  -	      .byte	%00000000	; PLOK
+   1374  029e ????			  -	      .byte	%00011000	; PLOK
+   1375  029e ????			  -	      .byte	%01111110	; PLOK
+   1376  029e ????			  -	      .byte	%01101100	; PLOK
+   1377  029e ????			  -	      .byte	%00100100	; PLOK
+   1378  029e ????			  -	      .byte	%00110000	; PLOK
+   1379  029e ????			  -	      .byte	%00110000	; PLOK
+   1380  029e ????			  -	      .byte	%00000000	; PLOK
+   1381  029e ????			  -
+   1382  029e ????			  -			;byte %00000000 ; PLOK
+   1383  029e ????			  -
+   1384  029e ????			  -	      .byte	%00000000	; PLOK
+   1385  029e ????			  -	      .byte	%00111100	; PLOK
+   1386  029e ????			  -	      .byte	%01001110	; PLOK
+   1387  029e ????			  -	      .byte	%00011100	; PLOK
+   1388  029e ????			  -	      .byte	%01100000	; PLOK
+   1389  029e ????			  -	      .byte	%01111100	; PLOK
+   1390  029e ????			  -	      .byte	%00011100	; PLOK
+   1391  029e ????			  -	      .byte	%00000000	; PLOK
+   1392  029e ????			  -
+   1393  029e ????			  -			;byte %00000000 ; PLOK
+   1394  029e ????			  -
+   1395  029e ????			  -	      .byte	%00000000	; PLOK
+   1396  029e ????			  -	      .byte	%00111100	; PLOK
+   1397  029e ????			  -	      .byte	%01000110	; PLOK
+   1398  029e ????			  -	      .byte	%01101100	; PLOK
+   1399  029e ????			  -	      .byte	%01110000	; PLOK
+   1400  029e ????			  -	      .byte	%00111000	; PLOK
+   1401  029e ????			  -	      .byte	%00010000	; PLOK
+   1402  029e ????			  -	      .byte	%00000000	; PLOK
+   1403  029e ????			  -
+   1404  029e ????			  -			;byte %00000000 ; PLOK
+   1405  029e ????			  -
+   1406  029e ????			  -	      .byte	%00000000	; PLOK
+   1407  029e ????			  -	      .byte	%00111100	; PLOK
+   1408  029e ????			  -	      .byte	%00011100	; PLOK
+   1409  029e ????			  -	      .byte	%00001100	; PLOK
+   1410  029e ????			  -	      .byte	%00000110	; PLOK
+   1411  029e ????			  -	      .byte	%01111110	; PLOK
+   1412  029e ????			  -	      .byte	%00110000	; PLOK
+   1413  029e ????			  -	      .byte	%00000000	; PLOK
+   1414  029e ????			  -
+   1415  029e ????			  -			;byte %00000000 ; PLOK
+   1416  029e ????			  -
+   1417  029e ????			  -	      .byte	%00000000	; PLOK
+   1418  029e ????			  -	      .byte	%00111100	; PLOK
+   1419  029e ????			  -	      .byte	%01001110	; PLOK
+   1420  029e ????			  -	      .byte	%01101110	; PLOK
+   1421  029e ????			  -	      .byte	%00111100	; PLOK
+   1422  029e ????			  -	      .byte	%01100100	; PLOK
+   1423  029e ????			  -	      .byte	%00111000	; PLOK
+   1424  029e ????			  -	      .byte	%00000000	; PLOK
+   1425  029e ????			  -
+   1426  029e ????			  -			;byte %00000000 ; PLOK
+   1427  029e ????			  -
+   1428  029e ????			  -	      .byte	%00000000	; PLOK
+   1429  029e ????			  -	      .byte	%00011000	; PLOK
+   1430  029e ????			  -	      .byte	%00001100	; PLOK
+   1431  029e ????			  -	      .byte	%00011100	; PLOK
+   1432  029e ????			  -	      .byte	%00100110	; PLOK
+   1433  029e ????			  -	      .byte	%01001110	; PLOK
+   1434  029e ????			  -	      .byte	%00111100	; PLOK
+   1435  029e ????			  -	      .byte	%00000000	; PLOK
+   1436  029e ????			  -
+   1437  029e ????				      endif		; PLOK
+   1438  029e ????
+   1439  029e ????						; ### any characters that aren't font specific follow... 
+   1440  029e ????
+   1441  029e ????			  -	      ifconst	fontcharSPACE
+   1442  029e ????			  -			;byte %00000000 ; SYMBOLS
+   1443  029e ????			  -
+   1444  029e ????			  -	      .byte	%00000000	; SYMBOLS
+   1445  029e ????			  -	      .byte	%00000000	; SYMBOLS
+   1446  029e ????			  -	      .byte	%00000000	; SYMBOLS
+   1447  029e ????			  -	      .byte	%00000000	; SYMBOLS
+   1448  029e ????			  -	      .byte	%00000000	; SYMBOLS
+   1449  029e ????			  -	      .byte	%00000000	; SYMBOLS
+   1450  029e ????			  -	      .byte	%00000000	; SYMBOLS
+   1451  029e ????			  -	      .byte	%00000000	; SYMBOLS
+   1452  029e ????			  -
+   1453  029e ????			  -			;byte %00000000 ; SYMBOLS
+   1454  029e ????				      endif		; fontcharSPACE
+   1455  029e ????
+   1456  029e ????			  -	      ifconst	fontcharDOLLAR
+   1457  029e ????			  -			;byte %00000000 ; SYMBOLS
+   1458  029e ????			  -
+   1459  029e ????			  -	      .byte	%00000000	; SYMBOLS
+   1460  029e ????			  -	      .byte	%00010000	; SYMBOLS
+   1461  029e ????			  -	      .byte	%01111100	; SYMBOLS
+   1462  029e ????			  -	      .byte	%00010010	; SYMBOLS
+   1463  029e ????			  -	      .byte	%01111100	; SYMBOLS
+   1464  029e ????			  -	      .byte	%10010000	; SYMBOLS
+   1465  029e ????			  -	      .byte	%01111100	; SYMBOLS
+   1466  029e ????			  -	      .byte	%00010000	; SYMBOLS
+   1467  029e ????			  -
+   1468  029e ????			  -			;byte %00000000 ; SYMBOLS
+   1469  029e ????			  -
+   1470  029e ????				      endif		; fontcharDOLLAR
+   1471  029e ????
+   1472  029e ????			  -	      ifconst	fontcharPOUND
+   1473  029e ????			  -			;byte %00000000 ; SYMBOLS
+   1474  029e ????			  -
+   1475  029e ????			  -	      .byte	%01111110	; SYMBOLS
+   1476  029e ????			  -	      .byte	%01000000	; SYMBOLS
+   1477  029e ????			  -	      .byte	%00100000	; SYMBOLS
+   1478  029e ????			  -	      .byte	%00100000	; SYMBOLS
+   1479  029e ????			  -	      .byte	%01111000	; SYMBOLS
+   1480  029e ????			  -	      .byte	%00100000	; SYMBOLS
+   1481  029e ????			  -	      .byte	%00100010	; SYMBOLS
+   1482  029e ????			  -	      .byte	%00011100	; SYMBOLS
+   1483  029e ????			  -
+   1484  029e ????			  -			;byte %00000000 ; SYMBOLS
+   1485  029e ????			  -
+   1486  029e ????				      endif		; fontcharPOUND
+   1487  029e ????
+   1488  029e ????
+   1489  029e ????			  -	      ifconst	fontcharMRHAPPY
+   1490  029e ????			  -			;byte %00000000 ; SYMBOLS
+   1491  029e ????			  -
+   1492  029e ????			  -	      .byte	%00111100	; SYMBOLS
+   1493  029e ????			  -	      .byte	%01100110	; SYMBOLS
+   1494  029e ????			  -	      .byte	%01011010	; SYMBOLS
+   1495  029e ????			  -	      .byte	%01111110	; SYMBOLS
+   1496  029e ????			  -	      .byte	%01111110	; SYMBOLS
+   1497  029e ????			  -	      .byte	%01011010	; SYMBOLS
+   1498  029e ????			  -	      .byte	%01111110	; SYMBOLS
+   1499  029e ????			  -	      .byte	%00111100	; SYMBOLS
+   1500  029e ????			  -
+   1501  029e ????			  -			;byte %00000000 ; SYMBOLS
+   1502  029e ????			  -
+   1503  029e ????				      endif		; fontcharMRHAPPY
+   1504  029e ????
+   1505  029e ????			  -	      ifconst	fontcharMRSAD
+   1506  029e ????			  -			;byte %00000000 ; SYMBOLS
+   1507  029e ????			  -
+   1508  029e ????			  -	      .byte	%00111100	; SYMBOLS
+   1509  029e ????			  -	      .byte	%01011010	; SYMBOLS
+   1510  029e ????			  -	      .byte	%01100110	; SYMBOLS
+   1511  029e ????			  -	      .byte	%01111110	; SYMBOLS
+   1512  029e ????			  -	      .byte	%01111110	; SYMBOLS
+   1513  029e ????			  -	      .byte	%01011010	; SYMBOLS
+   1514  029e ????			  -	      .byte	%01111110	; SYMBOLS
+   1515  029e ????			  -	      .byte	%00111100	; SYMBOLS
+   1516  029e ????			  -
+   1517  029e ????			  -			;byte %00000000 ; SYMBOLS
+   1518  029e ????			  -
+   1519  029e ????				      endif		; fontcharMRSAD
+   1520  029e ????
+   1521  029e ????
+   1522  029e ????			  -	      ifconst	fontcharCOPYRIGHT
+   1523  029e ????			  -			;byte %00000000 ; SYMBOLS
+   1524  029e ????			  -
+   1525  029e ????			  -	      .byte	%00000000	; SYMBOLS
+   1526  029e ????			  -	      .byte	%00111000	; SYMBOLS
+   1527  029e ????			  -	      .byte	%01000100	; SYMBOLS
+   1528  029e ????			  -	      .byte	%10111010	; SYMBOLS
+   1529  029e ????			  -	      .byte	%10100010	; SYMBOLS
+   1530  029e ????			  -	      .byte	%10111010	; SYMBOLS
+   1531  029e ????			  -	      .byte	%01000100	; SYMBOLS
+   1532  029e ????			  -	      .byte	%00111000	; SYMBOLS
+   1533  029e ????			  -
+   1534  029e ????			  -			;byte %00000000 ; SYMBOLS
+   1535  029e ????			  -
+   1536  029e ????				      endif		; fontcharCOPYRIGHT
+   1537  029e ????
+   1538  029e ????
+   1539  029e ????			  -	      ifconst	fontcharFUJI
+   1540  029e ????			  -
+   1541  029e ????			  -			;byte %00000000 ; ** these commented-out blanks are for the preview generation program
+   1542  029e ????			  -
+   1543  029e ????			  -	      .byte	%01110000	; SYMBOLS
+   1544  029e ????			  -	      .byte	%01111001	; SYMBOLS
+   1545  029e ????			  -	      .byte	%00011101	; SYMBOLS
+   1546  029e ????			  -	      .byte	%00001101	; SYMBOLS
+   1547  029e ????			  -	      .byte	%00001101	; SYMBOLS
+   1548  029e ????			  -	      .byte	%00001101	; SYMBOLS
+   1549  029e ????			  -	      .byte	%00001101	; SYMBOLS
+   1550  029e ????			  -	      .byte	%00000000	; SYMBOLS
+   1551  029e ????			  -
+   1552  029e ????			  -			;byte %00000000 ; SYMBOLS
+   1553  029e ????			  -
+   1554  029e ????			  -	      .byte	%00001110	; SYMBOLS
+   1555  029e ????			  -	      .byte	%10011110	; SYMBOLS
+   1556  029e ????			  -	      .byte	%10111000	; SYMBOLS
+   1557  029e ????			  -	      .byte	%10110000	; SYMBOLS
+   1558  029e ????			  -	      .byte	%10110000	; SYMBOLS
+   1559  029e ????			  -	      .byte	%10110000	; SYMBOLS
+   1560  029e ????			  -	      .byte	%10110000	; SYMBOLS
+   1561  029e ????			  -	      .byte	%00000000	; SYMBOLS
+   1562  029e ????			  -
+   1563  029e ????			  -			;byte %00000000 ; SYMBOLS
+   1564  029e ????			  -
+   1565  029e ????				      endif		; fontcharFUJI
+   1566  029e ????
+   1567  029e ????
+   1568  029e ????			  -	      ifconst	fontcharHEART
+   1569  029e ????			  -			;byte %00000000 ; SYMBOLS
+   1570  029e ????			  -
+   1571  029e ????			  -	      .byte	%00010000	; SYMBOLS
+   1572  029e ????			  -	      .byte	%00111000	; SYMBOLS
+   1573  029e ????			  -	      .byte	%01111100	; SYMBOLS
+   1574  029e ????			  -	      .byte	%01111100	; SYMBOLS
+   1575  029e ????			  -	      .byte	%11111110	; SYMBOLS
+   1576  029e ????			  -	      .byte	%11111110	; SYMBOLS
+   1577  029e ????			  -	      .byte	%11101110	; SYMBOLS
+   1578  029e ????			  -	      .byte	%01000100	; SYMBOLS
+   1579  029e ????			  -
+   1580  029e ????			  -			;byte %00000000 ; SYMBOLS
+   1581  029e ????			  -
+   1582  029e ????				      endif		; fontcharHEART
+   1583  029e ????
+   1584  029e ????			  -	      ifconst	fontcharDIAMOND
+   1585  029e ????			  -			;byte %00000000 ; SYMBOLS
+   1586  029e ????			  -
+   1587  029e ????			  -	      .byte	%00010000	; SYMBOLS
+   1588  029e ????			  -	      .byte	%00111000	; SYMBOLS
+   1589  029e ????			  -	      .byte	%01111100	; SYMBOLS
+   1590  029e ????			  -	      .byte	%11111110	; SYMBOLS
+   1591  029e ????			  -	      .byte	%11111110	; SYMBOLS
+   1592  029e ????			  -	      .byte	%01111100	; SYMBOLS
+   1593  029e ????			  -	      .byte	%00111000	; SYMBOLS
+   1594  029e ????			  -	      .byte	%00010000	; SYMBOLS
+   1595  029e ????			  -
+   1596  029e ????			  -			;byte %00000000 ; SYMBOLS
+   1597  029e ????			  -
+   1598  029e ????				      endif		; fontcharDIAMOND
+   1599  029e ????
+   1600  029e ????			  -	      ifconst	fontcharSPADE
+   1601  029e ????			  -			;byte %00000000 ; SYMBOLS
+   1602  029e ????			  -
+   1603  029e ????			  -	      .byte	%00111000	; SYMBOLS
+   1604  029e ????			  -	      .byte	%00010000	; SYMBOLS
+   1605  029e ????			  -	      .byte	%01010100	; SYMBOLS
+   1606  029e ????			  -	      .byte	%11111110	; SYMBOLS
+   1607  029e ????			  -	      .byte	%11111110	; SYMBOLS
+   1608  029e ????			  -	      .byte	%01111100	; SYMBOLS
+   1609  029e ????			  -	      .byte	%00111000	; SYMBOLS
+   1610  029e ????			  -	      .byte	%00010000	; SYMBOLS
+   1611  029e ????			  -
+   1612  029e ????			  -			;byte %00000000 ; SYMBOLS
+   1613  029e ????			  -
+   1614  029e ????				      endif		; fontcharSPADE
+   1615  029e ????
+   1616  029e ????			  -	      ifconst	fontcharCLUB
+   1617  029e ????			  -			;byte %00000000 ; SYMBOLS
+   1618  029e ????			  -
+   1619  029e ????			  -	      .byte	%00111000	; SYMBOLS
+   1620  029e ????			  -	      .byte	%00010000	; SYMBOLS
+   1621  029e ????			  -	      .byte	%11010110	; SYMBOLS
+   1622  029e ????			  -	      .byte	%11111110	; SYMBOLS
+   1623  029e ????			  -	      .byte	%11010110	; SYMBOLS
+   1624  029e ????			  -	      .byte	%00111000	; SYMBOLS
+   1625  029e ????			  -	      .byte	%00111000	; SYMBOLS
+   1626  029e ????			  -	      .byte	%00000000	; SYMBOLS
+   1627  029e ????			  -
+   1628  029e ????			  -			;byte %00000000 ; SYMBOLS
+   1629  029e ????			  -
+   1630  029e ????				      endif		; fontcharCLUB
+   1631  029e ????
+   1632  029e ????
+   1633  029e ????			  -	      ifconst	fontcharCOLON
+   1634  029e ????			  -			;byte %00000000 ; SYMBOLS
+   1635  029e ????			  -
+   1636  029e ????			  -	      .byte	%00000000	; SYMBOLS
+   1637  029e ????			  -	      .byte	%00011000	; SYMBOLS
+   1638  029e ????			  -	      .byte	%00011000	; SYMBOLS
+   1639  029e ????			  -	      .byte	%00000000	; SYMBOLS
+   1640  029e ????			  -	      .byte	%00000000	; SYMBOLS
+   1641  029e ????			  -	      .byte	%00011000	; SYMBOLS
+   1642  029e ????			  -	      .byte	%00011000	; SYMBOLS
+   1643  029e ????			  -	      .byte	%00000000	; SYMBOLS
+   1644  029e ????			  -
+   1645  029e ????			  -			;byte %00000000 ; SYMBOLS
+   1646  029e ????			  -
+   1647  029e ????				      endif		; fontcharCOLON
+   1648  029e ????
+   1649  029e ????
+   1650  029e ????			  -	      ifconst	fontcharBLOCK
+   1651  029e ????			  -
+   1652  029e ????			  -			;byte %00000000 ; SYMBOLS
+   1653  029e ????			  -
+   1654  029e ????			  -	      .byte	%11111111	; SYMBOLS
+   1655  029e ????			  -	      .byte	%11111111	; SYMBOLS
+   1656  029e ????			  -	      .byte	%11111111	; SYMBOLS
+   1657  029e ????			  -	      .byte	%11111111	; SYMBOLS
+   1658  029e ????			  -	      .byte	%11111111	; SYMBOLS
+   1659  029e ????			  -	      .byte	%11111111	; SYMBOLS
+   1660  029e ????			  -	      .byte	%11111111	; SYMBOLS
+   1661  029e ????			  -	      .byte	%11111111	; SYMBOLS
+   1662  029e ????			  -
+   1663  029e ????			  -			;byte %00000000 ; SYMBOLS
+   1664  029e ????			  -
+   1665  029e ????				      endif		; fontcharBLOCK
+   1666  029e ????
+   1667  029e ????			  -	      ifconst	fontcharUNDERLINE
+   1668  029e ????			  -
+   1669  029e ????			  -			;byte %00000000 ; SYMBOLS
+   1670  029e ????			  -
+   1671  029e ????			  -	      .byte	%11111111	; SYMBOLS
+   1672  029e ????			  -	      .byte	%00000000	; SYMBOLS
+   1673  029e ????			  -	      .byte	%00000000	; SYMBOLS
+   1674  029e ????			  -	      .byte	%00000000	; SYMBOLS
+   1675  029e ????			  -	      .byte	%00000000	; SYMBOLS
+   1676  029e ????			  -	      .byte	%00000000	; SYMBOLS
+   1677  029e ????			  -	      .byte	%00000000	; SYMBOLS
+   1678  029e ????			  -	      .byte	%00000000	; SYMBOLS
+   1679  029e ????			  -
+   1680  029e ????			  -			;byte %00000000 ; SYMBOLS
+   1681  029e ????			  -
+   1682  029e ????				      endif		; fontcharUNDERLINE
+   1683  029e ????
+   1684  029e ????			  -	      ifconst	fontcharARISIDE
+   1685  029e ????			  -			;byte %00000000 ; SYMBOLS
+   1686  029e ????			  -
+   1687  029e ????			  -	      .byte	%00000000	; SYMBOLS
+   1688  029e ????			  -	      .byte	%00101010	; SYMBOLS
+   1689  029e ????			  -	      .byte	%00101010	; SYMBOLS
+   1690  029e ????			  -	      .byte	%00101100	; SYMBOLS
+   1691  029e ????			  -	      .byte	%01111111	; SYMBOLS
+   1692  029e ????			  -	      .byte	%00110111	; SYMBOLS
+   1693  029e ????			  -	      .byte	%00000010	; SYMBOLS
+   1694  029e ????			  -	      .byte	%00000001	; SYMBOLS
+   1695  029e ????			  -
+   1696  029e ????			  -			;byte %00000000 ; SYMBOLS
+   1697  029e ????			  -
+   1698  029e ????				      endif		; fontcharARISIDE
+   1699  029e ????
+   1700  029e ????			  -	      ifconst	fontcharARIFACE
+   1701  029e ????			  -			;byte %00000000 ; SYMBOLS
+   1702  029e ????			  -
+   1703  029e ????			  -	      .byte	%00001000	; SYMBOLS
+   1704  029e ????			  -	      .byte	%00011100	; SYMBOLS
+   1705  029e ????			  -	      .byte	%00111110	; SYMBOLS
+   1706  029e ????			  -	      .byte	%00101010	; SYMBOLS
+   1707  029e ????			  -	      .byte	%00011100	; SYMBOLS
+   1708  029e ????			  -	      .byte	%01010100	; SYMBOLS
+   1709  029e ????			  -	      .byte	%00100100	; SYMBOLS
+   1710  029e ????			  -	      .byte	%00000010	; SYMBOLS
+   1711  029e ????			  -
+   1712  029e ????			  -			;byte %00000000 ; SYMBOLS
+   1713  029e ????			  -
+   1714  029e ????			  -
+   1715  029e ????				      endif		; fontcharARIRACE
+   1716  029e ????
+------- FILE titlescreen.asm
+    297  029e ????				      endif
+    298  029e ????
+    299  029e ????			  -	      ifconst	mk_gameselect_on
+    300  029e ????			  -	      include	"titlescreen/gameselect_image.asm"
+    301  029e ????				      endif
+    302  029e ????
+    303  029e ????				      ifconst	mk_player_on
+------- FILE titlescreen/asm/player_kernel.asm LEVEL 2 PASS 3
+      0  029e ????				      include	"titlescreen/asm/player_kernel.asm"
+      1  029e ????						; The player minikernel - display 2 different players, 1 line resolution
+      2  029e ????
+      3  029e ????			   draw_player_display
+      4  029e ????
+titlescreen/asm/player_kernel.asm (5): error: Unknown Mnemonic 'jsr'.
+      5  029e ????				      jsr	TSpositionp0p1
+      6  029e ????
+      7  029e ????			   save_variables
+titlescreen/asm/player_kernel.asm (8): error: Unknown Mnemonic 'lda'.
+      8  029e ????				      lda	player0y
+titlescreen/asm/player_kernel.asm (9): error: Unknown Mnemonic 'sta'.
+      9  029e ????				      sta	temp2
+titlescreen/asm/player_kernel.asm (10): error: Unknown Mnemonic 'lda'.
+     10  029e ????				      lda	player1y
+titlescreen/asm/player_kernel.asm (11): error: Unknown Mnemonic 'sta'.
+     11  029e ????				      sta	temp3
+     12  029e ????
+     13  029e ????			   init_variables
+titlescreen/asm/player_kernel.asm (14): error: Unknown Mnemonic 'lda'.
+     14  029e ????				      lda	#(bmp_player_window+1)
+titlescreen/asm/player_kernel.asm (15): error: Unknown Mnemonic 'sta'.
+     15  029e ????				      sta	temp1	; our line count
+titlescreen/asm/player_kernel.asm (16): error: Unknown Mnemonic 'lda'.
+     16  029e ????				      lda	#1
+titlescreen/asm/player_kernel.asm (17): error: Unknown Mnemonic 'sta'.
+     17  029e ????				      sta	VDELP0
+titlescreen/asm/player_kernel.asm (18): error: Unknown Mnemonic 'lda'.
+     18  029e ????				      lda	#0
+titlescreen/asm/player_kernel.asm (19): error: Unknown Mnemonic 'sta'.
+     19  029e ????				      sta	GRP1
+titlescreen/asm/player_kernel.asm (20): error: Unknown Mnemonic 'sta'.
+     20  029e ????				      sta	GRP0
+titlescreen/asm/player_kernel.asm (21): error: Unknown Mnemonic 'lda'.
+     21  029e ????				      lda	bmp_player0_refp
+titlescreen/asm/player_kernel.asm (22): error: Unknown Mnemonic 'sta'.
+     22  029e ????				      sta	REFP0
+titlescreen/asm/player_kernel.asm (23): error: Unknown Mnemonic 'lda'.
+     23  029e ????				      lda	bmp_player1_refp
+titlescreen/asm/player_kernel.asm (24): error: Unknown Mnemonic 'sta'.
+     24  029e ????				      sta	REFP1
+titlescreen/asm/player_kernel.asm (25): error: Unknown Mnemonic 'lda'.
+     25  029e ????				      lda	bmp_player0_nusiz
+titlescreen/asm/player_kernel.asm (26): error: Unknown Mnemonic 'sta'.
+     26  029e ????				      sta	NUSIZ0
+titlescreen/asm/player_kernel.asm (27): error: Unknown Mnemonic 'lda'.
+     27  029e ????				      lda	bmp_player1_nusiz
+titlescreen/asm/player_kernel.asm (28): error: Unknown Mnemonic 'sta'.
+     28  029e ????				      sta	NUSIZ1
+titlescreen/asm/player_kernel.asm (29): error: Unknown Mnemonic 'lda'.
+     29  029e ????				      lda	#(bmp_player0_height-1)
+titlescreen/asm/player_kernel.asm (30): error: Unknown Mnemonic 'sta'.
+     30  029e ????				      sta	player0height
+titlescreen/asm/player_kernel.asm (31): error: Unknown Mnemonic 'lda'.
+     31  029e ????				      lda	#(bmp_player1_height-1)
+titlescreen/asm/player_kernel.asm (32): error: Unknown Mnemonic 'sta'.
+     32  029e ????				      sta	player1height
+     33  029e ????
+titlescreen/asm/player_kernel.asm (34): error: Unknown Mnemonic 'lda'.
+     34  029e ????				      lda	#<bmp_player0
+     35  029e ????			  -	      ifconst	bmp_player0_index
+     36  029e ????			  -	      clc
+     37  029e ????			  -	      adc	bmp_player0_index
+     38  029e ????				      endif
+titlescreen/asm/player_kernel.asm (39): error: Unknown Mnemonic 'sta'.
+     39  029e ????				      sta	player0pointer
+titlescreen/asm/player_kernel.asm (40): error: Unknown Mnemonic 'lda'.
+     40  029e ????				      lda	#>bmp_player0
+     41  029e ????			  -	      ifconst	bmp_player0_index
+     42  029e ????			  -	      adc	#0
+     43  029e ????				      endif
+titlescreen/asm/player_kernel.asm (44): error: Unknown Mnemonic 'sta'.
+     44  029e ????				      sta	player0pointer+1
+     45  029e ????
+titlescreen/asm/player_kernel.asm (46): error: Unknown Mnemonic 'lda'.
+     46  029e ????				      lda	#<bmp_color_player0
+     47  029e ????			  -	      ifconst	bmp_player0_index
+     48  029e ????			  -	      clc
+     49  029e ????			  -	      adc	bmp_player0_index
+     50  029e ????				      endif
+titlescreen/asm/player_kernel.asm (51): error: Unknown Mnemonic 'sta'.
+     51  029e ????				      sta	player0color
+titlescreen/asm/player_kernel.asm (52): error: Unknown Mnemonic 'lda'.
+     52  029e ????				      lda	#>bmp_color_player0
+     53  029e ????			  -	      ifconst	bmp_player0_index
+     54  029e ????			  -	      adc	#0
+     55  029e ????				      endif
+titlescreen/asm/player_kernel.asm (56): error: Unknown Mnemonic 'sta'.
+     56  029e ????				      sta	player0color+1
+     57  029e ????
+     58  029e ????
+titlescreen/asm/player_kernel.asm (59): error: Unknown Mnemonic 'lda'.
+     59  029e ????				      lda	#<bmp_player1
+     60  029e ????			  -	      ifconst	bmp_player1_index
+     61  029e ????			  -	      clc
+     62  029e ????			  -	      adc	bmp_player1_index
+     63  029e ????				      endif
+titlescreen/asm/player_kernel.asm (64): error: Unknown Mnemonic 'sta'.
+     64  029e ????				      sta	player1pointer
+titlescreen/asm/player_kernel.asm (65): error: Unknown Mnemonic 'lda'.
+     65  029e ????				      lda	#>bmp_player1
+     66  029e ????			  -	      ifconst	bmp_player1_index
+     67  029e ????			  -	      adc	#0
+     68  029e ????				      endif
+titlescreen/asm/player_kernel.asm (69): error: Unknown Mnemonic 'sta'.
+     69  029e ????				      sta	player1pointer+1
+     70  029e ????
+titlescreen/asm/player_kernel.asm (71): error: Unknown Mnemonic 'lda'.
+     71  029e ????				      lda	#<bmp_color_player1
+     72  029e ????			  -	      ifconst	bmp_player1_index
+     73  029e ????			  -	      clc
+     74  029e ????			  -	      adc	bmp_player1_index
+     75  029e ????				      endif
+titlescreen/asm/player_kernel.asm (76): error: Unknown Mnemonic 'sta'.
+     76  029e ????				      sta	player1color
+titlescreen/asm/player_kernel.asm (77): error: Unknown Mnemonic 'lda'.
+     77  029e ????				      lda	#>bmp_color_player1
+     78  029e ????			  -	      ifconst	bmp_player1_index
+     79  029e ????			  -	      adc	#0
+     80  029e ????				      endif
+titlescreen/asm/player_kernel.asm (81): error: Unknown Mnemonic 'sta'.
+     81  029e ????				      sta	player1color+1
+     82  029e ????
+titlescreen/asm/player_kernel.asm (83): error: Unknown Mnemonic 'lda'.
+     83  029e ????				      lda	#bmp_player_kernellines
+titlescreen/asm/player_kernel.asm (84): error: Unknown Mnemonic 'sta'.
+     84  029e ????				      sta	temp4
+titlescreen/asm/player_kernel.asm (85): error: Unknown Mnemonic 'lda'.
+     85  029e ????				      lda	#0
+     86  029e ????
+     87  029e ????			   draw_players
+titlescreen/asm/player_kernel.asm (88): error: Unknown Mnemonic 'sta'.
+     88  029e ????				      sta	WSYNC
+titlescreen/asm/player_kernel.asm (89): error: Unknown Mnemonic 'sta'.
+     89  029e ????				      sta	GRP1	;3
+titlescreen/asm/player_kernel.asm (90): error: Unknown Mnemonic 'lda'.
+     90  029e ????				      lda	(player1color),y	;5
+titlescreen/asm/player_kernel.asm (91): error: Unknown Mnemonic 'sta'.
+     91  029e ????				      sta	COLUP1	;3
+titlescreen/asm/player_kernel.asm (92): error: Unknown Mnemonic 'stx'.
+     92  029e ????				      stx	COLUP0	;3
+     93  029e ????
+titlescreen/asm/player_kernel.asm (94): error: Unknown Mnemonic 'lda'.
+     94  029e ????				      lda	player0height	;3
+titlescreen/asm/player_kernel.asm (95): error: Unknown Mnemonic 'dcp'.
+     95  029e ????				      dcp	player0y	;5
+titlescreen/asm/player_kernel.asm (96): error: Unknown Mnemonic 'bcc'.
+     96  029e ????				      bcc	skipdrawP0	;2/3
+titlescreen/asm/player_kernel.asm (97): error: Unknown Mnemonic 'ldy'.
+     97  029e ????				      ldy	player0y	;3
+titlescreen/asm/player_kernel.asm (98): error: Unknown Mnemonic 'lda'.
+     98  029e ????				      lda	(player0pointer),y	;5+
+     99  029e ????			   continueP0
+titlescreen/asm/player_kernel.asm (100): error: Unknown Mnemonic 'sta'.
+    100  029e ????				      sta	GRP0	;3
+    101  029e ????
+titlescreen/asm/player_kernel.asm (102): error: Unknown Mnemonic 'lax'.
+    102  029e ????				      lax	(player0color),y	;5+
+    103  029e ????						;=29++
+    104  029e ????
+    105  029e ????			  -	      REPEAT	(bmp_player_kernellines-1)
+    106  029e ????			  -	      sta	WSYNC
+    107  029e ????				      REPEND
+titlescreen/asm/player_kernel.asm (108): error: Unknown Mnemonic 'lda'.
+    108  029e ????				      lda	player1height	;3
+titlescreen/asm/player_kernel.asm (109): error: Unknown Mnemonic 'dcp'.
+    109  029e ????				      dcp	player1y	;5
+titlescreen/asm/player_kernel.asm (110): error: Unknown Mnemonic 'bcc'.
+    110  029e ????				      bcc	skipdrawP1	;2/3
+titlescreen/asm/player_kernel.asm (111): error: Unknown Mnemonic 'ldy'.
+    111  029e ????				      ldy	player1y	;3
+titlescreen/asm/player_kernel.asm (112): error: Unknown Mnemonic 'lda'.
+    112  029e ????				      lda	(player1pointer),y	;5
+    113  029e ????			   continueP1
+    114  029e ????
+titlescreen/asm/player_kernel.asm (115): error: Unknown Mnemonic 'dec'.
+    115  029e ????				      dec	temp1	;5
+titlescreen/asm/player_kernel.asm (116): error: Unknown Mnemonic 'bne'.
+    116  029e ????				      bne	draw_players	;2/3
+titlescreen/asm/player_kernel.asm (117): error: Unknown Mnemonic 'sta'.
+    117  029e ????				      sta	WSYNC
+titlescreen/asm/player_kernel.asm (118): error: Unknown Mnemonic 'sta'.
+    118  029e ????				      sta	GRP1	;3
+titlescreen/asm/player_kernel.asm (119): error: Unknown Mnemonic 'sta'.
+    119  029e ????				      sta	GRP0	;3
+    120  029e ????						;=8
+titlescreen/asm/player_kernel.asm (121): error: Unknown Mnemonic 'lda'.
+    121  029e ????				      lda	#0
+titlescreen/asm/player_kernel.asm (122): error: Unknown Mnemonic 'sta'.
+    122  029e ????				      sta	GRP0
+titlescreen/asm/player_kernel.asm (123): error: Unknown Mnemonic 'sta'.
+    123  029e ????				      sta	GRP1
+titlescreen/asm/player_kernel.asm (124): error: Unknown Mnemonic 'sta'.
+    124  029e ????				      sta	REFP0
+titlescreen/asm/player_kernel.asm (125): error: Unknown Mnemonic 'sta'.
+    125  029e ????				      sta	REFP1
+titlescreen/asm/player_kernel.asm (126): error: Unknown Mnemonic 'sta'.
+    126  029e ????				      sta	VDELP1
+    127  029e ????
+    128  029e ????			   restore_variables
+titlescreen/asm/player_kernel.asm (129): error: Unknown Mnemonic 'lda'.
+    129  029e ????				      lda	temp2
+titlescreen/asm/player_kernel.asm (130): error: Unknown Mnemonic 'sta'.
+    130  029e ????				      sta	player0y
+titlescreen/asm/player_kernel.asm (131): error: Unknown Mnemonic 'lda'.
+    131  029e ????				      lda	temp3
+titlescreen/asm/player_kernel.asm (132): error: Unknown Mnemonic 'sta'.
+    132  029e ????				      sta	player1y
+    133  029e ????
+titlescreen/asm/player_kernel.asm (134): error: Unknown Mnemonic 'rts'.
+    134  029e ????				      rts
+    135  029e ????
+    136  029e ????			   skipdrawP0
+titlescreen/asm/player_kernel.asm (137): error: Unknown Mnemonic 'lda'.
+    137  029e ????				      lda	#0	;2
+titlescreen/asm/player_kernel.asm (138): error: Unknown Mnemonic 'tay'.
+    138  029e ????				      tay		;2
+titlescreen/asm/player_kernel.asm (139): error: Unknown Mnemonic 'jmp'.
+    139  029e ????				      jmp	continueP0	;5
+    140  029e ????
+    141  029e ????			   skipdrawP1
+titlescreen/asm/player_kernel.asm (142): error: Unknown Mnemonic 'lda'.
+    142  029e ????				      lda	#0	;2
+titlescreen/asm/player_kernel.asm (143): error: Unknown Mnemonic 'tay'.
+    143  029e ????				      tay		;2
+titlescreen/asm/player_kernel.asm (144): error: Unknown Mnemonic 'jmp'.
+    144  029e ????				      jmp	continueP1	;5
+    145  029e ????
+    146  029e ????
+    147  029e ????			  -	      if	>. != >[.+$55]
+    148  029e ????			  -	      align	256
+    149  029e ????				      endif
+    150  029e ????
+    151  029e ????			   TSpositionp0p1
+titlescreen/asm/player_kernel.asm (152): error: Unknown Mnemonic 'ldx'.
+    152  029e ????				      ldx	#1
+titlescreen/asm/player_kernel.asm (153): error: Unknown Mnemonic 'lda'.
+    153  029e ????				      lda	player0x
+titlescreen/asm/player_kernel.asm (154): error: Unknown Mnemonic 'sta'.
+    154  029e ????				      sta	aux5
+titlescreen/asm/player_kernel.asm (155): error: Unknown Mnemonic 'lda'.
+    155  029e ????				      lda	player1x
+titlescreen/asm/player_kernel.asm (156): error: Unknown Mnemonic 'sta'.
+    156  029e ????				      sta	aux6
+    157  029e ????			   TSpositionp0p1Loop
+titlescreen/asm/player_kernel.asm (158): error: Unknown Mnemonic 'lda'.
+    158  029e ????				      lda	aux5,x
+titlescreen/asm/player_kernel.asm (159): error: Unknown Mnemonic 'clc'.
+    159  029e ????				      clc
+titlescreen/asm/player_kernel.asm (160): error: Unknown Mnemonic 'adc'.
+    160  029e ????				      adc	TSadjust,x
+titlescreen/asm/player_kernel.asm (161): error: Unknown Mnemonic 'cmp'.
+    161  029e ????				      cmp	#161
+titlescreen/asm/player_kernel.asm (162): error: Unknown Mnemonic 'bcc'.
+    162  029e ????				      bcc	TSskipadjust
+titlescreen/asm/player_kernel.asm (163): error: Unknown Mnemonic 'sec'.
+    163  029e ????				      sec
+titlescreen/asm/player_kernel.asm (164): error: Unknown Mnemonic 'sbc'.
+    164  029e ????				      sbc	#160
+    165  029e ????			   TSskipadjust
+titlescreen/asm/player_kernel.asm (166): error: Unknown Mnemonic 'sta'.
+    166  029e ????				      sta	aux5,x
+titlescreen/asm/player_kernel.asm (167): error: Unknown Mnemonic 'sta'.
+    167  029e ????				      sta	WSYNC
+titlescreen/asm/player_kernel.asm (168): error: Unknown Mnemonic 'sta'.
+    168  029e ????				      sta	HMCLR	; clear out HMP*
+titlescreen/asm/player_kernel.asm (169): error: Unknown Mnemonic 'SLEEP'.
+    169  029e ????				      SLEEP	2
+    170  029e ????			   TSHorPosLoop 		;     5
+titlescreen/asm/player_kernel.asm (171): error: Unknown Mnemonic 'lda'.
+    171  029e ????				      lda	aux5,x	;+4   9
+titlescreen/asm/player_kernel.asm (172): error: Unknown Mnemonic 'sec'.
+    172  029e ????				      sec		;+2  11
+    173  029e ????			   TSDivLoop
+titlescreen/asm/player_kernel.asm (174): error: Unknown Mnemonic 'sbc'.
+    174  029e ????				      sbc	#15
+titlescreen/asm/player_kernel.asm (175): error: Unknown Mnemonic 'bcs'.
+    175  029e ????				      bcs	TSDivLoop	;+4  15
+titlescreen/asm/player_kernel.asm (176): error: Unknown Mnemonic 'sta'.
+    176  029e ????				      sta	stack1,X	;+4  19
+titlescreen/asm/player_kernel.asm (177): error: Unknown Mnemonic 'sta'.
+    177  029e ????				      sta	RESP0,X	;+4  23
+titlescreen/asm/player_kernel.asm (178): error: Unknown Mnemonic 'sta'.
+    178  029e ????				      sta	WSYNC
+    179  029e ????
+titlescreen/asm/player_kernel.asm (180): error: Unknown Mnemonic 'ldy'.
+    180  029e ????				      ldy	stack1,X	;+4
+titlescreen/asm/player_kernel.asm (181): error: Unknown Mnemonic 'lda'.
+    181  029e ????				      lda	TSrepostable-256,Y	;+4
+titlescreen/asm/player_kernel.asm (182): error: Unknown Mnemonic 'sta'.
+    182  029e ????				      sta	HMP0,X	;+4
+    183  029e ????						;=12
+titlescreen/asm/player_kernel.asm (184): error: Unknown Mnemonic 'ldy'.
+    184  029e ????				      ldy	#10	;+2
+    185  029e ????			   wastetimeloop1
+titlescreen/asm/player_kernel.asm (186): error: Unknown Mnemonic 'dey'.
+    186  029e ????				      dey		;2
+titlescreen/asm/player_kernel.asm (187): error: Unknown Mnemonic 'bpl'.
+    187  029e ????				      bpl	wastetimeloop1	;3/2
+titlescreen/asm/player_kernel.asm (188): error: Unknown Mnemonic 'sleep'.
+    188  029e ????				      sleep	2
+titlescreen/asm/player_kernel.asm (189): error: Unknown Mnemonic 'sta'.
+    189  029e ????				      sta	HMOVE
+titlescreen/asm/player_kernel.asm (190): error: Unknown Mnemonic 'dex'.
+    190  029e ????				      dex
+titlescreen/asm/player_kernel.asm (191): error: Unknown Mnemonic 'bpl'.
+    191  029e ????				      bpl	TSpositionp0p1Loop
+titlescreen/asm/player_kernel.asm (192): error: Unknown Mnemonic 'rts'.
+    192  029e ????				      rts
+    193  029e ????
+    194  029e ????	       80 70 60 50*	      .byte.b	$80,$70,$60,$50,$40,$30,$20,$10,$00
+    195  02a7 ????	       f0 e0 d0 c0*	      .byte.b	$F0,$E0,$D0,$C0,$B0,$A0,$90
+    196  02ae ????			   TSrepostable
+    197  02ae ????
+    198  02ae ????			   TSadjust
+    199  02ae ????	       09 11		      .byte.b	9,17
+    200  02b0 ????
+    201  02b0 ????						; DPC doesn't have these adjacent in memory. Ughh.
+    202  02b0 ????			   TSregister
+    203  02b0 ????	       00 00		      .byte.b	player0x,player1x
+    204  02b2 ????
+    205  02b2 ????						;echo "size: ",(TSrepostable-TSpositionp0p1)
+    206  02b2 ????
+    207  02b2 ????
+------- FILE titlescreen.asm
+    305  02b2 ????				      endif		;mk_player_on
+    306  02b2 ????
+    307  02b2 ????

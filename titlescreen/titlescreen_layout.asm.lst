@@ -1,0 +1,7 @@
+------- FILE titlescreen_layout.asm LEVEL 1 PASS 1
+      1  0000					      MAC	titlescreenlayout
+      2  0000					      draw_96x2_2
+      3  0000					      draw_space	25
+      4  0000					      draw_96x2_3
+      5  0000					      ENDM
+      6  0000 ????
