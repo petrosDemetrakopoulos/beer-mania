@@ -1,5 +1,5 @@
  set romsize 16k
- set kernel_options player1colors playercolors pfcolors
+ set kernel_options player1colors pfcolors no_blank_lines
  set optimization inlinerand
 
    ;  Standard used in North America and most of South America.
@@ -33,15 +33,9 @@
 
  const pfscore = 1
  pfscore1 = %10101010
-
- scorecolor=$8a
- pfscorecolor = $8a
-
-resettitlepage
- frame=0
- player0x=50
- player0y=11
- addvalue=1
+ COLUBK = $CE
+ 
+ scorecolor=$B4
 
 titlepage
  gosub titledrawscreen bank2
@@ -62,31 +56,31 @@ gamestart
  player1y = 20
 
  playfield:
-................................
-................................
-................................
-................................
-................................
-................................
-................................
-................................
-................................
-................................
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 end
 
  pfcolors:
-   $CA
-   $CA 
-   $CA
-   $CA
-   $CA
-   $CA
-   $CA
-   $CA
-   $CA
-   $CA
-   $CA
+   $9E
+   $9E 
+   $9E
+   $9E
+   $9E
+   $9E
+   $9E
+   $9E
+   $9E
+   $9E
+   $9E
 end
 
  player0:
@@ -204,18 +198,6 @@ end
 	 %00011000
 	 %00011000
 	 %00011000
-end
-   if f = 30 then player0color:
-    $84;
-    $84;
-    $84;
-    $B4;
-    $B4;
-    $B4;
-    $FE;
-    $FE;
-    $FE;
-    $FE;
 end
   
   player1y = player1y + 1

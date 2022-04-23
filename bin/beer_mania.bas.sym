@@ -2,39 +2,38 @@
 0.$CA                    d03f                  
 0.21stcentury            0001                  
 0.__Game_Over_Setup      d000              (R )
-0.condpart0              90a8                  
-0.condpart1              90b2              (R )
-0.condpart10             91bb                  
-0.condpart11             91dc                  
-0.condpart12             91e3                  
-0.condpart13             91ec                  
-0.condpart14             91f5                  
-0.condpart15             91fd                  
-0.condpart16             9207                  
-0.condpart17             9211                  
-0.condpart18             9219                  
-0.condpart19             9249                  
-0.condpart2              9147                  
-0.condpart20             924d                  
-0.condpart21             9270                  
-0.condpart22             d05b                  
-0.condpart23             d065              (R )
-0.condpart3              9159                  
-0.condpart4              9167                  
-0.condpart5              9179                  
-0.condpart6              9187                  
-0.condpart7              9199                  
-0.condpart8              91a9                  
-0.condpart9              91b2                  
-0.continuelastP0         f15a              (R )
+0.condpart0              9098                  
+0.condpart1              90a2              (R )
+0.condpart10             91be                  
+0.condpart11             91c5                  
+0.condpart12             91ce                  
+0.condpart13             91d7                  
+0.condpart14             91df                  
+0.condpart15             91e9                  
+0.condpart16             91f3                  
+0.condpart17             91fb                  
+0.condpart18             922b                  
+0.condpart19             922f                  
+0.condpart2              9137                  
+0.condpart20             9252                  
+0.condpart21             d05b                  
+0.condpart22             d065              (R )
+0.condpart3              9149                  
+0.condpart4              9157                  
+0.condpart5              9169                  
+0.condpart6              9177                  
+0.condpart7              918b                  
+0.condpart8              9194                  
+0.condpart9              919d                  
+0.continuelastP0         f159              (R )
 0.continuelastP1         f12d              (R )
-0.continueP0             f0a3              (R )
+0.continueP0             f0a2              (R )
 0.continueP1             f07e              (R )
 0.endkerloop             f106              (R )
-0.enterfromNBL           f107                  
-0.gameloop               913f              (R )
+0.enterfromNBL           f107              (R )
+0.gameloop               912f              (R )
 0.gameover_loop          d03f              (R )
-0.gamestart              90bc              (R )
+0.gamestart              90ac              (R )
 0.kerloop                f05b                  
 0.L00                    9000                  
 0.L01                    9000                  
@@ -55,98 +54,91 @@
 0.L023                   9074                  
 0.L024                   9078                  
 0.L025                   907c                  
-0.L026                   9080                  
-0.L027                   9084                  
-0.L028                   9088                  
-0.L029                   908c                  
+0.L026                   9094                  
+0.L027                   90a9                  
+0.L028                   90ac                  
+0.L029                   90ac                  
 0.L03                    9000                  
-0.L030                   90a4                  
-0.L031                   90b9                  
-0.L032                   90bc                  
-0.L033                   90bc                  
-0.L034                   90bc                  
+0.L030                   90ac                  
+0.L031                   90b2                  
+0.L032                   90b6                  
+0.L033                   90ba                  
+0.L034                   90be                  
 0.L035                   90c2                  
-0.L036                   90c6                  
-0.L037                   90ca                  
-0.L038                   90ce                  
-0.L039                   90d2                  
+0.L036                   90fb                  
+0.L037                   9107                  
+0.L038                   9113                  
+0.L039                   911f                  
 0.L04                    9000                  
-0.L040                   910b                  
-0.L041                   9117                  
-0.L042                   9123                  
-0.L043                   912f                  
-0.L044                   9137                  
-0.L045                   913f                  
-0.L046                   9141                  
-0.L047                   9153                  
-0.L048                   9161                  
-0.L049                   9173                  
+0.L040                   9127                  
+0.L041                   912f                  
+0.L042                   9131                  
+0.L043                   9143                  
+0.L044                   9151                  
+0.L045                   9163                  
+0.L046                   9171                  
+0.L047                   9183                  
+0.L048                   9185                  
+0.L049                   918f                  
 0.L05                    901a                  
-0.L050                   9181                  
-0.L051                   9193                  
-0.L052                   91a1                  
-0.L053                   91a3                  
-0.L054                   91ad                  
-0.L055                   91b6                  
-0.L056                   91bf                  
-0.L057                   91d7                  
-0.L058                   91de                  
-0.L059                   91e5                  
+0.L050                   9198                  
+0.L051                   91a1                  
+0.L052                   91b9                  
+0.L053                   91c0                  
+0.L054                   91c7                  
+0.L055                   91d0                  
+0.L056                   91d9                  
+0.L057                   91e3                  
+0.L058                   91ed                  
+0.L059                   91f7                  
 0.L06                    9020                  
-0.L060                   91ee                  
-0.L061                   91f7                  
-0.L062                   9201                  
-0.L063                   920b                  
-0.L064                   9215                  
-0.L065                   9243                  
-0.L066                   926a                  
-0.L067                   9282                  
-0.L068                   9285                  
-0.L069                   b000                  
+0.L060                   9225                  
+0.L061                   924c                  
+0.L062                   9264                  
+0.L063                   9267                  
+0.L064                   b000                  
+0.L065                   b006                  
+0.L066                   b7b4                  
+0.L067                   d000                  
+0.L068                   d006                  
+0.L069                   d03f                  
 0.L07                    9020                  
-0.L070                   b006                  
-0.L071                   b7b4                  
-0.L072                   d000                  
-0.L073                   d006                  
-0.L074                   d03f                  
-0.L075                   d057                  
-0.L076                   d06c                  
+0.L070                   d057                  
+0.L071                   d06c                  
 0.L08                    9020                  
 0.L09                    9034                  
 0.pfcolors               d03f                  
-0.resettitlepage         907c                  
-0.skip0OR                90b9              (R )
-0.skip19then             926a              (R )
+0.skip0OR                90a9              (R )
+0.skip18then             924c              (R )
 0.skip2OR                d06c              (R )
-0.skipDrawlastP0         f167              (R )
+0.skipDrawlastP0         f162              (R )
 0.skipDrawlastP1         f100              (R )
 0.skipDrawP0             f04f              (R )
 0.skipDrawP1             f055              (R )
-0.skipL030               90ab              (R )
-0.skipL046               9153              (R )
-0.skipL047               9161              (R )
-0.skipL048               9173              (R )
-0.skipL049               9181              (R )
-0.skipL050               9193              (R )
-0.skipL051               91a1              (R )
-0.skipL053               91ad              (R )
-0.skipL054               91b6              (R )
-0.skipL055               91bf              (R )
-0.skipL057               91de              (R )
-0.skipL058               91e5              (R )
-0.skipL059               91ee              (R )
-0.skipL060               91f7              (R )
-0.skipL061               9201              (R )
-0.skipL062               920b              (R )
-0.skipL063               9215              (R )
-0.skipL064               9243              (R )
-0.skipL065               926a              (R )
-0.skipL066               9282              (R )
-0.skipL075               d05e              (R )
+0.skipL026               909b              (R )
+0.skipL042               9143              (R )
+0.skipL043               9151              (R )
+0.skipL044               9163              (R )
+0.skipL045               9171              (R )
+0.skipL046               9183              (R )
+0.skipL048               918f              (R )
+0.skipL049               9198              (R )
+0.skipL050               91a1              (R )
+0.skipL052               91c0              (R )
+0.skipL053               91c7              (R )
+0.skipL054               91d0              (R )
+0.skipL055               91d9              (R )
+0.skipL056               91e3              (R )
+0.skipL057               91ed              (R )
+0.skipL058               91f7              (R )
+0.skipL059               9225              (R )
+0.skipL060               924c              (R )
+0.skipL061               9264              (R )
+0.skipL070               d05e              (R )
 0.startkernel            f074              (R )
 0.title_vblank           0000 ????         (R )
 0.titledrawscreen        b006              (R )
-0.titlepage              908c              (R )
+0.titlepage              907c              (R )
 10.CYCLES                0002              (R )
 11.CYCLES                0008              (R )
 12.CYCLES                0000              (R )
@@ -185,23 +177,25 @@
 44.CYCLES                0000              (R )
 46.CYCLES                0000              (R )
 47.CYCLES                0002              (R )
-48.CYCLES                0006              (R )
-49.CYCLES                0002              (R )
+48.CYCLES                0004              (R )
+49.CYCLES                0000              (R )
 5.CYCLES                 0002              (R )
-50.CYCLES                0000              (R )
+50.CYCLES                0004              (R )
+51.CYCLES                0000              (R )
 6.CYCLES                 0000              (R )
-64.CYCLES                0000              (R )
+65.CYCLES                0000              (R )
 7.CYCLES                 001c              (R )
 8.CYCLES                 000e              (R )
 9.CYCLES                 0004              (R )
 _Bit0_Reset_Restrainer   00ec              (R )
 _Bit2_Game_Control       00ec              (R )
 _NUSIZ1                  0000 ????         (R )
-A                        00d4                  
 a                        00d4              (R )
-addvalue                 00d5              (R )
+A                        00d4                  
+addvalue                 00d5                  
 alarmclock               0002                  
-altkernel                f0b0                  
+altkernel                f0c0                  
+altkernel2               f0b4              (R )
 AUDC0                    0015                  
 AUDC1                    0016                  
 AUDF0                    0017                  
@@ -214,8 +208,8 @@ aux3                     00f2
 aux4                     00f3              (R )
 aux5                     00f4              (R )
 aux6                     00f5              (R )
-b                        00d5              (R )
 B                        00d5                  
+b                        00d5              (R )
 backgroundchange         0000 ????         (R )
 ballheight               0092              (R )
 ballx                    0084                  
@@ -303,13 +297,13 @@ ECHOFIRST                0001
 ENABL                    001f              (R )
 ENAM0                    001d              (R )
 ENAM1                    001e              (R )
-endkernel                f16d              (R )
-enterlastkernel          f11b              (R )
-f                        00d9              (R )
+endkernel                f16a              (R )
+enterlastkernel          f11b                  
 F                        00d9                  
+f                        00d9              (R )
 FASTFETCH                0000 ????         (R )
 font                     0000 ????         (R )
-frame                    00d4              (R )
+frame                    00d4                  
 G                        00da                  
 g                        00da              (R )
 game                     9000              (R )
@@ -340,19 +334,19 @@ INPT5                    000d
 interlaced               0000 ????         (R )
 interrupted              0004                  
 INTIM                    0284              (R )
-j                        00dd              (R )
 J                        00dd                  
+j                        00dd              (R )
 jmp_pf96x2_2_frame0      b0a5              (R )
 jmp_pf96x2_3_frame0      b291              (R )
-k                        00de              (R )
 K                        00de                  
+k                        00de              (R )
 keepgoing                f2f1              (R )
 keepgoingy               f30f              (R )
 kernel                   f000              (R )
 kernelmacrodef           0000 ????         (R )
-L                        00df                  
 l                        00df              (R )
-lastkernelline           f0cd              (R )
+L                        00df                  
+lastkernelline           f0dd              (R )
 leftloop                 f368              (R )
 legacy                   0000 ????         (R )
 lifecolor                00f4                  
@@ -361,8 +355,8 @@ lives                    00f3
 logo_color               001c                  
 logo_height              004b                  
 loop2                    f200              (R )
-m                        00e0              (R )
 M                        00e0                  
+m                        00e0              (R )
 MachineIs2600            f263              (R )
 mincycles                0000 ????         (R )
 minikernel               0000 ????         (R )
@@ -403,9 +397,10 @@ mk_gameselect_on         0000 ????         (R )
 mk_player_on             0000 ????         (R )
 mk_score_on              0000 ????         (R )
 multisprite              0000 ????         (R )
-n                        00e1              (R )
 N                        00e1                  
-no_blank_lines           0000 ????         (R )
+n                        00e1              (R )
+no_blank_lines           0001              (R )
+no_blank_lines_bailout   f168              (R )
 NO_ILLEGAL_OPCODES       0000 ????         (R )
 noeor                    f435              (R )
 noinc                    f2f8              (R )
@@ -444,7 +439,7 @@ pf96x2_3_0codeend        b367
 pf96x2_3_1codeend        b468                  
 pf96x2_3_frame0          b294              (R )
 pf96x2_3_frame1          b370              (R )
-PF_data0                 90d7              (R )
+PF_data0                 90c7              (R )
 PF_data1                 d00b              (R )
 pfadjust                 0000              (R )
 pfcenter                 0000 ????         (R )
@@ -460,7 +455,7 @@ pfhalfwidth              0000 ????         (R )
 PFheights                0000 ????         (R )
 pfheighttable            00f0                  
 pfhline                  f2eb                  
-pflabel0                 9103              (R )
+pflabel0                 90f3              (R )
 pflabel1                 d037              (R )
 pfline_96x2_2_frame0     b100              (R )
 pfline_96x2_2_frame1     b200              (R )
@@ -484,7 +479,7 @@ pixeloff_r               f2dd              (R )
 pixelon                  f32e              (R )
 pixelon_r                f2d1              (R )
 player0color             0090              (R )
-player0colorstore        0082              (R )
+player0colorstore        0082                  
 player0height            008e              (R )
 player0pointer           008a              (R )
 player0pointerhi         008b              (R )
@@ -505,12 +500,11 @@ player6then_0            f5d0              (R )
 player9height            0000 ????         (R )
 playercolor3then_0       f5b2              (R )
 playercolor5then_0       f5c6              (R )
-playercolor7then_0       f5da              (R )
-playercolorL043_0        f594              (R )
-playercolorL044_1        f59f              (R )
-playercolors             0001              (R )
-playerL041_0             f580              (R )
-playerL042_1             f58a              (R )
+playercolorL039_0        f594              (R )
+playercolorL040_1        f59f              (R )
+playercolors             0000 ????         (R )
+playerL037_0             f580              (R )
+playerL038_1             f58a              (R )
 playfield                00a4              (R )
 playfieldbase            00a4              (R )
 playfieldpos             00ef              (R )
@@ -518,8 +512,8 @@ plotpoint                f31d              (R )
 position48               b05c                  
 q                        00e4              (R )
 Q                        00e4                  
-r                        00e5              (R )
 R                        00e5                  
+r                        00e5              (R )
 rand                     00a2              (R )
 rand16                   00e1              (R )
 randomize                f42c                  
@@ -535,8 +529,8 @@ RESMP1                   0029
 RESP0                    0010              (R )
 RESP1                    0011              (R )
 ret_point1               901a              (R )
-ret_point2               90a4              (R )
-ret_point3               91d7              (R )
+ret_point2               9094              (R )
+ret_point3               91b9              (R )
 ret_point4               d057              (R )
 retroputer               0005                  
 rightloop                f380              (R )
@@ -568,8 +562,8 @@ SWACNT                   0281
 SWBCNT                   0283                  
 SWCHA                    0280              (R )
 SWCHB                    0282              (R )
-T                        00e7                  
 t                        00e7              (R )
+T                        00e7                  
 T1024T                   0297                  
 temp1                    009c              (R )
 temp2                    009d              (R )
@@ -592,11 +586,11 @@ title_playfield          b035
 title_vblank_loop        b026              (R )
 titleframe               0082              (R )
 titlescreencolor         b084              (R )
-u                        00e8              (R )
 U                        00e8                  
+u                        00e8              (R )
 up2                      f3b7              (R )
-v                        00e9              (R )
 V                        00e9                  
+v                        00e9              (R )
 var0                     00a4              (R )
 var1                     00a5              (R )
 var10                    00ae                  
@@ -657,14 +651,14 @@ VERSION_MACRO            0069
 VERSION_VCS              0069                  
 vertical_reflect         0000 ????         (R )
 VSYNC                    0000              (R )
-w                        00ea              (R )
 W                        00ea                  
+w                        00ea              (R )
 whimsey                  0006                  
 WSYNC                    0002              (R )
-x                        00eb              (R )
 X                        00eb                  
+x                        00eb              (R )
 Y                        00ec                  
 y                        00ec              (R )
-Z                        00ed                  
 z                        00ed              (R )
+Z                        00ed                  
 --- End of Symbol List.
