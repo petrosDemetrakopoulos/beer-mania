@@ -31,6 +31,11 @@
  dim bmp_player0_index=c
  dim rand16=n
 
+ dim _Ch0_Sound = m
+ dim _Ch0_Duration1 = q
+ dim _Ch0_Duration2 = v
+ dim _Ch0_Duration3 = w
+
  const pfscore = 1
  pfscore1 = %10101010
  COLUBK = $CE
@@ -48,7 +53,7 @@ titlepage
 gamestart
 
  _Bit2_Game_Control{2} = 0
-
+ _Ch0_Sound = 0
  player0x = 50
  player0y = 80
 
@@ -98,15 +103,15 @@ end
 
  player1:
   %11111000
+  %11111000
   %11111111
   %11111001
   %11111001
   %11111001
-  %11111001
-  %11111001
   %11111111
-  %11111100
-  %11111100
+  %11111000
+  %11111000
+  %11111000
 end
 
  player0color:
@@ -132,7 +137,8 @@ end
    $1C;
    $1C;
    $1C;
-   $1C;
+   $0E;
+   $0E;
 end
 
 gameloop
@@ -216,11 +222,32 @@ end
   if player0x <=1 then player0x = 1
   if player0x >= 123 then player0x = 123
 
-  if collision(player0, player1) then score = score + 10 : player1y = 20 : player1x = rand16&127
+  if collision(player0, player1) then score = score + 10 : player1y = 20 : player1x = rand16&127 : goto play_sound
   if player1y = 80 && !collision(player0, player1) then missed = missed + 1 : player1y = 20 : player1x = rand16&127: pfscore1 = pfscore1/4 
   if missed = 4 then goto __Game_Over_Setup bank3
 
  goto gameloop
+
+play_sound
+ if !_Ch0_Sound then _Ch0_Sound = 1 : _Ch0_Duration1 = 255 : _Ch0_Duration2 = 255 :  _Ch0_Duration3 = 255
+ AUDC0 = 4 : AUDV0 = 15 : AUDF0 = 24
+ _Ch0_Duration1 = _Ch0_Duration1 - 1
+ if _Ch0_Duration1 = 0 then goto minus_dur2
+ goto play_sound
+
+minus_dur2
+  _Ch0_Duration2 = _Ch0_Duration2 - 1
+  if _Ch0_Duration2 = 0 then goto minus_dur3
+  goto minus_dur2
+
+minus_dur3
+  _Ch0_Duration3 = _Ch0_Duration3 - 1
+  if _Ch0_Duration3 = 0 then goto __Clear_Ch_0
+  goto minus_dur3
+
+__Clear_Ch_0
+   _Ch0_Sound = 0 : AUDV0 = 0
+   goto gameloop
 
  bank 2
  _Bit0_Reset_Restrainer{0} = 1
