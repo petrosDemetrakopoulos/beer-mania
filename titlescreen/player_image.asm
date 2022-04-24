@@ -129,29 +129,3 @@ bmp_color_player0
 	BYTE $FE
 	BYTE $FE
 	BYTE $FE
-
- ;*** the bitmap data for player1
-bmp_player1
-	BYTE %00111100
-	BYTE %01100110
-	BYTE %11000011
-	BYTE %11011011
-	BYTE %11111111
-	BYTE %11111111
-	BYTE %11011011
-	BYTE %11011011
-	BYTE %01111110
-	BYTE %00111100
-
- ;*** the color data for player1
-bmp_color_player1
-	BYTE $FA
-	BYTE $FA
-	BYTE $FA
-	BYTE $FA
-	BYTE $FA
-	BYTE $FA
-	BYTE $FA
-	BYTE $FA
-	BYTE $FA
-	BYTE $FA

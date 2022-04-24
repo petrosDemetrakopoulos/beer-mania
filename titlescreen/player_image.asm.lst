@@ -1,158 +1,132 @@
 ------- FILE player_image.asm LEVEL 1 PASS 2
-      1  0068 ????
-      2  0068 ????
-      3  0068 ????						;*** the height of this mini-kernel.
-      4  0068 ????	       00 32	   bmp_player_window =	50
-      5  0068 ????
-      6  0068 ????						;*** how many scanlines per pixel. 
-      7  0068 ????	       00 01	   bmp_player_kernellines =	1
-      8  0068 ????
-      9  0068 ????						;*** the height of each player.
-     10  0068 ????	       00 0a	   bmp_player0_height =	10
-     11  0068 ????	       00 0a	   bmp_player1_height =	10
-     12  0068 ????
-     13  0068 ????						;*** NUSIZ0 value. If you want to change it in a variable
-     14  0068 ????						;*** instead, dim on in bB called "bmp_player0_nusiz"
-     15  0068 ????				      ifnconst	bmp_player0_nusiz
-     16  0068 ????			   bmp_player0_nusiz
-     17  0068 ????				      endif
-     18  0068 ????	       00		      BYTE.b	0
-     19  0069 ????
-     20  0069 ????						;*** NUSIZ1 value. If you want to change it in a variable
-     21  0069 ????						;*** instead, dim on in bB called "bmp_player1_nusiz"
-     22  0069 ????				      ifnconst	bmp_player1_nusiz
-     23  0069 ????			   bmp_player1_nusiz
-     24  0069 ????				      endif
-     25  0069 ????	       00		      BYTE.b	0
-     26  006a ????
-     27  006a ????						;*** REFP0 value. If you want to change it in a variable
-     28  006a ????						;*** instead, dim on in bB called "bmp_player0_refp"
-     29  006a ????				      ifnconst	bmp_player0_refp
-     30  006a ????			   bmp_player0_refp
-     31  006a ????				      endif
-     32  006a ????	       00		      BYTE.b	0
-     33  006b ????
-     34  006b ????						;*** REFP1 value. If you want to change it in a variable
-     35  006b ????						;*** instead, dim on in bB called "bmp_player1_refp"
-     36  006b ????				      ifnconst	bmp_player1_refp
-     37  006b ????			   bmp_player1_refp
-     38  006b ????				      endif
-     39  006b ????	       00		      BYTE.b	0
-     40  006c ????
-     41  006c ????						;*** the bitmap data for player0
-     42  006c ????			   bmp_player0
-     43  006c ????	       42		      BYTE.b	%01000010
-     44  006d ????	       64		      BYTE.b	%01100100
-     45  006e ????	       1c		      BYTE.b	%00011100
-     46  006f ????	       3c		      BYTE.b	%00111100
-     47  0070 ????	       1c		      BYTE.b	%00011100
-     48  0071 ????	       18		      BYTE.b	%00011000
-     49  0072 ????	       0c		      BYTE.b	%00001100
-     50  0073 ????	       0c		      BYTE.b	%00001100
-     51  0074 ????	       0c		      BYTE.b	%00001100
-     52  0075 ????	       00		      BYTE.b	%00000000
-     53  0076 ????
-     54  0076 ????	       06		      BYTE.b	%00000110
-     55  0077 ????	       64		      BYTE.b	%01100100
-     56  0078 ????	       1c		      BYTE.b	%00011100
-     57  0079 ????	       5a		      BYTE.b	%01011010
-     58  007a ????	       3c		      BYTE.b	%00111100
-     59  007b ????	       18		      BYTE.b	%00011000
-     60  007c ????	       0c		      BYTE.b	%00001100
-     61  007d ????	       0c		      BYTE.b	%00001100
-     62  007e ????	       0c		      BYTE.b	%00001100
-     63  007f ????	       00		      BYTE.b	%00000000
-     64  0080 ????
-     65  0080 ????	       18		      BYTE.b	%00011000
-     66  0081 ????	       38		      BYTE.b	%00111000
-     67  0082 ????	       18		      BYTE.b	%00011000
-     68  0083 ????	       18		      BYTE.b	%00011000
-     69  0084 ????	       18		      BYTE.b	%00011000
-     70  0085 ????	       18		      BYTE.b	%00011000
-     71  0086 ????	       0c		      BYTE.b	%00001100
-     72  0087 ????	       0c		      BYTE.b	%00001100
-     73  0088 ????	       0c		      BYTE.b	%00001100
-     74  0089 ????	       00		      BYTE.b	%00000000
-     75  008a ????
-     76  008a ????	       40		      BYTE.b	%01000000
-     77  008b ????	       50		      BYTE.b	%01010000
-     78  008c ????	       48		      BYTE.b	%01001000
-     79  008d ????	       38		      BYTE.b	%00111000
-     80  008e ????	       78		      BYTE.b	%01111000
-     81  008f ????	       38		      BYTE.b	%00111000
-     82  0090 ????	       30		      BYTE.b	%00110000
-     83  0091 ????	       18		      BYTE.b	%00011000
-     84  0092 ????	       18		      BYTE.b	%00011000
-     85  0093 ????	       18		      BYTE.b	%00011000
-     86  0094 ????
-     87  0094 ????						;*** the color data for player0
-     88  0094 ????			   bmp_color_player0
-     89  0094 ????	       84		      BYTE.b	$84
-     90  0095 ????	       84		      BYTE.b	$84
-     91  0096 ????	       84		      BYTE.b	$84
-     92  0097 ????	       b4		      BYTE.b	$B4
-     93  0098 ????	       b4		      BYTE.b	$B4
-     94  0099 ????	       b4		      BYTE.b	$B4
-     95  009a ????	       fe		      BYTE.b	$FE
-     96  009b ????	       fe		      BYTE.b	$FE
-     97  009c ????	       fe		      BYTE.b	$FE
-     98  009d ????	       fe		      BYTE.b	$FE
-     99  009e ????
-    100  009e ????	       84		      BYTE.b	$84
-    101  009f ????	       84		      BYTE.b	$84
-    102  00a0 ????	       84		      BYTE.b	$84
-    103  00a1 ????	       b4		      BYTE.b	$B4
-    104  00a2 ????	       b4		      BYTE.b	$B4
-    105  00a3 ????	       b4		      BYTE.b	$B4
-    106  00a4 ????	       fe		      BYTE.b	$FE
-    107  00a5 ????	       fe		      BYTE.b	$FE
-    108  00a6 ????	       fe		      BYTE.b	$FE
-    109  00a7 ????	       fe		      BYTE.b	$FE
-    110  00a8 ????
-    111  00a8 ????	       84		      BYTE.b	$84
-    112  00a9 ????	       84		      BYTE.b	$84
-    113  00aa ????	       84		      BYTE.b	$84
-    114  00ab ????	       b4		      BYTE.b	$B4
-    115  00ac ????	       b4		      BYTE.b	$B4
-    116  00ad ????	       b4		      BYTE.b	$B4
-    117  00ae ????	       fe		      BYTE.b	$FE
-    118  00af ????	       fe		      BYTE.b	$FE
-    119  00b0 ????	       fe		      BYTE.b	$FE
-    120  00b1 ????	       fe		      BYTE.b	$FE
-    121  00b2 ????
-    122  00b2 ????	       84		      BYTE.b	$84
-    123  00b3 ????	       84		      BYTE.b	$84
-    124  00b4 ????	       84		      BYTE.b	$84
-    125  00b5 ????	       b4		      BYTE.b	$B4
-    126  00b6 ????	       b4		      BYTE.b	$B4
-    127  00b7 ????	       b4		      BYTE.b	$B4
-    128  00b8 ????	       fe		      BYTE.b	$FE
-    129  00b9 ????	       fe		      BYTE.b	$FE
-    130  00ba ????	       fe		      BYTE.b	$FE
-    131  00bb ????	       fe		      BYTE.b	$FE
-    132  00bc ????
-    133  00bc ????						;*** the bitmap data for player1
-    134  00bc ????			   bmp_player1
-    135  00bc ????	       3c		      BYTE.b	%00111100
-    136  00bd ????	       66		      BYTE.b	%01100110
-    137  00be ????	       c3		      BYTE.b	%11000011
-    138  00bf ????	       db		      BYTE.b	%11011011
-    139  00c0 ????	       ff		      BYTE.b	%11111111
-    140  00c1 ????	       ff		      BYTE.b	%11111111
-    141  00c2 ????	       db		      BYTE.b	%11011011
-    142  00c3 ????	       db		      BYTE.b	%11011011
-    143  00c4 ????	       7e		      BYTE.b	%01111110
-    144  00c5 ????	       3c		      BYTE.b	%00111100
-    145  00c6 ????
-    146  00c6 ????						;*** the color data for player1
-    147  00c6 ????			   bmp_color_player1
-    148  00c6 ????	       fa		      BYTE.b	$FA
-    149  00c7 ????	       fa		      BYTE.b	$FA
-    150  00c8 ????	       fa		      BYTE.b	$FA
-    151  00c9 ????	       fa		      BYTE.b	$FA
-    152  00ca ????	       fa		      BYTE.b	$FA
-    153  00cb ????	       fa		      BYTE.b	$FA
-    154  00cc ????	       fa		      BYTE.b	$FA
-    155  00cd ????	       fa		      BYTE.b	$FA
-    156  00ce ????	       fa		      BYTE.b	$FA
-    157  00cf ????	       fa		      BYTE.b	$FA
+      1  0054 ????
+      2  0054 ????
+      3  0054 ????						;*** the height of this mini-kernel.
+      4  0054 ????	       00 32	   bmp_player_window =	50
+      5  0054 ????
+      6  0054 ????						;*** how many scanlines per pixel. 
+      7  0054 ????	       00 01	   bmp_player_kernellines =	1
+      8  0054 ????
+      9  0054 ????						;*** the height of each player.
+     10  0054 ????	       00 0a	   bmp_player0_height =	10
+     11  0054 ????	       00 0a	   bmp_player1_height =	10
+     12  0054 ????
+     13  0054 ????						;*** NUSIZ0 value. If you want to change it in a variable
+     14  0054 ????						;*** instead, dim on in bB called "bmp_player0_nusiz"
+     15  0054 ????				      ifnconst	bmp_player0_nusiz
+     16  0054 ????			   bmp_player0_nusiz
+     17  0054 ????				      endif
+     18  0054 ????	       00		      BYTE.b	0
+     19  0055 ????
+     20  0055 ????						;*** NUSIZ1 value. If you want to change it in a variable
+     21  0055 ????						;*** instead, dim on in bB called "bmp_player1_nusiz"
+     22  0055 ????				      ifnconst	bmp_player1_nusiz
+     23  0055 ????			   bmp_player1_nusiz
+     24  0055 ????				      endif
+     25  0055 ????	       00		      BYTE.b	0
+     26  0056 ????
+     27  0056 ????						;*** REFP0 value. If you want to change it in a variable
+     28  0056 ????						;*** instead, dim on in bB called "bmp_player0_refp"
+     29  0056 ????				      ifnconst	bmp_player0_refp
+     30  0056 ????			   bmp_player0_refp
+     31  0056 ????				      endif
+     32  0056 ????	       00		      BYTE.b	0
+     33  0057 ????
+     34  0057 ????						;*** REFP1 value. If you want to change it in a variable
+     35  0057 ????						;*** instead, dim on in bB called "bmp_player1_refp"
+     36  0057 ????				      ifnconst	bmp_player1_refp
+     37  0057 ????			   bmp_player1_refp
+     38  0057 ????				      endif
+     39  0057 ????	       00		      BYTE.b	0
+     40  0058 ????
+     41  0058 ????						;*** the bitmap data for player0
+     42  0058 ????			   bmp_player0
+     43  0058 ????	       42		      BYTE.b	%01000010
+     44  0059 ????	       64		      BYTE.b	%01100100
+     45  005a ????	       1c		      BYTE.b	%00011100
+     46  005b ????	       3c		      BYTE.b	%00111100
+     47  005c ????	       1c		      BYTE.b	%00011100
+     48  005d ????	       18		      BYTE.b	%00011000
+     49  005e ????	       0c		      BYTE.b	%00001100
+     50  005f ????	       0c		      BYTE.b	%00001100
+     51  0060 ????	       0c		      BYTE.b	%00001100
+     52  0061 ????	       00		      BYTE.b	%00000000
+     53  0062 ????
+     54  0062 ????	       06		      BYTE.b	%00000110
+     55  0063 ????	       64		      BYTE.b	%01100100
+     56  0064 ????	       1c		      BYTE.b	%00011100
+     57  0065 ????	       5a		      BYTE.b	%01011010
+     58  0066 ????	       3c		      BYTE.b	%00111100
+     59  0067 ????	       18		      BYTE.b	%00011000
+     60  0068 ????	       0c		      BYTE.b	%00001100
+     61  0069 ????	       0c		      BYTE.b	%00001100
+     62  006a ????	       0c		      BYTE.b	%00001100
+     63  006b ????	       00		      BYTE.b	%00000000
+     64  006c ????
+     65  006c ????	       18		      BYTE.b	%00011000
+     66  006d ????	       38		      BYTE.b	%00111000
+     67  006e ????	       18		      BYTE.b	%00011000
+     68  006f ????	       18		      BYTE.b	%00011000
+     69  0070 ????	       18		      BYTE.b	%00011000
+     70  0071 ????	       18		      BYTE.b	%00011000
+     71  0072 ????	       0c		      BYTE.b	%00001100
+     72  0073 ????	       0c		      BYTE.b	%00001100
+     73  0074 ????	       0c		      BYTE.b	%00001100
+     74  0075 ????	       00		      BYTE.b	%00000000
+     75  0076 ????
+     76  0076 ????	       40		      BYTE.b	%01000000
+     77  0077 ????	       50		      BYTE.b	%01010000
+     78  0078 ????	       48		      BYTE.b	%01001000
+     79  0079 ????	       38		      BYTE.b	%00111000
+     80  007a ????	       78		      BYTE.b	%01111000
+     81  007b ????	       38		      BYTE.b	%00111000
+     82  007c ????	       30		      BYTE.b	%00110000
+     83  007d ????	       18		      BYTE.b	%00011000
+     84  007e ????	       18		      BYTE.b	%00011000
+     85  007f ????	       18		      BYTE.b	%00011000
+     86  0080 ????
+     87  0080 ????						;*** the color data for player0
+     88  0080 ????			   bmp_color_player0
+     89  0080 ????	       84		      BYTE.b	$84
+     90  0081 ????	       84		      BYTE.b	$84
+     91  0082 ????	       84		      BYTE.b	$84
+     92  0083 ????	       b4		      BYTE.b	$B4
+     93  0084 ????	       b4		      BYTE.b	$B4
+     94  0085 ????	       b4		      BYTE.b	$B4
+     95  0086 ????	       fe		      BYTE.b	$FE
+     96  0087 ????	       fe		      BYTE.b	$FE
+     97  0088 ????	       fe		      BYTE.b	$FE
+     98  0089 ????	       fe		      BYTE.b	$FE
+     99  008a ????
+    100  008a ????	       84		      BYTE.b	$84
+    101  008b ????	       84		      BYTE.b	$84
+    102  008c ????	       84		      BYTE.b	$84
+    103  008d ????	       b4		      BYTE.b	$B4
+    104  008e ????	       b4		      BYTE.b	$B4
+    105  008f ????	       b4		      BYTE.b	$B4
+    106  0090 ????	       fe		      BYTE.b	$FE
+    107  0091 ????	       fe		      BYTE.b	$FE
+    108  0092 ????	       fe		      BYTE.b	$FE
+    109  0093 ????	       fe		      BYTE.b	$FE
+    110  0094 ????
+    111  0094 ????	       84		      BYTE.b	$84
+    112  0095 ????	       84		      BYTE.b	$84
+    113  0096 ????	       84		      BYTE.b	$84
+    114  0097 ????	       b4		      BYTE.b	$B4
+    115  0098 ????	       b4		      BYTE.b	$B4
+    116  0099 ????	       b4		      BYTE.b	$B4
+    117  009a ????	       fe		      BYTE.b	$FE
+    118  009b ????	       fe		      BYTE.b	$FE
+    119  009c ????	       fe		      BYTE.b	$FE
+    120  009d ????	       fe		      BYTE.b	$FE
+    121  009e ????
+    122  009e ????	       84		      BYTE.b	$84
+    123  009f ????	       84		      BYTE.b	$84
+    124  00a0 ????	       84		      BYTE.b	$84
+    125  00a1 ????	       b4		      BYTE.b	$B4
+    126  00a2 ????	       b4		      BYTE.b	$B4
+    127  00a3 ????	       b4		      BYTE.b	$B4
+    128  00a4 ????	       fe		      BYTE.b	$FE
+    129  00a5 ????	       fe		      BYTE.b	$FE
+    130  00a6 ????	       fe		      BYTE.b	$FE
+    131  00a7 ????	       fe		      BYTE.b	$FE

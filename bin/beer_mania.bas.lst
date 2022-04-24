@@ -3988,8 +3988,8 @@
       1  2486							;*** The height of the displayed data...
       2  2486		       00 28	   bmp_96x2_2_window =	40
       3  2486
-      4  2486							;*** The height of the bitmap data. This can be larger than 
-      5  2486							;*** the displayed data height, if you're scrolling or animating 
+      4  2486							;*** The height of the bitmap data. This can be larger than
+      5  2486							;*** the displayed data height, if you're scrolling or animating
       6  2486							;*** the data...
       7  2486		       00 28	   bmp_96x2_2_height =	40
       8  2486
