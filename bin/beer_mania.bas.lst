@@ -2170,11 +2170,9 @@
 ------- FILE titlescreen/titlescreen_layout.asm LEVEL 3 PASS 2
       0  2006					      include	"titlescreen/titlescreen_layout.asm"
       1  2006					      MAC	titlescreenlayout
-      2  2006					      draw_96x2_2
-      3  2006					      draw_space	25
-      4  2006					      draw_96x2_3
-      5  2006					      ENDM
-      6  2006
+      2  2006					      draw_96x2_1
+      3  2006					      ENDM
+      4  2006
 ------- FILE titlescreen/asm/titlescreen.asm
       5  2006
       6  2006				   .titledrawscreen
@@ -2235,250 +2233,257 @@
      61  2041		       85 0b		      sta	REFP0
      62  2043		       85 0c		      sta	REFP1
      63  2045		       85 02		      sta	WSYNC
-     64  2047		       ad 84 b0 	      lda	titlescreencolor
+     64  2047		       ad 7a b0 	      lda	titlescreencolor
      65  204a		       85 09		      sta	COLUBK
      66  204c
       0  204c					      titlescreenlayout
-      0  204c					      draw_96x2_2
-      1  204c		       00 01	   mk_96x2_2_on =	1
-      2  204c		       20 85 b0 	      jsr	draw_bmp_96x2_2
-      0  204f					      draw_space	25
-      1  204f		       a0 19		      ldy	#25
-      2  2051				   .loop
-      3  2051		       85 02		      sta	WSYNC
-      4  2053		       88		      dey
-      5  2054		       d0 fb		      bne	.loop
-      0  2056					      draw_96x2_3
-      1  2056		       00 01	   mk_96x2_3_on =	1
-      2  2056		       20 71 b2 	      jsr	draw_bmp_96x2_3
-     68  2059
-     69  2059		       4c 71 b4 	      jmp	PFWAIT	; kernel is done. Finish off the screen
-     70  205c
+      0  204c					      draw_96x2_1
+      1  204c		       00 01	   mk_96x2_1_on =	1
+      2  204c		       20 7b b0 	      jsr	draw_bmp_96x2_1
+     68  204f
+     69  204f		       4c 71 b2 	      jmp	PFWAIT	; kernel is done. Finish off the screen
+     70  2052
 ------- FILE titlescreen/asm/position48.asm LEVEL 3 PASS 2
-      0  205c					      include	"titlescreen/asm/position48.asm"
-      1  205c
-      2  205c				   position48
-      3  205c
-      4  205c							;postion P0 and P1
-      5  205c
-      6  205c		       85 02		      sta	WSYNC
-      7  205e
-      8  205e		       a9 90		      lda	#$90	;2
-      9  2060		       85 20		      sta	HMP0	;3
-     10  2062		       a9 a0		      lda	#$A0	;2
-     11  2064		       85 21		      sta	HMP1	;3
-     12  2066
-     13  2066		       e6 9c		      inc	temp1
-     14  2068		       c6 9c		      dec	temp1
-     15  206a		       e6 9c		      inc	temp1
-     16  206c		       c6 9c		      dec	temp1
-     17  206e		       e6 9c		      inc	temp1
-      0  2070					      sleep	2
-      1  2070				   .CYCLES    SET	2
-      2  2070
-      3  2070				  -	      IF	.CYCLES < 2
-      4  2070				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
-      5  2070				  -	      ERR
-      6  2070					      ENDIF
-      7  2070
-      8  2070				  -	      IF	.CYCLES & 1
-      9  2070				  -	      IFNCONST	NO_ILLEGAL_OPCODES
-     10  2070				  -	      nop	0
-     11  2070				  -	      ELSE
-     12  2070				  -	      bit	VSYNC
-     13  2070				  -	      ENDIF
-     14  2070				  -.CYCLES    SET	.CYCLES - 3
-     15  2070					      ENDIF
-     16  2070
-     17  2070					      REPEAT	.CYCLES / 2
-     18  2070		       ea		      nop
-     19  2071					      REPEND
-     19  2071		       85 10		      sta	RESP0	;  +3
-     20  2073		       85 11		      sta	RESP1	;  +3
-     21  2075		       c6 9c		      dec	temp1	;  +5
-     22  2077		       e6 9c		      inc	temp1	;  +5
-     23  2079		       c6 9c		      dec	temp1	;  +5
-     24  207b		       e6 9c		      inc	temp1	;  +5
-     25  207d		       c6 9c		      dec	temp1	;  +5
-      0  207f					      sleep	3
-      1  207f				   .CYCLES    SET	3
-      2  207f
-      3  207f				  -	      IF	.CYCLES < 2
-      4  207f				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
-      5  207f				  -	      ERR
-      6  207f					      ENDIF
-      7  207f
-      8  207f					      IF	.CYCLES & 1
-      9  207f					      IFNCONST	NO_ILLEGAL_OPCODES
-     10  207f		       04 00		      nop	0
-     11  2081				  -	      ELSE
-     12  2081				  -	      bit	VSYNC
-     13  2081					      ENDIF
-     14  2081				   .CYCLES    SET	.CYCLES - 3
-     15  2081					      ENDIF
-     16  2081
-     17  2081				  -	      REPEAT	.CYCLES / 2
-     18  2081				  -	      nop
-     19  2081					      REPEND
-     27  2081		       85 2a		      sta	HMOVE	; +76
-     28  2083		       60		      RTS
-     29  2084
+      0  2052					      include	"titlescreen/asm/position48.asm"
+      1  2052
+      2  2052				   position48
+      3  2052
+      4  2052							;postion P0 and P1
+      5  2052
+      6  2052		       85 02		      sta	WSYNC
+      7  2054
+      8  2054		       a9 90		      lda	#$90	;2
+      9  2056		       85 20		      sta	HMP0	;3
+     10  2058		       a9 a0		      lda	#$A0	;2
+     11  205a		       85 21		      sta	HMP1	;3
+     12  205c
+     13  205c		       e6 9c		      inc	temp1
+     14  205e		       c6 9c		      dec	temp1
+     15  2060		       e6 9c		      inc	temp1
+     16  2062		       c6 9c		      dec	temp1
+     17  2064		       e6 9c		      inc	temp1
+      0  2066					      sleep	2
+      1  2066				   .CYCLES    SET	2
+      2  2066
+      3  2066				  -	      IF	.CYCLES < 2
+      4  2066				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
+      5  2066				  -	      ERR
+      6  2066					      ENDIF
+      7  2066
+      8  2066				  -	      IF	.CYCLES & 1
+      9  2066				  -	      IFNCONST	NO_ILLEGAL_OPCODES
+     10  2066				  -	      nop	0
+     11  2066				  -	      ELSE
+     12  2066				  -	      bit	VSYNC
+     13  2066				  -	      ENDIF
+     14  2066				  -.CYCLES    SET	.CYCLES - 3
+     15  2066					      ENDIF
+     16  2066
+     17  2066					      REPEAT	.CYCLES / 2
+     18  2066		       ea		      nop
+     19  2067					      REPEND
+     19  2067		       85 10		      sta	RESP0	;  +3
+     20  2069		       85 11		      sta	RESP1	;  +3
+     21  206b		       c6 9c		      dec	temp1	;  +5
+     22  206d		       e6 9c		      inc	temp1	;  +5
+     23  206f		       c6 9c		      dec	temp1	;  +5
+     24  2071		       e6 9c		      inc	temp1	;  +5
+     25  2073		       c6 9c		      dec	temp1	;  +5
+      0  2075					      sleep	3
+      1  2075				   .CYCLES    SET	3
+      2  2075
+      3  2075				  -	      IF	.CYCLES < 2
+      4  2075				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
+      5  2075				  -	      ERR
+      6  2075					      ENDIF
+      7  2075
+      8  2075					      IF	.CYCLES & 1
+      9  2075					      IFNCONST	NO_ILLEGAL_OPCODES
+     10  2075		       04 00		      nop	0
+     11  2077				  -	      ELSE
+     12  2077				  -	      bit	VSYNC
+     13  2077					      ENDIF
+     14  2077				   .CYCLES    SET	.CYCLES - 3
+     15  2077					      ENDIF
+     16  2077
+     17  2077				  -	      REPEAT	.CYCLES / 2
+     18  2077				  -	      nop
+     19  2077					      REPEND
+     27  2077		       85 2a		      sta	HMOVE	; +76
+     28  2079		       60		      RTS
+     29  207a
 ------- FILE titlescreen/asm/titlescreen.asm
 ------- FILE titlescreen/titlescreen_color.asm LEVEL 3 PASS 2
-      0  2084					      include	"titlescreen/titlescreen_color.asm"
-      1  2084
-      2  2084							; This is where the titlescreen background color gets set. 
-      3  2084							; You can also do a "dim titlescreencolor=[letter]" in bB
-      4  2084							; if you want to change the color on the fly.
-      5  2084
-      6  2084				  -	      ifnconst	titlescreencolor
-      7  2084				  -titlescreencolor
-      8  2084					      endif
-      9  2084		       00		      .byte.b	$00
-     10  2085
+      0  207a					      include	"titlescreen/titlescreen_color.asm"
+      1  207a
+      2  207a							; This is where the titlescreen background color gets set. 
+      3  207a							; You can also do a "dim titlescreencolor=[letter]" in bB
+      4  207a							; if you want to change the color on the fly.
+      5  207a
+      6  207a				  -	      ifnconst	titlescreencolor
+      7  207a				  -titlescreencolor
+      8  207a					      endif
+      9  207a		       00		      .byte.b	$00
+     10  207b
 ------- FILE titlescreen/asm/titlescreen.asm
-     73  2085
-     74  2085				  -	      ifconst	mk_48x1_1_on
-     75  2085				  -	      include	"titlescreen/asm/48x1_1_kernel.asm"
-     76  2085					      endif		;mk_48x1_1_on
-     77  2085
-     78  2085				  -	      ifconst	mk_48x1_2_on
-     79  2085				  -	      include	"titlescreen/asm/48x1_2_kernel.asm"
-     80  2085					      endif		;mk_48x1_2_on
-     81  2085
-     82  2085				  -	      ifconst	mk_48x1_3_on
-     83  2085				  -	      include	"titlescreen/asm/48x1_3_kernel.asm"
-     84  2085					      endif		;mk_48x1_3_on
-     85  2085
-     86  2085				  -	      ifconst	mk_48x1_4_on
-     87  2085				  -	      include	"titlescreen/asm/48x1_4_kernel.asm"
-     88  2085					      endif		;mk_48x1_4_on
-     89  2085
-     90  2085				  -	      ifconst	mk_48x1_5_on
-     91  2085				  -	      include	"titlescreen/asm/48x1_5_kernel.asm"
-     92  2085					      endif		;mk_48x1_5_on
-     93  2085
-     94  2085				  -	      ifconst	mk_48x1_6_on
-     95  2085				  -	      include	"titlescreen/asm/48x1_6_kernel.asm"
-     96  2085					      endif		;mk_48x1_6_on
-     97  2085
-     98  2085				  -	      ifconst	mk_48x1_7_on
-     99  2085				  -	      include	"titlescreen/asm/48x1_7_kernel.asm"
-    100  2085					      endif		;mk_48x1_7_on
-    101  2085
-    102  2085				  -	      ifconst	mk_48x1_8_on
-    103  2085				  -	      include	"titlescreen/asm/48x1_8_kernel.asm"
-    104  2085					      endif		;mk_48x1_8_on
-    105  2085
-    106  2085				  -	      ifconst	mk_48x2_1_on
-    107  2085				  -	      include	"titlescreen/asm/48x2_1_kernel.asm"
-    108  2085					      endif		;mk_48x2_1_on
-    109  2085
-    110  2085				  -	      ifconst	mk_48x2_2_on
-    111  2085				  -	      include	"titlescreen/asm/48x2_2_kernel.asm"
-    112  2085					      endif		;mk_48x2_2_on
-    113  2085
-    114  2085				  -	      ifconst	mk_48x2_3_on
-    115  2085				  -	      include	"titlescreen/asm/48x2_3_kernel.asm"
-    116  2085					      endif		;mk_48x2_3_on
-    117  2085
-    118  2085				  -	      ifconst	mk_48x2_4_on
-    119  2085				  -	      include	"titlescreen/asm/48x2_4_kernel.asm"
-    120  2085					      endif		;mk_48x2_4_on
-    121  2085
-    122  2085				  -	      ifconst	mk_48x2_5_on
-    123  2085				  -	      include	"titlescreen/asm/48x2_5_kernel.asm"
-    124  2085					      endif		;mk_48x2_5_on
-    125  2085
-    126  2085				  -	      ifconst	mk_48x2_6_on
-    127  2085				  -	      include	"titlescreen/asm/48x2_6_kernel.asm"
-    128  2085					      endif		;mk_48x2_6_on
-    129  2085
-    130  2085				  -	      ifconst	mk_48x2_7_on
-    131  2085				  -	      include	"titlescreen/asm/48x2_7_kernel.asm"
-    132  2085					      endif		;mk_48x2_7_on
-    133  2085
-    134  2085				  -	      ifconst	mk_48x2_8_on
-    135  2085				  -	      include	"titlescreen/asm/48x2_8_kernel.asm"
-    136  2085					      endif		;mk_48x2_8_on
-    137  2085
-    138  2085				  -	      ifconst	mk_48x1_X_on
-    139  2085				  -	      include	"titlescreen/asm/48x1_X_kernel.asm"
-    140  2085					      endif		;mk_48x1_X_on
-    141  2085
-    142  2085				  -	      ifconst	mk_48x2_X_on
-    143  2085				  -	      include	"titlescreen/asm/48x2_X_kernel.asm"
-    144  2085					      endif		;mk_48x2_X_on
-    145  2085
-    146  2085
-    147  2085				  -	      ifconst	mk_96x2_1_on
-    148  2085				  -	      include	"titlescreen/asm/96x2_1_kernel.asm"
-    149  2085					      endif		;mk_96x2_1_on
-    150  2085
-    151  2085					      ifconst	mk_96x2_2_on
-------- FILE titlescreen/asm/96x2_2_kernel.asm LEVEL 3 PASS 2
-      0  2085					      include	"titlescreen/asm/96x2_2_kernel.asm"
-      1  2085				   draw_bmp_96x2_2
-      2  2085
-      3  2085				  -	      ifconst	bmp_96x2_2_index
-      4  2085				  -	      lda	#(bmp_96x2_2_height-1)
-      5  2085				  -	      sec
-      6  2085				  -	      sbc	bmp_96x2_2_index
-      7  2085				  -	      tay
-      8  2085				  -	      sbc	#bmp_96x2_2_window
-      9  2085				  -	      sta	temp1
-     10  2085					      else
-     11  2085		       a0 27		      ldy	#(bmp_96x2_2_window-1)
-     12  2087		       a9 ff		      lda	#255
-     13  2089		       85 9c		      sta	temp1
-     14  208b					      endif
-     15  208b
-     16  208b		       a9 03		      lda	#3
-     17  208d		       85 04		      sta	NUSIZ0	;3=Player and Missile are drawn twice 32 clocks apart
-     18  208f		       85 05		      sta	NUSIZ1	;3=Player and Missile are drawn twice 32 clocks apart
-     19  2091		       a9 00		      lda	#0
-     20  2093
-     21  2093		       b9 87 b4 	      lda	bmp_96x2_2_colors,y	;4
-     22  2096				  -	      ifconst	bmp_96x2_2_fade
-     23  2096				  -	      and	bmp_96x2_2_fade
-     24  2096					      endif
-     25  2096		       85 06		      sta	COLUP0	;3
-     26  2098		       85 07		      sta	COLUP1	;3
-     27  209a		       85 2b		      sta	HMCLR	;3
-     28  209c
-     29  209c		       a5 82		      lda	titleframe
-     30  209e		       29 01		      and	#1
-     31  20a0		       f0 03		      beq	jmp_pf96x2_2_frame0
-     32  20a2		       4c 70 b1 	      jmp	pf96x2_2_frame1
-     33  20a5				   jmp_pf96x2_2_frame0
-     34  20a5		       4c a8 b0 	      jmp	pf96x2_2_frame0
-     35  20a8
-     36  20a8				   pf96x2_2_frame0
-     37  20a8							;postion P0 and P1
-     38  20a8		       85 02		      sta	WSYNC
-     39  20aa		       a9 e0		      lda	#%11100000
-     40  20ac		       85 20		      sta	HMP0
-     41  20ae		       a9 10		      lda	#%00010000
-     42  20b0		       85 21		      sta	HMP1
-     43  20b2		       85 02		      sta	WSYNC
-      0  20b4					      sleep	28
-      1  20b4				   .CYCLES    SET	28
-      2  20b4
-      3  20b4				  -	      IF	.CYCLES < 2
-      4  20b4				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
-      5  20b4				  -	      ERR
-      6  20b4					      ENDIF
-      7  20b4
-      8  20b4				  -	      IF	.CYCLES & 1
-      9  20b4				  -	      IFNCONST	NO_ILLEGAL_OPCODES
-     10  20b4				  -	      nop	0
-     11  20b4				  -	      ELSE
-     12  20b4				  -	      bit	VSYNC
-     13  20b4				  -	      ENDIF
-     14  20b4				  -.CYCLES    SET	.CYCLES - 3
-     15  20b4					      ENDIF
-     16  20b4
-     17  20b4					      REPEAT	.CYCLES / 2
+     73  207b
+     74  207b				  -	      ifconst	mk_48x1_1_on
+     75  207b				  -	      include	"titlescreen/asm/48x1_1_kernel.asm"
+     76  207b					      endif		;mk_48x1_1_on
+     77  207b
+     78  207b				  -	      ifconst	mk_48x1_2_on
+     79  207b				  -	      include	"titlescreen/asm/48x1_2_kernel.asm"
+     80  207b					      endif		;mk_48x1_2_on
+     81  207b
+     82  207b				  -	      ifconst	mk_48x1_3_on
+     83  207b				  -	      include	"titlescreen/asm/48x1_3_kernel.asm"
+     84  207b					      endif		;mk_48x1_3_on
+     85  207b
+     86  207b				  -	      ifconst	mk_48x1_4_on
+     87  207b				  -	      include	"titlescreen/asm/48x1_4_kernel.asm"
+     88  207b					      endif		;mk_48x1_4_on
+     89  207b
+     90  207b				  -	      ifconst	mk_48x1_5_on
+     91  207b				  -	      include	"titlescreen/asm/48x1_5_kernel.asm"
+     92  207b					      endif		;mk_48x1_5_on
+     93  207b
+     94  207b				  -	      ifconst	mk_48x1_6_on
+     95  207b				  -	      include	"titlescreen/asm/48x1_6_kernel.asm"
+     96  207b					      endif		;mk_48x1_6_on
+     97  207b
+     98  207b				  -	      ifconst	mk_48x1_7_on
+     99  207b				  -	      include	"titlescreen/asm/48x1_7_kernel.asm"
+    100  207b					      endif		;mk_48x1_7_on
+    101  207b
+    102  207b				  -	      ifconst	mk_48x1_8_on
+    103  207b				  -	      include	"titlescreen/asm/48x1_8_kernel.asm"
+    104  207b					      endif		;mk_48x1_8_on
+    105  207b
+    106  207b				  -	      ifconst	mk_48x2_1_on
+    107  207b				  -	      include	"titlescreen/asm/48x2_1_kernel.asm"
+    108  207b					      endif		;mk_48x2_1_on
+    109  207b
+    110  207b				  -	      ifconst	mk_48x2_2_on
+    111  207b				  -	      include	"titlescreen/asm/48x2_2_kernel.asm"
+    112  207b					      endif		;mk_48x2_2_on
+    113  207b
+    114  207b				  -	      ifconst	mk_48x2_3_on
+    115  207b				  -	      include	"titlescreen/asm/48x2_3_kernel.asm"
+    116  207b					      endif		;mk_48x2_3_on
+    117  207b
+    118  207b				  -	      ifconst	mk_48x2_4_on
+    119  207b				  -	      include	"titlescreen/asm/48x2_4_kernel.asm"
+    120  207b					      endif		;mk_48x2_4_on
+    121  207b
+    122  207b				  -	      ifconst	mk_48x2_5_on
+    123  207b				  -	      include	"titlescreen/asm/48x2_5_kernel.asm"
+    124  207b					      endif		;mk_48x2_5_on
+    125  207b
+    126  207b				  -	      ifconst	mk_48x2_6_on
+    127  207b				  -	      include	"titlescreen/asm/48x2_6_kernel.asm"
+    128  207b					      endif		;mk_48x2_6_on
+    129  207b
+    130  207b				  -	      ifconst	mk_48x2_7_on
+    131  207b				  -	      include	"titlescreen/asm/48x2_7_kernel.asm"
+    132  207b					      endif		;mk_48x2_7_on
+    133  207b
+    134  207b				  -	      ifconst	mk_48x2_8_on
+    135  207b				  -	      include	"titlescreen/asm/48x2_8_kernel.asm"
+    136  207b					      endif		;mk_48x2_8_on
+    137  207b
+    138  207b				  -	      ifconst	mk_48x1_X_on
+    139  207b				  -	      include	"titlescreen/asm/48x1_X_kernel.asm"
+    140  207b					      endif		;mk_48x1_X_on
+    141  207b
+    142  207b				  -	      ifconst	mk_48x2_X_on
+    143  207b				  -	      include	"titlescreen/asm/48x2_X_kernel.asm"
+    144  207b					      endif		;mk_48x2_X_on
+    145  207b
+    146  207b
+    147  207b					      ifconst	mk_96x2_1_on
+------- FILE titlescreen/asm/96x2_1_kernel.asm LEVEL 3 PASS 2
+      0  207b					      include	"titlescreen/asm/96x2_1_kernel.asm"
+      1  207b				   draw_bmp_96x2_1
+      2  207b
+      3  207b				  -	      ifconst	bmp_96x2_1_index
+      4  207b				  -	      lda	#(bmp_96x2_1_height-1)
+      5  207b				  -	      sec
+      6  207b				  -	      sbc	bmp_96x2_1_index
+      7  207b				  -	      tay
+      8  207b				  -	      sbc	#bmp_96x2_1_window
+      9  207b				  -	      sta	temp1
+     10  207b					      else
+     11  207b		       a0 54		      ldy	#(bmp_96x2_1_window-1)
+     12  207d		       a9 ff		      lda	#255
+     13  207f		       85 9c		      sta	temp1
+     14  2081					      endif
+     15  2081
+     16  2081		       a9 03		      lda	#3
+     17  2083		       85 04		      sta	NUSIZ0	;3=Player and Missile are drawn twice 32 clocks apart
+     18  2085		       85 05		      sta	NUSIZ1	;3=Player and Missile are drawn twice 32 clocks apart
+     19  2087		       a9 00		      lda	#0
+     20  2089
+     21  2089		       b9 87 b2 	      lda	bmp_96x2_1_colors,y	;4
+     22  208c				  -	      ifconst	bmp_96x2_1_fade
+     23  208c				  -	      and	bmp_96x2_1_fade
+     24  208c					      endif
+     25  208c		       85 06		      sta	COLUP0	;3
+     26  208e		       85 07		      sta	COLUP1	;3
+     27  2090		       85 2b		      sta	HMCLR	;3
+     28  2092
+     29  2092		       a5 82		      lda	titleframe
+     30  2094		       29 01		      and	#1
+     31  2096		       f0 03		      beq	jmp_pf96x2_1_frame0
+     32  2098		       4c 70 b1 	      jmp	pf96x2_1_frame1
+     33  209b				   jmp_pf96x2_1_frame0
+     34  209b		       4c 9e b0 	      jmp	pf96x2_1_frame0
+     35  209e
+     36  209e				   pf96x2_1_frame0
+     37  209e							;postion P0 and P1
+     38  209e		       85 02		      sta	WSYNC
+     39  20a0		       a9 e0		      lda	#%11100000
+     40  20a2		       85 20		      sta	HMP0
+     41  20a4		       a9 10		      lda	#%00010000
+     42  20a6		       85 21		      sta	HMP1
+     43  20a8		       85 02		      sta	WSYNC
+      0  20aa					      sleep	28
+      1  20aa				   .CYCLES    SET	28
+      2  20aa
+      3  20aa				  -	      IF	.CYCLES < 2
+      4  20aa				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
+      5  20aa				  -	      ERR
+      6  20aa					      ENDIF
+      7  20aa
+      8  20aa				  -	      IF	.CYCLES & 1
+      9  20aa				  -	      IFNCONST	NO_ILLEGAL_OPCODES
+     10  20aa				  -	      nop	0
+     11  20aa				  -	      ELSE
+     12  20aa				  -	      bit	VSYNC
+     13  20aa				  -	      ENDIF
+     14  20aa				  -.CYCLES    SET	.CYCLES - 3
+     15  20aa					      ENDIF
+     16  20aa
+     17  20aa					      REPEAT	.CYCLES / 2
+     18  20aa		       ea		      nop
+     17  20aa					      REPEND
+     18  20ab		       ea		      nop
+     17  20ab					      REPEND
+     18  20ac		       ea		      nop
+     17  20ac					      REPEND
+     18  20ad		       ea		      nop
+     17  20ad					      REPEND
+     18  20ae		       ea		      nop
+     17  20ae					      REPEND
+     18  20af		       ea		      nop
+     17  20af					      REPEND
+     18  20b0		       ea		      nop
+     17  20b0					      REPEND
+     18  20b1		       ea		      nop
+     17  20b1					      REPEND
+     18  20b2		       ea		      nop
+     17  20b2					      REPEND
+     18  20b3		       ea		      nop
+     17  20b3					      REPEND
      18  20b4		       ea		      nop
      17  20b4					      REPEND
      18  20b5		       ea		      nop
@@ -2486,11 +2491,26 @@
      18  20b6		       ea		      nop
      17  20b6					      REPEND
      18  20b7		       ea		      nop
-     17  20b7					      REPEND
-     18  20b8		       ea		      nop
-     17  20b8					      REPEND
-     18  20b9		       ea		      nop
-     17  20b9					      REPEND
+     19  20b8					      REPEND
+     45  20b8		       85 10		      sta	RESP0
+      0  20ba					      sleep	14
+      1  20ba				   .CYCLES    SET	14
+      2  20ba
+      3  20ba				  -	      IF	.CYCLES < 2
+      4  20ba				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
+      5  20ba				  -	      ERR
+      6  20ba					      ENDIF
+      7  20ba
+      8  20ba				  -	      IF	.CYCLES & 1
+      9  20ba				  -	      IFNCONST	NO_ILLEGAL_OPCODES
+     10  20ba				  -	      nop	0
+     11  20ba				  -	      ELSE
+     12  20ba				  -	      bit	VSYNC
+     13  20ba				  -	      ENDIF
+     14  20ba				  -.CYCLES    SET	.CYCLES - 3
+     15  20ba					      ENDIF
+     16  20ba
+     17  20ba					      REPEAT	.CYCLES / 2
      18  20ba		       ea		      nop
      17  20ba					      REPEND
      18  20bb		       ea		      nop
@@ -2504,91 +2524,56 @@
      18  20bf		       ea		      nop
      17  20bf					      REPEND
      18  20c0		       ea		      nop
-     17  20c0					      REPEND
-     18  20c1		       ea		      nop
-     19  20c2					      REPEND
-     45  20c2		       85 10		      sta	RESP0
-      0  20c4					      sleep	14
-      1  20c4				   .CYCLES    SET	14
-      2  20c4
-      3  20c4				  -	      IF	.CYCLES < 2
-      4  20c4				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
-      5  20c4				  -	      ERR
-      6  20c4					      ENDIF
-      7  20c4
-      8  20c4				  -	      IF	.CYCLES & 1
-      9  20c4				  -	      IFNCONST	NO_ILLEGAL_OPCODES
-     10  20c4				  -	      nop	0
-     11  20c4				  -	      ELSE
-     12  20c4				  -	      bit	VSYNC
-     13  20c4				  -	      ENDIF
-     14  20c4				  -.CYCLES    SET	.CYCLES - 3
-     15  20c4					      ENDIF
-     16  20c4
-     17  20c4					      REPEAT	.CYCLES / 2
-     18  20c4		       ea		      nop
-     17  20c4					      REPEND
-     18  20c5		       ea		      nop
-     17  20c5					      REPEND
-     18  20c6		       ea		      nop
-     17  20c6					      REPEND
-     18  20c7		       ea		      nop
-     17  20c7					      REPEND
-     18  20c8		       ea		      nop
-     17  20c8					      REPEND
-     18  20c9		       ea		      nop
-     17  20c9					      REPEND
-     18  20ca		       ea		      nop
-     19  20cb					      REPEND
-     47  20cb		       85 11		      sta	RESP1
-     48  20cd		       85 02		      sta	WSYNC
-     49  20cf		       85 2a		      sta	HMOVE
-     50  20d1
-     51  20d1		       85 02		      sta	WSYNC
-     52  20d3		       85 2b		      sta	HMCLR
-     53  20d5		       85 02		      sta	WSYNC
-     54  20d7
-      0  20d7					      sleep	4
-      1  20d7				   .CYCLES    SET	4
-      2  20d7
-      3  20d7				  -	      IF	.CYCLES < 2
-      4  20d7				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
-      5  20d7				  -	      ERR
-      6  20d7					      ENDIF
-      7  20d7
-      8  20d7				  -	      IF	.CYCLES & 1
-      9  20d7				  -	      IFNCONST	NO_ILLEGAL_OPCODES
-     10  20d7				  -	      nop	0
-     11  20d7				  -	      ELSE
-     12  20d7				  -	      bit	VSYNC
-     13  20d7				  -	      ENDIF
-     14  20d7				  -.CYCLES    SET	.CYCLES - 3
-     15  20d7					      ENDIF
-     16  20d7
-     17  20d7					      REPEAT	.CYCLES / 2
-     18  20d7		       ea		      nop
-     17  20d7					      REPEND
-     18  20d8		       ea		      nop
-     19  20d9					      REPEND
-     56  20d9		       4c 00 b1 	      jmp	pfline_96x2_2_frame0
-     57  20dc							;align so our branch doesn't unexpectedly cross a page...
-     58  20dc					      if	>. != >[.+$70]
+     19  20c1					      REPEND
+     47  20c1		       85 11		      sta	RESP1
+     48  20c3		       85 02		      sta	WSYNC
+     49  20c5		       85 2a		      sta	HMOVE
+     50  20c7
+     51  20c7		       85 02		      sta	WSYNC
+     52  20c9		       85 2b		      sta	HMCLR
+     53  20cb		       85 02		      sta	WSYNC
+     54  20cd
+      0  20cd					      sleep	4
+      1  20cd				   .CYCLES    SET	4
+      2  20cd
+      3  20cd				  -	      IF	.CYCLES < 2
+      4  20cd				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
+      5  20cd				  -	      ERR
+      6  20cd					      ENDIF
+      7  20cd
+      8  20cd				  -	      IF	.CYCLES & 1
+      9  20cd				  -	      IFNCONST	NO_ILLEGAL_OPCODES
+     10  20cd				  -	      nop	0
+     11  20cd				  -	      ELSE
+     12  20cd				  -	      bit	VSYNC
+     13  20cd				  -	      ENDIF
+     14  20cd				  -.CYCLES    SET	.CYCLES - 3
+     15  20cd					      ENDIF
+     16  20cd
+     17  20cd					      REPEAT	.CYCLES / 2
+     18  20cd		       ea		      nop
+     17  20cd					      REPEND
+     18  20ce		       ea		      nop
+     19  20cf					      REPEND
+     56  20cf		       4c 00 b1 	      jmp	pfline_96x2_1_frame0
+     57  20d2							;align so our branch doesn't unexpectedly cross a page...
+     58  20d2					      if	>. != >[.+$70]
      59  2100		       00 00 00 00*	      align	256
      60  2100					      endif
      61  2100
-     62  2100				   pfline_96x2_2_frame0
+     62  2100				   pfline_96x2_1_frame0
      63  2100		       a9 80		      lda	#$80	;2
      64  2102		       85 20		      sta	HMP0	;3
      65  2104		       85 21		      sta	HMP1	;3
      66  2106
-     67  2106		       b9 a0 b5 	      lda	bmp_96x2_2_06,y	;4
+     67  2106		       b9 00 b5 	      lda	bmp_96x2_1_06,y	;4
      68  2109		       85 1c		      sta	GRP1	;3
      69  210b
-     70  210b		       b9 af b4 	      lda	bmp_96x2_2_00,y
+     70  210b		       b9 00 b3 	      lda	bmp_96x2_1_00,y
      71  210e		       85 1b		      sta	GRP0
-     72  2110		       b9 00 b5 	      lda	bmp_96x2_2_02,y
+     72  2110		       b9 aa b3 	      lda	bmp_96x2_1_02,y
      73  2113		       85 1b		      sta	GRP0
-     74  2115		       b9 50 b5 	      lda	bmp_96x2_2_04,y
+     74  2115		       b9 55 b4 	      lda	bmp_96x2_1_04,y
      75  2118		       85 1b		      sta	GRP0
      76  211a
       0  211a					      sleep	2
@@ -2612,12 +2597,12 @@
      18  211a		       ea		      nop
      19  211b					      REPEND
      78  211b
-     79  211b		       b9 00 b6 	      lda	bmp_96x2_2_08,y
+     79  211b		       b9 aa b5 	      lda	bmp_96x2_1_08,y
      80  211e		       85 1c		      sta	GRP1
-     81  2120		       b9 50 b6 	      lda	bmp_96x2_2_10,y
+     81  2120		       b9 55 b6 	      lda	bmp_96x2_1_10,y
      82  2123		       85 1c		      sta	GRP1
      83  2125
-     84  2125		       b9 d7 b4 	      lda	bmp_96x2_2_01,y
+     84  2125		       b9 55 b3 	      lda	bmp_96x2_1_01,y
      85  2128		       85 1b		      sta	GRP0
      86  212a
       0  212a					      sleep	8
@@ -2650,9 +2635,9 @@
      89  212e							;sta WSYNC	;=0
      90  212e		       85 2a		      sta	HMOVE	;3 - NORMAL HMOVE
      91  2130
-     92  2130		       b9 86 b4 	      lda	bmp_96x2_2_colors-1,y	;4 - get the title color early and store it for later
-     93  2133				  -	      ifconst	bmp_96x2_2_fade
-     94  2133				  -	      and	bmp_96x2_2_fade
+     92  2130		       b9 86 b2 	      lda	bmp_96x2_1_colors-1,y	;4 - get the title color early and store it for later
+     93  2133				  -	      ifconst	bmp_96x2_1_fade
+     94  2133				  -	      and	bmp_96x2_1_fade
      95  2133					      else
       0  2133					      sleep	3
       1  2133				   .CYCLES    SET	3
@@ -2704,12 +2689,12 @@
      18  213f		       ea		      nop
      19  2140					      REPEND
     105  2140
-    106  2140		       b9 c8 b5 	      lda	bmp_96x2_2_07,y
+    106  2140		       b9 55 b5 	      lda	bmp_96x2_1_07,y
     107  2143		       85 1c		      sta	GRP1
     108  2145
-    109  2145		       b9 28 b5 	      lda	bmp_96x2_2_03,y	;5
+    109  2145		       b9 00 b4 	      lda	bmp_96x2_1_03,y	;5
     110  2148		       85 1b		      sta	GRP0	;3 =  8
-    111  214a		       b9 78 b5 	      lda	bmp_96x2_2_05,y	;5
+    111  214a		       b9 aa b4 	      lda	bmp_96x2_1_05,y	;5
     112  214d		       85 1b		      sta	GRP0	;3 =  8
     113  214f
       0  214f					      sleep	2
@@ -2733,9 +2718,9 @@
      18  214f		       ea		      nop
      19  2150					      REPEND
     115  2150
-    116  2150		       b9 28 b6 	      lda	bmp_96x2_2_09,y	;5
+    116  2150		       b9 00 b6 	      lda	bmp_96x2_1_09,y	;5
     117  2153		       85 1c		      sta	GRP1	;3 =  8
-    118  2155		       b9 78 b6 	      lda	bmp_96x2_2_11,y	;5
+    118  2155		       b9 aa b6 	      lda	bmp_96x2_1_11,y	;5
     119  2158		       85 1c		      sta	GRP1	;3 =  8
     120  215a
       0  215a					      sleep	2
@@ -2761,8 +2746,7 @@
     122  215b		       86 07		      stx	COLUP1
     123  215d		       86 06		      stx	COLUP0
     124  215f
-    125  215f
-    126  215f		       85 2a		      sta	HMOVE	;3 - CYCLE 74 HMOVE
+    125  215f		       85 2a		      sta	HMOVE	;3 - CYCLE 74 HMOVE
       0  2161					      sleep	2
       1  2161				   .CYCLES    SET	2
       2  2161
@@ -2783,30 +2767,30 @@
      17  2161					      REPEAT	.CYCLES / 2
      18  2161		       ea		      nop
      19  2162					      REPEND
-    128  2162		       88		      dey
-    129  2163
-    130  2163		       c4 9c		      cpy	temp1	;3
-    131  2165		       d0 99		      bne	pfline_96x2_2_frame0	;2/3
-    132  2167
-    133  2167				   pf96x2_2_0codeend
-    134  2167							;echo "critical code #1 in 96x2_2 is ",(pf96x2_2_0codeend-pfline_96x2_2_frame0), " bytes long."
-    135  2167
-    136  2167		       a9 00		      lda	#0
-    137  2169		       85 1b		      sta	GRP0
-    138  216b		       85 1c		      sta	GRP1
-    139  216d		       4c 6e b2 	      jmp	pfdone_96x2_2
+    127  2162		       88		      dey
+    128  2163
+    129  2163		       c4 9c		      cpy	temp1	;3
+    130  2165		       d0 99		      bne	pfline_96x2_1_frame0	;2/3
+    131  2167
+    132  2167				   pf96x2_1_0codeend
+    133  2167							;echo "critical code #1 in 96x2_1 is ",(pf96x2_1_0codeend-pfline_96x2_1_frame0), " bytes long."
+    134  2167
+    135  2167		       a9 00		      lda	#0
+    136  2169		       85 1b		      sta	GRP0
+    137  216b		       85 1c		      sta	GRP1
+    138  216d		       4c 6e b2 	      jmp	pfdone_96x2_1
+    139  2170
     140  2170
-    141  2170
-    142  2170				   pf96x2_2_frame1
-    143  2170
-    144  2170							;postion P0 and P1
-    145  2170		       85 02		      sta	WSYNC
-    146  2172		       a9 20		      lda	#%00100000
-    147  2174		       85 20		      sta	HMP0
-    148  2176		       a9 00		      lda	#0
-    149  2178		       a9 f0		      lda	#%11110000
-    150  217a		       85 21		      sta	HMP1
-    151  217c		       85 02		      sta	WSYNC
+    141  2170				   pf96x2_1_frame1
+    142  2170
+    143  2170							;postion P0 and P1
+    144  2170		       85 02		      sta	WSYNC
+    145  2172		       a9 20		      lda	#%00100000
+    146  2174		       85 20		      sta	HMP0
+    147  2176		       a9 00		      lda	#0
+    148  2178		       a9 f0		      lda	#%11110000
+    149  217a		       85 21		      sta	HMP1
+    150  217c		       85 02		      sta	WSYNC
       0  217e					      sleep	32
       1  217e				   .CYCLES    SET	32
       2  217e
@@ -2857,7 +2841,7 @@
      17  218c					      REPEND
      18  218d		       ea		      nop
      19  218e					      REPEND
-    153  218e		       85 10		      sta	RESP0
+    152  218e		       85 10		      sta	RESP0
       0  2190					      sleep	12
       1  2190				   .CYCLES    SET	12
       2  2190
@@ -2888,16 +2872,16 @@
      17  2194					      REPEND
      18  2195		       ea		      nop
      19  2196					      REPEND
-    155  2196		       85 11		      sta	RESP1
-    156  2198		       85 02		      sta	WSYNC
-    157  219a		       85 2a		      sta	HMOVE
-    158  219c
-    159  219c		       85 02		      sta	WSYNC
-    160  219e		       85 2b		      sta	HMCLR
+    154  2196		       85 11		      sta	RESP1
+    155  2198		       85 02		      sta	WSYNC
+    156  219a		       85 2a		      sta	HMOVE
+    157  219c
+    158  219c		       85 02		      sta	WSYNC
+    159  219e		       85 2b		      sta	HMCLR
+    160  21a0
     161  21a0
     162  21a0
-    163  21a0
-    164  21a0		       85 02		      sta	WSYNC
+    163  21a0		       85 02		      sta	WSYNC
       0  21a2					      sleep	3
       1  21a2				   .CYCLES    SET	3
       2  21a2
@@ -2918,31 +2902,31 @@
      17  21a4				  -	      REPEAT	.CYCLES / 2
      18  21a4				  -	      nop
      19  21a4					      REPEND
-    166  21a4		       4c 00 b2 	      jmp	pfline_96x2_2_frame1
-    167  21a7
-    168  21a7							;align so our branch doesn't unexpectedly cross a page...
-    169  21a7					      if	>. != >[.+$70]
-    170  2200		       00 00 00 00*	      align	256
-    171  2200					      endif
-    172  2200
-    173  2200				   pfline_96x2_2_frame1
-    174  2200
-    175  2200		       85 2a		      sta	HMOVE
-    176  2202
-    177  2202		       b9 c8 b5 	      lda	bmp_96x2_2_07,y	;4
-    178  2205		       85 1c		      sta	GRP1	;3
-    179  2207
-    180  2207		       a9 00		      lda	#$0	;2
-    181  2209		       85 20		      sta	HMP0	;3
-    182  220b		       85 21		      sta	HMP1	;3
-    183  220d
-    184  220d		       b9 d7 b4 	      lda	bmp_96x2_2_01,y
-    185  2210		       8d 1b 00 	      sta.w	GRP0
-    186  2213		       b9 28 b5 	      lda	bmp_96x2_2_03,y
-    187  2216		       85 1b		      sta	GRP0
-    188  2218		       b9 78 b5 	      lda	bmp_96x2_2_05,y
-    189  221b		       85 1b		      sta	GRP0
-    190  221d
+    165  21a4		       4c 00 b2 	      jmp	pfline_96x2_1_frame1
+    166  21a7
+    167  21a7							;align so our branch doesn't unexpectedly cross a page...
+    168  21a7					      if	>. != >[.+$70]
+    169  2200		       00 00 00 00*	      align	256
+    170  2200					      endif
+    171  2200
+    172  2200				   pfline_96x2_1_frame1
+    173  2200
+    174  2200		       85 2a		      sta	HMOVE
+    175  2202
+    176  2202		       b9 55 b5 	      lda	bmp_96x2_1_07,y	;4
+    177  2205		       85 1c		      sta	GRP1	;3
+    178  2207
+    179  2207		       a9 00		      lda	#$0	;2
+    180  2209		       85 20		      sta	HMP0	;3
+    181  220b		       85 21		      sta	HMP1	;3
+    182  220d
+    183  220d		       b9 55 b3 	      lda	bmp_96x2_1_01,y
+    184  2210		       8d 1b 00 	      sta.w	GRP0
+    185  2213		       b9 00 b4 	      lda	bmp_96x2_1_03,y
+    186  2216		       85 1b		      sta	GRP0
+    187  2218		       b9 aa b4 	      lda	bmp_96x2_1_05,y
+    188  221b		       85 1b		      sta	GRP0
+    189  221d
       0  221d					      sleep	2
       1  221d				   .CYCLES    SET	2
       2  221d
@@ -2963,22 +2947,22 @@
      17  221d					      REPEAT	.CYCLES / 2
      18  221d		       ea		      nop
      19  221e					      REPEND
-    192  221e
-    193  221e		       b9 28 b6 	      lda	bmp_96x2_2_09,y
-    194  2221		       85 1c		      sta	GRP1
-    195  2223		       b9 78 b6 	      lda	bmp_96x2_2_11,y
-    196  2226		       85 1c		      sta	GRP1
-    197  2228
-    198  2228		       b9 af b4 	      lda	bmp_96x2_2_00,y
-    199  222b		       85 1b		      sta	GRP0
-    200  222d
-    201  222d		       8d 2a 00 	      sta.w	HMOVE	;3 - cycle 74
-    202  2230
-    203  2230							;sta WSYNC	;=0 -----------------------------------------
-    204  2230
-    205  2230		       b9 a0 b5 	      lda	bmp_96x2_2_06,y
-    206  2233		       85 1c		      sta	GRP1
-    207  2235
+    191  221e
+    192  221e		       b9 00 b6 	      lda	bmp_96x2_1_09,y
+    193  2221		       85 1c		      sta	GRP1
+    194  2223		       b9 aa b6 	      lda	bmp_96x2_1_11,y
+    195  2226		       85 1c		      sta	GRP1
+    196  2228
+    197  2228		       b9 00 b3 	      lda	bmp_96x2_1_00,y
+    198  222b		       85 1b		      sta	GRP0
+    199  222d
+    200  222d		       8d 2a 00 	      sta.w	HMOVE	;3 - cycle 74
+    201  2230
+    202  2230							;sta WSYNC	;=0 -----------------------------------------
+    203  2230
+    204  2230		       b9 00 b5 	      lda	bmp_96x2_1_06,y
+    205  2233		       85 1c		      sta	GRP1
+    206  2235
       0  2235					      sleep	8
       1  2235				   .CYCLES    SET	8
       2  2235
@@ -3005,10 +2989,10 @@
      17  2237					      REPEND
      18  2238		       ea		      nop
      19  2239					      REPEND
-    209  2239
-    210  2239		       b9 86 b4 	      lda	bmp_96x2_2_colors-1,y	;get the title color early and store it for later
-    211  223c		       aa		      tax		;2
-    212  223d
+    208  2239
+    209  2239		       b9 86 b2 	      lda	bmp_96x2_1_colors-1,y	;get the title color early and store it for later
+    210  223c		       aa		      tax		;2
+    211  223d
       0  223d					      sleep	3
       1  223d				   .CYCLES    SET	3
       2  223d
@@ -3029,18 +3013,18 @@
      17  223f				  -	      REPEAT	.CYCLES / 2
      18  223f				  -	      nop
      19  223f					      REPEND
-    214  223f
-    215  223f		       a9 80		      lda	#$80	;2
-    216  2241		       85 20		      sta	HMP0	;3
-    217  2243		       85 21		      sta	HMP1	;3
+    213  223f
+    214  223f		       a9 80		      lda	#$80	;2
+    215  2241		       85 20		      sta	HMP0	;3
+    216  2243		       85 21		      sta	HMP1	;3
+    217  2245
     218  2245
-    219  2245
-    220  2245		       b9 00 b5 	      lda	bmp_96x2_2_02,y	;5
-    221  2248		       85 1b		      sta	GRP0	;3 =  8
-    222  224a
-    223  224a		       b9 50 b5 	      lda	bmp_96x2_2_04,y	;5
-    224  224d		       85 1b		      sta	GRP0	;3 =  8
-    225  224f
+    219  2245		       b9 aa b3 	      lda	bmp_96x2_1_02,y	;5
+    220  2248		       85 1b		      sta	GRP0	;3 =  8
+    221  224a
+    222  224a		       b9 55 b4 	      lda	bmp_96x2_1_04,y	;5
+    223  224d		       85 1b		      sta	GRP0	;3 =  8
+    224  224f
       0  224f					      sleep	2
       1  224f				   .CYCLES    SET	2
       2  224f
@@ -3061,13 +3045,13 @@
      17  224f					      REPEAT	.CYCLES / 2
      18  224f		       ea		      nop
      19  2250					      REPEND
-    227  2250
-    228  2250		       b9 00 b6 	      lda	bmp_96x2_2_08,y	;5
-    229  2253		       85 1c		      sta	GRP1	;3 =  8
-    230  2255
-    231  2255		       b9 50 b6 	      lda	bmp_96x2_2_10,y	;5
-    232  2258		       85 1c		      sta	GRP1	;3 =  8
-    233  225a
+    226  2250
+    227  2250		       b9 aa b5 	      lda	bmp_96x2_1_08,y	;5
+    228  2253		       85 1c		      sta	GRP1	;3 =  8
+    229  2255
+    230  2255		       b9 55 b6 	      lda	bmp_96x2_1_10,y	;5
+    231  2258		       85 1c		      sta	GRP1	;3 =  8
+    232  225a
       0  225a					      sleep	4
       1  225a				   .CYCLES    SET	4
       2  225a
@@ -3090,13 +3074,13 @@
      17  225a					      REPEND
      18  225b		       ea		      nop
      19  225c					      REPEND
-    235  225c
-    236  225c		       88		      dey
-    237  225d
-    238  225d		       8a		      txa
-    239  225e				  -	      ifconst	bmp_96x2_2_fade
-    240  225e				  -	      and	bmp_96x2_2_fade
-    241  225e					      else
+    234  225c
+    235  225c		       88		      dey
+    236  225d
+    237  225d		       8a		      txa
+    238  225e				  -	      ifconst	bmp_96x2_1_fade
+    239  225e				  -	      and	bmp_96x2_1_fade
+    240  225e					      else
       0  225e					      sleep	3
       1  225e				   .CYCLES    SET	3
       2  225e
@@ -3117,1979 +3101,1450 @@
      17  2260				  -	      REPEAT	.CYCLES / 2
      18  2260				  -	      nop
      19  2260					      REPEND
-    243  2260					      endif
-    244  2260		       85 07		      sta	COLUP1	;3
-    245  2262		       85 06		      sta	COLUP0	;3
-    246  2264
-    247  2264		       c4 9c		      cpy	temp1	;2
-    248  2266		       d0 98		      bne	pfline_96x2_2_frame1	;2/3
-    249  2268
-    250  2268				   pf96x2_2_1codeend
-    251  2268							;echo "critical code #2 in 96x2_2 is ",(pf96x2_2_1codeend-pfline_96x2_2_frame1), " bytes long."
-    252  2268
-    253  2268		       a9 00		      lda	#0
-    254  226a		       85 1b		      sta	GRP0
-    255  226c		       85 1c		      sta	GRP1
-    256  226e
-    257  226e				   pfdone_96x2_2
-    258  226e		       85 02		      sta	WSYNC	; debug
-    259  2270
-    260  2270		       60		      rts
+    242  2260					      endif
+    243  2260		       85 07		      sta	COLUP1	;3
+    244  2262		       85 06		      sta	COLUP0	;3
+    245  2264
+    246  2264		       c4 9c		      cpy	temp1	;2
+    247  2266		       d0 98		      bne	pfline_96x2_1_frame1	;2/3
+    248  2268
+    249  2268				   pf96x2_1_1codeend
+    250  2268							;echo "critical code #2 in 96x2_1 is ",(pf96x2_1_1codeend-pfline_96x2_1_frame1), " bytes long."
+    251  2268
+    252  2268		       a9 00		      lda	#0
+    253  226a		       85 1b		      sta	GRP0
+    254  226c		       85 1c		      sta	GRP1
+    255  226e
+    256  226e				   pfdone_96x2_1
+    257  226e		       85 02		      sta	WSYNC	; debug
+    258  2270
+    259  2270		       60		      rts
 ------- FILE titlescreen/asm/titlescreen.asm
+    149  2271					      endif		;mk_96x2_1_on
+    150  2271
+    151  2271				  -	      ifconst	mk_96x2_2_on
+    152  2271				  -	      include	"titlescreen/asm/96x2_2_kernel.asm"
     153  2271					      endif		;mk_96x2_2_on
     154  2271
-    155  2271					      ifconst	mk_96x2_3_on
-------- FILE titlescreen/asm/96x2_3_kernel.asm LEVEL 3 PASS 2
-      0  2271					      include	"titlescreen/asm/96x2_3_kernel.asm"
-      1  2271				   draw_bmp_96x2_3
-      2  2271
-      3  2271				  -	      ifconst	bmp_96x2_3_index
-      4  2271				  -	      lda	#(bmp_96x2_3_height-1)
-      5  2271				  -	      sec
-      6  2271				  -	      sbc	bmp_96x2_3_index
-      7  2271				  -	      tay
-      8  2271				  -	      sbc	#bmp_96x2_3_window
-      9  2271				  -	      sta	temp1
-     10  2271					      else
-     11  2271		       a0 13		      ldy	#(bmp_96x2_3_window-1)
-     12  2273		       a9 ff		      lda	#255
-     13  2275		       85 9c		      sta	temp1
-     14  2277					      endif
-     15  2277
-     16  2277		       a9 03		      lda	#3
-     17  2279		       85 04		      sta	NUSIZ0	;3=Player and Missile are drawn twice 32 clocks apart
-     18  227b		       85 05		      sta	NUSIZ1	;3=Player and Missile are drawn twice 32 clocks apart
-     19  227d		       a9 00		      lda	#0
-     20  227f
-     21  227f		       b9 a1 b6 	      lda	bmp_96x2_3_colors,y	;4
-     22  2282				  -	      ifconst	bmp_96x2_3_fade
-     23  2282				  -	      and	bmp_96x2_3_fade
-     24  2282					      endif
-     25  2282		       85 06		      sta	COLUP0	;3
-     26  2284		       85 07		      sta	COLUP1	;3
-     27  2286		       85 2b		      sta	HMCLR	;3
-     28  2288
-     29  2288		       a5 82		      lda	titleframe
-     30  228a		       29 01		      and	#1
-     31  228c		       f0 03		      beq	jmp_pf96x2_3_frame0
-     32  228e		       4c 70 b3 	      jmp	pf96x2_3_frame1
-     33  2291				   jmp_pf96x2_3_frame0
-     34  2291		       4c 94 b2 	      jmp	pf96x2_3_frame0
-     35  2294
-     36  2294				   pf96x2_3_frame0
-     37  2294							;postion P0 and P1
-     38  2294		       85 02		      sta	WSYNC
-     39  2296		       a9 e0		      lda	#%11100000
-     40  2298		       85 20		      sta	HMP0
-     41  229a		       a9 10		      lda	#%00010000
-     42  229c		       85 21		      sta	HMP1
-     43  229e		       85 02		      sta	WSYNC
-      0  22a0					      sleep	28
-      1  22a0				   .CYCLES    SET	28
-      2  22a0
-      3  22a0				  -	      IF	.CYCLES < 2
-      4  22a0				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
-      5  22a0				  -	      ERR
-      6  22a0					      ENDIF
-      7  22a0
-      8  22a0				  -	      IF	.CYCLES & 1
-      9  22a0				  -	      IFNCONST	NO_ILLEGAL_OPCODES
-     10  22a0				  -	      nop	0
-     11  22a0				  -	      ELSE
-     12  22a0				  -	      bit	VSYNC
-     13  22a0				  -	      ENDIF
-     14  22a0				  -.CYCLES    SET	.CYCLES - 3
-     15  22a0					      ENDIF
-     16  22a0
-     17  22a0					      REPEAT	.CYCLES / 2
-     18  22a0		       ea		      nop
-     17  22a0					      REPEND
-     18  22a1		       ea		      nop
-     17  22a1					      REPEND
-     18  22a2		       ea		      nop
-     17  22a2					      REPEND
-     18  22a3		       ea		      nop
-     17  22a3					      REPEND
-     18  22a4		       ea		      nop
-     17  22a4					      REPEND
-     18  22a5		       ea		      nop
-     17  22a5					      REPEND
-     18  22a6		       ea		      nop
-     17  22a6					      REPEND
-     18  22a7		       ea		      nop
-     17  22a7					      REPEND
-     18  22a8		       ea		      nop
-     17  22a8					      REPEND
-     18  22a9		       ea		      nop
-     17  22a9					      REPEND
-     18  22aa		       ea		      nop
-     17  22aa					      REPEND
-     18  22ab		       ea		      nop
-     17  22ab					      REPEND
-     18  22ac		       ea		      nop
-     17  22ac					      REPEND
-     18  22ad		       ea		      nop
-     19  22ae					      REPEND
-     45  22ae		       85 10		      sta	RESP0
-      0  22b0					      sleep	14
-      1  22b0				   .CYCLES    SET	14
-      2  22b0
-      3  22b0				  -	      IF	.CYCLES < 2
-      4  22b0				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
-      5  22b0				  -	      ERR
-      6  22b0					      ENDIF
-      7  22b0
-      8  22b0				  -	      IF	.CYCLES & 1
-      9  22b0				  -	      IFNCONST	NO_ILLEGAL_OPCODES
-     10  22b0				  -	      nop	0
-     11  22b0				  -	      ELSE
-     12  22b0				  -	      bit	VSYNC
-     13  22b0				  -	      ENDIF
-     14  22b0				  -.CYCLES    SET	.CYCLES - 3
-     15  22b0					      ENDIF
-     16  22b0
-     17  22b0					      REPEAT	.CYCLES / 2
-     18  22b0		       ea		      nop
-     17  22b0					      REPEND
-     18  22b1		       ea		      nop
-     17  22b1					      REPEND
-     18  22b2		       ea		      nop
-     17  22b2					      REPEND
-     18  22b3		       ea		      nop
-     17  22b3					      REPEND
-     18  22b4		       ea		      nop
-     17  22b4					      REPEND
-     18  22b5		       ea		      nop
-     17  22b5					      REPEND
-     18  22b6		       ea		      nop
-     19  22b7					      REPEND
-     47  22b7		       85 11		      sta	RESP1
-     48  22b9		       85 02		      sta	WSYNC
-     49  22bb		       85 2a		      sta	HMOVE
-     50  22bd
-     51  22bd		       85 02		      sta	WSYNC
-     52  22bf		       85 2b		      sta	HMCLR
-     53  22c1		       85 02		      sta	WSYNC
-     54  22c3
-      0  22c3					      sleep	4
-      1  22c3				   .CYCLES    SET	4
-      2  22c3
-      3  22c3				  -	      IF	.CYCLES < 2
-      4  22c3				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
-      5  22c3				  -	      ERR
-      6  22c3					      ENDIF
-      7  22c3
-      8  22c3				  -	      IF	.CYCLES & 1
-      9  22c3				  -	      IFNCONST	NO_ILLEGAL_OPCODES
-     10  22c3				  -	      nop	0
-     11  22c3				  -	      ELSE
-     12  22c3				  -	      bit	VSYNC
-     13  22c3				  -	      ENDIF
-     14  22c3				  -.CYCLES    SET	.CYCLES - 3
-     15  22c3					      ENDIF
-     16  22c3
-     17  22c3					      REPEAT	.CYCLES / 2
-     18  22c3		       ea		      nop
-     17  22c3					      REPEND
-     18  22c4		       ea		      nop
-     19  22c5					      REPEND
-     56  22c5		       4c 00 b3 	      jmp	pfline_96x2_3_frame0
-     57  22c8							;align so our branch doesn't unexpectedly cross a page...
-     58  22c8					      if	>. != >[.+$70]
-     59  2300		       00 00 00 00*	      align	256
-     60  2300					      endif
-     61  2300
-     62  2300				   pfline_96x2_3_frame0
-     63  2300		       a9 80		      lda	#$80	;2
-     64  2302		       85 20		      sta	HMP0	;3
-     65  2304		       85 21		      sta	HMP1	;3
-     66  2306
-     67  2306		       b9 3c b7 	      lda	bmp_96x2_3_06,y	;4
-     68  2309		       85 1c		      sta	GRP1	;3
-     69  230b
-     70  230b		       b9 b5 b6 	      lda	bmp_96x2_3_00,y
-     71  230e		       85 1b		      sta	GRP0
-     72  2310		       b9 dd b6 	      lda	bmp_96x2_3_02,y
-     73  2313		       85 1b		      sta	GRP0
-     74  2315		       b9 14 b7 	      lda	bmp_96x2_3_04,y
-     75  2318		       85 1b		      sta	GRP0
-     76  231a
-      0  231a					      sleep	2
-      1  231a				   .CYCLES    SET	2
-      2  231a
-      3  231a				  -	      IF	.CYCLES < 2
-      4  231a				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
-      5  231a				  -	      ERR
-      6  231a					      ENDIF
-      7  231a
-      8  231a				  -	      IF	.CYCLES & 1
-      9  231a				  -	      IFNCONST	NO_ILLEGAL_OPCODES
-     10  231a				  -	      nop	0
-     11  231a				  -	      ELSE
-     12  231a				  -	      bit	VSYNC
-     13  231a				  -	      ENDIF
-     14  231a				  -.CYCLES    SET	.CYCLES - 3
-     15  231a					      ENDIF
-     16  231a
-     17  231a					      REPEAT	.CYCLES / 2
-     18  231a		       ea		      nop
-     19  231b					      REPEND
-     78  231b
-     79  231b		       b9 64 b7 	      lda	bmp_96x2_3_08,y
-     80  231e		       85 1c		      sta	GRP1
-     81  2320		       b9 8c b7 	      lda	bmp_96x2_3_10,y
-     82  2323		       85 1c		      sta	GRP1
-     83  2325
-     84  2325		       b9 c9 b6 	      lda	bmp_96x2_3_01,y
-     85  2328		       85 1b		      sta	GRP0
-     86  232a
-      0  232a					      sleep	8
-      1  232a				   .CYCLES    SET	8
-      2  232a
-      3  232a				  -	      IF	.CYCLES < 2
-      4  232a				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
-      5  232a				  -	      ERR
-      6  232a					      ENDIF
-      7  232a
-      8  232a				  -	      IF	.CYCLES & 1
-      9  232a				  -	      IFNCONST	NO_ILLEGAL_OPCODES
-     10  232a				  -	      nop	0
-     11  232a				  -	      ELSE
-     12  232a				  -	      bit	VSYNC
-     13  232a				  -	      ENDIF
-     14  232a				  -.CYCLES    SET	.CYCLES - 3
-     15  232a					      ENDIF
-     16  232a
-     17  232a					      REPEAT	.CYCLES / 2
-     18  232a		       ea		      nop
-     17  232a					      REPEND
-     18  232b		       ea		      nop
-     17  232b					      REPEND
-     18  232c		       ea		      nop
-     17  232c					      REPEND
-     18  232d		       ea		      nop
-     19  232e					      REPEND
-     88  232e
-     89  232e							;sta WSYNC	;=0
-     90  232e		       85 2a		      sta	HMOVE	;3 - NORMAL HMOVE
-     91  2330
-     92  2330		       b9 a0 b6 	      lda	bmp_96x2_3_colors-1,y	;4 - get the title color early and store it for later
-     93  2333				  -	      ifconst	bmp_96x2_3_fade
-     94  2333				  -	      and	bmp_96x2_3_fade
-     95  2333					      else
-      0  2333					      sleep	3
-      1  2333				   .CYCLES    SET	3
-      2  2333
-      3  2333				  -	      IF	.CYCLES < 2
-      4  2333				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
-      5  2333				  -	      ERR
-      6  2333					      ENDIF
-      7  2333
-      8  2333					      IF	.CYCLES & 1
-      9  2333					      IFNCONST	NO_ILLEGAL_OPCODES
-     10  2333		       04 00		      nop	0
-     11  2335				  -	      ELSE
-     12  2335				  -	      bit	VSYNC
-     13  2335					      ENDIF
-     14  2335				   .CYCLES    SET	.CYCLES - 3
-     15  2335					      ENDIF
-     16  2335
-     17  2335				  -	      REPEAT	.CYCLES / 2
-     18  2335				  -	      nop
-     19  2335					      REPEND
-     97  2335					      endif
-     98  2335		       aa		      tax
-     99  2336
-    100  2336		       a9 00		      lda	#0	;2
-    101  2338		       85 20		      sta	HMP0	;3
-    102  233a		       85 21		      sta	HMP1	;3
-    103  233c
-      0  233c					      sleep	7
-      1  233c				   .CYCLES    SET	7
-      2  233c
-      3  233c				  -	      IF	.CYCLES < 2
-      4  233c				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
-      5  233c				  -	      ERR
-      6  233c					      ENDIF
-      7  233c
-      8  233c					      IF	.CYCLES & 1
-      9  233c					      IFNCONST	NO_ILLEGAL_OPCODES
-     10  233c		       04 00		      nop	0
-     11  233e				  -	      ELSE
-     12  233e				  -	      bit	VSYNC
-     13  233e					      ENDIF
-     14  233e				   .CYCLES    SET	.CYCLES - 3
-     15  233e					      ENDIF
-     16  233e
-     17  233e					      REPEAT	.CYCLES / 2
-     18  233e		       ea		      nop
-     17  233e					      REPEND
-     18  233f		       ea		      nop
-     19  2340					      REPEND
-    105  2340
-    106  2340		       b9 50 b7 	      lda	bmp_96x2_3_07,y
-    107  2343		       85 1c		      sta	GRP1
-    108  2345
-    109  2345		       b9 00 b7 	      lda	bmp_96x2_3_03,y	;5
-    110  2348		       85 1b		      sta	GRP0	;3 =  8
-    111  234a		       b9 28 b7 	      lda	bmp_96x2_3_05,y	;5
-    112  234d		       85 1b		      sta	GRP0	;3 =  8
-    113  234f
-      0  234f					      sleep	2
-      1  234f				   .CYCLES    SET	2
-      2  234f
-      3  234f				  -	      IF	.CYCLES < 2
-      4  234f				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
-      5  234f				  -	      ERR
-      6  234f					      ENDIF
-      7  234f
-      8  234f				  -	      IF	.CYCLES & 1
-      9  234f				  -	      IFNCONST	NO_ILLEGAL_OPCODES
-     10  234f				  -	      nop	0
-     11  234f				  -	      ELSE
-     12  234f				  -	      bit	VSYNC
-     13  234f				  -	      ENDIF
-     14  234f				  -.CYCLES    SET	.CYCLES - 3
-     15  234f					      ENDIF
-     16  234f
-     17  234f					      REPEAT	.CYCLES / 2
-     18  234f		       ea		      nop
-     19  2350					      REPEND
-    115  2350
-    116  2350		       b9 78 b7 	      lda	bmp_96x2_3_09,y	;5
-    117  2353		       85 1c		      sta	GRP1	;3 =  8
-    118  2355		       b9 a0 b7 	      lda	bmp_96x2_3_11,y	;5
-    119  2358		       85 1c		      sta	GRP1	;3 =  8
-    120  235a
-      0  235a					      sleep	2
-      1  235a				   .CYCLES    SET	2
-      2  235a
-      3  235a				  -	      IF	.CYCLES < 2
-      4  235a				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
-      5  235a				  -	      ERR
-      6  235a					      ENDIF
-      7  235a
-      8  235a				  -	      IF	.CYCLES & 1
-      9  235a				  -	      IFNCONST	NO_ILLEGAL_OPCODES
-     10  235a				  -	      nop	0
-     11  235a				  -	      ELSE
-     12  235a				  -	      bit	VSYNC
-     13  235a				  -	      ENDIF
-     14  235a				  -.CYCLES    SET	.CYCLES - 3
-     15  235a					      ENDIF
-     16  235a
-     17  235a					      REPEAT	.CYCLES / 2
-     18  235a		       ea		      nop
-     19  235b					      REPEND
-    122  235b		       86 07		      stx	COLUP1
-    123  235d		       86 06		      stx	COLUP0
-    124  235f
-    125  235f
-    126  235f		       85 2a		      sta	HMOVE	;3 - CYCLE 74 HMOVE
-      0  2361					      sleep	2
-      1  2361				   .CYCLES    SET	2
-      2  2361
-      3  2361				  -	      IF	.CYCLES < 2
-      4  2361				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
-      5  2361				  -	      ERR
-      6  2361					      ENDIF
-      7  2361
-      8  2361				  -	      IF	.CYCLES & 1
-      9  2361				  -	      IFNCONST	NO_ILLEGAL_OPCODES
-     10  2361				  -	      nop	0
-     11  2361				  -	      ELSE
-     12  2361				  -	      bit	VSYNC
-     13  2361				  -	      ENDIF
-     14  2361				  -.CYCLES    SET	.CYCLES - 3
-     15  2361					      ENDIF
-     16  2361
-     17  2361					      REPEAT	.CYCLES / 2
-     18  2361		       ea		      nop
-     19  2362					      REPEND
-    128  2362		       88		      dey
-    129  2363
-    130  2363		       c4 9c		      cpy	temp1	;3
-    131  2365		       d0 99		      bne	pfline_96x2_3_frame0	;2/3
-    132  2367
-    133  2367				   pf96x2_3_0codeend
-    134  2367							;echo "critical code #1 in 96x2_3 is ",(pf96x2_3_0codeend-pfline_96x2_3_frame0), " bytes long."
-    135  2367
-    136  2367		       a9 00		      lda	#0
-    137  2369		       85 1b		      sta	GRP0
-    138  236b		       85 1c		      sta	GRP1
-    139  236d		       4c 6e b4 	      jmp	pfdone_96x2_3
-    140  2370
-    141  2370
-    142  2370				   pf96x2_3_frame1
-    143  2370
-    144  2370							;postion P0 and P1
-    145  2370		       85 02		      sta	WSYNC
-    146  2372		       a9 20		      lda	#%00100000
-    147  2374		       85 20		      sta	HMP0
-    148  2376		       a9 00		      lda	#0
-    149  2378		       a9 f0		      lda	#%11110000
-    150  237a		       85 21		      sta	HMP1
-    151  237c		       85 02		      sta	WSYNC
-      0  237e					      sleep	32
-      1  237e				   .CYCLES    SET	32
-      2  237e
-      3  237e				  -	      IF	.CYCLES < 2
-      4  237e				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
-      5  237e				  -	      ERR
-      6  237e					      ENDIF
-      7  237e
-      8  237e				  -	      IF	.CYCLES & 1
-      9  237e				  -	      IFNCONST	NO_ILLEGAL_OPCODES
-     10  237e				  -	      nop	0
-     11  237e				  -	      ELSE
-     12  237e				  -	      bit	VSYNC
-     13  237e				  -	      ENDIF
-     14  237e				  -.CYCLES    SET	.CYCLES - 3
-     15  237e					      ENDIF
-     16  237e
-     17  237e					      REPEAT	.CYCLES / 2
-     18  237e		       ea		      nop
-     17  237e					      REPEND
-     18  237f		       ea		      nop
-     17  237f					      REPEND
-     18  2380		       ea		      nop
-     17  2380					      REPEND
-     18  2381		       ea		      nop
-     17  2381					      REPEND
-     18  2382		       ea		      nop
-     17  2382					      REPEND
-     18  2383		       ea		      nop
-     17  2383					      REPEND
-     18  2384		       ea		      nop
-     17  2384					      REPEND
-     18  2385		       ea		      nop
-     17  2385					      REPEND
-     18  2386		       ea		      nop
-     17  2386					      REPEND
-     18  2387		       ea		      nop
-     17  2387					      REPEND
-     18  2388		       ea		      nop
-     17  2388					      REPEND
-     18  2389		       ea		      nop
-     17  2389					      REPEND
-     18  238a		       ea		      nop
-     17  238a					      REPEND
-     18  238b		       ea		      nop
-     17  238b					      REPEND
-     18  238c		       ea		      nop
-     17  238c					      REPEND
-     18  238d		       ea		      nop
-     19  238e					      REPEND
-    153  238e		       85 10		      sta	RESP0
-      0  2390					      sleep	12
-      1  2390				   .CYCLES    SET	12
-      2  2390
-      3  2390				  -	      IF	.CYCLES < 2
-      4  2390				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
-      5  2390				  -	      ERR
-      6  2390					      ENDIF
-      7  2390
-      8  2390				  -	      IF	.CYCLES & 1
-      9  2390				  -	      IFNCONST	NO_ILLEGAL_OPCODES
-     10  2390				  -	      nop	0
-     11  2390				  -	      ELSE
-     12  2390				  -	      bit	VSYNC
-     13  2390				  -	      ENDIF
-     14  2390				  -.CYCLES    SET	.CYCLES - 3
-     15  2390					      ENDIF
-     16  2390
-     17  2390					      REPEAT	.CYCLES / 2
-     18  2390		       ea		      nop
-     17  2390					      REPEND
-     18  2391		       ea		      nop
-     17  2391					      REPEND
-     18  2392		       ea		      nop
-     17  2392					      REPEND
-     18  2393		       ea		      nop
-     17  2393					      REPEND
-     18  2394		       ea		      nop
-     17  2394					      REPEND
-     18  2395		       ea		      nop
-     19  2396					      REPEND
-    155  2396		       85 11		      sta	RESP1
-    156  2398		       85 02		      sta	WSYNC
-    157  239a		       85 2a		      sta	HMOVE
-    158  239c
-    159  239c		       85 02		      sta	WSYNC
-    160  239e		       85 2b		      sta	HMCLR
-    161  23a0
-    162  23a0
-    163  23a0
-    164  23a0		       85 02		      sta	WSYNC
-      0  23a2					      sleep	3
-      1  23a2				   .CYCLES    SET	3
-      2  23a2
-      3  23a2				  -	      IF	.CYCLES < 2
-      4  23a2				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
-      5  23a2				  -	      ERR
-      6  23a2					      ENDIF
-      7  23a2
-      8  23a2					      IF	.CYCLES & 1
-      9  23a2					      IFNCONST	NO_ILLEGAL_OPCODES
-     10  23a2		       04 00		      nop	0
-     11  23a4				  -	      ELSE
-     12  23a4				  -	      bit	VSYNC
-     13  23a4					      ENDIF
-     14  23a4				   .CYCLES    SET	.CYCLES - 3
-     15  23a4					      ENDIF
-     16  23a4
-     17  23a4				  -	      REPEAT	.CYCLES / 2
-     18  23a4				  -	      nop
-     19  23a4					      REPEND
-    166  23a4		       4c 00 b4 	      jmp	pfline_96x2_3_frame1
-    167  23a7
-    168  23a7							;align so our branch doesn't unexpectedly cross a page...
-    169  23a7					      if	>. != >[.+$70]
-    170  2400		       00 00 00 00*	      align	256
-    171  2400					      endif
-    172  2400
-    173  2400				   pfline_96x2_3_frame1
-    174  2400
-    175  2400		       85 2a		      sta	HMOVE
-    176  2402
-    177  2402		       b9 50 b7 	      lda	bmp_96x2_3_07,y	;4
-    178  2405		       85 1c		      sta	GRP1	;3
-    179  2407
-    180  2407		       a9 00		      lda	#$0	;2
-    181  2409		       85 20		      sta	HMP0	;3
-    182  240b		       85 21		      sta	HMP1	;3
-    183  240d
-    184  240d		       b9 c9 b6 	      lda	bmp_96x2_3_01,y
-    185  2410		       8d 1b 00 	      sta.w	GRP0
-    186  2413		       b9 00 b7 	      lda	bmp_96x2_3_03,y
-    187  2416		       85 1b		      sta	GRP0
-    188  2418		       b9 28 b7 	      lda	bmp_96x2_3_05,y
-    189  241b		       85 1b		      sta	GRP0
-    190  241d
-      0  241d					      sleep	2
-      1  241d				   .CYCLES    SET	2
-      2  241d
-      3  241d				  -	      IF	.CYCLES < 2
-      4  241d				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
-      5  241d				  -	      ERR
-      6  241d					      ENDIF
-      7  241d
-      8  241d				  -	      IF	.CYCLES & 1
-      9  241d				  -	      IFNCONST	NO_ILLEGAL_OPCODES
-     10  241d				  -	      nop	0
-     11  241d				  -	      ELSE
-     12  241d				  -	      bit	VSYNC
-     13  241d				  -	      ENDIF
-     14  241d				  -.CYCLES    SET	.CYCLES - 3
-     15  241d					      ENDIF
-     16  241d
-     17  241d					      REPEAT	.CYCLES / 2
-     18  241d		       ea		      nop
-     19  241e					      REPEND
-    192  241e
-    193  241e		       b9 78 b7 	      lda	bmp_96x2_3_09,y
-    194  2421		       85 1c		      sta	GRP1
-    195  2423		       b9 a0 b7 	      lda	bmp_96x2_3_11,y
-    196  2426		       85 1c		      sta	GRP1
-    197  2428
-    198  2428		       b9 b5 b6 	      lda	bmp_96x2_3_00,y
-    199  242b		       85 1b		      sta	GRP0
-    200  242d
-    201  242d		       8d 2a 00 	      sta.w	HMOVE	;3 - cycle 74
-    202  2430
-    203  2430							;sta WSYNC	;=0 -----------------------------------------
-    204  2430
-    205  2430		       b9 3c b7 	      lda	bmp_96x2_3_06,y
-    206  2433		       85 1c		      sta	GRP1
-    207  2435
-      0  2435					      sleep	8
-      1  2435				   .CYCLES    SET	8
-      2  2435
-      3  2435				  -	      IF	.CYCLES < 2
-      4  2435				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
-      5  2435				  -	      ERR
-      6  2435					      ENDIF
-      7  2435
-      8  2435				  -	      IF	.CYCLES & 1
-      9  2435				  -	      IFNCONST	NO_ILLEGAL_OPCODES
-     10  2435				  -	      nop	0
-     11  2435				  -	      ELSE
-     12  2435				  -	      bit	VSYNC
-     13  2435				  -	      ENDIF
-     14  2435				  -.CYCLES    SET	.CYCLES - 3
-     15  2435					      ENDIF
-     16  2435
-     17  2435					      REPEAT	.CYCLES / 2
-     18  2435		       ea		      nop
-     17  2435					      REPEND
-     18  2436		       ea		      nop
-     17  2436					      REPEND
-     18  2437		       ea		      nop
-     17  2437					      REPEND
-     18  2438		       ea		      nop
-     19  2439					      REPEND
-    209  2439
-    210  2439		       b9 a0 b6 	      lda	bmp_96x2_3_colors-1,y	;get the title color early and store it for later
-    211  243c		       aa		      tax		;2
-    212  243d
-      0  243d					      sleep	3
-      1  243d				   .CYCLES    SET	3
-      2  243d
-      3  243d				  -	      IF	.CYCLES < 2
-      4  243d				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
-      5  243d				  -	      ERR
-      6  243d					      ENDIF
-      7  243d
-      8  243d					      IF	.CYCLES & 1
-      9  243d					      IFNCONST	NO_ILLEGAL_OPCODES
-     10  243d		       04 00		      nop	0
-     11  243f				  -	      ELSE
-     12  243f				  -	      bit	VSYNC
-     13  243f					      ENDIF
-     14  243f				   .CYCLES    SET	.CYCLES - 3
-     15  243f					      ENDIF
-     16  243f
-     17  243f				  -	      REPEAT	.CYCLES / 2
-     18  243f				  -	      nop
-     19  243f					      REPEND
-    214  243f
-    215  243f		       a9 80		      lda	#$80	;2
-    216  2441		       85 20		      sta	HMP0	;3
-    217  2443		       85 21		      sta	HMP1	;3
-    218  2445
-    219  2445
-    220  2445		       b9 dd b6 	      lda	bmp_96x2_3_02,y	;5
-    221  2448		       85 1b		      sta	GRP0	;3 =  8
-    222  244a
-    223  244a		       b9 14 b7 	      lda	bmp_96x2_3_04,y	;5
-    224  244d		       85 1b		      sta	GRP0	;3 =  8
-    225  244f
-      0  244f					      sleep	2
-      1  244f				   .CYCLES    SET	2
-      2  244f
-      3  244f				  -	      IF	.CYCLES < 2
-      4  244f				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
-      5  244f				  -	      ERR
-      6  244f					      ENDIF
-      7  244f
-      8  244f				  -	      IF	.CYCLES & 1
-      9  244f				  -	      IFNCONST	NO_ILLEGAL_OPCODES
-     10  244f				  -	      nop	0
-     11  244f				  -	      ELSE
-     12  244f				  -	      bit	VSYNC
-     13  244f				  -	      ENDIF
-     14  244f				  -.CYCLES    SET	.CYCLES - 3
-     15  244f					      ENDIF
-     16  244f
-     17  244f					      REPEAT	.CYCLES / 2
-     18  244f		       ea		      nop
-     19  2450					      REPEND
-    227  2450
-    228  2450		       b9 64 b7 	      lda	bmp_96x2_3_08,y	;5
-    229  2453		       85 1c		      sta	GRP1	;3 =  8
-    230  2455
-    231  2455		       b9 8c b7 	      lda	bmp_96x2_3_10,y	;5
-    232  2458		       85 1c		      sta	GRP1	;3 =  8
-    233  245a
-      0  245a					      sleep	4
-      1  245a				   .CYCLES    SET	4
-      2  245a
-      3  245a				  -	      IF	.CYCLES < 2
-      4  245a				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
-      5  245a				  -	      ERR
-      6  245a					      ENDIF
-      7  245a
-      8  245a				  -	      IF	.CYCLES & 1
-      9  245a				  -	      IFNCONST	NO_ILLEGAL_OPCODES
-     10  245a				  -	      nop	0
-     11  245a				  -	      ELSE
-     12  245a				  -	      bit	VSYNC
-     13  245a				  -	      ENDIF
-     14  245a				  -.CYCLES    SET	.CYCLES - 3
-     15  245a					      ENDIF
-     16  245a
-     17  245a					      REPEAT	.CYCLES / 2
-     18  245a		       ea		      nop
-     17  245a					      REPEND
-     18  245b		       ea		      nop
-     19  245c					      REPEND
-    235  245c
-    236  245c		       88		      dey
-    237  245d
-    238  245d		       8a		      txa
-    239  245e				  -	      ifconst	bmp_96x2_3_fade
-    240  245e				  -	      and	bmp_96x2_3_fade
-    241  245e					      else
-      0  245e					      sleep	3
-      1  245e				   .CYCLES    SET	3
-      2  245e
-      3  245e				  -	      IF	.CYCLES < 2
-      4  245e				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
-      5  245e				  -	      ERR
-      6  245e					      ENDIF
-      7  245e
-      8  245e					      IF	.CYCLES & 1
-      9  245e					      IFNCONST	NO_ILLEGAL_OPCODES
-     10  245e		       04 00		      nop	0
-     11  2460				  -	      ELSE
-     12  2460				  -	      bit	VSYNC
-     13  2460					      ENDIF
-     14  2460				   .CYCLES    SET	.CYCLES - 3
-     15  2460					      ENDIF
-     16  2460
-     17  2460				  -	      REPEAT	.CYCLES / 2
-     18  2460				  -	      nop
-     19  2460					      REPEND
-    243  2460					      endif
-    244  2460		       85 07		      sta	COLUP1	;3
-    245  2462		       85 06		      sta	COLUP0	;3
-    246  2464
-    247  2464		       c4 9c		      cpy	temp1	;2
-    248  2466		       d0 98		      bne	pfline_96x2_3_frame1	;2/3
-    249  2468
-    250  2468				   pf96x2_3_1codeend
-    251  2468							;echo "critical code #2 in 96x2_3 is ",(pf96x2_3_1codeend-pfline_96x2_3_frame1), " bytes long."
-    252  2468
-    253  2468		       a9 00		      lda	#0
-    254  246a		       85 1b		      sta	GRP0
-    255  246c		       85 1c		      sta	GRP1
-    256  246e
-    257  246e				   pfdone_96x2_3
-    258  246e		       85 02		      sta	WSYNC	; debug
-    259  2470
-    260  2470		       60		      rts
+    155  2271				  -	      ifconst	mk_96x2_3_on
+    156  2271				  -	      include	"titlescreen/asm/96x2_3_kernel.asm"
+    157  2271					      endif		;mk_96x2_3_on
+    158  2271
+    159  2271				  -	      ifconst	mk_96x2_4_on
+    160  2271				  -	      include	"titlescreen/asm/96x2_4_kernel.asm"
+    161  2271					      endif		;mk_96x2_4_on
+    162  2271
+    163  2271				  -	      ifconst	mk_96x2_5_on
+    164  2271				  -	      include	"titlescreen/asm/96x2_5_kernel.asm"
+    165  2271					      endif		;mk_96x2_5_on
+    166  2271
+    167  2271				  -	      ifconst	mk_96x2_6_on
+    168  2271				  -	      include	"titlescreen/asm/96x2_6_kernel.asm"
+    169  2271					      endif		;mk_96x2_6_on
+    170  2271
+    171  2271				  -	      ifconst	mk_96x2_7_on
+    172  2271				  -	      include	"titlescreen/asm/96x2_7_kernel.asm"
+    173  2271					      endif		;mk_96x2_7_on
+    174  2271
+    175  2271				  -	      ifconst	mk_96x2_8_on
+    176  2271				  -	      include	"titlescreen/asm/96x2_8_kernel.asm"
+    177  2271					      endif		;mk_96x2_8_on
+    178  2271
+    179  2271				  -	      ifconst	mk_score_on
+    180  2271				  -	      include	"titlescreen/asm/score_kernel.asm"
+    181  2271					      endif		;mk_score_on
+    182  2271
+    183  2271				  -	      ifconst	mk_gameselect_on
+    184  2271				  -	      include	"titlescreen/asm/gameselect_kernel.asm"
+    185  2271					      endif		;mk_gameselect_on
+    186  2271
+    187  2271				   PFWAIT
+    188  2271		       ad 84 02 	      lda	INTIM
+    189  2274		       d0 fb		      bne	PFWAIT
+    190  2276		       85 02		      sta	WSYNC
+    191  2278
+    192  2278				   OVERSCAN
+    193  2278				  -	      ifnconst	overscan_time
+    194  2278				  -	      lda	#34+128
+    195  2278					      else
+    196  2278		       a9 a0		      lda	#overscan_time+128-5
+    197  227a					      endif
+    198  227a		       8d 96 02 	      sta	TIM64T
+    199  227d
+    200  227d							;fix height variables we borrowed, so DPC doesn't crash on drawscreen...
+    201  227d				  -	      ifconst	player9height
+    202  227d				  -	      ldy	#8
+    203  227d				  -	      lda	#0
+    204  227d				  -	      sta	player0height
+    205  227d				  -.playerheightfixloop
+    206  227d				  -	      sta	player1height,y
+    207  227d				  -	      ifconst	_NUSIZ1
+    208  227d				  -	      sta	_NUSIZ1,y
+    209  227d				  -	      endif
+    210  227d				  -	      dey
+    211  227d				  -	      bpl	.playerheightfixloop
+    212  227d					      endif
+    213  227d
+    214  227d		       a9 c2		      lda	#%11000010
+    215  227f		       85 02		      sta	WSYNC
+    216  2281		       85 01		      sta	VBLANK
+      0  2283					      RETURN
+      1  2283				  -	      ifnconst	bankswitch
+      2  2283				  -	      rts
+      3  2283					      else
+      4  2283		       4c dd ff 	      jmp	BS_return
+      5  2286					      endif
+    218  2286
+    219  2286				  -	      ifconst	mk_48x1_1_on
+    220  2286				  -	      include	"titlescreen/48x1_1_image.asm"
+    221  2286					      endif
+    222  2286				  -	      ifconst	mk_48x1_2_on
+    223  2286				  -	      include	"titlescreen/48x1_2_image.asm"
+    224  2286					      endif
+    225  2286				  -	      ifconst	mk_48x1_3_on
+    226  2286				  -	      include	"titlescreen/48x1_3_image.asm"
+    227  2286					      endif
+    228  2286				  -	      ifconst	mk_48x1_4_on
+    229  2286				  -	      include	"titlescreen/48x1_4_image.asm"
+    230  2286					      endif
+    231  2286				  -	      ifconst	mk_48x1_5_on
+    232  2286				  -	      include	"titlescreen/48x1_5_image.asm"
+    233  2286					      endif
+    234  2286				  -	      ifconst	mk_48x1_6_on
+    235  2286				  -	      include	"titlescreen/48x1_6_image.asm"
+    236  2286					      endif
+    237  2286				  -	      ifconst	mk_48x1_7_on
+    238  2286				  -	      include	"titlescreen/48x1_7_image.asm"
+    239  2286					      endif
+    240  2286				  -	      ifconst	mk_48x1_8_on
+    241  2286				  -	      include	"titlescreen/48x1_8_image.asm"
+    242  2286					      endif
+    243  2286
+    244  2286
+    245  2286				  -	      ifconst	mk_48x2_1_on
+    246  2286				  -	      include	"titlescreen/48x2_1_image.asm"
+    247  2286					      endif
+    248  2286				  -	      ifconst	mk_48x2_2_on
+    249  2286				  -	      include	"titlescreen/48x2_2_image.asm"
+    250  2286					      endif
+    251  2286				  -	      ifconst	mk_48x2_3_on
+    252  2286				  -	      include	"titlescreen/48x2_3_image.asm"
+    253  2286					      endif
+    254  2286				  -	      ifconst	mk_48x2_4_on
+    255  2286				  -	      include	"titlescreen/48x2_4_image.asm"
+    256  2286					      endif
+    257  2286				  -	      ifconst	mk_48x2_5_on
+    258  2286				  -	      include	"titlescreen/48x2_5_image.asm"
+    259  2286					      endif
+    260  2286				  -	      ifconst	mk_48x2_6_on
+    261  2286				  -	      include	"titlescreen/48x2_6_image.asm"
+    262  2286					      endif
+    263  2286				  -	      ifconst	mk_48x2_7_on
+    264  2286				  -	      include	"titlescreen/48x2_7_image.asm"
+    265  2286					      endif
+    266  2286
+    267  2286				  -	      ifconst	mk_48x2_8_on
+    268  2286				  -	      include	"titlescreen/48x2_8_image.asm"
+    269  2286					      endif
+    270  2286
+    271  2286
+    272  2286					      ifconst	mk_96x2_1_on
+------- FILE titlescreen/96x2_1_image.asm LEVEL 3 PASS 2
+      0  2286					      include	"titlescreen/96x2_1_image.asm"
+      1  2286							;*** The height of the displayed data...
+      2  2286		       00 55	   bmp_96x2_1_window =	85
+      3  2286
+      4  2286							;*** The height of the bitmap data. This can be larger than
+      5  2286							;*** the displayed data height, if you're scrolling or animating
+      6  2286							;*** the data...
+      7  2286		       00 55	   bmp_96x2_1_height =	85
+      8  2286
+      9  2286
+     10  2286				  -	      if	>. != >[.+(bmp_96x2_1_height)]
+     11  2286				  -	      align	256
+     12  2286					      endif
+     13  2286		       00		      BYTE.b	$00	; leave this here!
+     14  2287
+     15  2287
+     16  2287							;*** The color of each line in the bitmap, in reverse order...
+     17  2287				   bmp_96x2_1_colors
+     18  2287		       0e		      .byte.b	$0E
+     19  2288		       0e		      .byte.b	$0E
+     20  2289		       0e		      .byte.b	$0E
+     21  228a		       0e		      .byte.b	$0E
+     22  228b		       0e		      .byte.b	$0E
+     23  228c		       0e		      .byte.b	$0E
+     24  228d		       0e		      .byte.b	$0E
+     25  228e		       0e		      .byte.b	$0E
+     26  228f		       0e		      .byte.b	$0E
+     27  2290		       0e		      .byte.b	$0E
+     28  2291		       0e		      .byte.b	$0E
+     29  2292		       0e		      .byte.b	$0E
+     30  2293		       0e		      .byte.b	$0E
+     31  2294		       0e		      .byte.b	$0E
+     32  2295		       0e		      .byte.b	$0E
+     33  2296		       0e		      .byte.b	$0E
+     34  2297		       0e		      .byte.b	$0E
+     35  2298		       0e		      .byte.b	$0E
+     36  2299		       0e		      .byte.b	$0E
+     37  229a		       0e		      .byte.b	$0E
+     38  229b		       0e		      .byte.b	$0E
+     39  229c		       44		      .byte.b	$44
+     40  229d		       44		      .byte.b	$44
+     41  229e		       44		      .byte.b	$44
+     42  229f		       44		      .byte.b	$44
+     43  22a0		       44		      .byte.b	$44
+     44  22a1		       44		      .byte.b	$44
+     45  22a2		       44		      .byte.b	$44
+     46  22a3		       44		      .byte.b	$44
+     47  22a4		       44		      .byte.b	$44
+     48  22a5		       44		      .byte.b	$44
+     49  22a6		       44		      .byte.b	$44
+     50  22a7		       44		      .byte.b	$44
+     51  22a8		       0e		      .byte.b	$0E
+     52  22a9		       0e		      .byte.b	$0E
+     53  22aa		       0e		      .byte.b	$0E
+     54  22ab		       0e		      .byte.b	$0E
+     55  22ac		       0e		      .byte.b	$0E
+     56  22ad		       0e		      .byte.b	$0E
+     57  22ae		       0e		      .byte.b	$0E
+     58  22af		       0e		      .byte.b	$0E
+     59  22b0		       1c		      .byte.b	$1C
+     60  22b1		       1c		      .byte.b	$1C
+     61  22b2		       1c		      .byte.b	$1C
+     62  22b3		       1c		      .byte.b	$1C
+     63  22b4		       1c		      .byte.b	$1C
+     64  22b5		       1c		      .byte.b	$1C
+     65  22b6		       1c		      .byte.b	$1C
+     66  22b7		       1c		      .byte.b	$1C
+     67  22b8		       1c		      .byte.b	$1C
+     68  22b9		       1c		      .byte.b	$1C
+     69  22ba		       1c		      .byte.b	$1C
+     70  22bb		       1c		      .byte.b	$1C
+     71  22bc		       0e		      .byte.b	$0E
+     72  22bd		       0e		      .byte.b	$0E
+     73  22be		       1c		      .byte.b	$1C
+     74  22bf		       1c		      .byte.b	$1C
+     75  22c0		       1c		      .byte.b	$1C
+     76  22c1		       1c		      .byte.b	$1C
+     77  22c2		       1c		      .byte.b	$1C
+     78  22c3		       1c		      .byte.b	$1C
+     79  22c4		       1c		      .byte.b	$1C
+     80  22c5		       1c		      .byte.b	$1C
+     81  22c6		       1c		      .byte.b	$1C
+     82  22c7		       1c		      .byte.b	$1C
+     83  22c8		       1c		      .byte.b	$1C
+     84  22c9		       1c		      .byte.b	$1C
+     85  22ca		       0e		      .byte.b	$0E
+     86  22cb		       0e		      .byte.b	$0E
+     87  22cc		       0e		      .byte.b	$0E
+     88  22cd		       1c		      .byte.b	$1C
+     89  22ce		       1c		      .byte.b	$1C
+     90  22cf		       1c		      .byte.b	$1C
+     91  22d0		       1c		      .byte.b	$1C
+     92  22d1		       1c		      .byte.b	$1C
+     93  22d2		       1c		      .byte.b	$1C
+     94  22d3		       1c		      .byte.b	$1C
+     95  22d4		       1c		      .byte.b	$1C
+     96  22d5		       1c		      .byte.b	$1C
+     97  22d6		       1c		      .byte.b	$1C
+     98  22d7		       1c		      .byte.b	$1C
+     99  22d8		       1c		      .byte.b	$1C
+    100  22d9		       0e		      .byte.b	$0E
+    101  22da		       0e		      .byte.b	$0E
+    102  22db		       0e		      .byte.b	$0E
+    103  22dc
+    104  22dc
+    105  22dc					      if	>. != >[.+(bmp_96x2_1_height)]
+    106  2300		       00 00 00 00*	      align	256
+    107  2300					      endif
+    108  2300
+    109  2300
+    110  2300				   bmp_96x2_1_00
+    111  2300							; *** replace this block with your bimap_00 data block...
+    112  2300		       00		      BYTE.b	%00000000
+    113  2301		       00		      BYTE.b	%00000000
+    114  2302		       00		      BYTE.b	%00000000
+    115  2303		       00		      BYTE.b	%00000000
+    116  2304		       00		      BYTE.b	%00000000
+    117  2305		       00		      BYTE.b	%00000000
+    118  2306		       00		      BYTE.b	%00000000
+    119  2307		       00		      BYTE.b	%00000000
+    120  2308		       00		      BYTE.b	%00000000
+    121  2309		       00		      BYTE.b	%00000000
+    122  230a		       00		      BYTE.b	%00000000
+    123  230b		       00		      BYTE.b	%00000000
+    124  230c		       00		      BYTE.b	%00000000
+    125  230d		       00		      BYTE.b	%00000000
+    126  230e		       00		      BYTE.b	%00000000
+    127  230f		       00		      BYTE.b	%00000000
+    128  2310		       00		      BYTE.b	%00000000
+    129  2311		       00		      BYTE.b	%00000000
+    130  2312		       00		      BYTE.b	%00000000
+    131  2313		       00		      BYTE.b	%00000000
+    132  2314		       00		      BYTE.b	%00000000
+    133  2315		       00		      BYTE.b	%00000000
+    134  2316		       00		      BYTE.b	%00000000
+    135  2317		       00		      BYTE.b	%00000000
+    136  2318		       00		      BYTE.b	%00000000
+    137  2319		       00		      BYTE.b	%00000000
+    138  231a		       00		      BYTE.b	%00000000
+    139  231b		       00		      BYTE.b	%00000000
+    140  231c		       00		      BYTE.b	%00000000
+    141  231d		       00		      BYTE.b	%00000000
+    142  231e		       00		      BYTE.b	%00000000
+    143  231f		       00		      BYTE.b	%00000000
+    144  2320		       00		      BYTE.b	%00000000
+    145  2321		       00		      BYTE.b	%00000000
+    146  2322		       00		      BYTE.b	%00000000
+    147  2323		       00		      BYTE.b	%00000000
+    148  2324		       00		      BYTE.b	%00000000
+    149  2325		       00		      BYTE.b	%00000000
+    150  2326		       00		      BYTE.b	%00000000
+    151  2327		       00		      BYTE.b	%00000000
+    152  2328		       00		      BYTE.b	%00000000
+    153  2329		       7c		      BYTE.b	%01111100
+    154  232a		       7c		      BYTE.b	%01111100
+    155  232b		       7c		      BYTE.b	%01111100
+    156  232c		       7c		      BYTE.b	%01111100
+    157  232d		       7c		      BYTE.b	%01111100
+    158  232e		       7c		      BYTE.b	%01111100
+    159  232f		       7f		      BYTE.b	%01111111
+    160  2330		       7f		      BYTE.b	%01111111
+    161  2331		       7f		      BYTE.b	%01111111
+    162  2332		       7f		      BYTE.b	%01111111
+    163  2333		       7c		      BYTE.b	%01111100
+    164  2334		       00		      BYTE.b	%00000000
+    165  2335		       00		      BYTE.b	%00000000
+    166  2336		       00		      BYTE.b	%00000000
+    167  2337		       00		      BYTE.b	%00000000
+    168  2338		       00		      BYTE.b	%00000000
+    169  2339		       00		      BYTE.b	%00000000
+    170  233a		       00		      BYTE.b	%00000000
+    171  233b		       00		      BYTE.b	%00000000
+    172  233c		       00		      BYTE.b	%00000000
+    173  233d		       00		      BYTE.b	%00000000
+    174  233e		       00		      BYTE.b	%00000000
+    175  233f		       00		      BYTE.b	%00000000
+    176  2340		       00		      BYTE.b	%00000000
+    177  2341		       00		      BYTE.b	%00000000
+    178  2342		       00		      BYTE.b	%00000000
+    179  2343		       00		      BYTE.b	%00000000
+    180  2344		       00		      BYTE.b	%00000000
+    181  2345		       00		      BYTE.b	%00000000
+    182  2346		       00		      BYTE.b	%00000000
+    183  2347		       00		      BYTE.b	%00000000
+    184  2348		       00		      BYTE.b	%00000000
+    185  2349		       00		      BYTE.b	%00000000
+    186  234a		       00		      BYTE.b	%00000000
+    187  234b		       00		      BYTE.b	%00000000
+    188  234c		       00		      BYTE.b	%00000000
+    189  234d		       00		      BYTE.b	%00000000
+    190  234e		       00		      BYTE.b	%00000000
+    191  234f		       00		      BYTE.b	%00000000
+    192  2350		       00		      BYTE.b	%00000000
+    193  2351		       00		      BYTE.b	%00000000
+    194  2352		       00		      BYTE.b	%00000000
+    195  2353		       00		      BYTE.b	%00000000
+    196  2354		       00		      BYTE.b	%00000000
+    197  2355
+    198  2355
+    199  2355
+    200  2355				  -	      if	>. != >[.+(bmp_96x2_1_height)]
+    201  2355				  -	      align	256
+    202  2355					      endif
+    203  2355
+    204  2355
+    205  2355				   bmp_96x2_1_01
+    206  2355							; *** replace this block with your bimap_01 data block...
+    207  2355		       00		      BYTE.b	%00000000
+    208  2356		       00		      BYTE.b	%00000000
+    209  2357		       00		      BYTE.b	%00000000
+    210  2358		       00		      BYTE.b	%00000000
+    211  2359		       00		      BYTE.b	%00000000
+    212  235a		       00		      BYTE.b	%00000000
+    213  235b		       00		      BYTE.b	%00000000
+    214  235c		       00		      BYTE.b	%00000000
+    215  235d		       00		      BYTE.b	%00000000
+    216  235e		       00		      BYTE.b	%00000000
+    217  235f		       00		      BYTE.b	%00000000
+    218  2360		       00		      BYTE.b	%00000000
+    219  2361		       00		      BYTE.b	%00000000
+    220  2362		       00		      BYTE.b	%00000000
+    221  2363		       00		      BYTE.b	%00000000
+    222  2364		       00		      BYTE.b	%00000000
+    223  2365		       00		      BYTE.b	%00000000
+    224  2366		       00		      BYTE.b	%00000000
+    225  2367		       00		      BYTE.b	%00000000
+    226  2368		       00		      BYTE.b	%00000000
+    227  2369		       00		      BYTE.b	%00000000
+    228  236a		       00		      BYTE.b	%00000000
+    229  236b		       00		      BYTE.b	%00000000
+    230  236c		       00		      BYTE.b	%00000000
+    231  236d		       00		      BYTE.b	%00000000
+    232  236e		       00		      BYTE.b	%00000000
+    233  236f		       00		      BYTE.b	%00000000
+    234  2370		       00		      BYTE.b	%00000000
+    235  2371		       00		      BYTE.b	%00000000
+    236  2372		       00		      BYTE.b	%00000000
+    237  2373		       00		      BYTE.b	%00000000
+    238  2374		       00		      BYTE.b	%00000000
+    239  2375		       00		      BYTE.b	%00000000
+    240  2376		       00		      BYTE.b	%00000000
+    241  2377		       00		      BYTE.b	%00000000
+    242  2378		       00		      BYTE.b	%00000000
+    243  2379		       00		      BYTE.b	%00000000
+    244  237a		       00		      BYTE.b	%00000000
+    245  237b		       00		      BYTE.b	%00000000
+    246  237c		       00		      BYTE.b	%00000000
+    247  237d		       00		      BYTE.b	%00000000
+    248  237e		       0f		      BYTE.b	%00001111
+    249  237f		       0f		      BYTE.b	%00001111
+    250  2380		       0f		      BYTE.b	%00001111
+    251  2381		       cf		      BYTE.b	%11001111
+    252  2382		       cf		      BYTE.b	%11001111
+    253  2383		       cf		      BYTE.b	%11001111
+    254  2384		       ff		      BYTE.b	%11111111
+    255  2385		       ff		      BYTE.b	%11111111
+    256  2386		       3f		      BYTE.b	%00111111
+    257  2387		       3f		      BYTE.b	%00111111
+    258  2388		       0f		      BYTE.b	%00001111
+    259  2389		       00		      BYTE.b	%00000000
+    260  238a		       00		      BYTE.b	%00000000
+    261  238b		       00		      BYTE.b	%00000000
+    262  238c		       00		      BYTE.b	%00000000
+    263  238d		       1f		      BYTE.b	%00011111
+    264  238e		       1f		      BYTE.b	%00011111
+    265  238f		       1f		      BYTE.b	%00011111
+    266  2390		       1f		      BYTE.b	%00011111
+    267  2391		       1f		      BYTE.b	%00011111
+    268  2392		       1f		      BYTE.b	%00011111
+    269  2393		       1f		      BYTE.b	%00011111
+    270  2394		       1f		      BYTE.b	%00011111
+    271  2395		       1f		      BYTE.b	%00011111
+    272  2396		       1f		      BYTE.b	%00011111
+    273  2397		       1f		      BYTE.b	%00011111
+    274  2398		       00		      BYTE.b	%00000000
+    275  2399		       00		      BYTE.b	%00000000
+    276  239a		       00		      BYTE.b	%00000000
+    277  239b		       00		      BYTE.b	%00000000
+    278  239c		       00		      BYTE.b	%00000000
+    279  239d		       00		      BYTE.b	%00000000
+    280  239e		       00		      BYTE.b	%00000000
+    281  239f		       00		      BYTE.b	%00000000
+    282  23a0		       00		      BYTE.b	%00000000
+    283  23a1		       00		      BYTE.b	%00000000
+    284  23a2		       00		      BYTE.b	%00000000
+    285  23a3		       00		      BYTE.b	%00000000
+    286  23a4		       00		      BYTE.b	%00000000
+    287  23a5		       00		      BYTE.b	%00000000
+    288  23a6		       00		      BYTE.b	%00000000
+    289  23a7		       00		      BYTE.b	%00000000
+    290  23a8		       00		      BYTE.b	%00000000
+    291  23a9		       00		      BYTE.b	%00000000
+    292  23aa
+    293  23aa
+    294  23aa
+    295  23aa				  -	      if	>. != >[.+(bmp_96x2_1_height)]
+    296  23aa				  -	      align	256
+    297  23aa					      endif
+    298  23aa
+    299  23aa
+    300  23aa				   bmp_96x2_1_02
+    301  23aa							; *** replace this block with your bimap_02 data block...
+    302  23aa		       00		      BYTE.b	%00000000
+    303  23ab		       00		      BYTE.b	%00000000
+    304  23ac		       00		      BYTE.b	%00000000
+    305  23ad		       00		      BYTE.b	%00000000
+    306  23ae		       00		      BYTE.b	%00000000
+    307  23af		       00		      BYTE.b	%00000000
+    308  23b0		       34		      BYTE.b	%00110100
+    309  23b1		       44		      BYTE.b	%01000100
+    310  23b2		       46		      BYTE.b	%01000110
+    311  23b3		       30		      BYTE.b	%00110000
+    312  23b4		       00		      BYTE.b	%00000000
+    313  23b5		       00		      BYTE.b	%00000000
+    314  23b6		       00		      BYTE.b	%00000000
+    315  23b7		       00		      BYTE.b	%00000000
+    316  23b8		       00		      BYTE.b	%00000000
+    317  23b9		       00		      BYTE.b	%00000000
+    318  23ba		       00		      BYTE.b	%00000000
+    319  23bb		       00		      BYTE.b	%00000000
+    320  23bc		       00		      BYTE.b	%00000000
+    321  23bd		       00		      BYTE.b	%00000000
+    322  23be		       00		      BYTE.b	%00000000
+    323  23bf		       00		      BYTE.b	%00000000
+    324  23c0		       00		      BYTE.b	%00000000
+    325  23c1		       00		      BYTE.b	%00000000
+    326  23c2		       00		      BYTE.b	%00000000
+    327  23c3		       00		      BYTE.b	%00000000
+    328  23c4		       00		      BYTE.b	%00000000
+    329  23c5		       00		      BYTE.b	%00000000
+    330  23c6		       00		      BYTE.b	%00000000
+    331  23c7		       00		      BYTE.b	%00000000
+    332  23c8		       00		      BYTE.b	%00000000
+    333  23c9		       00		      BYTE.b	%00000000
+    334  23ca		       00		      BYTE.b	%00000000
+    335  23cb		       00		      BYTE.b	%00000000
+    336  23cc		       00		      BYTE.b	%00000000
+    337  23cd		       00		      BYTE.b	%00000000
+    338  23ce		       00		      BYTE.b	%00000000
+    339  23cf		       00		      BYTE.b	%00000000
+    340  23d0		       00		      BYTE.b	%00000000
+    341  23d1		       00		      BYTE.b	%00000000
+    342  23d2		       00		      BYTE.b	%00000000
+    343  23d3		       87		      BYTE.b	%10000111
+    344  23d4		       87		      BYTE.b	%10000111
+    345  23d5		       87		      BYTE.b	%10000111
+    346  23d6		       87		      BYTE.b	%10000111
+    347  23d7		       87		      BYTE.b	%10000111
+    348  23d8		       87		      BYTE.b	%10000111
+    349  23d9		       87		      BYTE.b	%10000111
+    350  23da		       87		      BYTE.b	%10000111
+    351  23db		       81		      BYTE.b	%10000001
+    352  23dc		       81		      BYTE.b	%10000001
+    353  23dd		       80		      BYTE.b	%10000000
+    354  23de		       00		      BYTE.b	%00000000
+    355  23df		       00		      BYTE.b	%00000000
+    356  23e0		       00		      BYTE.b	%00000000
+    357  23e1		       00		      BYTE.b	%00000000
+    358  23e2		       ff		      BYTE.b	%11111111
+    359  23e3		       ff		      BYTE.b	%11111111
+    360  23e4		       03		      BYTE.b	%00000011
+    361  23e5		       03		      BYTE.b	%00000011
+    362  23e6		       03		      BYTE.b	%00000011
+    363  23e7		       ff		      BYTE.b	%11111111
+    364  23e8		       ff		      BYTE.b	%11111111
+    365  23e9		       03		      BYTE.b	%00000011
+    366  23ea		       03		      BYTE.b	%00000011
+    367  23eb		       ff		      BYTE.b	%11111111
+    368  23ec		       ff		      BYTE.b	%11111111
+    369  23ed		       00		      BYTE.b	%00000000
+    370  23ee		       00		      BYTE.b	%00000000
+    371  23ef		       00		      BYTE.b	%00000000
+    372  23f0		       00		      BYTE.b	%00000000
+    373  23f1		       00		      BYTE.b	%00000000
+    374  23f2		       00		      BYTE.b	%00000000
+    375  23f3		       00		      BYTE.b	%00000000
+    376  23f4		       00		      BYTE.b	%00000000
+    377  23f5		       00		      BYTE.b	%00000000
+    378  23f6		       00		      BYTE.b	%00000000
+    379  23f7		       00		      BYTE.b	%00000000
+    380  23f8		       00		      BYTE.b	%00000000
+    381  23f9		       00		      BYTE.b	%00000000
+    382  23fa		       00		      BYTE.b	%00000000
+    383  23fb		       00		      BYTE.b	%00000000
+    384  23fc		       00		      BYTE.b	%00000000
+    385  23fd		       00		      BYTE.b	%00000000
+    386  23fe		       00		      BYTE.b	%00000000
+    387  23ff
+    388  23ff
+    389  23ff
+    390  23ff					      if	>. != >[.+(bmp_96x2_1_height)]
+    391  2400		       00		      align	256
+    392  2400					      endif
+    393  2400
+    394  2400
+    395  2400				   bmp_96x2_1_03
+    396  2400							; *** replace this block with your bimap_03 data block...
+    397  2400		       00		      BYTE.b	%00000000
+    398  2401		       00		      BYTE.b	%00000000
+    399  2402		       00		      BYTE.b	%00000000
+    400  2403		       00		      BYTE.b	%00000000
+    401  2404		       00		      BYTE.b	%00000000
+    402  2405		       00		      BYTE.b	%00000000
+    403  2406		       e6		      BYTE.b	%11100110
+    404  2407		       ca		      BYTE.b	%11001010
+    405  2408		       e6		      BYTE.b	%11100110
+    406  2409		       00		      BYTE.b	%00000000
+    407  240a		       00		      BYTE.b	%00000000
+    408  240b		       00		      BYTE.b	%00000000
+    409  240c		       00		      BYTE.b	%00000000
+    410  240d		       00		      BYTE.b	%00000000
+    411  240e		       00		      BYTE.b	%00000000
+    412  240f		       00		      BYTE.b	%00000000
+    413  2410		       00		      BYTE.b	%00000000
+    414  2411		       00		      BYTE.b	%00000000
+    415  2412		       00		      BYTE.b	%00000000
+    416  2413		       00		      BYTE.b	%00000000
+    417  2414		       00		      BYTE.b	%00000000
+    418  2415		       00		      BYTE.b	%00000000
+    419  2416		       00		      BYTE.b	%00000000
+    420  2417		       00		      BYTE.b	%00000000
+    421  2418		       00		      BYTE.b	%00000000
+    422  2419		       00		      BYTE.b	%00000000
+    423  241a		       00		      BYTE.b	%00000000
+    424  241b		       00		      BYTE.b	%00000000
+    425  241c		       02		      BYTE.b	%00000010
+    426  241d		       03		      BYTE.b	%00000011
+    427  241e		       02		      BYTE.b	%00000010
+    428  241f		       03		      BYTE.b	%00000011
+    429  2420		       00		      BYTE.b	%00000000
+    430  2421		       00		      BYTE.b	%00000000
+    431  2422		       00		      BYTE.b	%00000000
+    432  2423		       00		      BYTE.b	%00000000
+    433  2424		       00		      BYTE.b	%00000000
+    434  2425		       00		      BYTE.b	%00000000
+    435  2426		       00		      BYTE.b	%00000000
+    436  2427		       00		      BYTE.b	%00000000
+    437  2428		       00		      BYTE.b	%00000000
+    438  2429		       80		      BYTE.b	%10000000
+    439  242a		       80		      BYTE.b	%10000000
+    440  242b		       80		      BYTE.b	%10000000
+    441  242c		       ff		      BYTE.b	%11111111
+    442  242d		       ff		      BYTE.b	%11111111
+    443  242e		       80		      BYTE.b	%10000000
+    444  242f		       80		      BYTE.b	%10000000
+    445  2430		       c1		      BYTE.b	%11000001
+    446  2431		       f7		      BYTE.b	%11110111
+    447  2432		       ff		      BYTE.b	%11111111
+    448  2433		       7f		      BYTE.b	%01111111
+    449  2434		       00		      BYTE.b	%00000000
+    450  2435		       00		      BYTE.b	%00000000
+    451  2436		       00		      BYTE.b	%00000000
+    452  2437		       00		      BYTE.b	%00000000
+    453  2438		       83		      BYTE.b	%10000011
+    454  2439		       83		      BYTE.b	%10000011
+    455  243a		       e3		      BYTE.b	%11100011
+    456  243b		       e3		      BYTE.b	%11100011
+    457  243c		       e3		      BYTE.b	%11100011
+    458  243d		       83		      BYTE.b	%10000011
+    459  243e		       e3		      BYTE.b	%11100011
+    460  243f		       e3		      BYTE.b	%11100011
+    461  2440		       e3		      BYTE.b	%11100011
+    462  2441		       c3		      BYTE.b	%11000011
+    463  2442		       83		      BYTE.b	%10000011
+    464  2443		       00		      BYTE.b	%00000000
+    465  2444		       00		      BYTE.b	%00000000
+    466  2445		       00		      BYTE.b	%00000000
+    467  2446		       00		      BYTE.b	%00000000
+    468  2447		       00		      BYTE.b	%00000000
+    469  2448		       00		      BYTE.b	%00000000
+    470  2449		       00		      BYTE.b	%00000000
+    471  244a		       00		      BYTE.b	%00000000
+    472  244b		       00		      BYTE.b	%00000000
+    473  244c		       00		      BYTE.b	%00000000
+    474  244d		       00		      BYTE.b	%00000000
+    475  244e		       00		      BYTE.b	%00000000
+    476  244f		       00		      BYTE.b	%00000000
+    477  2450		       00		      BYTE.b	%00000000
+    478  2451		       00		      BYTE.b	%00000000
+    479  2452		       00		      BYTE.b	%00000000
+    480  2453		       00		      BYTE.b	%00000000
+    481  2454		       00		      BYTE.b	%00000000
+    482  2455
+    483  2455
+    484  2455
+    485  2455				  -	      if	>. != >[.+(bmp_96x2_1_height)]
+    486  2455				  -	      align	256
+    487  2455					      endif
+    488  2455
+    489  2455
+    490  2455				   bmp_96x2_1_04
+    491  2455							; *** replace this block with your bimap_04 data block...
+    492  2455		       00		      BYTE.b	%00000000
+    493  2456		       00		      BYTE.b	%00000000
+    494  2457		       00		      BYTE.b	%00000000
+    495  2458		       00		      BYTE.b	%00000000
+    496  2459		       00		      BYTE.b	%00000000
+    497  245a		       00		      BYTE.b	%00000000
+    498  245b		       4e		      BYTE.b	%01001110
+    499  245c		       4c		      BYTE.b	%01001100
+    500  245d		       ee		      BYTE.b	%11101110
+    501  245e		       40		      BYTE.b	%01000000
+    502  245f		       00		      BYTE.b	%00000000
+    503  2460		       00		      BYTE.b	%00000000
+    504  2461		       00		      BYTE.b	%00000000
+    505  2462		       00		      BYTE.b	%00000000
+    506  2463		       00		      BYTE.b	%00000000
+    507  2464		       00		      BYTE.b	%00000000
+    508  2465		       00		      BYTE.b	%00000000
+    509  2466		       00		      BYTE.b	%00000000
+    510  2467		       00		      BYTE.b	%00000000
+    511  2468		       00		      BYTE.b	%00000000
+    512  2469		       00		      BYTE.b	%00000000
+    513  246a		       11		      BYTE.b	%00010001
+    514  246b		       12		      BYTE.b	%00010010
+    515  246c		       12		      BYTE.b	%00010010
+    516  246d		       39		      BYTE.b	%00111001
+    517  246e		       00		      BYTE.b	%00000000
+    518  246f		       00		      BYTE.b	%00000000
+    519  2470		       00		      BYTE.b	%00000000
+    520  2471		       2b		      BYTE.b	%00101011
+    521  2472		       32		      BYTE.b	%00110010
+    522  2473		       ab		      BYTE.b	%10101011
+    523  2474		       33		      BYTE.b	%00110011
+    524  2475		       00		      BYTE.b	%00000000
+    525  2476		       00		      BYTE.b	%00000000
+    526  2477		       00		      BYTE.b	%00000000
+    527  2478		       00		      BYTE.b	%00000000
+    528  2479		       00		      BYTE.b	%00000000
+    529  247a		       00		      BYTE.b	%00000000
+    530  247b		       00		      BYTE.b	%00000000
+    531  247c		       00		      BYTE.b	%00000000
+    532  247d		       00		      BYTE.b	%00000000
+    533  247e		       f8		      BYTE.b	%11111000
+    534  247f		       f8		      BYTE.b	%11111000
+    535  2480		       f8		      BYTE.b	%11111000
+    536  2481		       f8		      BYTE.b	%11111000
+    537  2482		       f8		      BYTE.b	%11111000
+    538  2483		       f8		      BYTE.b	%11111000
+    539  2484		       f8		      BYTE.b	%11111000
+    540  2485		       f8		      BYTE.b	%11111000
+    541  2486		       c0		      BYTE.b	%11000000
+    542  2487		       c0		      BYTE.b	%11000000
+    543  2488		       00		      BYTE.b	%00000000
+    544  2489		       00		      BYTE.b	%00000000
+    545  248a		       00		      BYTE.b	%00000000
+    546  248b		       00		      BYTE.b	%00000000
+    547  248c		       00		      BYTE.b	%00000000
+    548  248d		       ff		      BYTE.b	%11111111
+    549  248e		       ff		      BYTE.b	%11111111
+    550  248f		       e0		      BYTE.b	%11100000
+    551  2490		       e0		      BYTE.b	%11100000
+    552  2491		       e0		      BYTE.b	%11100000
+    553  2492		       ff		      BYTE.b	%11111111
+    554  2493		       ff		      BYTE.b	%11111111
+    555  2494		       e0		      BYTE.b	%11100000
+    556  2495		       e0		      BYTE.b	%11100000
+    557  2496		       ff		      BYTE.b	%11111111
+    558  2497		       ff		      BYTE.b	%11111111
+    559  2498		       00		      BYTE.b	%00000000
+    560  2499		       00		      BYTE.b	%00000000
+    561  249a		       00		      BYTE.b	%00000000
+    562  249b		       00		      BYTE.b	%00000000
+    563  249c		       00		      BYTE.b	%00000000
+    564  249d		       00		      BYTE.b	%00000000
+    565  249e		       00		      BYTE.b	%00000000
+    566  249f		       00		      BYTE.b	%00000000
+    567  24a0		       00		      BYTE.b	%00000000
+    568  24a1		       00		      BYTE.b	%00000000
+    569  24a2		       00		      BYTE.b	%00000000
+    570  24a3		       00		      BYTE.b	%00000000
+    571  24a4		       00		      BYTE.b	%00000000
+    572  24a5		       00		      BYTE.b	%00000000
+    573  24a6		       00		      BYTE.b	%00000000
+    574  24a7		       00		      BYTE.b	%00000000
+    575  24a8		       00		      BYTE.b	%00000000
+    576  24a9		       00		      BYTE.b	%00000000
+    577  24aa
+    578  24aa
+    579  24aa
+    580  24aa				  -	      if	>. != >[.+(bmp_96x2_1_height)]
+    581  24aa				  -	      align	256
+    582  24aa					      endif
+    583  24aa
+    584  24aa
+    585  24aa				   bmp_96x2_1_05
+    586  24aa							; *** replace this block with your bimap_05 data block...
+    587  24aa		       00		      BYTE.b	%00000000
+    588  24ab		       00		      BYTE.b	%00000000
+    589  24ac		       00		      BYTE.b	%00000000
+    590  24ad		       00		      BYTE.b	%00000000
+    591  24ae		       00		      BYTE.b	%00000000
+    592  24af		       00		      BYTE.b	%00000000
+    593  24b0		       63		      BYTE.b	%01100011
+    594  24b1		       a2		      BYTE.b	%10100010
+    595  24b2		       63		      BYTE.b	%01100011
+    596  24b3		       22		      BYTE.b	%00100010
+    597  24b4		       00		      BYTE.b	%00000000
+    598  24b5		       00		      BYTE.b	%00000000
+    599  24b6		       00		      BYTE.b	%00000000
+    600  24b7		       00		      BYTE.b	%00000000
+    601  24b8		       00		      BYTE.b	%00000000
+    602  24b9		       00		      BYTE.b	%00000000
+    603  24ba		       00		      BYTE.b	%00000000
+    604  24bb		       00		      BYTE.b	%00000000
+    605  24bc		       00		      BYTE.b	%00000000
+    606  24bd		       00		      BYTE.b	%00000000
+    607  24be		       00		      BYTE.b	%00000000
+    608  24bf		       0c		      BYTE.b	%00001100
+    609  24c0		       82		      BYTE.b	%10000010
+    610  24c1		       8c		      BYTE.b	%10001100
+    611  24c2		       06		      BYTE.b	%00000110
+    612  24c3		       00		      BYTE.b	%00000000
+    613  24c4		       00		      BYTE.b	%00000000
+    614  24c5		       00		      BYTE.b	%00000000
+    615  24c6		       b3		      BYTE.b	%10110011
+    616  24c7		       08		      BYTE.b	%00001000
+    617  24c8		       33		      BYTE.b	%00110011
+    618  24c9		       99		      BYTE.b	%10011001
+    619  24ca		       00		      BYTE.b	%00000000
+    620  24cb		       00		      BYTE.b	%00000000
+    621  24cc		       00		      BYTE.b	%00000000
+    622  24cd		       00		      BYTE.b	%00000000
+    623  24ce		       00		      BYTE.b	%00000000
+    624  24cf		       00		      BYTE.b	%00000000
+    625  24d0		       00		      BYTE.b	%00000000
+    626  24d1		       00		      BYTE.b	%00000000
+    627  24d2		       00		      BYTE.b	%00000000
+    628  24d3		       f8		      BYTE.b	%11111000
+    629  24d4		       f8		      BYTE.b	%11111000
+    630  24d5		       f8		      BYTE.b	%11111000
+    631  24d6		       f8		      BYTE.b	%11111000
+    632  24d7		       f8		      BYTE.b	%11111000
+    633  24d8		       f9		      BYTE.b	%11111001
+    634  24d9		       ff		      BYTE.b	%11111111
+    635  24da		       ff		      BYTE.b	%11111111
+    636  24db		       fe		      BYTE.b	%11111110
+    637  24dc		       fe		      BYTE.b	%11111110
+    638  24dd		       f8		      BYTE.b	%11111000
+    639  24de		       00		      BYTE.b	%00000000
+    640  24df		       00		      BYTE.b	%00000000
+    641  24e0		       00		      BYTE.b	%00000000
+    642  24e1		       00		      BYTE.b	%00000000
+    643  24e2		       fc		      BYTE.b	%11111100
+    644  24e3		       fc		      BYTE.b	%11111100
+    645  24e4		       00		      BYTE.b	%00000000
+    646  24e5		       00		      BYTE.b	%00000000
+    647  24e6		       00		      BYTE.b	%00000000
+    648  24e7		       f0		      BYTE.b	%11110000
+    649  24e8		       f0		      BYTE.b	%11110000
+    650  24e9		       00		      BYTE.b	%00000000
+    651  24ea		       00		      BYTE.b	%00000000
+    652  24eb		       fc		      BYTE.b	%11111100
+    653  24ec		       fc		      BYTE.b	%11111100
+    654  24ed		       00		      BYTE.b	%00000000
+    655  24ee		       00		      BYTE.b	%00000000
+    656  24ef		       00		      BYTE.b	%00000000
+    657  24f0		       0f		      BYTE.b	%00001111
+    658  24f1		       0f		      BYTE.b	%00001111
+    659  24f2		       0f		      BYTE.b	%00001111
+    660  24f3		       0f		      BYTE.b	%00001111
+    661  24f4		       0f		      BYTE.b	%00001111
+    662  24f5		       0f		      BYTE.b	%00001111
+    663  24f6		       0f		      BYTE.b	%00001111
+    664  24f7		       0f		      BYTE.b	%00001111
+    665  24f8		       0f		      BYTE.b	%00001111
+    666  24f9		       0f		      BYTE.b	%00001111
+    667  24fa		       0f		      BYTE.b	%00001111
+    668  24fb		       0f		      BYTE.b	%00001111
+    669  24fc		       0f		      BYTE.b	%00001111
+    670  24fd		       0f		      BYTE.b	%00001111
+    671  24fe		       00		      BYTE.b	%00000000
+    672  24ff
+    673  24ff
+    674  24ff
+    675  24ff					      if	>. != >[.+(bmp_96x2_1_height)]
+    676  2500		       00		      align	256
+    677  2500					      endif
+    678  2500
+    679  2500
+    680  2500				   bmp_96x2_1_06
+    681  2500							; *** replace this block with your bimap_06 data block...
+    682  2500		       00		      BYTE.b	%00000000
+    683  2501		       00		      BYTE.b	%00000000
+    684  2502		       00		      BYTE.b	%00000000
+    685  2503		       00		      BYTE.b	%00000000
+    686  2504		       00		      BYTE.b	%00000000
+    687  2505		       00		      BYTE.b	%00000000
+    688  2506		       20		      BYTE.b	%00100000
+    689  2507		       90		      BYTE.b	%10010000
+    690  2508		       28		      BYTE.b	%00101000
+    691  2509		       00		      BYTE.b	%00000000
+    692  250a		       00		      BYTE.b	%00000000
+    693  250b		       00		      BYTE.b	%00000000
+    694  250c		       00		      BYTE.b	%00000000
+    695  250d		       00		      BYTE.b	%00000000
+    696  250e		       00		      BYTE.b	%00000000
+    697  250f		       00		      BYTE.b	%00000000
+    698  2510		       00		      BYTE.b	%00000000
+    699  2511		       00		      BYTE.b	%00000000
+    700  2512		       00		      BYTE.b	%00000000
+    701  2513		       00		      BYTE.b	%00000000
+    702  2514		       00		      BYTE.b	%00000000
+    703  2515		       4a		      BYTE.b	%01001010
+    704  2516		       4e		      BYTE.b	%01001110
+    705  2517		       4a		      BYTE.b	%01001010
+    706  2518		       e4		      BYTE.b	%11100100
+    707  2519		       00		      BYTE.b	%00000000
+    708  251a		       00		      BYTE.b	%00000000
+    709  251b		       00		      BYTE.b	%00000000
+    710  251c		       08		      BYTE.b	%00001000
+    711  251d		       88		      BYTE.b	%10001000
+    712  251e		       0c		      BYTE.b	%00001100
+    713  251f		       8e		      BYTE.b	%10001110
+    714  2520		       00		      BYTE.b	%00000000
+    715  2521		       00		      BYTE.b	%00000000
+    716  2522		       00		      BYTE.b	%00000000
+    717  2523		       00		      BYTE.b	%00000000
+    718  2524		       00		      BYTE.b	%00000000
+    719  2525		       00		      BYTE.b	%00000000
+    720  2526		       00		      BYTE.b	%00000000
+    721  2527		       00		      BYTE.b	%00000000
+    722  2528		       00		      BYTE.b	%00000000
+    723  2529		       1f		      BYTE.b	%00011111
+    724  252a		       1f		      BYTE.b	%00011111
+    725  252b		       1f		      BYTE.b	%00011111
+    726  252c		       7f		      BYTE.b	%01111111
+    727  252d		       7f		      BYTE.b	%01111111
+    728  252e		       ff		      BYTE.b	%11111111
+    729  252f		       ff		      BYTE.b	%11111111
+    730  2530		       9f		      BYTE.b	%10011111
+    731  2531		       1f		      BYTE.b	%00011111
+    732  2532		       1f		      BYTE.b	%00011111
+    733  2533		       1f		      BYTE.b	%00011111
+    734  2534		       00		      BYTE.b	%00000000
+    735  2535		       00		      BYTE.b	%00000000
+    736  2536		       00		      BYTE.b	%00000000
+    737  2537		       00		      BYTE.b	%00000000
+    738  2538		       3f		      BYTE.b	%00111111
+    739  2539		       3f		      BYTE.b	%00111111
+    740  253a		       3e		      BYTE.b	%00111110
+    741  253b		       3e		      BYTE.b	%00111110
+    742  253c		       3e		      BYTE.b	%00111110
+    743  253d		       3f		      BYTE.b	%00111111
+    744  253e		       3f		      BYTE.b	%00111111
+    745  253f		       3e		      BYTE.b	%00111110
+    746  2540		       3e		      BYTE.b	%00111110
+    747  2541		       3f		      BYTE.b	%00111111
+    748  2542		       3f		      BYTE.b	%00111111
+    749  2543		       00		      BYTE.b	%00000000
+    750  2544		       00		      BYTE.b	%00000000
+    751  2545		       00		      BYTE.b	%00000000
+    752  2546		       fc		      BYTE.b	%11111100
+    753  2547		       fc		      BYTE.b	%11111100
+    754  2548		       ff		      BYTE.b	%11111111
+    755  2549		       fc		      BYTE.b	%11111100
+    756  254a		       fc		      BYTE.b	%11111100
+    757  254b		       fc		      BYTE.b	%11111100
+    758  254c		       fc		      BYTE.b	%11111100
+    759  254d		       fc		      BYTE.b	%11111100
+    760  254e		       ff		      BYTE.b	%11111111
+    761  254f		       fc		      BYTE.b	%11111100
+    762  2550		       fc		      BYTE.b	%11111100
+    763  2551		       fc		      BYTE.b	%11111100
+    764  2552		       fc		      BYTE.b	%11111100
+    765  2553		       fc		      BYTE.b	%11111100
+    766  2554		       00		      BYTE.b	%00000000
+    767  2555
+    768  2555
+    769  2555
+    770  2555				  -	      if	>. != >[.+(bmp_96x2_1_height)]
+    771  2555				  -	      align	256
+    772  2555					      endif
+    773  2555
+    774  2555
+    775  2555				   bmp_96x2_1_07
+    776  2555							; *** replace this block with your bimap_07 data block...
+    777  2555		       00		      BYTE.b	%00000000
+    778  2556		       00		      BYTE.b	%00000000
+    779  2557		       00		      BYTE.b	%00000000
+    780  2558		       00		      BYTE.b	%00000000
+    781  2559		       00		      BYTE.b	%00000000
+    782  255a		       00		      BYTE.b	%00000000
+    783  255b		       8c		      BYTE.b	%10001100
+    784  255c		       c2		      BYTE.b	%11000010
+    785  255d		       ac		      BYTE.b	%10101100
+    786  255e		       c6		      BYTE.b	%11000110
+    787  255f		       00		      BYTE.b	%00000000
+    788  2560		       00		      BYTE.b	%00000000
+    789  2561		       00		      BYTE.b	%00000000
+    790  2562		       00		      BYTE.b	%00000000
+    791  2563		       00		      BYTE.b	%00000000
+    792  2564		       00		      BYTE.b	%00000000
+    793  2565		       00		      BYTE.b	%00000000
+    794  2566		       00		      BYTE.b	%00000000
+    795  2567		       00		      BYTE.b	%00000000
+    796  2568		       00		      BYTE.b	%00000000
+    797  2569		       00		      BYTE.b	%00000000
+    798  256a		       a4		      BYTE.b	%10100100
+    799  256b		       c4		      BYTE.b	%11000100
+    800  256c		       a4		      BYTE.b	%10100100
+    801  256d		       ce		      BYTE.b	%11001110
+    802  256e		       00		      BYTE.b	%00000000
+    803  256f		       00		      BYTE.b	%00000000
+    804  2570		       00		      BYTE.b	%00000000
+    805  2571		       ab		      BYTE.b	%10101011
+    806  2572		       b2		      BYTE.b	%10110010
+    807  2573		       ab		      BYTE.b	%10101011
+    808  2574		       b3		      BYTE.b	%10110011
+    809  2575		       00		      BYTE.b	%00000000
+    810  2576		       00		      BYTE.b	%00000000
+    811  2577		       00		      BYTE.b	%00000000
+    812  2578		       00		      BYTE.b	%00000000
+    813  2579		       00		      BYTE.b	%00000000
+    814  257a		       00		      BYTE.b	%00000000
+    815  257b		       00		      BYTE.b	%00000000
+    816  257c		       00		      BYTE.b	%00000000
+    817  257d		       00		      BYTE.b	%00000000
+    818  257e		       03		      BYTE.b	%00000011
+    819  257f		       03		      BYTE.b	%00000011
+    820  2580		       00		      BYTE.b	%00000000
+    821  2581		       00		      BYTE.b	%00000000
+    822  2582		       00		      BYTE.b	%00000000
+    823  2583		       00		      BYTE.b	%00000000
+    824  2584		       00		      BYTE.b	%00000000
+    825  2585		       00		      BYTE.b	%00000000
+    826  2586		       00		      BYTE.b	%00000000
+    827  2587		       03		      BYTE.b	%00000011
+    828  2588		       03		      BYTE.b	%00000011
+    829  2589		       00		      BYTE.b	%00000000
+    830  258a		       00		      BYTE.b	%00000000
+    831  258b		       00		      BYTE.b	%00000000
+    832  258c		       00		      BYTE.b	%00000000
+    833  258d		       ff		      BYTE.b	%11111111
+    834  258e		       ff		      BYTE.b	%11111111
+    835  258f		       00		      BYTE.b	%00000000
+    836  2590		       00		      BYTE.b	%00000000
+    837  2591		       00		      BYTE.b	%00000000
+    838  2592		       ff		      BYTE.b	%11111111
+    839  2593		       fe		      BYTE.b	%11111110
+    840  2594		       00		      BYTE.b	%00000000
+    841  2595		       00		      BYTE.b	%00000000
+    842  2596		       ff		      BYTE.b	%11111111
+    843  2597		       ff		      BYTE.b	%11111111
+    844  2598		       00		      BYTE.b	%00000000
+    845  2599		       00		      BYTE.b	%00000000
+    846  259a		       00		      BYTE.b	%00000000
+    847  259b		       00		      BYTE.b	%00000000
+    848  259c		       00		      BYTE.b	%00000000
+    849  259d		       c0		      BYTE.b	%11000000
+    850  259e		       40		      BYTE.b	%01000000
+    851  259f		       40		      BYTE.b	%01000000
+    852  25a0		       40		      BYTE.b	%01000000
+    853  25a1		       40		      BYTE.b	%01000000
+    854  25a2		       40		      BYTE.b	%01000000
+    855  25a3		       c0		      BYTE.b	%11000000
+    856  25a4		       00		      BYTE.b	%00000000
+    857  25a5		       00		      BYTE.b	%00000000
+    858  25a6		       00		      BYTE.b	%00000000
+    859  25a7		       00		      BYTE.b	%00000000
+    860  25a8		       00		      BYTE.b	%00000000
+    861  25a9		       00		      BYTE.b	%00000000
+    862  25aa
+    863  25aa
+    864  25aa
+    865  25aa				  -	      if	>. != >[.+(bmp_96x2_1_height)]
+    866  25aa				  -	      align	256
+    867  25aa					      endif
+    868  25aa
+    869  25aa
+    870  25aa				   bmp_96x2_1_08
+    871  25aa							; *** replace this block with your bimap_08 data block...
+    872  25aa		       00		      BYTE.b	%00000000
+    873  25ab		       00		      BYTE.b	%00000000
+    874  25ac		       00		      BYTE.b	%00000000
+    875  25ad		       00		      BYTE.b	%00000000
+    876  25ae		       00		      BYTE.b	%00000000
+    877  25af		       00		      BYTE.b	%00000000
+    878  25b0		       ce		      BYTE.b	%11001110
+    879  25b1		       a8		      BYTE.b	%10101000
+    880  25b2		       ac		      BYTE.b	%10101100
+    881  25b3		       ce		      BYTE.b	%11001110
+    882  25b4		       00		      BYTE.b	%00000000
+    883  25b5		       00		      BYTE.b	%00000000
+    884  25b6		       00		      BYTE.b	%00000000
+    885  25b7		       00		      BYTE.b	%00000000
+    886  25b8		       00		      BYTE.b	%00000000
+    887  25b9		       00		      BYTE.b	%00000000
+    888  25ba		       00		      BYTE.b	%00000000
+    889  25bb		       00		      BYTE.b	%00000000
+    890  25bc		       00		      BYTE.b	%00000000
+    891  25bd		       00		      BYTE.b	%00000000
+    892  25be		       00		      BYTE.b	%00000000
+    893  25bf		       00		      BYTE.b	%00000000
+    894  25c0		       00		      BYTE.b	%00000000
+    895  25c1		       00		      BYTE.b	%00000000
+    896  25c2		       00		      BYTE.b	%00000000
+    897  25c3		       00		      BYTE.b	%00000000
+    898  25c4		       00		      BYTE.b	%00000000
+    899  25c5		       00		      BYTE.b	%00000000
+    900  25c6		       80		      BYTE.b	%10000000
+    901  25c7		       00		      BYTE.b	%00000000
+    902  25c8		       00		      BYTE.b	%00000000
+    903  25c9		       80		      BYTE.b	%10000000
+    904  25ca		       00		      BYTE.b	%00000000
+    905  25cb		       00		      BYTE.b	%00000000
+    906  25cc		       00		      BYTE.b	%00000000
+    907  25cd		       00		      BYTE.b	%00000000
+    908  25ce		       00		      BYTE.b	%00000000
+    909  25cf		       00		      BYTE.b	%00000000
+    910  25d0		       00		      BYTE.b	%00000000
+    911  25d1		       00		      BYTE.b	%00000000
+    912  25d2		       00		      BYTE.b	%00000000
+    913  25d3		       ff		      BYTE.b	%11111111
+    914  25d4		       ff		      BYTE.b	%11111111
+    915  25d5		       3e		      BYTE.b	%00111110
+    916  25d6		       3e		      BYTE.b	%00111110
+    917  25d7		       3e		      BYTE.b	%00111110
+    918  25d8		       3e		      BYTE.b	%00111110
+    919  25d9		       3e		      BYTE.b	%00111110
+    920  25da		       3e		      BYTE.b	%00111110
+    921  25db		       3e		      BYTE.b	%00111110
+    922  25dc		       ff		      BYTE.b	%11111111
+    923  25dd		       ff		      BYTE.b	%11111111
+    924  25de		       00		      BYTE.b	%00000000
+    925  25df		       00		      BYTE.b	%00000000
+    926  25e0		       00		      BYTE.b	%00000000
+    927  25e1		       00		      BYTE.b	%00000000
+    928  25e2		       c3		      BYTE.b	%11000011
+    929  25e3		       c3		      BYTE.b	%11000011
+    930  25e4		       03		      BYTE.b	%00000011
+    931  25e5		       03		      BYTE.b	%00000011
+    932  25e6		       03		      BYTE.b	%00000011
+    933  25e7		       03		      BYTE.b	%00000011
+    934  25e8		       03		      BYTE.b	%00000011
+    935  25e9		       03		      BYTE.b	%00000011
+    936  25ea		       03		      BYTE.b	%00000011
+    937  25eb		       c3		      BYTE.b	%11000011
+    938  25ec		       c3		      BYTE.b	%11000011
+    939  25ed		       00		      BYTE.b	%00000000
+    940  25ee		       00		      BYTE.b	%00000000
+    941  25ef		       00		      BYTE.b	%00000000
+    942  25f0		       00		      BYTE.b	%00000000
+    943  25f1		       00		      BYTE.b	%00000000
+    944  25f2		       00		      BYTE.b	%00000000
+    945  25f3		       00		      BYTE.b	%00000000
+    946  25f4		       00		      BYTE.b	%00000000
+    947  25f5		       00		      BYTE.b	%00000000
+    948  25f6		       00		      BYTE.b	%00000000
+    949  25f7		       00		      BYTE.b	%00000000
+    950  25f8		       00		      BYTE.b	%00000000
+    951  25f9		       00		      BYTE.b	%00000000
+    952  25fa		       00		      BYTE.b	%00000000
+    953  25fb		       00		      BYTE.b	%00000000
+    954  25fc		       00		      BYTE.b	%00000000
+    955  25fd		       00		      BYTE.b	%00000000
+    956  25fe		       00		      BYTE.b	%00000000
+    957  25ff
+    958  25ff
+    959  25ff
+    960  25ff					      if	>. != >[.+(bmp_96x2_1_height)]
+    961  2600		       00		      align	256
+    962  2600					      endif
+    963  2600
+    964  2600
+    965  2600				   bmp_96x2_1_09
+    966  2600							; *** replace this block with your bimap_09 data block...
+    967  2600		       00		      BYTE.b	%00000000
+    968  2601		       00		      BYTE.b	%00000000
+    969  2602		       00		      BYTE.b	%00000000
+    970  2603		       00		      BYTE.b	%00000000
+    971  2604		       00		      BYTE.b	%00000000
+    972  2605		       00		      BYTE.b	%00000000
+    973  2606		       ae		      BYTE.b	%10101110
+    974  2607		       a8		      BYTE.b	%10101000
+    975  2608		       ec		      BYTE.b	%11101100
+    976  2609		       ee		      BYTE.b	%11101110
+    977  260a		       00		      BYTE.b	%00000000
+    978  260b		       00		      BYTE.b	%00000000
+    979  260c		       00		      BYTE.b	%00000000
+    980  260d		       00		      BYTE.b	%00000000
+    981  260e		       00		      BYTE.b	%00000000
+    982  260f		       00		      BYTE.b	%00000000
+    983  2610		       00		      BYTE.b	%00000000
+    984  2611		       00		      BYTE.b	%00000000
+    985  2612		       00		      BYTE.b	%00000000
+    986  2613		       00		      BYTE.b	%00000000
+    987  2614		       00		      BYTE.b	%00000000
+    988  2615		       00		      BYTE.b	%00000000
+    989  2616		       00		      BYTE.b	%00000000
+    990  2617		       00		      BYTE.b	%00000000
+    991  2618		       00		      BYTE.b	%00000000
+    992  2619		       00		      BYTE.b	%00000000
+    993  261a		       00		      BYTE.b	%00000000
+    994  261b		       00		      BYTE.b	%00000000
+    995  261c		       00		      BYTE.b	%00000000
+    996  261d		       00		      BYTE.b	%00000000
+    997  261e		       00		      BYTE.b	%00000000
+    998  261f		       00		      BYTE.b	%00000000
+    999  2620		       00		      BYTE.b	%00000000
+   1000  2621		       00		      BYTE.b	%00000000
+   1001  2622		       00		      BYTE.b	%00000000
+   1002  2623		       00		      BYTE.b	%00000000
+   1003  2624		       00		      BYTE.b	%00000000
+   1004  2625		       00		      BYTE.b	%00000000
+   1005  2626		       00		      BYTE.b	%00000000
+   1006  2627		       00		      BYTE.b	%00000000
+   1007  2628		       00		      BYTE.b	%00000000
+   1008  2629		       f1		      BYTE.b	%11110001
+   1009  262a		       f1		      BYTE.b	%11110001
+   1010  262b		       01		      BYTE.b	%00000001
+   1011  262c		       01		      BYTE.b	%00000001
+   1012  262d		       01		      BYTE.b	%00000001
+   1013  262e		       01		      BYTE.b	%00000001
+   1014  262f		       01		      BYTE.b	%00000001
+   1015  2630		       01		      BYTE.b	%00000001
+   1016  2631		       00		      BYTE.b	%00000000
+   1017  2632		       f0		      BYTE.b	%11110000
+   1018  2633		       f0		      BYTE.b	%11110000
+   1019  2634		       00		      BYTE.b	%00000000
+   1020  2635		       00		      BYTE.b	%00000000
+   1021  2636		       00		      BYTE.b	%00000000
+   1022  2637		       00		      BYTE.b	%00000000
+   1023  2638		       c1		      BYTE.b	%11000001
+   1024  2639		       c3		      BYTE.b	%11000011
+   1025  263a		       cf		      BYTE.b	%11001111
+   1026  263b		       ff		      BYTE.b	%11111111
+   1027  263c		       ff		      BYTE.b	%11111111
+   1028  263d		       c3		      BYTE.b	%11000011
+   1029  263e		       c1		      BYTE.b	%11000001
+   1030  263f		       c0		      BYTE.b	%11000000
+   1031  2640		       c0		      BYTE.b	%11000000
+   1032  2641		       ff		      BYTE.b	%11111111
+   1033  2642		       ff		      BYTE.b	%11111111
+   1034  2643		       00		      BYTE.b	%00000000
+   1035  2644		       00		      BYTE.b	%00000000
+   1036  2645		       00		      BYTE.b	%00000000
+   1037  2646		       00		      BYTE.b	%00000000
+   1038  2647		       00		      BYTE.b	%00000000
+   1039  2648		       00		      BYTE.b	%00000000
+   1040  2649		       00		      BYTE.b	%00000000
+   1041  264a		       00		      BYTE.b	%00000000
+   1042  264b		       00		      BYTE.b	%00000000
+   1043  264c		       00		      BYTE.b	%00000000
+   1044  264d		       00		      BYTE.b	%00000000
+   1045  264e		       00		      BYTE.b	%00000000
+   1046  264f		       00		      BYTE.b	%00000000
+   1047  2650		       00		      BYTE.b	%00000000
+   1048  2651		       00		      BYTE.b	%00000000
+   1049  2652		       00		      BYTE.b	%00000000
+   1050  2653		       00		      BYTE.b	%00000000
+   1051  2654		       00		      BYTE.b	%00000000
+   1052  2655
+   1053  2655
+   1054  2655
+   1055  2655				  -	      if	>. != >[.+(bmp_96x2_1_height)]
+   1056  2655				  -	      align	256
+   1057  2655					      endif
+   1058  2655
+   1059  2655
+   1060  2655				   bmp_96x2_1_10
+   1061  2655							; *** replace this block with your bimap_10 data block...
+   1062  2655		       00		      BYTE.b	%00000000
+   1063  2656		       00		      BYTE.b	%00000000
+   1064  2657		       00		      BYTE.b	%00000000
+   1065  2658		       00		      BYTE.b	%00000000
+   1066  2659		       00		      BYTE.b	%00000000
+   1067  265a		       00		      BYTE.b	%00000000
+   1068  265b		       00		      BYTE.b	%00000000
+   1069  265c		       00		      BYTE.b	%00000000
+   1070  265d		       00		      BYTE.b	%00000000
+   1071  265e		       00		      BYTE.b	%00000000
+   1072  265f		       00		      BYTE.b	%00000000
+   1073  2660		       00		      BYTE.b	%00000000
+   1074  2661		       00		      BYTE.b	%00000000
+   1075  2662		       00		      BYTE.b	%00000000
+   1076  2663		       00		      BYTE.b	%00000000
+   1077  2664		       00		      BYTE.b	%00000000
+   1078  2665		       00		      BYTE.b	%00000000
+   1079  2666		       00		      BYTE.b	%00000000
+   1080  2667		       00		      BYTE.b	%00000000
+   1081  2668		       00		      BYTE.b	%00000000
+   1082  2669		       00		      BYTE.b	%00000000
+   1083  266a		       00		      BYTE.b	%00000000
+   1084  266b		       00		      BYTE.b	%00000000
+   1085  266c		       00		      BYTE.b	%00000000
+   1086  266d		       00		      BYTE.b	%00000000
+   1087  266e		       00		      BYTE.b	%00000000
+   1088  266f		       00		      BYTE.b	%00000000
+   1089  2670		       00		      BYTE.b	%00000000
+   1090  2671		       00		      BYTE.b	%00000000
+   1091  2672		       00		      BYTE.b	%00000000
+   1092  2673		       00		      BYTE.b	%00000000
+   1093  2674		       00		      BYTE.b	%00000000
+   1094  2675		       00		      BYTE.b	%00000000
+   1095  2676		       00		      BYTE.b	%00000000
+   1096  2677		       00		      BYTE.b	%00000000
+   1097  2678		       00		      BYTE.b	%00000000
+   1098  2679		       00		      BYTE.b	%00000000
+   1099  267a		       00		      BYTE.b	%00000000
+   1100  267b		       00		      BYTE.b	%00000000
+   1101  267c		       00		      BYTE.b	%00000000
+   1102  267d		       00		      BYTE.b	%00000000
+   1103  267e		       f0		      BYTE.b	%11110000
+   1104  267f		       f0		      BYTE.b	%11110000
+   1105  2680		       f0		      BYTE.b	%11110000
+   1106  2681		       ff		      BYTE.b	%11111111
+   1107  2682		       ff		      BYTE.b	%11111111
+   1108  2683		       f0		      BYTE.b	%11110000
+   1109  2684		       f0		      BYTE.b	%11110000
+   1110  2685		       f0		      BYTE.b	%11110000
+   1111  2686		       3c		      BYTE.b	%00111100
+   1112  2687		       3f		      BYTE.b	%00111111
+   1113  2688		       0f		      BYTE.b	%00001111
+   1114  2689		       00		      BYTE.b	%00000000
+   1115  268a		       00		      BYTE.b	%00000000
+   1116  268b		       00		      BYTE.b	%00000000
+   1117  268c		       00		      BYTE.b	%00000000
+   1118  268d		       fc		      BYTE.b	%11111100
+   1119  268e		       fc		      BYTE.b	%11111100
+   1120  268f		       e0		      BYTE.b	%11100000
+   1121  2690		       e0		      BYTE.b	%11100000
+   1122  2691		       80		      BYTE.b	%10000000
+   1123  2692		       fc		      BYTE.b	%11111100
+   1124  2693		       fc		      BYTE.b	%11111100
+   1125  2694		       7c		      BYTE.b	%01111100
+   1126  2695		       7c		      BYTE.b	%01111100
+   1127  2696		       f8		      BYTE.b	%11111000
+   1128  2697		       e0		      BYTE.b	%11100000
+   1129  2698		       00		      BYTE.b	%00000000
+   1130  2699		       00		      BYTE.b	%00000000
+   1131  269a		       00		      BYTE.b	%00000000
+   1132  269b		       00		      BYTE.b	%00000000
+   1133  269c		       00		      BYTE.b	%00000000
+   1134  269d		       00		      BYTE.b	%00000000
+   1135  269e		       00		      BYTE.b	%00000000
+   1136  269f		       00		      BYTE.b	%00000000
+   1137  26a0		       00		      BYTE.b	%00000000
+   1138  26a1		       00		      BYTE.b	%00000000
+   1139  26a2		       00		      BYTE.b	%00000000
+   1140  26a3		       00		      BYTE.b	%00000000
+   1141  26a4		       00		      BYTE.b	%00000000
+   1142  26a5		       00		      BYTE.b	%00000000
+   1143  26a6		       00		      BYTE.b	%00000000
+   1144  26a7		       00		      BYTE.b	%00000000
+   1145  26a8		       00		      BYTE.b	%00000000
+   1146  26a9		       00		      BYTE.b	%00000000
+   1147  26aa
+   1148  26aa
+   1149  26aa
+   1150  26aa				  -	      if	>. != >[.+(bmp_96x2_1_height)]
+   1151  26aa				  -	      align	256
+   1152  26aa					      endif
+   1153  26aa
+   1154  26aa
+   1155  26aa				   bmp_96x2_1_11
+   1156  26aa							; *** replace this block with your bimap_11 data block...
+   1157  26aa		       00		      BYTE.b	%00000000
+   1158  26ab		       00		      BYTE.b	%00000000
+   1159  26ac		       00		      BYTE.b	%00000000
+   1160  26ad		       00		      BYTE.b	%00000000
+   1161  26ae		       00		      BYTE.b	%00000000
+   1162  26af		       00		      BYTE.b	%00000000
+   1163  26b0		       00		      BYTE.b	%00000000
+   1164  26b1		       00		      BYTE.b	%00000000
+   1165  26b2		       00		      BYTE.b	%00000000
+   1166  26b3		       00		      BYTE.b	%00000000
+   1167  26b4		       00		      BYTE.b	%00000000
+   1168  26b5		       00		      BYTE.b	%00000000
+   1169  26b6		       00		      BYTE.b	%00000000
+   1170  26b7		       00		      BYTE.b	%00000000
+   1171  26b8		       00		      BYTE.b	%00000000
+   1172  26b9		       00		      BYTE.b	%00000000
+   1173  26ba		       00		      BYTE.b	%00000000
+   1174  26bb		       00		      BYTE.b	%00000000
+   1175  26bc		       00		      BYTE.b	%00000000
+   1176  26bd		       00		      BYTE.b	%00000000
+   1177  26be		       00		      BYTE.b	%00000000
+   1178  26bf		       00		      BYTE.b	%00000000
+   1179  26c0		       00		      BYTE.b	%00000000
+   1180  26c1		       00		      BYTE.b	%00000000
+   1181  26c2		       00		      BYTE.b	%00000000
+   1182  26c3		       00		      BYTE.b	%00000000
+   1183  26c4		       00		      BYTE.b	%00000000
+   1184  26c5		       00		      BYTE.b	%00000000
+   1185  26c6		       00		      BYTE.b	%00000000
+   1186  26c7		       00		      BYTE.b	%00000000
+   1187  26c8		       00		      BYTE.b	%00000000
+   1188  26c9		       00		      BYTE.b	%00000000
+   1189  26ca		       00		      BYTE.b	%00000000
+   1190  26cb		       00		      BYTE.b	%00000000
+   1191  26cc		       00		      BYTE.b	%00000000
+   1192  26cd		       00		      BYTE.b	%00000000
+   1193  26ce		       00		      BYTE.b	%00000000
+   1194  26cf		       00		      BYTE.b	%00000000
+   1195  26d0		       00		      BYTE.b	%00000000
+   1196  26d1		       00		      BYTE.b	%00000000
+   1197  26d2		       00		      BYTE.b	%00000000
+   1198  26d3		       3e		      BYTE.b	%00111110
+   1199  26d4		       3e		      BYTE.b	%00111110
+   1200  26d5		       3e		      BYTE.b	%00111110
+   1201  26d6		       fe		      BYTE.b	%11111110
+   1202  26d7		       fe		      BYTE.b	%11111110
+   1203  26d8		       3e		      BYTE.b	%00111110
+   1204  26d9		       3e		      BYTE.b	%00111110
+   1205  26da		       3e		      BYTE.b	%00111110
+   1206  26db		       f8		      BYTE.b	%11111000
+   1207  26dc		       f8		      BYTE.b	%11111000
+   1208  26dd		       e0		      BYTE.b	%11100000
+   1209  26de		       00		      BYTE.b	%00000000
+   1210  26df		       00		      BYTE.b	%00000000
+   1211  26e0		       00		      BYTE.b	%00000000
+   1212  26e1		       00		      BYTE.b	%00000000
+   1213  26e2		       00		      BYTE.b	%00000000
+   1214  26e3		       00		      BYTE.b	%00000000
+   1215  26e4		       00		      BYTE.b	%00000000
+   1216  26e5		       00		      BYTE.b	%00000000
+   1217  26e6		       00		      BYTE.b	%00000000
+   1218  26e7		       00		      BYTE.b	%00000000
+   1219  26e8		       00		      BYTE.b	%00000000
+   1220  26e9		       00		      BYTE.b	%00000000
+   1221  26ea		       00		      BYTE.b	%00000000
+   1222  26eb		       00		      BYTE.b	%00000000
+   1223  26ec		       00		      BYTE.b	%00000000
+   1224  26ed		       00		      BYTE.b	%00000000
+   1225  26ee		       00		      BYTE.b	%00000000
+   1226  26ef		       00		      BYTE.b	%00000000
+   1227  26f0		       00		      BYTE.b	%00000000
+   1228  26f1		       00		      BYTE.b	%00000000
+   1229  26f2		       00		      BYTE.b	%00000000
+   1230  26f3		       00		      BYTE.b	%00000000
+   1231  26f4		       00		      BYTE.b	%00000000
+   1232  26f5		       00		      BYTE.b	%00000000
+   1233  26f6		       00		      BYTE.b	%00000000
+   1234  26f7		       00		      BYTE.b	%00000000
+   1235  26f8		       00		      BYTE.b	%00000000
+   1236  26f9		       00		      BYTE.b	%00000000
+   1237  26fa		       00		      BYTE.b	%00000000
+   1238  26fb		       00		      BYTE.b	%00000000
+   1239  26fc		       00		      BYTE.b	%00000000
+   1240  26fd		       00		      BYTE.b	%00000000
+   1241  26fe		       00		      BYTE.b	%00000000
 ------- FILE titlescreen/asm/titlescreen.asm
-    157  2471					      endif		;mk_96x2_3_on
-    158  2471
-    159  2471				  -	      ifconst	mk_96x2_4_on
-    160  2471				  -	      include	"titlescreen/asm/96x2_4_kernel.asm"
-    161  2471					      endif		;mk_96x2_4_on
-    162  2471
-    163  2471				  -	      ifconst	mk_96x2_5_on
-    164  2471				  -	      include	"titlescreen/asm/96x2_5_kernel.asm"
-    165  2471					      endif		;mk_96x2_5_on
-    166  2471
-    167  2471				  -	      ifconst	mk_96x2_6_on
-    168  2471				  -	      include	"titlescreen/asm/96x2_6_kernel.asm"
-    169  2471					      endif		;mk_96x2_6_on
-    170  2471
-    171  2471				  -	      ifconst	mk_96x2_7_on
-    172  2471				  -	      include	"titlescreen/asm/96x2_7_kernel.asm"
-    173  2471					      endif		;mk_96x2_7_on
-    174  2471
-    175  2471				  -	      ifconst	mk_96x2_8_on
-    176  2471				  -	      include	"titlescreen/asm/96x2_8_kernel.asm"
-    177  2471					      endif		;mk_96x2_8_on
-    178  2471
-    179  2471				  -	      ifconst	mk_score_on
-    180  2471				  -	      include	"titlescreen/asm/score_kernel.asm"
-    181  2471					      endif		;mk_score_on
-    182  2471
-    183  2471				  -	      ifconst	mk_gameselect_on
-    184  2471				  -	      include	"titlescreen/asm/gameselect_kernel.asm"
-    185  2471					      endif		;mk_gameselect_on
-    186  2471
-    187  2471				   PFWAIT
-    188  2471		       ad 84 02 	      lda	INTIM
-    189  2474		       d0 fb		      bne	PFWAIT
-    190  2476		       85 02		      sta	WSYNC
-    191  2478
-    192  2478				   OVERSCAN
-    193  2478				  -	      ifnconst	overscan_time
-    194  2478				  -	      lda	#34+128
-    195  2478					      else
-    196  2478		       a9 a0		      lda	#overscan_time+128-5
-    197  247a					      endif
-    198  247a		       8d 96 02 	      sta	TIM64T
-    199  247d
-    200  247d							;fix height variables we borrowed, so DPC doesn't crash on drawscreen...
-    201  247d				  -	      ifconst	player9height
-    202  247d				  -	      ldy	#8
-    203  247d				  -	      lda	#0
-    204  247d				  -	      sta	player0height
-    205  247d				  -.playerheightfixloop
-    206  247d				  -	      sta	player1height,y
-    207  247d				  -	      ifconst	_NUSIZ1
-    208  247d				  -	      sta	_NUSIZ1,y
-    209  247d				  -	      endif
-    210  247d				  -	      dey
-    211  247d				  -	      bpl	.playerheightfixloop
-    212  247d					      endif
-    213  247d
-    214  247d		       a9 c2		      lda	#%11000010
-    215  247f		       85 02		      sta	WSYNC
-    216  2481		       85 01		      sta	VBLANK
-      0  2483					      RETURN
-      1  2483				  -	      ifnconst	bankswitch
-      2  2483				  -	      rts
-      3  2483					      else
-      4  2483		       4c dd ff 	      jmp	BS_return
-      5  2486					      endif
-    218  2486
-    219  2486				  -	      ifconst	mk_48x1_1_on
-    220  2486				  -	      include	"titlescreen/48x1_1_image.asm"
-    221  2486					      endif
-    222  2486				  -	      ifconst	mk_48x1_2_on
-    223  2486				  -	      include	"titlescreen/48x1_2_image.asm"
-    224  2486					      endif
-    225  2486				  -	      ifconst	mk_48x1_3_on
-    226  2486				  -	      include	"titlescreen/48x1_3_image.asm"
-    227  2486					      endif
-    228  2486				  -	      ifconst	mk_48x1_4_on
-    229  2486				  -	      include	"titlescreen/48x1_4_image.asm"
-    230  2486					      endif
-    231  2486				  -	      ifconst	mk_48x1_5_on
-    232  2486				  -	      include	"titlescreen/48x1_5_image.asm"
-    233  2486					      endif
-    234  2486				  -	      ifconst	mk_48x1_6_on
-    235  2486				  -	      include	"titlescreen/48x1_6_image.asm"
-    236  2486					      endif
-    237  2486				  -	      ifconst	mk_48x1_7_on
-    238  2486				  -	      include	"titlescreen/48x1_7_image.asm"
-    239  2486					      endif
-    240  2486				  -	      ifconst	mk_48x1_8_on
-    241  2486				  -	      include	"titlescreen/48x1_8_image.asm"
-    242  2486					      endif
-    243  2486
-    244  2486
-    245  2486				  -	      ifconst	mk_48x2_1_on
-    246  2486				  -	      include	"titlescreen/48x2_1_image.asm"
-    247  2486					      endif
-    248  2486				  -	      ifconst	mk_48x2_2_on
-    249  2486				  -	      include	"titlescreen/48x2_2_image.asm"
-    250  2486					      endif
-    251  2486				  -	      ifconst	mk_48x2_3_on
-    252  2486				  -	      include	"titlescreen/48x2_3_image.asm"
-    253  2486					      endif
-    254  2486				  -	      ifconst	mk_48x2_4_on
-    255  2486				  -	      include	"titlescreen/48x2_4_image.asm"
-    256  2486					      endif
-    257  2486				  -	      ifconst	mk_48x2_5_on
-    258  2486				  -	      include	"titlescreen/48x2_5_image.asm"
-    259  2486					      endif
-    260  2486				  -	      ifconst	mk_48x2_6_on
-    261  2486				  -	      include	"titlescreen/48x2_6_image.asm"
-    262  2486					      endif
-    263  2486				  -	      ifconst	mk_48x2_7_on
-    264  2486				  -	      include	"titlescreen/48x2_7_image.asm"
-    265  2486					      endif
-    266  2486
-    267  2486				  -	      ifconst	mk_48x2_8_on
-    268  2486				  -	      include	"titlescreen/48x2_8_image.asm"
-    269  2486					      endif
-    270  2486
-    271  2486
-    272  2486				  -	      ifconst	mk_96x2_1_on
-    273  2486				  -	      include	"titlescreen/96x2_1_image.asm"
-    274  2486					      endif
-    275  2486					      ifconst	mk_96x2_2_on
-------- FILE titlescreen/96x2_2_image.asm LEVEL 3 PASS 2
-      0  2486					      include	"titlescreen/96x2_2_image.asm"
-      1  2486							;*** The height of the displayed data...
-      2  2486		       00 28	   bmp_96x2_2_window =	40
-      3  2486
-      4  2486							;*** The height of the bitmap data. This can be larger than
-      5  2486							;*** the displayed data height, if you're scrolling or animating
-      6  2486							;*** the data...
-      7  2486		       00 28	   bmp_96x2_2_height =	40
-      8  2486
-      9  2486
-     10  2486				  -	      if	>. != >[.+(bmp_96x2_2_height)]
-     11  2486				  -	      align	256
-     12  2486					      endif
-     13  2486		       00		      BYTE.b	$00	; leave this here!
-     14  2487
-     15  2487
-     16  2487							;*** The color of each line in the bitmap, in reverse order...
-     17  2487				   bmp_96x2_2_colors
-     18  2487		       1e		      .byte.b	$1E
-     19  2488		       1e		      .byte.b	$1E
-     20  2489		       1e		      .byte.b	$1E
-     21  248a		       1e		      .byte.b	$1E
-     22  248b		       1e		      .byte.b	$1E
-     23  248c		       1e		      .byte.b	$1E
-     24  248d		       1e		      .byte.b	$1E
-     25  248e		       1e		      .byte.b	$1E
-     26  248f		       1e		      .byte.b	$1E
-     27  2490		       1e		      .byte.b	$1E
-     28  2491		       1e		      .byte.b	$1E
-     29  2492		       1e		      .byte.b	$1E
-     30  2493		       1e		      .byte.b	$1E
-     31  2494		       1e		      .byte.b	$1E
-     32  2495		       1e		      .byte.b	$1E
-     33  2496		       1e		      .byte.b	$1E
-     34  2497		       1e		      .byte.b	$1E
-     35  2498		       1e		      .byte.b	$1E
-     36  2499		       1e		      .byte.b	$1E
-     37  249a		       1e		      .byte.b	$1E
-     38  249b		       1e		      .byte.b	$1E
-     39  249c		       1e		      .byte.b	$1E
-     40  249d		       1e		      .byte.b	$1E
-     41  249e		       1e		      .byte.b	$1E
-     42  249f		       1e		      .byte.b	$1E
-     43  24a0		       1e		      .byte.b	$1E
-     44  24a1		       1e		      .byte.b	$1E
-     45  24a2		       1e		      .byte.b	$1E
-     46  24a3		       1e		      .byte.b	$1E
-     47  24a4		       1e		      .byte.b	$1E
-     48  24a5		       1e		      .byte.b	$1E
-     49  24a6		       1e		      .byte.b	$1E
-     50  24a7		       1e		      .byte.b	$1E
-     51  24a8		       1e		      .byte.b	$1E
-     52  24a9		       1e		      .byte.b	$1E
-     53  24aa		       1e		      .byte.b	$1E
-     54  24ab		       1e		      .byte.b	$1E
-     55  24ac		       1e		      .byte.b	$1E
-     56  24ad		       1e		      .byte.b	$1E
-     57  24ae		       1e		      .byte.b	$1E
-     58  24af
-     59  24af
-     60  24af				  -	      if	>. != >[.+(bmp_96x2_2_height)]
-     61  24af				  -	      align	256
-     62  24af					      endif
-     63  24af
-     64  24af
-     65  24af				   bmp_96x2_2_00
-     66  24af							; *** replace this block with your bimap_00 data block...
-     67  24af		       00		      BYTE.b	%00000000
-     68  24b0		       01		      BYTE.b	%00000001
-     69  24b1		       01		      BYTE.b	%00000001
-     70  24b2		       01		      BYTE.b	%00000001
-     71  24b3		       01		      BYTE.b	%00000001
-     72  24b4		       01		      BYTE.b	%00000001
-     73  24b5		       01		      BYTE.b	%00000001
-     74  24b6		       01		      BYTE.b	%00000001
-     75  24b7		       01		      BYTE.b	%00000001
-     76  24b8		       01		      BYTE.b	%00000001
-     77  24b9		       01		      BYTE.b	%00000001
-     78  24ba		       00		      BYTE.b	%00000000
-     79  24bb		       00		      BYTE.b	%00000000
-     80  24bc		       00		      BYTE.b	%00000000
-     81  24bd		       00		      BYTE.b	%00000000
-     82  24be		       00		      BYTE.b	%00000000
-     83  24bf		       00		      BYTE.b	%00000000
-     84  24c0		       00		      BYTE.b	%00000000
-     85  24c1		       00		      BYTE.b	%00000000
-     86  24c2		       00		      BYTE.b	%00000000
-     87  24c3		       00		      BYTE.b	%00000000
-     88  24c4		       00		      BYTE.b	%00000000
-     89  24c5		       00		      BYTE.b	%00000000
-     90  24c6		       00		      BYTE.b	%00000000
-     91  24c7		       00		      BYTE.b	%00000000
-     92  24c8		       00		      BYTE.b	%00000000
-     93  24c9		       00		      BYTE.b	%00000000
-     94  24ca		       00		      BYTE.b	%00000000
-     95  24cb		       00		      BYTE.b	%00000000
-     96  24cc		       00		      BYTE.b	%00000000
-     97  24cd		       00		      BYTE.b	%00000000
-     98  24ce		       00		      BYTE.b	%00000000
-     99  24cf		       00		      BYTE.b	%00000000
-    100  24d0		       00		      BYTE.b	%00000000
-    101  24d1		       00		      BYTE.b	%00000000
-    102  24d2		       00		      BYTE.b	%00000000
-    103  24d3		       00		      BYTE.b	%00000000
-    104  24d4		       00		      BYTE.b	%00000000
-    105  24d5		       00		      BYTE.b	%00000000
-    106  24d6		       00		      BYTE.b	%00000000
-    107  24d7
-    108  24d7
-    109  24d7
-    110  24d7				  -	      if	>. != >[.+(bmp_96x2_2_height)]
-    111  24d7				  -	      align	256
-    112  24d7					      endif
-    113  24d7
-    114  24d7
-    115  24d7				   bmp_96x2_2_01
-    116  24d7							; *** replace this block with your bimap_01 data block...
-    117  24d7		       00		      BYTE.b	%00000000
-    118  24d8		       e0		      BYTE.b	%11100000
-    119  24d9		       e0		      BYTE.b	%11100000
-    120  24da		       e0		      BYTE.b	%11100000
-    121  24db		       e3		      BYTE.b	%11100011
-    122  24dc		       e3		      BYTE.b	%11100011
-    123  24dd		       f7		      BYTE.b	%11110111
-    124  24de		       ff		      BYTE.b	%11111111
-    125  24df		       fc		      BYTE.b	%11111100
-    126  24e0		       f0		      BYTE.b	%11110000
-    127  24e1		       e0		      BYTE.b	%11100000
-    128  24e2		       00		      BYTE.b	%00000000
-    129  24e3		       00		      BYTE.b	%00000000
-    130  24e4		       00		      BYTE.b	%00000000
-    131  24e5		       00		      BYTE.b	%00000000
-    132  24e6		       00		      BYTE.b	%00000000
-    133  24e7		       00		      BYTE.b	%00000000
-    134  24e8		       00		      BYTE.b	%00000000
-    135  24e9		       00		      BYTE.b	%00000000
-    136  24ea		       00		      BYTE.b	%00000000
-    137  24eb		       00		      BYTE.b	%00000000
-    138  24ec		       00		      BYTE.b	%00000000
-    139  24ed		       00		      BYTE.b	%00000000
-    140  24ee		       00		      BYTE.b	%00000000
-    141  24ef		       00		      BYTE.b	%00000000
-    142  24f0		       00		      BYTE.b	%00000000
-    143  24f1		       00		      BYTE.b	%00000000
-    144  24f2		       00		      BYTE.b	%00000000
-    145  24f3		       00		      BYTE.b	%00000000
-    146  24f4		       00		      BYTE.b	%00000000
-    147  24f5		       00		      BYTE.b	%00000000
-    148  24f6		       00		      BYTE.b	%00000000
-    149  24f7		       00		      BYTE.b	%00000000
-    150  24f8		       00		      BYTE.b	%00000000
-    151  24f9		       00		      BYTE.b	%00000000
-    152  24fa		       00		      BYTE.b	%00000000
-    153  24fb		       00		      BYTE.b	%00000000
-    154  24fc		       00		      BYTE.b	%00000000
-    155  24fd		       00		      BYTE.b	%00000000
-    156  24fe		       00		      BYTE.b	%00000000
-    157  24ff
-    158  24ff
-    159  24ff
-    160  24ff					      if	>. != >[.+(bmp_96x2_2_height)]
-    161  2500		       00		      align	256
-    162  2500					      endif
-    163  2500
-    164  2500
-    165  2500				   bmp_96x2_2_02
-    166  2500							; *** replace this block with your bimap_02 data block...
-    167  2500		       00		      BYTE.b	%00000000
-    168  2501		       3c		      BYTE.b	%00111100
-    169  2502		       3c		      BYTE.b	%00111100
-    170  2503		       3c		      BYTE.b	%00111100
-    171  2504		       3c		      BYTE.b	%00111100
-    172  2505		       3c		      BYTE.b	%00111100
-    173  2506		       7c		      BYTE.b	%01111100
-    174  2507		       fc		      BYTE.b	%11111100
-    175  2508		       fc		      BYTE.b	%11111100
-    176  2509		       7c		      BYTE.b	%01111100
-    177  250a		       3c		      BYTE.b	%00111100
-    178  250b		       00		      BYTE.b	%00000000
-    179  250c		       ff		      BYTE.b	%11111111
-    180  250d		       ff		      BYTE.b	%11111111
-    181  250e		       f0		      BYTE.b	%11110000
-    182  250f		       f0		      BYTE.b	%11110000
-    183  2510		       ff		      BYTE.b	%11111111
-    184  2511		       ff		      BYTE.b	%11111111
-    185  2512		       f0		      BYTE.b	%11110000
-    186  2513		       f0		      BYTE.b	%11110000
-    187  2514		       ff		      BYTE.b	%11111111
-    188  2515		       ff		      BYTE.b	%11111111
-    189  2516		       00		      BYTE.b	%00000000
-    190  2517		       00		      BYTE.b	%00000000
-    191  2518		       00		      BYTE.b	%00000000
-    192  2519		       00		      BYTE.b	%00000000
-    193  251a		       00		      BYTE.b	%00000000
-    194  251b		       00		      BYTE.b	%00000000
-    195  251c		       00		      BYTE.b	%00000000
-    196  251d		       00		      BYTE.b	%00000000
-    197  251e		       00		      BYTE.b	%00000000
-    198  251f		       00		      BYTE.b	%00000000
-    199  2520		       00		      BYTE.b	%00000000
-    200  2521		       00		      BYTE.b	%00000000
-    201  2522		       00		      BYTE.b	%00000000
-    202  2523		       00		      BYTE.b	%00000000
-    203  2524		       00		      BYTE.b	%00000000
-    204  2525		       00		      BYTE.b	%00000000
-    205  2526		       00		      BYTE.b	%00000000
-    206  2527		       00		      BYTE.b	%00000000
-    207  2528
-    208  2528
-    209  2528
-    210  2528				  -	      if	>. != >[.+(bmp_96x2_2_height)]
-    211  2528				  -	      align	256
-    212  2528					      endif
-    213  2528
-    214  2528
-    215  2528				   bmp_96x2_2_03
-    216  2528							; *** replace this block with your bimap_03 data block...
-    217  2528		       00		      BYTE.b	%00000000
-    218  2529		       78		      BYTE.b	%01111000
-    219  252a		       78		      BYTE.b	%01111000
-    220  252b		       78		      BYTE.b	%01111000
-    221  252c		       7f		      BYTE.b	%01111111
-    222  252d		       78		      BYTE.b	%01111000
-    223  252e		       78		      BYTE.b	%01111000
-    224  252f		       78		      BYTE.b	%01111000
-    225  2530		       1e		      BYTE.b	%00011110
-    226  2531		       07		      BYTE.b	%00000111
-    227  2532		       07		      BYTE.b	%00000111
-    228  2533		       00		      BYTE.b	%00000000
-    229  2534		       f8		      BYTE.b	%11111000
-    230  2535		       f8		      BYTE.b	%11111000
-    231  2536		       1e		      BYTE.b	%00011110
-    232  2537		       1e		      BYTE.b	%00011110
-    233  2538		       f8		      BYTE.b	%11111000
-    234  2539		       f8		      BYTE.b	%11111000
-    235  253a		       1e		      BYTE.b	%00011110
-    236  253b		       1e		      BYTE.b	%00011110
-    237  253c		       f8		      BYTE.b	%11111000
-    238  253d		       f8		      BYTE.b	%11111000
-    239  253e		       00		      BYTE.b	%00000000
-    240  253f		       00		      BYTE.b	%00000000
-    241  2540		       00		      BYTE.b	%00000000
-    242  2541		       00		      BYTE.b	%00000000
-    243  2542		       00		      BYTE.b	%00000000
-    244  2543		       00		      BYTE.b	%00000000
-    245  2544		       00		      BYTE.b	%00000000
-    246  2545		       00		      BYTE.b	%00000000
-    247  2546		       00		      BYTE.b	%00000000
-    248  2547		       00		      BYTE.b	%00000000
-    249  2548		       00		      BYTE.b	%00000000
-    250  2549		       00		      BYTE.b	%00000000
-    251  254a		       00		      BYTE.b	%00000000
-    252  254b		       00		      BYTE.b	%00000000
-    253  254c		       00		      BYTE.b	%00000000
-    254  254d		       00		      BYTE.b	%00000000
-    255  254e		       00		      BYTE.b	%00000000
-    256  254f		       00		      BYTE.b	%00000000
-    257  2550
-    258  2550
-    259  2550
-    260  2550				  -	      if	>. != >[.+(bmp_96x2_2_height)]
-    261  2550				  -	      align	256
-    262  2550					      endif
-    263  2550
-    264  2550
-    265  2550				   bmp_96x2_2_04
-    266  2550							; *** replace this block with your bimap_04 data block...
-    267  2550		       00		      BYTE.b	%00000000
-    268  2551		       0f		      BYTE.b	%00001111
-    269  2552		       1f		      BYTE.b	%00011111
-    270  2553		       1f		      BYTE.b	%00011111
-    271  2554		       ff		      BYTE.b	%11111111
-    272  2555		       1f		      BYTE.b	%00011111
-    273  2556		       1f		      BYTE.b	%00011111
-    274  2557		       1f		      BYTE.b	%00011111
-    275  2558		       7c		      BYTE.b	%01111100
-    276  2559		       f0		      BYTE.b	%11110000
-    277  255a		       e0		      BYTE.b	%11100000
-    278  255b		       00		      BYTE.b	%00000000
-    279  255c		       3f		      BYTE.b	%00111111
-    280  255d		       3f		      BYTE.b	%00111111
-    281  255e		       3c		      BYTE.b	%00111100
-    282  255f		       3c		      BYTE.b	%00111100
-    283  2560		       3f		      BYTE.b	%00111111
-    284  2561		       3f		      BYTE.b	%00111111
-    285  2562		       3c		      BYTE.b	%00111100
-    286  2563		       3c		      BYTE.b	%00111100
-    287  2564		       3f		      BYTE.b	%00111111
-    288  2565		       3f		      BYTE.b	%00111111
-    289  2566		       00		      BYTE.b	%00000000
-    290  2567		       00		      BYTE.b	%00000000
-    291  2568		       01		      BYTE.b	%00000001
-    292  2569		       00		      BYTE.b	%00000000
-    293  256a		       00		      BYTE.b	%00000000
-    294  256b		       00		      BYTE.b	%00000000
-    295  256c		       00		      BYTE.b	%00000000
-    296  256d		       00		      BYTE.b	%00000000
-    297  256e		       00		      BYTE.b	%00000000
-    298  256f		       00		      BYTE.b	%00000000
-    299  2570		       00		      BYTE.b	%00000000
-    300  2571		       00		      BYTE.b	%00000000
-    301  2572		       01		      BYTE.b	%00000001
-    302  2573		       01		      BYTE.b	%00000001
-    303  2574		       00		      BYTE.b	%00000000
-    304  2575		       00		      BYTE.b	%00000000
-    305  2576		       00		      BYTE.b	%00000000
-    306  2577		       00		      BYTE.b	%00000000
-    307  2578
-    308  2578
-    309  2578
-    310  2578				  -	      if	>. != >[.+(bmp_96x2_2_height)]
-    311  2578				  -	      align	256
-    312  2578					      endif
-    313  2578
-    314  2578
-    315  2578				   bmp_96x2_2_05
-    316  2578							; *** replace this block with your bimap_05 data block...
-    317  2578		       00		      BYTE.b	%00000000
-    318  2579		       1e		      BYTE.b	%00011110
-    319  257a		       3e		      BYTE.b	%00111110
-    320  257b		       3e		      BYTE.b	%00111110
-    321  257c		       3e		      BYTE.b	%00111110
-    322  257d		       3e		      BYTE.b	%00111110
-    323  257e		       3e		      BYTE.b	%00111110
-    324  257f		       3f		      BYTE.b	%00111111
-    325  2580		       3f		      BYTE.b	%00111111
-    326  2581		       3e		      BYTE.b	%00111110
-    327  2582		       1e		      BYTE.b	%00011110
-    328  2583		       00		      BYTE.b	%00000000
-    329  2584		       ff		      BYTE.b	%11111111
-    330  2585		       ff		      BYTE.b	%11111111
-    331  2586		       00		      BYTE.b	%00000000
-    332  2587		       00		      BYTE.b	%00000000
-    333  2588		       fc		      BYTE.b	%11111100
-    334  2589		       fc		      BYTE.b	%11111100
-    335  258a		       00		      BYTE.b	%00000000
-    336  258b		       00		      BYTE.b	%00000000
-    337  258c		       ff		      BYTE.b	%11111111
-    338  258d		       ff		      BYTE.b	%11111111
-    339  258e		       00		      BYTE.b	%00000000
-    340  258f		       00		      BYTE.b	%00000000
-    341  2590		       ff		      BYTE.b	%11111111
-    342  2591		       00		      BYTE.b	%00000000
-    343  2592		       7f		      BYTE.b	%01111111
-    344  2593		       7f		      BYTE.b	%01111111
-    345  2594		       07		      BYTE.b	%00000111
-    346  2595		       37		      BYTE.b	%00110111
-    347  2596		       37		      BYTE.b	%00110111
-    348  2597		       30		      BYTE.b	%00110000
-    349  2598		       32		      BYTE.b	%00110010
-    350  2599		       3e		      BYTE.b	%00111110
-    351  259a		       1f		      BYTE.b	%00011111
-    352  259b		       ff		      BYTE.b	%11111111
-    353  259c		       b7		      BYTE.b	%10110111
-    354  259d		       0f		      BYTE.b	%00001111
-    355  259e		       0e		      BYTE.b	%00001110
-    356  259f		       00		      BYTE.b	%00000000
-    357  25a0
-    358  25a0
-    359  25a0
-    360  25a0				  -	      if	>. != >[.+(bmp_96x2_2_height)]
-    361  25a0				  -	      align	256
-    362  25a0					      endif
-    363  25a0
-    364  25a0
-    365  25a0				   bmp_96x2_2_06
-    366  25a0							; *** replace this block with your bimap_06 data block...
-    367  25a0		       00		      BYTE.b	%00000000
-    368  25a1		       07		      BYTE.b	%00000111
-    369  25a2		       07		      BYTE.b	%00000111
-    370  25a3		       07		      BYTE.b	%00000111
-    371  25a4		       1f		      BYTE.b	%00011111
-    372  25a5		       7f		      BYTE.b	%01111111
-    373  25a6		       ff		      BYTE.b	%11111111
-    374  25a7		       e7		      BYTE.b	%11100111
-    375  25a8		       87		      BYTE.b	%10000111
-    376  25a9		       07		      BYTE.b	%00000111
-    377  25aa		       07		      BYTE.b	%00000111
-    378  25ab		       00		      BYTE.b	%00000000
-    379  25ac		       1f		      BYTE.b	%00011111
-    380  25ad		       1f		      BYTE.b	%00011111
-    381  25ae		       1f		      BYTE.b	%00011111
-    382  25af		       1f		      BYTE.b	%00011111
-    383  25b0		       1f		      BYTE.b	%00011111
-    384  25b1		       1f		      BYTE.b	%00011111
-    385  25b2		       1f		      BYTE.b	%00011111
-    386  25b3		       1f		      BYTE.b	%00011111
-    387  25b4		       1f		      BYTE.b	%00011111
-    388  25b5		       1f		      BYTE.b	%00011111
-    389  25b6		       00		      BYTE.b	%00000000
-    390  25b7		       00		      BYTE.b	%00000000
-    391  25b8		       fc		      BYTE.b	%11111100
-    392  25b9		       38		      BYTE.b	%00111000
-    393  25ba		       fb		      BYTE.b	%11111011
-    394  25bb		       f8		      BYTE.b	%11111000
-    395  25bc		       f8		      BYTE.b	%11111000
-    396  25bd		       f8		      BYTE.b	%11111000
-    397  25be		       f8		      BYTE.b	%11111000
-    398  25bf		       fb		      BYTE.b	%11111011
-    399  25c0		       80		      BYTE.b	%10000000
-    400  25c1		       3c		      BYTE.b	%00111100
-    401  25c2		       f6		      BYTE.b	%11110110
-    402  25c3		       da		      BYTE.b	%11011010
-    403  25c4		       d4		      BYTE.b	%11010100
-    404  25c5		       40		      BYTE.b	%01000000
-    405  25c6		       80		      BYTE.b	%10000000
-    406  25c7		       00		      BYTE.b	%00000000
-    407  25c8
-    408  25c8
-    409  25c8
-    410  25c8				  -	      if	>. != >[.+(bmp_96x2_2_height)]
-    411  25c8				  -	      align	256
-    412  25c8					      endif
-    413  25c8
-    414  25c8
-    415  25c8				   bmp_96x2_2_07
-    416  25c8							; *** replace this block with your bimap_07 data block...
-    417  25c8		       00		      BYTE.b	%00000000
-    418  25c9		       83		      BYTE.b	%10000011
-    419  25ca		       81		      BYTE.b	%10000001
-    420  25cb		       80		      BYTE.b	%10000000
-    421  25cc		       80		      BYTE.b	%10000000
-    422  25cd		       80		      BYTE.b	%10000000
-    423  25ce		       80		      BYTE.b	%10000000
-    424  25cf		       80		      BYTE.b	%10000000
-    425  25d0		       80		      BYTE.b	%10000000
-    426  25d1		       83		      BYTE.b	%10000011
-    427  25d2		       83		      BYTE.b	%10000011
-    428  25d3		       00		      BYTE.b	%00000000
-    429  25d4		       ff		      BYTE.b	%11111111
-    430  25d5		       ff		      BYTE.b	%11111111
-    431  25d6		       00		      BYTE.b	%00000000
-    432  25d7		       00		      BYTE.b	%00000000
-    433  25d8		       ff		      BYTE.b	%11111111
-    434  25d9		       ff		      BYTE.b	%11111111
-    435  25da		       00		      BYTE.b	%00000000
-    436  25db		       00		      BYTE.b	%00000000
-    437  25dc		       ff		      BYTE.b	%11111111
-    438  25dd		       ff		      BYTE.b	%11111111
-    439  25de		       00		      BYTE.b	%00000000
-    440  25df		       00		      BYTE.b	%00000000
-    441  25e0		       00		      BYTE.b	%00000000
-    442  25e1		       00		      BYTE.b	%00000000
-    443  25e2		       c0		      BYTE.b	%11000000
-    444  25e3		       40		      BYTE.b	%01000000
-    445  25e4		       40		      BYTE.b	%01000000
-    446  25e5		       40		      BYTE.b	%01000000
-    447  25e6		       40		      BYTE.b	%01000000
-    448  25e7		       c0		      BYTE.b	%11000000
-    449  25e8		       00		      BYTE.b	%00000000
-    450  25e9		       00		      BYTE.b	%00000000
-    451  25ea		       00		      BYTE.b	%00000000
-    452  25eb		       00		      BYTE.b	%00000000
-    453  25ec		       00		      BYTE.b	%00000000
-    454  25ed		       00		      BYTE.b	%00000000
-    455  25ee		       00		      BYTE.b	%00000000
-    456  25ef		       00		      BYTE.b	%00000000
-    457  25f0
-    458  25f0
-    459  25f0
-    460  25f0					      if	>. != >[.+(bmp_96x2_2_height)]
-    461  2600		       00 00 00 00*	      align	256
-    462  2600					      endif
-    463  2600
-    464  2600
-    465  2600				   bmp_96x2_2_08
-    466  2600							; *** replace this block with your bimap_08 data block...
-    467  2600		       00		      BYTE.b	%00000000
-    468  2601		       ff		      BYTE.b	%11111111
-    469  2602		       ff		      BYTE.b	%11111111
-    470  2603		       1e		      BYTE.b	%00011110
-    471  2604		       1e		      BYTE.b	%00011110
-    472  2605		       1e		      BYTE.b	%00011110
-    473  2606		       1e		      BYTE.b	%00011110
-    474  2607		       1e		      BYTE.b	%00011110
-    475  2608		       1e		      BYTE.b	%00011110
-    476  2609		       ff		      BYTE.b	%11111111
-    477  260a		       ff		      BYTE.b	%11111111
-    478  260b		       00		      BYTE.b	%00000000
-    479  260c		       c7		      BYTE.b	%11000111
-    480  260d		       c7		      BYTE.b	%11000111
-    481  260e		       07		      BYTE.b	%00000111
-    482  260f		       07		      BYTE.b	%00000111
-    483  2610		       07		      BYTE.b	%00000111
-    484  2611		       07		      BYTE.b	%00000111
-    485  2612		       07		      BYTE.b	%00000111
-    486  2613		       07		      BYTE.b	%00000111
-    487  2614		       c7		      BYTE.b	%11000111
-    488  2615		       c7		      BYTE.b	%11000111
-    489  2616		       00		      BYTE.b	%00000000
-    490  2617		       00		      BYTE.b	%00000000
-    491  2618		       00		      BYTE.b	%00000000
-    492  2619		       00		      BYTE.b	%00000000
-    493  261a		       00		      BYTE.b	%00000000
-    494  261b		       00		      BYTE.b	%00000000
-    495  261c		       00		      BYTE.b	%00000000
-    496  261d		       00		      BYTE.b	%00000000
-    497  261e		       00		      BYTE.b	%00000000
-    498  261f		       00		      BYTE.b	%00000000
-    499  2620		       00		      BYTE.b	%00000000
-    500  2621		       00		      BYTE.b	%00000000
-    501  2622		       00		      BYTE.b	%00000000
-    502  2623		       00		      BYTE.b	%00000000
-    503  2624		       00		      BYTE.b	%00000000
-    504  2625		       00		      BYTE.b	%00000000
-    505  2626		       00		      BYTE.b	%00000000
-    506  2627		       00		      BYTE.b	%00000000
-    507  2628
-    508  2628
-    509  2628
-    510  2628				  -	      if	>. != >[.+(bmp_96x2_2_height)]
-    511  2628				  -	      align	256
-    512  2628					      endif
-    513  2628
-    514  2628
-    515  2628				   bmp_96x2_2_09
-    516  2628							; *** replace this block with your bimap_09 data block...
-    517  2628		       00		      BYTE.b	%00000000
-    518  2629		       e3		      BYTE.b	%11100011
-    519  262a		       e3		      BYTE.b	%11100011
-    520  262b		       03		      BYTE.b	%00000011
-    521  262c		       03		      BYTE.b	%00000011
-    522  262d		       03		      BYTE.b	%00000011
-    523  262e		       03		      BYTE.b	%00000011
-    524  262f		       03		      BYTE.b	%00000011
-    525  2630		       00		      BYTE.b	%00000000
-    526  2631		       e0		      BYTE.b	%11100000
-    527  2632		       e0		      BYTE.b	%11100000
-    528  2633		       00		      BYTE.b	%00000000
-    529  2634		       83		      BYTE.b	%10000011
-    530  2635		       87		      BYTE.b	%10000111
-    531  2636		       9f		      BYTE.b	%10011111
-    532  2637		       ff		      BYTE.b	%11111111
-    533  2638		       87		      BYTE.b	%10000111
-    534  2639		       83		      BYTE.b	%10000011
-    535  263a		       80		      BYTE.b	%10000000
-    536  263b		       80		      BYTE.b	%10000000
-    537  263c		       ff		      BYTE.b	%11111111
-    538  263d		       ff		      BYTE.b	%11111111
-    539  263e		       00		      BYTE.b	%00000000
-    540  263f		       00		      BYTE.b	%00000000
-    541  2640		       00		      BYTE.b	%00000000
-    542  2641		       00		      BYTE.b	%00000000
-    543  2642		       00		      BYTE.b	%00000000
-    544  2643		       00		      BYTE.b	%00000000
-    545  2644		       00		      BYTE.b	%00000000
-    546  2645		       00		      BYTE.b	%00000000
-    547  2646		       00		      BYTE.b	%00000000
-    548  2647		       00		      BYTE.b	%00000000
-    549  2648		       00		      BYTE.b	%00000000
-    550  2649		       00		      BYTE.b	%00000000
-    551  264a		       00		      BYTE.b	%00000000
-    552  264b		       00		      BYTE.b	%00000000
-    553  264c		       00		      BYTE.b	%00000000
-    554  264d		       00		      BYTE.b	%00000000
-    555  264e		       00		      BYTE.b	%00000000
-    556  264f		       00		      BYTE.b	%00000000
-    557  2650
-    558  2650
-    559  2650
-    560  2650				  -	      if	>. != >[.+(bmp_96x2_2_height)]
-    561  2650				  -	      align	256
-    562  2650					      endif
-    563  2650
-    564  2650
-    565  2650				   bmp_96x2_2_10
-    566  2650							; *** replace this block with your bimap_10 data block...
-    567  2650		       00		      BYTE.b	%00000000
-    568  2651		       c0		      BYTE.b	%11000000
-    569  2652		       c0		      BYTE.b	%11000000
-    570  2653		       c0		      BYTE.b	%11000000
-    571  2654		       ff		      BYTE.b	%11111111
-    572  2655		       c0		      BYTE.b	%11000000
-    573  2656		       c0		      BYTE.b	%11000000
-    574  2657		       c0		      BYTE.b	%11000000
-    575  2658		       f3		      BYTE.b	%11110011
-    576  2659		       3f		      BYTE.b	%00111111
-    577  265a		       3f		      BYTE.b	%00111111
-    578  265b		       00		      BYTE.b	%00000000
-    579  265c		       f0		      BYTE.b	%11110000
-    580  265d		       e0		      BYTE.b	%11100000
-    581  265e		       c0		      BYTE.b	%11000000
-    582  265f		       00		      BYTE.b	%00000000
-    583  2660		       f0		      BYTE.b	%11110000
-    584  2661		       f0		      BYTE.b	%11110000
-    585  2662		       f0		      BYTE.b	%11110000
-    586  2663		       f0		      BYTE.b	%11110000
-    587  2664		       c0		      BYTE.b	%11000000
-    588  2665		       c0		      BYTE.b	%11000000
-    589  2666		       00		      BYTE.b	%00000000
-    590  2667		       00		      BYTE.b	%00000000
-    591  2668		       00		      BYTE.b	%00000000
-    592  2669		       00		      BYTE.b	%00000000
-    593  266a		       00		      BYTE.b	%00000000
-    594  266b		       00		      BYTE.b	%00000000
-    595  266c		       00		      BYTE.b	%00000000
-    596  266d		       00		      BYTE.b	%00000000
-    597  266e		       00		      BYTE.b	%00000000
-    598  266f		       00		      BYTE.b	%00000000
-    599  2670		       00		      BYTE.b	%00000000
-    600  2671		       00		      BYTE.b	%00000000
-    601  2672		       00		      BYTE.b	%00000000
-    602  2673		       00		      BYTE.b	%00000000
-    603  2674		       00		      BYTE.b	%00000000
-    604  2675		       00		      BYTE.b	%00000000
-    605  2676		       00		      BYTE.b	%00000000
-    606  2677		       00		      BYTE.b	%00000000
-    607  2678
-    608  2678
-    609  2678
-    610  2678				  -	      if	>. != >[.+(bmp_96x2_2_height)]
-    611  2678				  -	      align	256
-    612  2678					      endif
-    613  2678
-    614  2678
-    615  2678				   bmp_96x2_2_11
-    616  2678							; *** replace this block with your bimap_11 data block...
-    617  2678		       00		      BYTE.b	%00000000
-    618  2679		       f8		      BYTE.b	%11111000
-    619  267a		       f8		      BYTE.b	%11111000
-    620  267b		       f8		      BYTE.b	%11111000
-    621  267c		       f8		      BYTE.b	%11111000
-    622  267d		       f8		      BYTE.b	%11111000
-    623  267e		       f8		      BYTE.b	%11111000
-    624  267f		       f8		      BYTE.b	%11111000
-    625  2680		       e0		      BYTE.b	%11100000
-    626  2681		       80		      BYTE.b	%10000000
-    627  2682		       00		      BYTE.b	%00000000
-    628  2683		       00		      BYTE.b	%00000000
-    629  2684		       00		      BYTE.b	%00000000
-    630  2685		       00		      BYTE.b	%00000000
-    631  2686		       00		      BYTE.b	%00000000
-    632  2687		       00		      BYTE.b	%00000000
-    633  2688		       00		      BYTE.b	%00000000
-    634  2689		       00		      BYTE.b	%00000000
-    635  268a		       00		      BYTE.b	%00000000
-    636  268b		       00		      BYTE.b	%00000000
-    637  268c		       00		      BYTE.b	%00000000
-    638  268d		       00		      BYTE.b	%00000000
-    639  268e		       00		      BYTE.b	%00000000
-    640  268f		       00		      BYTE.b	%00000000
-    641  2690		       00		      BYTE.b	%00000000
-    642  2691		       00		      BYTE.b	%00000000
-    643  2692		       00		      BYTE.b	%00000000
-    644  2693		       00		      BYTE.b	%00000000
-    645  2694		       00		      BYTE.b	%00000000
-    646  2695		       00		      BYTE.b	%00000000
-    647  2696		       00		      BYTE.b	%00000000
-    648  2697		       00		      BYTE.b	%00000000
-    649  2698		       00		      BYTE.b	%00000000
-    650  2699		       00		      BYTE.b	%00000000
-    651  269a		       00		      BYTE.b	%00000000
-    652  269b		       00		      BYTE.b	%00000000
-    653  269c		       00		      BYTE.b	%00000000
-    654  269d		       00		      BYTE.b	%00000000
-    655  269e		       00		      BYTE.b	%00000000
-    656  269f		       00		      BYTE.b	%00000000
-------- FILE titlescreen/asm/titlescreen.asm
-    277  26a0					      endif
-    278  26a0					      ifconst	mk_96x2_3_on
-------- FILE titlescreen/96x2_3_image.asm LEVEL 3 PASS 2
-      0  26a0					      include	"titlescreen/96x2_3_image.asm"
-      1  26a0
-      2  26a0							;*** The height of the displayed data...
-      3  26a0		       00 14	   bmp_96x2_3_window =	20
-      4  26a0
-      5  26a0							;*** The height of the bitmap data. This can be larger than 
-      6  26a0							;*** the displayed data height, if you're scrolling or animating 
-      7  26a0							;*** the data...
-      8  26a0		       00 14	   bmp_96x2_3_height =	20
-      9  26a0
-     10  26a0
-     11  26a0				  -	      if	>. != >[.+(bmp_96x2_3_height)]
-     12  26a0				  -	      align	256
-     13  26a0					      endif
-     14  26a0		       00		      BYTE.b	$00	; leave this here!
-     15  26a1
-     16  26a1
-     17  26a1							;*** The color of each line in the bitmap, in reverse order...
-     18  26a1				   bmp_96x2_3_colors
-     19  26a1		       42		      .byte.b	$42
-     20  26a2		       42		      .byte.b	$42
-     21  26a3		       42		      .byte.b	$42
-     22  26a4		       42		      .byte.b	$42
-     23  26a5		       42		      .byte.b	$42
-     24  26a6		       42		      .byte.b	$42
-     25  26a7		       42		      .byte.b	$42
-     26  26a8		       42		      .byte.b	$42
-     27  26a9		       42		      .byte.b	$42
-     28  26aa		       42		      .byte.b	$42
-     29  26ab		       42		      .byte.b	$42
-     30  26ac		       42		      .byte.b	$42
-     31  26ad		       42		      .byte.b	$42
-     32  26ae		       42		      .byte.b	$42
-     33  26af		       42		      .byte.b	$42
-     34  26b0		       42		      .byte.b	$42
-     35  26b1		       42		      .byte.b	$42
-     36  26b2		       42		      .byte.b	$42
-     37  26b3		       42		      .byte.b	$42
-     38  26b4		       42		      .byte.b	$42
-     39  26b5
-     40  26b5
-     41  26b5				  -	      if	>. != >[.+(bmp_96x2_3_height)]
-     42  26b5				  -	      align	256
-     43  26b5					      endif
-     44  26b5
-     45  26b5
-     46  26b5				   bmp_96x2_3_00
-     47  26b5							; *** replace this block with your bimap_00 data block...
-     48  26b5		       00		      BYTE.b	%00000000
-     49  26b6		       00		      BYTE.b	%00000000
-     50  26b7		       00		      BYTE.b	%00000000
-     51  26b8		       00		      BYTE.b	%00000000
-     52  26b9		       00		      BYTE.b	%00000000
-     53  26ba		       00		      BYTE.b	%00000000
-     54  26bb		       00		      BYTE.b	%00000000
-     55  26bc		       00		      BYTE.b	%00000000
-     56  26bd		       00		      BYTE.b	%00000000
-     57  26be		       00		      BYTE.b	%00000000
-     58  26bf		       70		      BYTE.b	%01110000
-     59  26c0		       70		      BYTE.b	%01110000
-     60  26c1		       7f		      BYTE.b	%01111111
-     61  26c2		       7f		      BYTE.b	%01111111
-     62  26c3		       71		      BYTE.b	%01110001
-     63  26c4		       71		      BYTE.b	%01110001
-     64  26c5		       71		      BYTE.b	%01110001
-     65  26c6		       7f		      BYTE.b	%01111111
-     66  26c7		       7f		      BYTE.b	%01111111
-     67  26c8		       00		      BYTE.b	%00000000
-     68  26c9
-     69  26c9
-     70  26c9
-     71  26c9				  -	      if	>. != >[.+(bmp_96x2_3_height)]
-     72  26c9				  -	      align	256
-     73  26c9					      endif
-     74  26c9
-     75  26c9
-     76  26c9				   bmp_96x2_3_01
-     77  26c9							; *** replace this block with your bimap_01 data block...
-     78  26c9		       03		      BYTE.b	%00000011
-     79  26ca		       03		      BYTE.b	%00000011
-     80  26cb		       03		      BYTE.b	%00000011
-     81  26cc		       03		      BYTE.b	%00000011
-     82  26cd		       03		      BYTE.b	%00000011
-     83  26ce		       03		      BYTE.b	%00000011
-     84  26cf		       03		      BYTE.b	%00000011
-     85  26d0		       0f		      BYTE.b	%00001111
-     86  26d1		       0f		      BYTE.b	%00001111
-     87  26d2		       00		      BYTE.b	%00000000
-     88  26d3		       19		      BYTE.b	%00011001
-     89  26d4		       3b		      BYTE.b	%00111011
-     90  26d5		       3f		      BYTE.b	%00111111
-     91  26d6		       bf		      BYTE.b	%10111111
-     92  26d7		       b9		      BYTE.b	%10111001
-     93  26d8		       b8		      BYTE.b	%10111000
-     94  26d9		       b8		      BYTE.b	%10111000
-     95  26da		       bf		      BYTE.b	%10111111
-     96  26db		       1f		      BYTE.b	%00011111
-     97  26dc		       00		      BYTE.b	%00000000
-     98  26dd
-     99  26dd
-    100  26dd
-    101  26dd				  -	      if	>. != >[.+(bmp_96x2_3_height)]
-    102  26dd				  -	      align	256
-    103  26dd					      endif
-    104  26dd
-    105  26dd
-    106  26dd				   bmp_96x2_3_02
-    107  26dd							; *** replace this block with your bimap_02 data block...
-    108  26dd		       07		      BYTE.b	%00000111
-    109  26de		       87		      BYTE.b	%10000111
-    110  26df		       8e		      BYTE.b	%10001110
-    111  26e0		       8e		      BYTE.b	%10001110
-    112  26e1		       8e		      BYTE.b	%10001110
-    113  26e2		       8e		      BYTE.b	%10001110
-    114  26e3		       8e		      BYTE.b	%10001110
-    115  26e4		       ef		      BYTE.b	%11101111
-    116  26e5		       e7		      BYTE.b	%11100111
-    117  26e6		       00		      BYTE.b	%00000000
-    118  26e7		       ef		      BYTE.b	%11101111
-    119  26e8		       ef		      BYTE.b	%11101111
-    120  26e9		       ce		      BYTE.b	%11001110
-    121  26ea		       cf		      BYTE.b	%11001111
-    122  26eb		       ef		      BYTE.b	%11101111
-    123  26ec		       ee		      BYTE.b	%11101110
-    124  26ed		       ee		      BYTE.b	%11101110
-    125  26ee		       cf		      BYTE.b	%11001111
-    126  26ef		       cf		      BYTE.b	%11001111
-    127  26f0		       00		      BYTE.b	%00000000
-    128  26f1
-    129  26f1
-    130  26f1
-    131  26f1					      if	>. != >[.+(bmp_96x2_3_height)]
-    132  2700		       00 00 00 00*	      align	256
-    133  2700					      endif
-    134  2700
-    135  2700
-    136  2700				   bmp_96x2_3_03
-    137  2700							; *** replace this block with your bimap_03 data block...
-    138  2700		       e0		      BYTE.b	%11100000
-    139  2701		       f0		      BYTE.b	%11110000
-    140  2702		       38		      BYTE.b	%00111000
-    141  2703		       38		      BYTE.b	%00111000
-    142  2704		       38		      BYTE.b	%00111000
-    143  2705		       38		      BYTE.b	%00111000
-    144  2706		       38		      BYTE.b	%00111000
-    145  2707		       f0		      BYTE.b	%11110000
-    146  2708		       e0		      BYTE.b	%11100000
-    147  2709		       00		      BYTE.b	%00000000
-    148  270a		       f1		      BYTE.b	%11110001
-    149  270b		       f3		      BYTE.b	%11110011
-    150  270c		       03		      BYTE.b	%00000011
-    151  270d		       e1		      BYTE.b	%11100001
-    152  270e		       e3		      BYTE.b	%11100011
-    153  270f		       07		      BYTE.b	%00000111
-    154  2710		       07		      BYTE.b	%00000111
-    155  2711		       f3		      BYTE.b	%11110011
-    156  2712		       f1		      BYTE.b	%11110001
-    157  2713		       00		      BYTE.b	%00000000
-    158  2714
-    159  2714
-    160  2714
-    161  2714				  -	      if	>. != >[.+(bmp_96x2_3_height)]
-    162  2714				  -	      align	256
-    163  2714					      endif
-    164  2714
-    165  2714
-    166  2714				   bmp_96x2_3_04
-    167  2714							; *** replace this block with your bimap_04 data block...
-    168  2714		       00		      BYTE.b	%00000000
-    169  2715		       01		      BYTE.b	%00000001
-    170  2716		       01		      BYTE.b	%00000001
-    171  2717		       00		      BYTE.b	%00000000
-    172  2718		       00		      BYTE.b	%00000000
-    173  2719		       01		      BYTE.b	%00000001
-    174  271a		       01		      BYTE.b	%00000001
-    175  271b		       01		      BYTE.b	%00000001
-    176  271c		       00		      BYTE.b	%00000000
-    177  271d		       00		      BYTE.b	%00000000
-    178  271e		       f8		      BYTE.b	%11111000
-    179  271f		       fd		      BYTE.b	%11111101
-    180  2720		       1d		      BYTE.b	%00011101
-    181  2721		       fc		      BYTE.b	%11111100
-    182  2722		       f8		      BYTE.b	%11111000
-    183  2723		       01		      BYTE.b	%00000001
-    184  2724		       1d		      BYTE.b	%00011101
-    185  2725		       f8		      BYTE.b	%11111000
-    186  2726		       f0		      BYTE.b	%11110000
-    187  2727		       00		      BYTE.b	%00000000
-    188  2728
-    189  2728
-    190  2728
-    191  2728				  -	      if	>. != >[.+(bmp_96x2_3_height)]
-    192  2728				  -	      align	256
-    193  2728					      endif
-    194  2728
-    195  2728
-    196  2728				   bmp_96x2_3_05
-    197  2728							; *** replace this block with your bimap_05 data block...
-    198  2728		       fc		      BYTE.b	%11111100
-    199  2729		       fe		      BYTE.b	%11111110
-    200  272a		       c6		      BYTE.b	%11000110
-    201  272b		       06		      BYTE.b	%00000110
-    202  272c		       fc		      BYTE.b	%11111100
-    203  272d		       c0		      BYTE.b	%11000000
-    204  272e		       c6		      BYTE.b	%11000110
-    205  272f		       fe		      BYTE.b	%11111110
-    206  2730		       fc		      BYTE.b	%11111100
-    207  2731		       00		      BYTE.b	%00000000
-    208  2732		       fc		      BYTE.b	%11111100
-    209  2733		       fe		      BYTE.b	%11111110
-    210  2734		       c6		      BYTE.b	%11000110
-    211  2735		       7e		      BYTE.b	%01111110
-    212  2736		       fc		      BYTE.b	%11111100
-    213  2737		       c0		      BYTE.b	%11000000
-    214  2738		       c6		      BYTE.b	%11000110
-    215  2739		       fe		      BYTE.b	%11111110
-    216  273a		       fc		      BYTE.b	%11111100
-    217  273b		       00		      BYTE.b	%00000000
-    218  273c
-    219  273c
-    220  273c
-    221  273c
-    222  273c				  -	      if	>. != >[.+(bmp_96x2_3_height)]
-    223  273c				  -	      align	256
-    224  273c					      endif
-    225  273c
-    226  273c
-    227  273c				   bmp_96x2_3_06
-    228  273c							; *** replace this block with your bimap_06 data block...
-    229  273c		       0c		      BYTE.b	%00001100
-    230  273d		       0e		      BYTE.b	%00001110
-    231  273e		       0e		      BYTE.b	%00001110
-    232  273f		       0e		      BYTE.b	%00001110
-    233  2740		       0e		      BYTE.b	%00001110
-    234  2741		       0e		      BYTE.b	%00001110
-    235  2742		       0e		      BYTE.b	%00001110
-    236  2743		       3f		      BYTE.b	%00111111
-    237  2744		       3f		      BYTE.b	%00111111
-    238  2745		       00		      BYTE.b	%00000000
-    239  2746		       00		      BYTE.b	%00000000
-    240  2747		       00		      BYTE.b	%00000000
-    241  2748		       00		      BYTE.b	%00000000
-    242  2749		       00		      BYTE.b	%00000000
-    243  274a		       00		      BYTE.b	%00000000
-    244  274b		       00		      BYTE.b	%00000000
-    245  274c		       00		      BYTE.b	%00000000
-    246  274d		       00		      BYTE.b	%00000000
-    247  274e		       00		      BYTE.b	%00000000
-    248  274f		       00		      BYTE.b	%00000000
-    249  2750
-    250  2750
-    251  2750
-    252  2750				  -	      if	>. != >[.+(bmp_96x2_3_height)]
-    253  2750				  -	      align	256
-    254  2750					      endif
-    255  2750
-    256  2750
-    257  2750				   bmp_96x2_3_07
-    258  2750							; *** replace this block with your bimap_07 data block...
-    259  2750		       38		      BYTE.b	%00111000
-    260  2751		       38		      BYTE.b	%00111000
-    261  2752		       38		      BYTE.b	%00111000
-    262  2753		       3f		      BYTE.b	%00111111
-    263  2754		       38		      BYTE.b	%00111000
-    264  2755		       38		      BYTE.b	%00111000
-    265  2756		       1d		      BYTE.b	%00011101
-    266  2757		       9f		      BYTE.b	%10011111
-    267  2758		       8f		      BYTE.b	%10001111
-    268  2759		       00		      BYTE.b	%00000000
-    269  275a		       38		      BYTE.b	%00111000
-    270  275b		       38		      BYTE.b	%00111000
-    271  275c		       38		      BYTE.b	%00111000
-    272  275d		       3f		      BYTE.b	%00111111
-    273  275e		       3f		      BYTE.b	%00111111
-    274  275f		       38		      BYTE.b	%00111000
-    275  2760		       38		      BYTE.b	%00111000
-    276  2761		       3f		      BYTE.b	%00111111
-    277  2762		       3f		      BYTE.b	%00111111
-    278  2763		       00		      BYTE.b	%00000000
-    279  2764
-    280  2764
-    281  2764
-    282  2764				  -	      if	>. != >[.+(bmp_96x2_3_height)]
-    283  2764				  -	      align	256
-    284  2764					      endif
-    285  2764
-    286  2764
-    287  2764				   bmp_96x2_3_08
-    288  2764							; *** replace this block with your bimap_08 data block...
-    289  2764		       cc		      BYTE.b	%11001100
-    290  2765		       ed		      BYTE.b	%11101101
-    291  2766		       ef		      BYTE.b	%11101111
-    292  2767		       ef		      BYTE.b	%11101111
-    293  2768		       ec		      BYTE.b	%11101100
-    294  2769		       ec		      BYTE.b	%11101100
-    295  276a		       cc		      BYTE.b	%11001100
-    296  276b		       8f		      BYTE.b	%10001111
-    297  276c		       0f		      BYTE.b	%00001111
-    298  276d		       00		      BYTE.b	%00000000
-    299  276e		       07		      BYTE.b	%00000111
-    300  276f		       07		      BYTE.b	%00000111
-    301  2770		       01		      BYTE.b	%00000001
-    302  2771		       81		      BYTE.b	%10000001
-    303  2772		       81		      BYTE.b	%10000001
-    304  2773		       01		      BYTE.b	%00000001
-    305  2774		       01		      BYTE.b	%00000001
-    306  2775		       c7		      BYTE.b	%11000111
-    307  2776		       c7		      BYTE.b	%11000111
-    308  2777		       00		      BYTE.b	%00000000
-    309  2778
-    310  2778
-    311  2778
-    312  2778				  -	      if	>. != >[.+(bmp_96x2_3_height)]
-    313  2778				  -	      align	256
-    314  2778					      endif
-    315  2778
-    316  2778
-    317  2778				   bmp_96x2_3_09
-    318  2778							; *** replace this block with your bimap_09 data block...
-    319  2778		       f0		      BYTE.b	%11110000
-    320  2779		       f0		      BYTE.b	%11110000
-    321  277a		       e0		      BYTE.b	%11100000
-    322  277b		       c0		      BYTE.b	%11000000
-    323  277c		       f0		      BYTE.b	%11110000
-    324  277d		       70		      BYTE.b	%01110000
-    325  277e		       70		      BYTE.b	%01110000
-    326  277f		       f3		      BYTE.b	%11110011
-    327  2780		       e3		      BYTE.b	%11100011
-    328  2781		       00		      BYTE.b	%00000000
-    329  2782		       f7		      BYTE.b	%11110111
-    330  2783		       f7		      BYTE.b	%11110111
-    331  2784		       c7		      BYTE.b	%11000111
-    332  2785		       c7		      BYTE.b	%11000111
-    333  2786		       c7		      BYTE.b	%11000111
-    334  2787		       c7		      BYTE.b	%11000111
-    335  2788		       c7		      BYTE.b	%11000111
-    336  2789		       f7		      BYTE.b	%11110111
-    337  278a		       f7		      BYTE.b	%11110111
-    338  278b		       00		      BYTE.b	%00000000
-    339  278c
-    340  278c
-    341  278c
-    342  278c				  -	      if	>. != >[.+(bmp_96x2_3_height)]
-    343  278c				  -	      align	256
-    344  278c					      endif
-    345  278c
-    346  278c
-    347  278c				   bmp_96x2_3_10
-    348  278c							; *** replace this block with your bimap_10 data block...
-    349  278c		       60		      BYTE.b	%01100000
-    350  278d		       e0		      BYTE.b	%11100000
-    351  278e		       e0		      BYTE.b	%11100000
-    352  278f		       e0		      BYTE.b	%11100000
-    353  2790		       e0		      BYTE.b	%11100000
-    354  2791		       e0		      BYTE.b	%11100000
-    355  2792		       e0		      BYTE.b	%11100000
-    356  2793		       f8		      BYTE.b	%11111000
-    357  2794		       f8		      BYTE.b	%11111000
-    358  2795		       00		      BYTE.b	%00000000
-    359  2796		       39		      BYTE.b	%00111001
-    360  2797		       79		      BYTE.b	%01111001
-    361  2798		       f1		      BYTE.b	%11110001
-    362  2799		       f9		      BYTE.b	%11111001
-    363  279a		       39		      BYTE.b	%00111001
-    364  279b		       19		      BYTE.b	%00011001
-    365  279c		       19		      BYTE.b	%00011001
-    366  279d		       f9		      BYTE.b	%11111001
-    367  279e		       f1		      BYTE.b	%11110001
-    368  279f		       00		      BYTE.b	%00000000
-    369  27a0
-    370  27a0
-    371  27a0				  -	      if	>. != >[.+(bmp_96x2_3_height)]
-    372  27a0				  -	      align	256
-    373  27a0					      endif
-    374  27a0
-    375  27a0
-    376  27a0				   bmp_96x2_3_11
-    377  27a0							; *** replace this block with your bimap_11 data block...
-    378  27a0		       00		      BYTE.b	%00000000
-    379  27a1		       00		      BYTE.b	%00000000
-    380  27a2		       00		      BYTE.b	%00000000
-    381  27a3		       00		      BYTE.b	%00000000
-    382  27a4		       00		      BYTE.b	%00000000
-    383  27a5		       00		      BYTE.b	%00000000
-    384  27a6		       00		      BYTE.b	%00000000
-    385  27a7		       00		      BYTE.b	%00000000
-    386  27a8		       00		      BYTE.b	%00000000
-    387  27a9		       00		      BYTE.b	%00000000
-    388  27aa		       fe		      BYTE.b	%11111110
-    389  27ab		       fe		      BYTE.b	%11111110
-    390  27ac		       80		      BYTE.b	%10000000
-    391  27ad		       f8		      BYTE.b	%11111000
-    392  27ae		       fc		      BYTE.b	%11111100
-    393  27af		       80		      BYTE.b	%10000000
-    394  27b0		       80		      BYTE.b	%10000000
-    395  27b1		       fe		      BYTE.b	%11111110
-    396  27b2		       fe		      BYTE.b	%11111110
-    397  27b3		       00		      BYTE.b	%00000000
-------- FILE titlescreen/asm/titlescreen.asm
-    280  27b4					      endif
-    281  27b4				  -	      ifconst	mk_96x2_4_on
-    282  27b4				  -	      include	"titlescreen/96x2_4_image.asm"
-    283  27b4					      endif
-    284  27b4				  -	      ifconst	mk_96x2_5_on
-    285  27b4				  -	      include	"titlescreen/96x2_5_image.asm"
-    286  27b4					      endif
-    287  27b4				  -	      ifconst	mk_96x2_6_on
-    288  27b4				  -	      include	"titlescreen/96x2_6_image.asm"
-    289  27b4					      endif
-    290  27b4				  -	      ifconst	mk_96x2_7_on
-    291  27b4				  -	      include	"titlescreen/96x2_7_image.asm"
-    292  27b4					      endif
-    293  27b4				  -	      ifconst	mk_96x2_8_on
-    294  27b4				  -	      include	"titlescreen/96x2_8_image.asm"
-    295  27b4					      endif
-    296  27b4
-    297  27b4				  -	      ifconst	mk_player_on
-    298  27b4				  -	      include	"titlescreen/player_image.asm"
-    299  27b4					      endif
-    300  27b4
-    301  27b4				  -	      ifconst	mk_score_on
-    302  27b4				  -	      include	"titlescreen/score_image.asm"
-    303  27b4					      endif
-    304  27b4
-    305  27b4				  -	      ifconst	mk_gameselect_on
-    306  27b4				  -	      include	"titlescreen/gameselect_image.asm"
-    307  27b4					      endif
-    308  27b4
-    309  27b4				  -	      ifconst	mk_player_on
-    310  27b4				  -	      include	"titlescreen/asm/player_kernel.asm"
-    311  27b4					      endif		;mk_player_on
-    312  27b4
-    313  27b4
+    274  26ff					      endif
+    275  26ff				  -	      ifconst	mk_96x2_2_on
+    276  26ff				  -	      include	"titlescreen/96x2_2_image.asm"
+    277  26ff					      endif
+    278  26ff				  -	      ifconst	mk_96x2_3_on
+    279  26ff				  -	      include	"titlescreen/96x2_3_image.asm"
+    280  26ff					      endif
+    281  26ff				  -	      ifconst	mk_96x2_4_on
+    282  26ff				  -	      include	"titlescreen/96x2_4_image.asm"
+    283  26ff					      endif
+    284  26ff				  -	      ifconst	mk_96x2_5_on
+    285  26ff				  -	      include	"titlescreen/96x2_5_image.asm"
+    286  26ff					      endif
+    287  26ff				  -	      ifconst	mk_96x2_6_on
+    288  26ff				  -	      include	"titlescreen/96x2_6_image.asm"
+    289  26ff					      endif
+    290  26ff				  -	      ifconst	mk_96x2_7_on
+    291  26ff				  -	      include	"titlescreen/96x2_7_image.asm"
+    292  26ff					      endif
+    293  26ff				  -	      ifconst	mk_96x2_8_on
+    294  26ff				  -	      include	"titlescreen/96x2_8_image.asm"
+    295  26ff					      endif
+    296  26ff
+    297  26ff				  -	      ifconst	mk_player_on
+    298  26ff				  -	      include	"titlescreen/player_image.asm"
+    299  26ff					      endif
+    300  26ff
+    301  26ff				  -	      ifconst	mk_score_on
+    302  26ff				  -	      include	"titlescreen/score_image.asm"
+    303  26ff					      endif
+    304  26ff
+    305  26ff				  -	      ifconst	mk_gameselect_on
+    306  26ff				  -	      include	"titlescreen/gameselect_image.asm"
+    307  26ff					      endif
+    308  26ff
+    309  26ff				  -	      ifconst	mk_player_on
+    310  26ff				  -	      include	"titlescreen/asm/player_kernel.asm"
+    311  26ff					      endif		;mk_player_on
+    312  26ff
+    313  26ff
 ------- FILE beer_mania.bas.asm
-    942  27b4
-    943  27b4				   .
-    944  27b4							;
-    945  27b4
-    946  27b4				   .L096		;  bank 3
-    947  27b4
-    948  27b4					      if	ECHO2
-      2080 bytes of ROM space left in bank 2
-    949  27b4					      echo	"    ",[(start_bank2 - *)]d , "bytes of ROM space left in bank 2")
-    950  27b4					      endif
-    951  27b4		       00 01	   ECHO2      =	1
+    942  26ff
+    943  26ff				   .
+    944  26ff							;
+    945  26ff
+    946  26ff				   .L096		;  bank 3
+    947  26ff
+    948  26ff					      if	ECHO2
+      2261 bytes of ROM space left in bank 2
+    949  26ff					      echo	"    ",[(start_bank2 - *)]d , "bytes of ROM space left in bank 2")
+    950  26ff					      endif
+    951  26ff		       00 01	   ECHO2      =	1
     952  2fd4					      ORG	$2FF4-bscode_length
     953  2fd4					      RORG	$BFF4-bscode_length
     954  2fd4		       a2 ff	   start_bank2 ldx	#$ff
