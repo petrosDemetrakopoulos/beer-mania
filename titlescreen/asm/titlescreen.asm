@@ -79,30 +79,6 @@ title_playfield
 	include "titlescreen/asm/96x2_2_kernel.asm"
 	#endif ;mk_96x2_2_on
 
-	#ifconst mk_96x2_3_on
-	include "titlescreen/asm/96x2_3_kernel.asm"
-	#endif ;mk_96x2_3_on
-
-	#ifconst mk_96x2_4_on
-	include "titlescreen/asm/96x2_4_kernel.asm"
-	#endif ;mk_96x2_4_on
-
-	#ifconst mk_96x2_5_on
-	include "titlescreen/asm/96x2_5_kernel.asm"
-	#endif ;mk_96x2_5_on
-
-	#ifconst mk_96x2_6_on
-	include "titlescreen/asm/96x2_6_kernel.asm"
-	#endif ;mk_96x2_6_on
-
-	#ifconst mk_96x2_7_on
-	include "titlescreen/asm/96x2_7_kernel.asm"
-	#endif ;mk_96x2_7_on
-
-	#ifconst mk_96x2_8_on
-	include "titlescreen/asm/96x2_8_kernel.asm"
-	#endif ;mk_96x2_8_on
-
 	#ifconst mk_score_on
 	include "titlescreen/asm/score_kernel.asm"
 	#endif ;mk_score_on
