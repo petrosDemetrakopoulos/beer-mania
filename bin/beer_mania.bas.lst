@@ -2136,258 +2136,188 @@
      61  2041		       85 0b		      sta	REFP0
      62  2043		       85 0c		      sta	REFP1
      63  2045		       85 02		      sta	WSYNC
-     64  2047		       ad 7a b0 	      lda	titlescreencolor
+     64  2047		       ad 52 b0 	      lda	titlescreencolor
      65  204a		       85 09		      sta	COLUBK
      66  204c
       0  204c					      titlescreenlayout
       0  204c					      draw_96x2_1
       1  204c		       00 01	   mk_96x2_1_on =	1
-      2  204c		       20 7b b0 	      jsr	draw_bmp_96x2_1
+      2  204c		       20 53 b0 	      jsr	draw_bmp_96x2_1
      68  204f
      69  204f		       4c 71 b2 	      jmp	PFWAIT	; kernel is done. Finish off the screen
      70  2052
-------- FILE titlescreen/asm/position48.asm LEVEL 3 PASS 2
-      0  2052					      include	"titlescreen/asm/position48.asm"
-      1  2052
-      2  2052				   position48
-      3  2052
-      4  2052							;postion P0 and P1
-      5  2052
-      6  2052		       85 02		      sta	WSYNC
-      7  2054
-      8  2054		       a9 90		      lda	#$90	;2
-      9  2056		       85 20		      sta	HMP0	;3
-     10  2058		       a9 a0		      lda	#$A0	;2
-     11  205a		       85 21		      sta	HMP1	;3
-     12  205c
-     13  205c		       e6 9c		      inc	temp1
-     14  205e		       c6 9c		      dec	temp1
-     15  2060		       e6 9c		      inc	temp1
-     16  2062		       c6 9c		      dec	temp1
-     17  2064		       e6 9c		      inc	temp1
-      0  2066					      sleep	2
-      1  2066				   .CYCLES    SET	2
-      2  2066
-      3  2066				  -	      IF	.CYCLES < 2
-      4  2066				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
-      5  2066				  -	      ERR
-      6  2066					      ENDIF
-      7  2066
-      8  2066				  -	      IF	.CYCLES & 1
-      9  2066				  -	      IFNCONST	NO_ILLEGAL_OPCODES
-     10  2066				  -	      nop	0
-     11  2066				  -	      ELSE
-     12  2066				  -	      bit	VSYNC
-     13  2066				  -	      ENDIF
-     14  2066				  -.CYCLES    SET	.CYCLES - 3
-     15  2066					      ENDIF
-     16  2066
-     17  2066					      REPEAT	.CYCLES / 2
-     18  2066		       ea		      nop
-     19  2067					      REPEND
-     19  2067		       85 10		      sta	RESP0	;  +3
-     20  2069		       85 11		      sta	RESP1	;  +3
-     21  206b		       c6 9c		      dec	temp1	;  +5
-     22  206d		       e6 9c		      inc	temp1	;  +5
-     23  206f		       c6 9c		      dec	temp1	;  +5
-     24  2071		       e6 9c		      inc	temp1	;  +5
-     25  2073		       c6 9c		      dec	temp1	;  +5
-      0  2075					      sleep	3
-      1  2075				   .CYCLES    SET	3
-      2  2075
-      3  2075				  -	      IF	.CYCLES < 2
-      4  2075				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
-      5  2075				  -	      ERR
-      6  2075					      ENDIF
-      7  2075
-      8  2075					      IF	.CYCLES & 1
-      9  2075					      IFNCONST	NO_ILLEGAL_OPCODES
-     10  2075		       04 00		      nop	0
-     11  2077				  -	      ELSE
-     12  2077				  -	      bit	VSYNC
-     13  2077					      ENDIF
-     14  2077				   .CYCLES    SET	.CYCLES - 3
-     15  2077					      ENDIF
-     16  2077
-     17  2077				  -	      REPEAT	.CYCLES / 2
-     18  2077				  -	      nop
-     19  2077					      REPEND
-     27  2077		       85 2a		      sta	HMOVE	; +76
-     28  2079		       60		      RTS
-     29  207a
-------- FILE titlescreen/asm/titlescreen.asm
 ------- FILE titlescreen/titlescreen_color.asm LEVEL 3 PASS 2
-      0  207a					      include	"titlescreen/titlescreen_color.asm"
-      1  207a
-      2  207a							; This is where the titlescreen background color gets set. 
-      3  207a							; You can also do a "dim titlescreencolor=[letter]" in bB
-      4  207a							; if you want to change the color on the fly.
-      5  207a
-      6  207a				  -	      ifnconst	titlescreencolor
-      7  207a				  -titlescreencolor
-      8  207a					      endif
-      9  207a		       00		      .byte.b	$00
-     10  207b
+      0  2052					      include	"titlescreen/titlescreen_color.asm"
+      1  2052
+      2  2052							; This is where the titlescreen background color gets set. 
+      3  2052							; You can also do a "dim titlescreencolor=[letter]" in bB
+      4  2052							; if you want to change the color on the fly.
+      5  2052
+      6  2052				  -	      ifnconst	titlescreencolor
+      7  2052				  -titlescreencolor
+      8  2052					      endif
+      9  2052		       00		      .byte.b	$00
+     10  2053
 ------- FILE titlescreen/asm/titlescreen.asm
-     73  207b
-     74  207b					      ifconst	mk_96x2_1_on
+     72  2053
+     73  2053					      ifconst	mk_96x2_1_on
 ------- FILE titlescreen/asm/96x2_1_kernel.asm LEVEL 3 PASS 2
-      0  207b					      include	"titlescreen/asm/96x2_1_kernel.asm"
-      1  207b				   draw_bmp_96x2_1
-      2  207b
-      3  207b				  -	      ifconst	bmp_96x2_1_index
-      4  207b				  -	      lda	#(bmp_96x2_1_height-1)
-      5  207b				  -	      sec
-      6  207b				  -	      sbc	bmp_96x2_1_index
-      7  207b				  -	      tay
-      8  207b				  -	      sbc	#bmp_96x2_1_window
-      9  207b				  -	      sta	temp1
-     10  207b					      else
-     11  207b		       a0 54		      ldy	#(bmp_96x2_1_window-1)
-     12  207d		       a9 ff		      lda	#255
-     13  207f		       85 9c		      sta	temp1
-     14  2081					      endif
-     15  2081
-     16  2081		       a9 03		      lda	#3
-     17  2083		       85 04		      sta	NUSIZ0	;3=Player and Missile are drawn twice 32 clocks apart
-     18  2085		       85 05		      sta	NUSIZ1	;3=Player and Missile are drawn twice 32 clocks apart
-     19  2087		       a9 00		      lda	#0
-     20  2089
-     21  2089		       b9 87 b2 	      lda	bmp_96x2_1_colors,y	;4
-     22  208c				  -	      ifconst	bmp_96x2_1_fade
-     23  208c				  -	      and	bmp_96x2_1_fade
-     24  208c					      endif
-     25  208c		       85 06		      sta	COLUP0	;3
-     26  208e		       85 07		      sta	COLUP1	;3
-     27  2090		       85 2b		      sta	HMCLR	;3
-     28  2092
-     29  2092		       a5 82		      lda	titleframe
-     30  2094		       29 01		      and	#1
-     31  2096		       f0 03		      beq	jmp_pf96x2_1_frame0
-     32  2098		       4c 70 b1 	      jmp	pf96x2_1_frame1
-     33  209b				   jmp_pf96x2_1_frame0
-     34  209b		       4c 9e b0 	      jmp	pf96x2_1_frame0
-     35  209e
-     36  209e				   pf96x2_1_frame0
-     37  209e							;postion P0 and P1
-     38  209e		       85 02		      sta	WSYNC
-     39  20a0		       a9 e0		      lda	#%11100000
-     40  20a2		       85 20		      sta	HMP0
-     41  20a4		       a9 10		      lda	#%00010000
-     42  20a6		       85 21		      sta	HMP1
-     43  20a8		       85 02		      sta	WSYNC
-      0  20aa					      sleep	28
-      1  20aa				   .CYCLES    SET	28
-      2  20aa
-      3  20aa				  -	      IF	.CYCLES < 2
-      4  20aa				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
-      5  20aa				  -	      ERR
-      6  20aa					      ENDIF
-      7  20aa
-      8  20aa				  -	      IF	.CYCLES & 1
-      9  20aa				  -	      IFNCONST	NO_ILLEGAL_OPCODES
-     10  20aa				  -	      nop	0
-     11  20aa				  -	      ELSE
-     12  20aa				  -	      bit	VSYNC
-     13  20aa				  -	      ENDIF
-     14  20aa				  -.CYCLES    SET	.CYCLES - 3
-     15  20aa					      ENDIF
-     16  20aa
-     17  20aa					      REPEAT	.CYCLES / 2
-     18  20aa		       ea		      nop
-     17  20aa					      REPEND
-     18  20ab		       ea		      nop
-     17  20ab					      REPEND
-     18  20ac		       ea		      nop
-     17  20ac					      REPEND
-     18  20ad		       ea		      nop
-     17  20ad					      REPEND
-     18  20ae		       ea		      nop
-     17  20ae					      REPEND
-     18  20af		       ea		      nop
-     17  20af					      REPEND
-     18  20b0		       ea		      nop
-     17  20b0					      REPEND
-     18  20b1		       ea		      nop
-     17  20b1					      REPEND
-     18  20b2		       ea		      nop
-     17  20b2					      REPEND
-     18  20b3		       ea		      nop
-     17  20b3					      REPEND
-     18  20b4		       ea		      nop
-     17  20b4					      REPEND
-     18  20b5		       ea		      nop
-     17  20b5					      REPEND
-     18  20b6		       ea		      nop
-     17  20b6					      REPEND
-     18  20b7		       ea		      nop
-     19  20b8					      REPEND
-     45  20b8		       85 10		      sta	RESP0
-      0  20ba					      sleep	14
-      1  20ba				   .CYCLES    SET	14
-      2  20ba
-      3  20ba				  -	      IF	.CYCLES < 2
-      4  20ba				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
-      5  20ba				  -	      ERR
-      6  20ba					      ENDIF
-      7  20ba
-      8  20ba				  -	      IF	.CYCLES & 1
-      9  20ba				  -	      IFNCONST	NO_ILLEGAL_OPCODES
-     10  20ba				  -	      nop	0
-     11  20ba				  -	      ELSE
-     12  20ba				  -	      bit	VSYNC
-     13  20ba				  -	      ENDIF
-     14  20ba				  -.CYCLES    SET	.CYCLES - 3
-     15  20ba					      ENDIF
-     16  20ba
-     17  20ba					      REPEAT	.CYCLES / 2
-     18  20ba		       ea		      nop
-     17  20ba					      REPEND
-     18  20bb		       ea		      nop
-     17  20bb					      REPEND
-     18  20bc		       ea		      nop
-     17  20bc					      REPEND
-     18  20bd		       ea		      nop
-     17  20bd					      REPEND
-     18  20be		       ea		      nop
-     17  20be					      REPEND
-     18  20bf		       ea		      nop
-     17  20bf					      REPEND
-     18  20c0		       ea		      nop
-     19  20c1					      REPEND
-     47  20c1		       85 11		      sta	RESP1
-     48  20c3		       85 02		      sta	WSYNC
-     49  20c5		       85 2a		      sta	HMOVE
-     50  20c7
-     51  20c7		       85 02		      sta	WSYNC
-     52  20c9		       85 2b		      sta	HMCLR
-     53  20cb		       85 02		      sta	WSYNC
-     54  20cd
-      0  20cd					      sleep	4
-      1  20cd				   .CYCLES    SET	4
-      2  20cd
-      3  20cd				  -	      IF	.CYCLES < 2
-      4  20cd				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
-      5  20cd				  -	      ERR
-      6  20cd					      ENDIF
-      7  20cd
-      8  20cd				  -	      IF	.CYCLES & 1
-      9  20cd				  -	      IFNCONST	NO_ILLEGAL_OPCODES
-     10  20cd				  -	      nop	0
-     11  20cd				  -	      ELSE
-     12  20cd				  -	      bit	VSYNC
-     13  20cd				  -	      ENDIF
-     14  20cd				  -.CYCLES    SET	.CYCLES - 3
-     15  20cd					      ENDIF
-     16  20cd
-     17  20cd					      REPEAT	.CYCLES / 2
-     18  20cd		       ea		      nop
-     17  20cd					      REPEND
-     18  20ce		       ea		      nop
-     19  20cf					      REPEND
-     56  20cf		       4c 00 b1 	      jmp	pfline_96x2_1_frame0
-     57  20d2							;align so our branch doesn't unexpectedly cross a page...
-     58  20d2					      if	>. != >[.+$70]
+      0  2053					      include	"titlescreen/asm/96x2_1_kernel.asm"
+      1  2053				   draw_bmp_96x2_1
+      2  2053
+      3  2053				  -	      ifconst	bmp_96x2_1_index
+      4  2053				  -	      lda	#(bmp_96x2_1_height-1)
+      5  2053				  -	      sec
+      6  2053				  -	      sbc	bmp_96x2_1_index
+      7  2053				  -	      tay
+      8  2053				  -	      sbc	#bmp_96x2_1_window
+      9  2053				  -	      sta	temp1
+     10  2053					      else
+     11  2053		       a0 54		      ldy	#(bmp_96x2_1_window-1)
+     12  2055		       a9 ff		      lda	#255
+     13  2057		       85 9c		      sta	temp1
+     14  2059					      endif
+     15  2059
+     16  2059		       a9 03		      lda	#3
+     17  205b		       85 04		      sta	NUSIZ0	;3=Player and Missile are drawn twice 32 clocks apart
+     18  205d		       85 05		      sta	NUSIZ1	;3=Player and Missile are drawn twice 32 clocks apart
+     19  205f		       a9 00		      lda	#0
+     20  2061
+     21  2061		       b9 87 b2 	      lda	bmp_96x2_1_colors,y	;4
+     22  2064				  -	      ifconst	bmp_96x2_1_fade
+     23  2064				  -	      and	bmp_96x2_1_fade
+     24  2064					      endif
+     25  2064		       85 06		      sta	COLUP0	;3
+     26  2066		       85 07		      sta	COLUP1	;3
+     27  2068		       85 2b		      sta	HMCLR	;3
+     28  206a
+     29  206a		       a5 82		      lda	titleframe
+     30  206c		       29 01		      and	#1
+     31  206e		       f0 03		      beq	jmp_pf96x2_1_frame0
+     32  2070		       4c 70 b1 	      jmp	pf96x2_1_frame1
+     33  2073				   jmp_pf96x2_1_frame0
+     34  2073		       4c 76 b0 	      jmp	pf96x2_1_frame0
+     35  2076
+     36  2076				   pf96x2_1_frame0
+     37  2076							;postion P0 and P1
+     38  2076		       85 02		      sta	WSYNC
+     39  2078		       a9 e0		      lda	#%11100000
+     40  207a		       85 20		      sta	HMP0
+     41  207c		       a9 10		      lda	#%00010000
+     42  207e		       85 21		      sta	HMP1
+     43  2080		       85 02		      sta	WSYNC
+      0  2082					      sleep	28
+      1  2082				   .CYCLES    SET	28
+      2  2082
+      3  2082				  -	      IF	.CYCLES < 2
+      4  2082				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
+      5  2082				  -	      ERR
+      6  2082					      ENDIF
+      7  2082
+      8  2082				  -	      IF	.CYCLES & 1
+      9  2082				  -	      IFNCONST	NO_ILLEGAL_OPCODES
+     10  2082				  -	      nop	0
+     11  2082				  -	      ELSE
+     12  2082				  -	      bit	VSYNC
+     13  2082				  -	      ENDIF
+     14  2082				  -.CYCLES    SET	.CYCLES - 3
+     15  2082					      ENDIF
+     16  2082
+     17  2082					      REPEAT	.CYCLES / 2
+     18  2082		       ea		      nop
+     17  2082					      REPEND
+     18  2083		       ea		      nop
+     17  2083					      REPEND
+     18  2084		       ea		      nop
+     17  2084					      REPEND
+     18  2085		       ea		      nop
+     17  2085					      REPEND
+     18  2086		       ea		      nop
+     17  2086					      REPEND
+     18  2087		       ea		      nop
+     17  2087					      REPEND
+     18  2088		       ea		      nop
+     17  2088					      REPEND
+     18  2089		       ea		      nop
+     17  2089					      REPEND
+     18  208a		       ea		      nop
+     17  208a					      REPEND
+     18  208b		       ea		      nop
+     17  208b					      REPEND
+     18  208c		       ea		      nop
+     17  208c					      REPEND
+     18  208d		       ea		      nop
+     17  208d					      REPEND
+     18  208e		       ea		      nop
+     17  208e					      REPEND
+     18  208f		       ea		      nop
+     19  2090					      REPEND
+     45  2090		       85 10		      sta	RESP0
+      0  2092					      sleep	14
+      1  2092				   .CYCLES    SET	14
+      2  2092
+      3  2092				  -	      IF	.CYCLES < 2
+      4  2092				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
+      5  2092				  -	      ERR
+      6  2092					      ENDIF
+      7  2092
+      8  2092				  -	      IF	.CYCLES & 1
+      9  2092				  -	      IFNCONST	NO_ILLEGAL_OPCODES
+     10  2092				  -	      nop	0
+     11  2092				  -	      ELSE
+     12  2092				  -	      bit	VSYNC
+     13  2092				  -	      ENDIF
+     14  2092				  -.CYCLES    SET	.CYCLES - 3
+     15  2092					      ENDIF
+     16  2092
+     17  2092					      REPEAT	.CYCLES / 2
+     18  2092		       ea		      nop
+     17  2092					      REPEND
+     18  2093		       ea		      nop
+     17  2093					      REPEND
+     18  2094		       ea		      nop
+     17  2094					      REPEND
+     18  2095		       ea		      nop
+     17  2095					      REPEND
+     18  2096		       ea		      nop
+     17  2096					      REPEND
+     18  2097		       ea		      nop
+     17  2097					      REPEND
+     18  2098		       ea		      nop
+     19  2099					      REPEND
+     47  2099		       85 11		      sta	RESP1
+     48  209b		       85 02		      sta	WSYNC
+     49  209d		       85 2a		      sta	HMOVE
+     50  209f
+     51  209f		       85 02		      sta	WSYNC
+     52  20a1		       85 2b		      sta	HMCLR
+     53  20a3		       85 02		      sta	WSYNC
+     54  20a5
+      0  20a5					      sleep	4
+      1  20a5				   .CYCLES    SET	4
+      2  20a5
+      3  20a5				  -	      IF	.CYCLES < 2
+      4  20a5				  -	      ECHO	"MACRO ERROR: 'SLEEP': Duration must be > 1"
+      5  20a5				  -	      ERR
+      6  20a5					      ENDIF
+      7  20a5
+      8  20a5				  -	      IF	.CYCLES & 1
+      9  20a5				  -	      IFNCONST	NO_ILLEGAL_OPCODES
+     10  20a5				  -	      nop	0
+     11  20a5				  -	      ELSE
+     12  20a5				  -	      bit	VSYNC
+     13  20a5				  -	      ENDIF
+     14  20a5				  -.CYCLES    SET	.CYCLES - 3
+     15  20a5					      ENDIF
+     16  20a5
+     17  20a5					      REPEAT	.CYCLES / 2
+     18  20a5		       ea		      nop
+     17  20a5					      REPEND
+     18  20a6		       ea		      nop
+     19  20a7					      REPEND
+     56  20a7		       4c 00 b1 	      jmp	pfline_96x2_1_frame0
+     57  20aa							;align so our branch doesn't unexpectedly cross a page...
+     58  20aa					      if	>. != >[.+$70]
      59  2100		       00 00 00 00*	      align	256
      60  2100					      endif
      61  2100
@@ -2950,60 +2880,60 @@
     258  2270
     259  2270		       60		      rts
 ------- FILE titlescreen/asm/titlescreen.asm
-     76  2271					      endif		;mk_96x2_1_on
-     77  2271
-     78  2271				  -	      ifconst	mk_96x2_2_on
-     79  2271				  -	      include	"titlescreen/asm/96x2_2_kernel.asm"
-     80  2271					      endif		;mk_96x2_2_on
-     81  2271
-     82  2271				  -	      ifconst	mk_score_on
-     83  2271				  -	      include	"titlescreen/asm/score_kernel.asm"
-     84  2271					      endif		;mk_score_on
-     85  2271
-     86  2271				  -	      ifconst	mk_gameselect_on
-     87  2271				  -	      include	"titlescreen/asm/gameselect_kernel.asm"
-     88  2271					      endif		;mk_gameselect_on
-     89  2271
-     90  2271				   PFWAIT
-     91  2271		       ad 84 02 	      lda	INTIM
-     92  2274		       d0 fb		      bne	PFWAIT
-     93  2276		       85 02		      sta	WSYNC
-     94  2278
-     95  2278				   OVERSCAN
-     96  2278				  -	      ifnconst	overscan_time
-     97  2278				  -	      lda	#34+128
-     98  2278					      else
-     99  2278		       a9 a0		      lda	#overscan_time+128-5
-    100  227a					      endif
-    101  227a		       8d 96 02 	      sta	TIM64T
-    102  227d
-    103  227d							;fix height variables we borrowed, so DPC doesn't crash on drawscreen...
-    104  227d				  -	      ifconst	player9height
-    105  227d				  -	      ldy	#8
-    106  227d				  -	      lda	#0
-    107  227d				  -	      sta	player0height
-    108  227d				  -.playerheightfixloop
-    109  227d				  -	      sta	player1height,y
-    110  227d				  -	      ifconst	_NUSIZ1
-    111  227d				  -	      sta	_NUSIZ1,y
-    112  227d				  -	      endif
-    113  227d				  -	      dey
-    114  227d				  -	      bpl	.playerheightfixloop
-    115  227d					      endif
-    116  227d
-    117  227d		       a9 c2		      lda	#%11000010
-    118  227f		       85 02		      sta	WSYNC
-    119  2281		       85 01		      sta	VBLANK
+     75  2271					      endif		;mk_96x2_1_on
+     76  2271
+     77  2271				  -	      ifconst	mk_96x2_2_on
+     78  2271				  -	      include	"titlescreen/asm/96x2_2_kernel.asm"
+     79  2271					      endif		;mk_96x2_2_on
+     80  2271
+     81  2271				  -	      ifconst	mk_score_on
+     82  2271				  -	      include	"titlescreen/asm/score_kernel.asm"
+     83  2271					      endif		;mk_score_on
+     84  2271
+     85  2271				  -	      ifconst	mk_gameselect_on
+     86  2271				  -	      include	"titlescreen/asm/gameselect_kernel.asm"
+     87  2271					      endif		;mk_gameselect_on
+     88  2271
+     89  2271				   PFWAIT
+     90  2271		       ad 84 02 	      lda	INTIM
+     91  2274		       d0 fb		      bne	PFWAIT
+     92  2276		       85 02		      sta	WSYNC
+     93  2278
+     94  2278				   OVERSCAN
+     95  2278				  -	      ifnconst	overscan_time
+     96  2278				  -	      lda	#34+128
+     97  2278					      else
+     98  2278		       a9 a0		      lda	#overscan_time+128-5
+     99  227a					      endif
+    100  227a		       8d 96 02 	      sta	TIM64T
+    101  227d
+    102  227d							;fix height variables we borrowed, so DPC doesn't crash on drawscreen...
+    103  227d				  -	      ifconst	player9height
+    104  227d				  -	      ldy	#8
+    105  227d				  -	      lda	#0
+    106  227d				  -	      sta	player0height
+    107  227d				  -.playerheightfixloop
+    108  227d				  -	      sta	player1height,y
+    109  227d				  -	      ifconst	_NUSIZ1
+    110  227d				  -	      sta	_NUSIZ1,y
+    111  227d				  -	      endif
+    112  227d				  -	      dey
+    113  227d				  -	      bpl	.playerheightfixloop
+    114  227d					      endif
+    115  227d
+    116  227d		       a9 c2		      lda	#%11000010
+    117  227f		       85 02		      sta	WSYNC
+    118  2281		       85 01		      sta	VBLANK
       0  2283					      RETURN
       1  2283				  -	      ifnconst	bankswitch
       2  2283				  -	      rts
       3  2283					      else
       4  2283		       4c dd ff 	      jmp	BS_return
       5  2286					      endif
+    120  2286
     121  2286
     122  2286
-    123  2286
-    124  2286					      ifconst	mk_96x2_1_on
+    123  2286					      ifconst	mk_96x2_1_on
 ------- FILE titlescreen/96x2_1_image.asm LEVEL 3 PASS 2
       0  2286					      include	"titlescreen/96x2_1_image.asm"
       1  2286							;*** The height of the displayed data...
@@ -4248,46 +4178,46 @@
    1240  26fd		       00		      BYTE.b	%00000000
    1241  26fe		       00		      BYTE.b	%00000000
 ------- FILE titlescreen/asm/titlescreen.asm
-    126  26ff					      endif
-    127  26ff				  -	      ifconst	mk_96x2_2_on
-    128  26ff				  -	      include	"titlescreen/96x2_2_image.asm"
-    129  26ff					      endif
-    130  26ff				  -	      ifconst	mk_96x2_3_on
-    131  26ff				  -	      include	"titlescreen/96x2_3_image.asm"
-    132  26ff					      endif
-    133  26ff				  -	      ifconst	mk_96x2_4_on
-    134  26ff				  -	      include	"titlescreen/96x2_4_image.asm"
-    135  26ff					      endif
-    136  26ff				  -	      ifconst	mk_96x2_5_on
-    137  26ff				  -	      include	"titlescreen/96x2_5_image.asm"
-    138  26ff					      endif
-    139  26ff				  -	      ifconst	mk_96x2_6_on
-    140  26ff				  -	      include	"titlescreen/96x2_6_image.asm"
-    141  26ff					      endif
-    142  26ff				  -	      ifconst	mk_96x2_7_on
-    143  26ff				  -	      include	"titlescreen/96x2_7_image.asm"
-    144  26ff					      endif
-    145  26ff				  -	      ifconst	mk_96x2_8_on
-    146  26ff				  -	      include	"titlescreen/96x2_8_image.asm"
-    147  26ff					      endif
-    148  26ff
-    149  26ff				  -	      ifconst	mk_player_on
-    150  26ff				  -	      include	"titlescreen/player_image.asm"
-    151  26ff					      endif
-    152  26ff
-    153  26ff				  -	      ifconst	mk_score_on
-    154  26ff				  -	      include	"titlescreen/score_image.asm"
-    155  26ff					      endif
-    156  26ff
-    157  26ff				  -	      ifconst	mk_gameselect_on
-    158  26ff				  -	      include	"titlescreen/gameselect_image.asm"
-    159  26ff					      endif
-    160  26ff
-    161  26ff				  -	      ifconst	mk_player_on
-    162  26ff				  -	      include	"titlescreen/asm/player_kernel.asm"
-    163  26ff					      endif		;mk_player_on
+    125  26ff					      endif
+    126  26ff				  -	      ifconst	mk_96x2_2_on
+    127  26ff				  -	      include	"titlescreen/96x2_2_image.asm"
+    128  26ff					      endif
+    129  26ff				  -	      ifconst	mk_96x2_3_on
+    130  26ff				  -	      include	"titlescreen/96x2_3_image.asm"
+    131  26ff					      endif
+    132  26ff				  -	      ifconst	mk_96x2_4_on
+    133  26ff				  -	      include	"titlescreen/96x2_4_image.asm"
+    134  26ff					      endif
+    135  26ff				  -	      ifconst	mk_96x2_5_on
+    136  26ff				  -	      include	"titlescreen/96x2_5_image.asm"
+    137  26ff					      endif
+    138  26ff				  -	      ifconst	mk_96x2_6_on
+    139  26ff				  -	      include	"titlescreen/96x2_6_image.asm"
+    140  26ff					      endif
+    141  26ff				  -	      ifconst	mk_96x2_7_on
+    142  26ff				  -	      include	"titlescreen/96x2_7_image.asm"
+    143  26ff					      endif
+    144  26ff				  -	      ifconst	mk_96x2_8_on
+    145  26ff				  -	      include	"titlescreen/96x2_8_image.asm"
+    146  26ff					      endif
+    147  26ff
+    148  26ff				  -	      ifconst	mk_player_on
+    149  26ff				  -	      include	"titlescreen/player_image.asm"
+    150  26ff					      endif
+    151  26ff
+    152  26ff				  -	      ifconst	mk_score_on
+    153  26ff				  -	      include	"titlescreen/score_image.asm"
+    154  26ff					      endif
+    155  26ff
+    156  26ff				  -	      ifconst	mk_gameselect_on
+    157  26ff				  -	      include	"titlescreen/gameselect_image.asm"
+    158  26ff					      endif
+    159  26ff
+    160  26ff				  -	      ifconst	mk_player_on
+    161  26ff				  -	      include	"titlescreen/asm/player_kernel.asm"
+    162  26ff					      endif		;mk_player_on
+    163  26ff
     164  26ff
-    165  26ff
 ------- FILE beer_mania.bas.asm
     942  26ff
     943  26ff				   .

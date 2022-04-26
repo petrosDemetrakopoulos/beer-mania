@@ -187,34 +187,32 @@
 0.title_vblank           0000 ????         (R )
 0.titledrawscreen        b006              (R )
 0.titlepage              9080              (R )
-10.CYCLES                0000              (R )
-11.CYCLES                0004              (R )
+10.CYCLES                0002              (R )
+11.CYCLES                0002              (R )
 12.CYCLES                0002              (R )
-13.CYCLES                0002              (R )
-14.CYCLES                0002              (R )
-15.CYCLES                0020              (R )
-16.CYCLES                000c              (R )
-17.CYCLES                0000              (R )
-18.CYCLES                0002              (R )
-19.CYCLES                0008              (R )
-20.CYCLES                0000              (R )
-21.CYCLES                0002              (R )
-22.CYCLES                0004              (R )
+13.CYCLES                0020              (R )
+14.CYCLES                000c              (R )
+15.CYCLES                0000              (R )
+16.CYCLES                0002              (R )
+17.CYCLES                0008              (R )
+18.CYCLES                0000              (R )
+19.CYCLES                0002              (R )
+20.CYCLES                0004              (R )
+21.CYCLES                0000              (R )
 23.CYCLES                0000              (R )
-25.CYCLES                0000              (R )
-26.CYCLES                0002              (R )
+24.CYCLES                0002              (R )
+25.CYCLES                0004              (R )
+26.CYCLES                0000              (R )
 27.CYCLES                0004              (R )
 28.CYCLES                0000              (R )
-29.CYCLES                0004              (R )
-3.CYCLES                 0002              (R )
-30.CYCLES                0000              (R )
-4.CYCLES                 0000              (R )
-44.CYCLES                0000              (R )
-5.CYCLES                 001c              (R )
-6.CYCLES                 000e              (R )
-7.CYCLES                 0004              (R )
-8.CYCLES                 0002              (R )
-9.CYCLES                 0008              (R )
+3.CYCLES                 001c              (R )
+4.CYCLES                 000e              (R )
+42.CYCLES                0000              (R )
+5.CYCLES                 0004              (R )
+6.CYCLES                 0002              (R )
+7.CYCLES                 0008              (R )
+8.CYCLES                 0000              (R )
+9.CYCLES                 0004              (R )
 _Bit0_Reset_Restrainer   00ec              (R )
 _Ch0_Duration1           00e4              (R )
 _Ch0_Duration2           00e9              (R )
@@ -272,8 +270,8 @@ BS_jsr                   ffeb              (R )
 bs_mask                  0003              (R )
 BS_return                ffdd              (R )
 bscode_length            0020              (R )
-c                        00d6              (R )
 C                        00d6                  
+c                        00d6              (R )
 clearmem                 f266              (R )
 COLUBK                   0009              (R )
 COLUP0                   0006              (R )
@@ -300,7 +298,7 @@ DivideLoop               f460              (R )
 doneoverscan             f441                  
 down2                    f404              (R )
 DPC_kernel_options       0000 ????         (R )
-draw_bmp_96x2_1          b07b              (R )
+draw_bmp_96x2_1          b053              (R )
 drawscreen               f43c              (R )
 e                        00d8              (R )
 E                        00d8                  
@@ -313,19 +311,19 @@ ENAM0                    001d              (R )
 ENAM1                    001e              (R )
 endkernel                f16a              (R )
 enterlastkernel          f11b                  
-F                        00d9                  
 f                        00d9              (R )
+F                        00d9                  
 FASTFETCH                0000 ????         (R )
 font                     0000 ????         (R )
 frame                    00d4                  
-G                        00da                  
 g                        00da              (R )
+G                        00da                  
 game                     9000              (R )
 goback                   f072              (R )
 GRP0                     001b              (R )
 GRP1                     001c              (R )
-H                        00db                  
 h                        00db              (R )
+H                        00db                  
 handwritten              0003                  
 hex                      0008                  
 HMBL                     0024                  
@@ -336,8 +334,8 @@ HMOVE                    002a              (R )
 HMP0                     0020              (R )
 HMP1                     0021              (R )
 HorPosLoop               f45d              (R )
-i                        00dc              (R )
 I                        00dc                  
+i                        00dc              (R )
 initscore                f273              (R )
 INPT0                    0008                  
 INPT1                    0009                  
@@ -348,17 +346,17 @@ INPT5                    000d
 interlaced               0000 ????         (R )
 interrupted              0004                  
 INTIM                    0284              (R )
-j                        00dd              (R )
 J                        00dd                  
-jmp_pf96x2_1_frame0      b09b              (R )
+j                        00dd              (R )
+jmp_pf96x2_1_frame0      b073              (R )
 k                        00de              (R )
 K                        00de                  
 keepgoing                f2f1              (R )
 keepgoingy               f30f              (R )
 kernel                   f000              (R )
 kernelmacrodef           0000 ????         (R )
-l                        00df              (R )
 L                        00df                  
+l                        00df              (R )
 lastkernelline           f0dd              (R )
 leftloop                 f368              (R )
 legacy                   0000 ????         (R )
@@ -428,7 +426,7 @@ PF2L                     000f              (R )
 PF2R                     000f              (R )
 pf96x2_1_0codeend        b167                  
 pf96x2_1_1codeend        b268                  
-pf96x2_1_frame0          b09e              (R )
+pf96x2_1_frame0          b076              (R )
 pf96x2_1_frame1          b170              (R )
 PF_data0                 90cd              (R )
 PF_data1                 d00b              (R )
@@ -497,7 +495,6 @@ playfield                00a4              (R )
 playfieldbase            00a4              (R )
 playfieldpos             00ef              (R )
 plotpoint                f31d              (R )
-position48               b052                  
 Q                        00e4                  
 q                        00e4              (R )
 R                        00e5                  
@@ -550,8 +547,8 @@ SWACNT                   0281
 SWBCNT                   0283                  
 SWCHA                    0280              (R )
 SWCHB                    0282              (R )
-t                        00e7              (R )
 T                        00e7                  
+t                        00e7              (R )
 T1024T                   0297                  
 temp1                    009c              (R )
 temp2                    009d              (R )
@@ -573,12 +570,12 @@ title_eat_overscan       b006              (R )
 title_playfield          b035                  
 title_vblank_loop        b026              (R )
 titleframe               0082              (R )
-titlescreencolor         b07a              (R )
-U                        00e8                  
+titlescreencolor         b052              (R )
 u                        00e8              (R )
+U                        00e8                  
 up2                      f3b7              (R )
-V                        00e9                  
 v                        00e9              (R )
+V                        00e9                  
 var0                     00a4              (R )
 var1                     00a5              (R )
 var10                    00ae                  
@@ -643,10 +640,10 @@ W                        00ea
 w                        00ea              (R )
 whimsey                  0006                  
 WSYNC                    0002              (R )
-x                        00eb              (R )
 X                        00eb                  
-y                        00ec              (R )
+x                        00eb              (R )
 Y                        00ec                  
-Z                        00ed                  
+y                        00ec              (R )
 z                        00ed              (R )
+Z                        00ed                  
 --- End of Symbol List.

@@ -68,7 +68,6 @@ title_playfield
 
 	jmp PFWAIT ; kernel is done. Finish off the screen
 
- include "titlescreen/asm/position48.asm"
  include "titlescreen/titlescreen_color.asm"
 
 	#ifconst mk_96x2_1_on
