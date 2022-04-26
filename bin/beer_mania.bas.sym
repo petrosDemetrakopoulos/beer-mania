@@ -222,8 +222,8 @@ _Ch0_Duration3           00ea              (R )
 _Ch0_Duration4           00eb              (R )
 _Ch0_Sound               00e0              (R )
 _NUSIZ1                  0000 ????         (R )
-a                        00d4              (R )
 A                        00d4                  
+a                        00d4              (R )
 addvalue                 00d5                  
 alarmclock               0002                  
 altkernel                f0c0                  
@@ -240,8 +240,8 @@ aux3                     00f2
 aux4                     00f3              (R )
 aux5                     00f4              (R )
 aux6                     00f5              (R )
-B                        00d5                  
 b                        00d5              (R )
+B                        00d5                  
 backgroundchange         0000 ????         (R )
 ballheight               0092              (R )
 ballx                    0084                  
@@ -292,8 +292,8 @@ CXM1P                    0001
 CXP0FB                   0002                  
 CXP1FB                   0003                  
 CXPPMM                   0007              (R )
-d                        00d7              (R )
 D                        00d7                  
+d                        00d7              (R )
 debugcycles              0000 ????         (R )
 debugscore               0000 ????         (R )
 DivideLoop               f460              (R )
@@ -313,8 +313,8 @@ ENAM0                    001d              (R )
 ENAM1                    001e              (R )
 endkernel                f16a              (R )
 enterlastkernel          f11b                  
-f                        00d9              (R )
 F                        00d9                  
+f                        00d9              (R )
 FASTFETCH                0000 ????         (R )
 font                     0000 ????         (R )
 frame                    00d4                  
@@ -336,8 +336,8 @@ HMOVE                    002a              (R )
 HMP0                     0020              (R )
 HMP1                     0021              (R )
 HorPosLoop               f45d              (R )
-I                        00dc                  
 i                        00dc              (R )
+I                        00dc                  
 initscore                f273              (R )
 INPT0                    0008                  
 INPT1                    0009                  
@@ -348,8 +348,8 @@ INPT5                    000d
 interlaced               0000 ????         (R )
 interrupted              0004                  
 INTIM                    0284              (R )
-J                        00dd                  
 j                        00dd              (R )
+J                        00dd                  
 jmp_pf96x2_1_frame0      b09b              (R )
 k                        00de              (R )
 K                        00de                  
@@ -357,8 +357,8 @@ keepgoing                f2f1              (R )
 keepgoingy               f30f              (R )
 kernel                   f000              (R )
 kernelmacrodef           0000 ????         (R )
-L                        00df                  
 l                        00df              (R )
+L                        00df                  
 lastkernelline           f0dd              (R )
 leftloop                 f368              (R )
 legacy                   0000 ????         (R )
@@ -368,8 +368,8 @@ lives                    00f3
 logo_color               001c                  
 logo_height              004b                  
 loop2                    f200              (R )
-m                        00e0              (R )
 M                        00e0                  
+m                        00e0              (R )
 MachineIs2600            f263              (R )
 mincycles                0000 ????         (R )
 minikernel               0000 ????         (R )
@@ -380,24 +380,6 @@ missile0y                0091              (R )
 missile1height           0087                  
 missile1x                0083                  
 missile1y                0088              (R )
-mk_48x1_1_on             0000 ????         (R )
-mk_48x1_2_on             0000 ????         (R )
-mk_48x1_3_on             0000 ????         (R )
-mk_48x1_4_on             0000 ????         (R )
-mk_48x1_5_on             0000 ????         (R )
-mk_48x1_6_on             0000 ????         (R )
-mk_48x1_7_on             0000 ????         (R )
-mk_48x1_8_on             0000 ????         (R )
-mk_48x1_X_on             0000 ????         (R )
-mk_48x2_1_on             0000 ????         (R )
-mk_48x2_2_on             0000 ????         (R )
-mk_48x2_3_on             0000 ????         (R )
-mk_48x2_4_on             0000 ????         (R )
-mk_48x2_5_on             0000 ????         (R )
-mk_48x2_6_on             0000 ????         (R )
-mk_48x2_7_on             0000 ????         (R )
-mk_48x2_8_on             0000 ????         (R )
-mk_48x2_X_on             0000 ????         (R )
 mk_96x2_1_on             0001              (R )
 mk_96x2_2_on             0000 ????         (R )
 mk_96x2_3_on             0000 ????         (R )
@@ -410,8 +392,8 @@ mk_gameselect_on         0000 ????         (R )
 mk_player_on             0000 ????         (R )
 mk_score_on              0000 ????         (R )
 multisprite              0000 ????         (R )
-N                        00e1                  
 n                        00e1              (R )
+N                        00e1                  
 no_blank_lines           0001              (R )
 no_blank_lines_bailout   f168              (R )
 NO_ILLEGAL_OPCODES       0000 ????         (R )
@@ -425,8 +407,8 @@ notright                 f393              (R )
 notup                    f3e1              (R )
 NUSIZ0                   0004              (R )
 NUSIZ1                   0005              (R )
-O                        00e2                  
 o                        00e2              (R )
+O                        00e2                  
 objecty                  0085                  
 onedecup                 f39b              (R )
 oneincup                 f3e6              (R )
@@ -434,8 +416,8 @@ overscan                 f43c
 OVERSCAN                 b278                  
 overscan_time            0025              (R )
 overscanloop             f43c              (R )
-p                        00e3              (R )
 P                        00e3                  
+p                        00e3              (R )
 paddle                   0091                  
 PF0                      000d              (R )
 PF1                      000e              (R )
@@ -516,10 +498,10 @@ playfieldbase            00a4              (R )
 playfieldpos             00ef              (R )
 plotpoint                f31d              (R )
 position48               b052                  
-q                        00e4              (R )
 Q                        00e4                  
-r                        00e5              (R )
+q                        00e4              (R )
 R                        00e5                  
+r                        00e5              (R )
 rand                     00a2              (R )
 rand16                   00e1              (R )
 randomize                f42c                  
@@ -568,8 +550,8 @@ SWACNT                   0281
 SWBCNT                   0283                  
 SWCHA                    0280              (R )
 SWCHB                    0282              (R )
-T                        00e7                  
 t                        00e7              (R )
+T                        00e7                  
 T1024T                   0297                  
 temp1                    009c              (R )
 temp2                    009d              (R )
@@ -657,12 +639,12 @@ VERSION_MACRO            0069
 VERSION_VCS              0069                  
 vertical_reflect         0000 ????         (R )
 VSYNC                    0000              (R )
-w                        00ea              (R )
 W                        00ea                  
+w                        00ea              (R )
 whimsey                  0006                  
 WSYNC                    0002              (R )
-X                        00eb                  
 x                        00eb              (R )
+X                        00eb                  
 y                        00ec              (R )
 Y                        00ec                  
 Z                        00ed                  

@@ -71,79 +71,6 @@ title_playfield
  include "titlescreen/asm/position48.asm"
  include "titlescreen/titlescreen_color.asm"
 
-	#ifconst mk_48x1_1_on
-	include "titlescreen/asm/48x1_1_kernel.asm"
-	#endif ;mk_48x1_1_on
-
-	#ifconst mk_48x1_2_on
-	include "titlescreen/asm/48x1_2_kernel.asm"
-	#endif ;mk_48x1_2_on
-
-	#ifconst mk_48x1_3_on
-	include "titlescreen/asm/48x1_3_kernel.asm"
-	#endif ;mk_48x1_3_on
-
-	#ifconst mk_48x1_4_on
-	include "titlescreen/asm/48x1_4_kernel.asm"
-	#endif ;mk_48x1_4_on
-
-	#ifconst mk_48x1_5_on
-	include "titlescreen/asm/48x1_5_kernel.asm"
-	#endif ;mk_48x1_5_on
-
-	#ifconst mk_48x1_6_on
-	include "titlescreen/asm/48x1_6_kernel.asm"
-	#endif ;mk_48x1_6_on
-
-	#ifconst mk_48x1_7_on
-	include "titlescreen/asm/48x1_7_kernel.asm"
-	#endif ;mk_48x1_7_on
-
-	#ifconst mk_48x1_8_on
-	include "titlescreen/asm/48x1_8_kernel.asm"
-	#endif ;mk_48x1_8_on
-
-	#ifconst mk_48x2_1_on
-	include "titlescreen/asm/48x2_1_kernel.asm"
-	#endif ;mk_48x2_1_on
-
-	#ifconst mk_48x2_2_on
-	include "titlescreen/asm/48x2_2_kernel.asm"
-	#endif ;mk_48x2_2_on
-
-	#ifconst mk_48x2_3_on
-	include "titlescreen/asm/48x2_3_kernel.asm"
-	#endif ;mk_48x2_3_on
-
-	#ifconst mk_48x2_4_on
-	include "titlescreen/asm/48x2_4_kernel.asm"
-	#endif ;mk_48x2_4_on
-
-	#ifconst mk_48x2_5_on
-	include "titlescreen/asm/48x2_5_kernel.asm"
-	#endif ;mk_48x2_5_on
-
-	#ifconst mk_48x2_6_on
-	include "titlescreen/asm/48x2_6_kernel.asm"
-	#endif ;mk_48x2_6_on
-
-	#ifconst mk_48x2_7_on
-	include "titlescreen/asm/48x2_7_kernel.asm"
-	#endif ;mk_48x2_7_on
-
-	#ifconst mk_48x2_8_on
-	include "titlescreen/asm/48x2_8_kernel.asm"
-	#endif ;mk_48x2_8_on
-
-	#ifconst mk_48x1_X_on
-	include "titlescreen/asm/48x1_X_kernel.asm"
-	#endif ;mk_48x1_X_on
-
-	#ifconst mk_48x2_X_on
-	include "titlescreen/asm/48x2_X_kernel.asm"
-	#endif ;mk_48x2_X_on
-
-
 	#ifconst mk_96x2_1_on
 	include "titlescreen/asm/96x2_1_kernel.asm"
 	#endif ;mk_96x2_1_on
@@ -216,57 +143,6 @@ OVERSCAN
 	sta VBLANK
 	RETURN
 
- #ifconst mk_48x1_1_on
-	include "titlescreen/48x1_1_image.asm"
- #endif
- #ifconst mk_48x1_2_on
-	include "titlescreen/48x1_2_image.asm"
- #endif
- #ifconst mk_48x1_3_on
-	include "titlescreen/48x1_3_image.asm"
- #endif
- #ifconst mk_48x1_4_on
-	include "titlescreen/48x1_4_image.asm"
- #endif
- #ifconst mk_48x1_5_on
-	include "titlescreen/48x1_5_image.asm"
- #endif
- #ifconst mk_48x1_6_on
-	include "titlescreen/48x1_6_image.asm"
- #endif
- #ifconst mk_48x1_7_on
-	include "titlescreen/48x1_7_image.asm"
- #endif
- #ifconst mk_48x1_8_on
-	include "titlescreen/48x1_8_image.asm"
- #endif
-
-
- #ifconst mk_48x2_1_on
-	include "titlescreen/48x2_1_image.asm"
- #endif
- #ifconst mk_48x2_2_on
-	include "titlescreen/48x2_2_image.asm"
- #endif
- #ifconst mk_48x2_3_on
-	include "titlescreen/48x2_3_image.asm"
- #endif
- #ifconst mk_48x2_4_on
-	include "titlescreen/48x2_4_image.asm"
- #endif
- #ifconst mk_48x2_5_on
-	include "titlescreen/48x2_5_image.asm"
- #endif
- #ifconst mk_48x2_6_on
-	include "titlescreen/48x2_6_image.asm"
- #endif
- #ifconst mk_48x2_7_on
-	include "titlescreen/48x2_7_image.asm"
- #endif
-
- #ifconst mk_48x2_8_on
-	include "titlescreen/48x2_8_image.asm"
- #endif
 
 
  #ifconst mk_96x2_1_on

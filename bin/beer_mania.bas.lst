@@ -2014,128 +2014,31 @@
      41  2006					      jsr	draw_bmp_96x2_8
      42  2006					      ENDM
      43  2006
-     44  2006					      MAC	draw_48x1_1
-     45  2006				   mk_48x1_X_on =	1
-     46  2006				   mk_48x1_1_on =	1
-     47  2006					      jsr	draw_bmp_48x1_1
-     48  2006					      ENDM
-     49  2006
-     50  2006					      MAC	draw_48x1_2
+     44  2006					      MAC	draw_player
+     45  2006				   mk_player_on =	1
+     46  2006					      jsr	draw_player_display
+     47  2006					      ENDM
+     48  2006
+     49  2006					      MAC	draw_score
+     50  2006				   mk_score_on =	1
      51  2006				   mk_48x1_X_on =	1
-     52  2006				   mk_48x1_2_on =	1
-     53  2006					      jsr	draw_bmp_48x1_2
-     54  2006					      ENDM
-     55  2006
-     56  2006					      MAC	draw_48x1_3
+     52  2006					      jsr	draw_score_display
+     53  2006					      ENDM
+     54  2006
+     55  2006					      MAC	draw_gameselect
+     56  2006				   mk_gameselect_on =	1
      57  2006				   mk_48x1_X_on =	1
-     58  2006				   mk_48x1_3_on =	1
-     59  2006					      jsr	draw_bmp_48x1_3
-     60  2006					      ENDM
-     61  2006
-     62  2006					      MAC	draw_48x1_4
-     63  2006				   mk_48x1_X_on =	1
-     64  2006				   mk_48x1_4_on =	1
-     65  2006					      jsr	draw_bmp_48x1_4
-     66  2006					      ENDM
-     67  2006
-     68  2006					      MAC	draw_48x1_5
-     69  2006				   mk_48x1_X_on =	1
-     70  2006				   mk_48x1_5_on =	1
-     71  2006					      jsr	draw_bmp_48x1_5
-     72  2006					      ENDM
-     73  2006
-     74  2006					      MAC	draw_48x1_6
-     75  2006				   mk_48x1_X_on =	1
-     76  2006				   mk_48x1_6_on =	1
-     77  2006					      jsr	draw_bmp_48x1_6
-     78  2006					      ENDM
-     79  2006
-     80  2006					      MAC	draw_48x1_7
-     81  2006				   mk_48x1_X_on =	1
-     82  2006				   mk_48x1_7_on =	1
-     83  2006					      jsr	draw_bmp_48x1_7
-     84  2006					      ENDM
-     85  2006
-     86  2006					      MAC	draw_48x1_8
-     87  2006				   mk_48x1_X_on =	1
-     88  2006				   mk_48x1_8_on =	1
-     89  2006					      jsr	draw_bmp_48x1_8
-     90  2006					      ENDM
-     91  2006
-     92  2006
-     93  2006					      MAC	draw_48x2_1
-     94  2006				   mk_48x2_X_on =	1
-     95  2006				   mk_48x2_1_on =	1
-     96  2006					      jsr	draw_bmp_48x2_1
-     97  2006					      ENDM
-     98  2006
-     99  2006					      MAC	draw_48x2_2
-    100  2006				   mk_48x2_X_on =	1
-    101  2006				   mk_48x2_2_on =	1
-    102  2006					      jsr	draw_bmp_48x2_2
-    103  2006					      ENDM
-    104  2006
-    105  2006					      MAC	draw_48x2_3
-    106  2006				   mk_48x2_X_on =	1
-    107  2006				   mk_48x2_3_on =	1
-    108  2006					      jsr	draw_bmp_48x2_3
-    109  2006					      ENDM
-    110  2006
-    111  2006					      MAC	draw_48x2_4
-    112  2006				   mk_48x2_X_on =	1
-    113  2006				   mk_48x2_4_on =	1
-    114  2006					      jsr	draw_bmp_48x2_4
-    115  2006					      ENDM
-    116  2006
-    117  2006					      MAC	draw_48x2_5
-    118  2006				   mk_48x2_X_on =	1
-    119  2006				   mk_48x2_5_on =	1
-    120  2006					      jsr	draw_bmp_48x2_5
-    121  2006					      ENDM
-    122  2006
-    123  2006					      MAC	draw_48x2_6
-    124  2006				   mk_48x2_X_on =	1
-    125  2006				   mk_48x2_6_on =	1
-    126  2006					      jsr	draw_bmp_48x2_6
-    127  2006					      ENDM
-    128  2006
-    129  2006					      MAC	draw_48x2_7
-    130  2006				   mk_48x2_X_on =	1
-    131  2006				   mk_48x2_7_on =	1
-    132  2006					      jsr	draw_bmp_48x2_7
-    133  2006					      ENDM
-    134  2006
-    135  2006					      MAC	draw_48x2_8
-    136  2006				   mk_48x2_X_on =	1
-    137  2006				   mk_48x2_8_on =	1
-    138  2006					      jsr	draw_bmp_48x2_8
-    139  2006					      ENDM
-    140  2006
-    141  2006					      MAC	draw_player
-    142  2006				   mk_player_on =	1
-    143  2006					      jsr	draw_player_display
-    144  2006					      ENDM
-    145  2006
-    146  2006					      MAC	draw_score
-    147  2006				   mk_score_on =	1
-    148  2006				   mk_48x1_X_on =	1
-    149  2006					      jsr	draw_score_display
-    150  2006					      ENDM
-    151  2006
-    152  2006					      MAC	draw_gameselect
-    153  2006				   mk_gameselect_on =	1
-    154  2006				   mk_48x1_X_on =	1
-    155  2006					      jsr	draw_gameselect_display
-    156  2006					      ENDM
-    157  2006
-    158  2006					      MAC	draw_space
-    159  2006					      ldy	#{1}
-    160  2006				   .loop
-    161  2006					      sta	WSYNC
-    162  2006					      dey
-    163  2006					      bne	.loop
-    164  2006					      ENDM
-    165  2006
+     58  2006					      jsr	draw_gameselect_display
+     59  2006					      ENDM
+     60  2006
+     61  2006					      MAC	draw_space
+     62  2006					      ldy	#{1}
+     63  2006				   .loop
+     64  2006					      sta	WSYNC
+     65  2006					      dey
+     66  2006					      bne	.loop
+     67  2006					      ENDM
+     68  2006
 ------- FILE titlescreen/asm/titlescreen.asm
 ------- FILE titlescreen/asm/dpcfix.asm LEVEL 3 PASS 2
       0  2006					      include	"titlescreen/asm/dpcfix.asm"
@@ -2327,80 +2230,7 @@
      10  207b
 ------- FILE titlescreen/asm/titlescreen.asm
      73  207b
-     74  207b				  -	      ifconst	mk_48x1_1_on
-     75  207b				  -	      include	"titlescreen/asm/48x1_1_kernel.asm"
-     76  207b					      endif		;mk_48x1_1_on
-     77  207b
-     78  207b				  -	      ifconst	mk_48x1_2_on
-     79  207b				  -	      include	"titlescreen/asm/48x1_2_kernel.asm"
-     80  207b					      endif		;mk_48x1_2_on
-     81  207b
-     82  207b				  -	      ifconst	mk_48x1_3_on
-     83  207b				  -	      include	"titlescreen/asm/48x1_3_kernel.asm"
-     84  207b					      endif		;mk_48x1_3_on
-     85  207b
-     86  207b				  -	      ifconst	mk_48x1_4_on
-     87  207b				  -	      include	"titlescreen/asm/48x1_4_kernel.asm"
-     88  207b					      endif		;mk_48x1_4_on
-     89  207b
-     90  207b				  -	      ifconst	mk_48x1_5_on
-     91  207b				  -	      include	"titlescreen/asm/48x1_5_kernel.asm"
-     92  207b					      endif		;mk_48x1_5_on
-     93  207b
-     94  207b				  -	      ifconst	mk_48x1_6_on
-     95  207b				  -	      include	"titlescreen/asm/48x1_6_kernel.asm"
-     96  207b					      endif		;mk_48x1_6_on
-     97  207b
-     98  207b				  -	      ifconst	mk_48x1_7_on
-     99  207b				  -	      include	"titlescreen/asm/48x1_7_kernel.asm"
-    100  207b					      endif		;mk_48x1_7_on
-    101  207b
-    102  207b				  -	      ifconst	mk_48x1_8_on
-    103  207b				  -	      include	"titlescreen/asm/48x1_8_kernel.asm"
-    104  207b					      endif		;mk_48x1_8_on
-    105  207b
-    106  207b				  -	      ifconst	mk_48x2_1_on
-    107  207b				  -	      include	"titlescreen/asm/48x2_1_kernel.asm"
-    108  207b					      endif		;mk_48x2_1_on
-    109  207b
-    110  207b				  -	      ifconst	mk_48x2_2_on
-    111  207b				  -	      include	"titlescreen/asm/48x2_2_kernel.asm"
-    112  207b					      endif		;mk_48x2_2_on
-    113  207b
-    114  207b				  -	      ifconst	mk_48x2_3_on
-    115  207b				  -	      include	"titlescreen/asm/48x2_3_kernel.asm"
-    116  207b					      endif		;mk_48x2_3_on
-    117  207b
-    118  207b				  -	      ifconst	mk_48x2_4_on
-    119  207b				  -	      include	"titlescreen/asm/48x2_4_kernel.asm"
-    120  207b					      endif		;mk_48x2_4_on
-    121  207b
-    122  207b				  -	      ifconst	mk_48x2_5_on
-    123  207b				  -	      include	"titlescreen/asm/48x2_5_kernel.asm"
-    124  207b					      endif		;mk_48x2_5_on
-    125  207b
-    126  207b				  -	      ifconst	mk_48x2_6_on
-    127  207b				  -	      include	"titlescreen/asm/48x2_6_kernel.asm"
-    128  207b					      endif		;mk_48x2_6_on
-    129  207b
-    130  207b				  -	      ifconst	mk_48x2_7_on
-    131  207b				  -	      include	"titlescreen/asm/48x2_7_kernel.asm"
-    132  207b					      endif		;mk_48x2_7_on
-    133  207b
-    134  207b				  -	      ifconst	mk_48x2_8_on
-    135  207b				  -	      include	"titlescreen/asm/48x2_8_kernel.asm"
-    136  207b					      endif		;mk_48x2_8_on
-    137  207b
-    138  207b				  -	      ifconst	mk_48x1_X_on
-    139  207b				  -	      include	"titlescreen/asm/48x1_X_kernel.asm"
-    140  207b					      endif		;mk_48x1_X_on
-    141  207b
-    142  207b				  -	      ifconst	mk_48x2_X_on
-    143  207b				  -	      include	"titlescreen/asm/48x2_X_kernel.asm"
-    144  207b					      endif		;mk_48x2_X_on
-    145  207b
-    146  207b
-    147  207b					      ifconst	mk_96x2_1_on
+     74  207b					      ifconst	mk_96x2_1_on
 ------- FILE titlescreen/asm/96x2_1_kernel.asm LEVEL 3 PASS 2
       0  207b					      include	"titlescreen/asm/96x2_1_kernel.asm"
       1  207b				   draw_bmp_96x2_1
@@ -3120,135 +2950,84 @@
     258  2270
     259  2270		       60		      rts
 ------- FILE titlescreen/asm/titlescreen.asm
-    149  2271					      endif		;mk_96x2_1_on
-    150  2271
-    151  2271				  -	      ifconst	mk_96x2_2_on
-    152  2271				  -	      include	"titlescreen/asm/96x2_2_kernel.asm"
-    153  2271					      endif		;mk_96x2_2_on
-    154  2271
-    155  2271				  -	      ifconst	mk_96x2_3_on
-    156  2271				  -	      include	"titlescreen/asm/96x2_3_kernel.asm"
-    157  2271					      endif		;mk_96x2_3_on
-    158  2271
-    159  2271				  -	      ifconst	mk_96x2_4_on
-    160  2271				  -	      include	"titlescreen/asm/96x2_4_kernel.asm"
-    161  2271					      endif		;mk_96x2_4_on
-    162  2271
-    163  2271				  -	      ifconst	mk_96x2_5_on
-    164  2271				  -	      include	"titlescreen/asm/96x2_5_kernel.asm"
-    165  2271					      endif		;mk_96x2_5_on
-    166  2271
-    167  2271				  -	      ifconst	mk_96x2_6_on
-    168  2271				  -	      include	"titlescreen/asm/96x2_6_kernel.asm"
-    169  2271					      endif		;mk_96x2_6_on
-    170  2271
-    171  2271				  -	      ifconst	mk_96x2_7_on
-    172  2271				  -	      include	"titlescreen/asm/96x2_7_kernel.asm"
-    173  2271					      endif		;mk_96x2_7_on
-    174  2271
-    175  2271				  -	      ifconst	mk_96x2_8_on
-    176  2271				  -	      include	"titlescreen/asm/96x2_8_kernel.asm"
-    177  2271					      endif		;mk_96x2_8_on
-    178  2271
-    179  2271				  -	      ifconst	mk_score_on
-    180  2271				  -	      include	"titlescreen/asm/score_kernel.asm"
-    181  2271					      endif		;mk_score_on
-    182  2271
-    183  2271				  -	      ifconst	mk_gameselect_on
-    184  2271				  -	      include	"titlescreen/asm/gameselect_kernel.asm"
-    185  2271					      endif		;mk_gameselect_on
-    186  2271
-    187  2271				   PFWAIT
-    188  2271		       ad 84 02 	      lda	INTIM
-    189  2274		       d0 fb		      bne	PFWAIT
-    190  2276		       85 02		      sta	WSYNC
-    191  2278
-    192  2278				   OVERSCAN
-    193  2278				  -	      ifnconst	overscan_time
-    194  2278				  -	      lda	#34+128
-    195  2278					      else
-    196  2278		       a9 a0		      lda	#overscan_time+128-5
-    197  227a					      endif
-    198  227a		       8d 96 02 	      sta	TIM64T
-    199  227d
-    200  227d							;fix height variables we borrowed, so DPC doesn't crash on drawscreen...
-    201  227d				  -	      ifconst	player9height
-    202  227d				  -	      ldy	#8
-    203  227d				  -	      lda	#0
-    204  227d				  -	      sta	player0height
-    205  227d				  -.playerheightfixloop
-    206  227d				  -	      sta	player1height,y
-    207  227d				  -	      ifconst	_NUSIZ1
-    208  227d				  -	      sta	_NUSIZ1,y
-    209  227d				  -	      endif
-    210  227d				  -	      dey
-    211  227d				  -	      bpl	.playerheightfixloop
-    212  227d					      endif
-    213  227d
-    214  227d		       a9 c2		      lda	#%11000010
-    215  227f		       85 02		      sta	WSYNC
-    216  2281		       85 01		      sta	VBLANK
+     76  2271					      endif		;mk_96x2_1_on
+     77  2271
+     78  2271				  -	      ifconst	mk_96x2_2_on
+     79  2271				  -	      include	"titlescreen/asm/96x2_2_kernel.asm"
+     80  2271					      endif		;mk_96x2_2_on
+     81  2271
+     82  2271				  -	      ifconst	mk_96x2_3_on
+     83  2271				  -	      include	"titlescreen/asm/96x2_3_kernel.asm"
+     84  2271					      endif		;mk_96x2_3_on
+     85  2271
+     86  2271				  -	      ifconst	mk_96x2_4_on
+     87  2271				  -	      include	"titlescreen/asm/96x2_4_kernel.asm"
+     88  2271					      endif		;mk_96x2_4_on
+     89  2271
+     90  2271				  -	      ifconst	mk_96x2_5_on
+     91  2271				  -	      include	"titlescreen/asm/96x2_5_kernel.asm"
+     92  2271					      endif		;mk_96x2_5_on
+     93  2271
+     94  2271				  -	      ifconst	mk_96x2_6_on
+     95  2271				  -	      include	"titlescreen/asm/96x2_6_kernel.asm"
+     96  2271					      endif		;mk_96x2_6_on
+     97  2271
+     98  2271				  -	      ifconst	mk_96x2_7_on
+     99  2271				  -	      include	"titlescreen/asm/96x2_7_kernel.asm"
+    100  2271					      endif		;mk_96x2_7_on
+    101  2271
+    102  2271				  -	      ifconst	mk_96x2_8_on
+    103  2271				  -	      include	"titlescreen/asm/96x2_8_kernel.asm"
+    104  2271					      endif		;mk_96x2_8_on
+    105  2271
+    106  2271				  -	      ifconst	mk_score_on
+    107  2271				  -	      include	"titlescreen/asm/score_kernel.asm"
+    108  2271					      endif		;mk_score_on
+    109  2271
+    110  2271				  -	      ifconst	mk_gameselect_on
+    111  2271				  -	      include	"titlescreen/asm/gameselect_kernel.asm"
+    112  2271					      endif		;mk_gameselect_on
+    113  2271
+    114  2271				   PFWAIT
+    115  2271		       ad 84 02 	      lda	INTIM
+    116  2274		       d0 fb		      bne	PFWAIT
+    117  2276		       85 02		      sta	WSYNC
+    118  2278
+    119  2278				   OVERSCAN
+    120  2278				  -	      ifnconst	overscan_time
+    121  2278				  -	      lda	#34+128
+    122  2278					      else
+    123  2278		       a9 a0		      lda	#overscan_time+128-5
+    124  227a					      endif
+    125  227a		       8d 96 02 	      sta	TIM64T
+    126  227d
+    127  227d							;fix height variables we borrowed, so DPC doesn't crash on drawscreen...
+    128  227d				  -	      ifconst	player9height
+    129  227d				  -	      ldy	#8
+    130  227d				  -	      lda	#0
+    131  227d				  -	      sta	player0height
+    132  227d				  -.playerheightfixloop
+    133  227d				  -	      sta	player1height,y
+    134  227d				  -	      ifconst	_NUSIZ1
+    135  227d				  -	      sta	_NUSIZ1,y
+    136  227d				  -	      endif
+    137  227d				  -	      dey
+    138  227d				  -	      bpl	.playerheightfixloop
+    139  227d					      endif
+    140  227d
+    141  227d		       a9 c2		      lda	#%11000010
+    142  227f		       85 02		      sta	WSYNC
+    143  2281		       85 01		      sta	VBLANK
       0  2283					      RETURN
       1  2283				  -	      ifnconst	bankswitch
       2  2283				  -	      rts
       3  2283					      else
       4  2283		       4c dd ff 	      jmp	BS_return
       5  2286					      endif
-    218  2286
-    219  2286				  -	      ifconst	mk_48x1_1_on
-    220  2286				  -	      include	"titlescreen/48x1_1_image.asm"
-    221  2286					      endif
-    222  2286				  -	      ifconst	mk_48x1_2_on
-    223  2286				  -	      include	"titlescreen/48x1_2_image.asm"
-    224  2286					      endif
-    225  2286				  -	      ifconst	mk_48x1_3_on
-    226  2286				  -	      include	"titlescreen/48x1_3_image.asm"
-    227  2286					      endif
-    228  2286				  -	      ifconst	mk_48x1_4_on
-    229  2286				  -	      include	"titlescreen/48x1_4_image.asm"
-    230  2286					      endif
-    231  2286				  -	      ifconst	mk_48x1_5_on
-    232  2286				  -	      include	"titlescreen/48x1_5_image.asm"
-    233  2286					      endif
-    234  2286				  -	      ifconst	mk_48x1_6_on
-    235  2286				  -	      include	"titlescreen/48x1_6_image.asm"
-    236  2286					      endif
-    237  2286				  -	      ifconst	mk_48x1_7_on
-    238  2286				  -	      include	"titlescreen/48x1_7_image.asm"
-    239  2286					      endif
-    240  2286				  -	      ifconst	mk_48x1_8_on
-    241  2286				  -	      include	"titlescreen/48x1_8_image.asm"
-    242  2286					      endif
-    243  2286
-    244  2286
-    245  2286				  -	      ifconst	mk_48x2_1_on
-    246  2286				  -	      include	"titlescreen/48x2_1_image.asm"
-    247  2286					      endif
-    248  2286				  -	      ifconst	mk_48x2_2_on
-    249  2286				  -	      include	"titlescreen/48x2_2_image.asm"
-    250  2286					      endif
-    251  2286				  -	      ifconst	mk_48x2_3_on
-    252  2286				  -	      include	"titlescreen/48x2_3_image.asm"
-    253  2286					      endif
-    254  2286				  -	      ifconst	mk_48x2_4_on
-    255  2286				  -	      include	"titlescreen/48x2_4_image.asm"
-    256  2286					      endif
-    257  2286				  -	      ifconst	mk_48x2_5_on
-    258  2286				  -	      include	"titlescreen/48x2_5_image.asm"
-    259  2286					      endif
-    260  2286				  -	      ifconst	mk_48x2_6_on
-    261  2286				  -	      include	"titlescreen/48x2_6_image.asm"
-    262  2286					      endif
-    263  2286				  -	      ifconst	mk_48x2_7_on
-    264  2286				  -	      include	"titlescreen/48x2_7_image.asm"
-    265  2286					      endif
-    266  2286
-    267  2286				  -	      ifconst	mk_48x2_8_on
-    268  2286				  -	      include	"titlescreen/48x2_8_image.asm"
-    269  2286					      endif
-    270  2286
-    271  2286
-    272  2286					      ifconst	mk_96x2_1_on
+    145  2286
+    146  2286
+    147  2286
+    148  2286					      ifconst	mk_96x2_1_on
 ------- FILE titlescreen/96x2_1_image.asm LEVEL 3 PASS 2
       0  2286					      include	"titlescreen/96x2_1_image.asm"
       1  2286							;*** The height of the displayed data...
@@ -4493,46 +4272,46 @@
    1240  26fd		       00		      BYTE.b	%00000000
    1241  26fe		       00		      BYTE.b	%00000000
 ------- FILE titlescreen/asm/titlescreen.asm
-    274  26ff					      endif
-    275  26ff				  -	      ifconst	mk_96x2_2_on
-    276  26ff				  -	      include	"titlescreen/96x2_2_image.asm"
-    277  26ff					      endif
-    278  26ff				  -	      ifconst	mk_96x2_3_on
-    279  26ff				  -	      include	"titlescreen/96x2_3_image.asm"
-    280  26ff					      endif
-    281  26ff				  -	      ifconst	mk_96x2_4_on
-    282  26ff				  -	      include	"titlescreen/96x2_4_image.asm"
-    283  26ff					      endif
-    284  26ff				  -	      ifconst	mk_96x2_5_on
-    285  26ff				  -	      include	"titlescreen/96x2_5_image.asm"
-    286  26ff					      endif
-    287  26ff				  -	      ifconst	mk_96x2_6_on
-    288  26ff				  -	      include	"titlescreen/96x2_6_image.asm"
-    289  26ff					      endif
-    290  26ff				  -	      ifconst	mk_96x2_7_on
-    291  26ff				  -	      include	"titlescreen/96x2_7_image.asm"
-    292  26ff					      endif
-    293  26ff				  -	      ifconst	mk_96x2_8_on
-    294  26ff				  -	      include	"titlescreen/96x2_8_image.asm"
-    295  26ff					      endif
-    296  26ff
-    297  26ff				  -	      ifconst	mk_player_on
-    298  26ff				  -	      include	"titlescreen/player_image.asm"
-    299  26ff					      endif
-    300  26ff
-    301  26ff				  -	      ifconst	mk_score_on
-    302  26ff				  -	      include	"titlescreen/score_image.asm"
-    303  26ff					      endif
-    304  26ff
-    305  26ff				  -	      ifconst	mk_gameselect_on
-    306  26ff				  -	      include	"titlescreen/gameselect_image.asm"
-    307  26ff					      endif
-    308  26ff
-    309  26ff				  -	      ifconst	mk_player_on
-    310  26ff				  -	      include	"titlescreen/asm/player_kernel.asm"
-    311  26ff					      endif		;mk_player_on
-    312  26ff
-    313  26ff
+    150  26ff					      endif
+    151  26ff				  -	      ifconst	mk_96x2_2_on
+    152  26ff				  -	      include	"titlescreen/96x2_2_image.asm"
+    153  26ff					      endif
+    154  26ff				  -	      ifconst	mk_96x2_3_on
+    155  26ff				  -	      include	"titlescreen/96x2_3_image.asm"
+    156  26ff					      endif
+    157  26ff				  -	      ifconst	mk_96x2_4_on
+    158  26ff				  -	      include	"titlescreen/96x2_4_image.asm"
+    159  26ff					      endif
+    160  26ff				  -	      ifconst	mk_96x2_5_on
+    161  26ff				  -	      include	"titlescreen/96x2_5_image.asm"
+    162  26ff					      endif
+    163  26ff				  -	      ifconst	mk_96x2_6_on
+    164  26ff				  -	      include	"titlescreen/96x2_6_image.asm"
+    165  26ff					      endif
+    166  26ff				  -	      ifconst	mk_96x2_7_on
+    167  26ff				  -	      include	"titlescreen/96x2_7_image.asm"
+    168  26ff					      endif
+    169  26ff				  -	      ifconst	mk_96x2_8_on
+    170  26ff				  -	      include	"titlescreen/96x2_8_image.asm"
+    171  26ff					      endif
+    172  26ff
+    173  26ff				  -	      ifconst	mk_player_on
+    174  26ff				  -	      include	"titlescreen/player_image.asm"
+    175  26ff					      endif
+    176  26ff
+    177  26ff				  -	      ifconst	mk_score_on
+    178  26ff				  -	      include	"titlescreen/score_image.asm"
+    179  26ff					      endif
+    180  26ff
+    181  26ff				  -	      ifconst	mk_gameselect_on
+    182  26ff				  -	      include	"titlescreen/gameselect_image.asm"
+    183  26ff					      endif
+    184  26ff
+    185  26ff				  -	      ifconst	mk_player_on
+    186  26ff				  -	      include	"titlescreen/asm/player_kernel.asm"
+    187  26ff					      endif		;mk_player_on
+    188  26ff
+    189  26ff
 ------- FILE beer_mania.bas.asm
     942  26ff
     943  26ff				   .

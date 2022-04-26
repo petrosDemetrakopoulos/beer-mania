@@ -1,0 +1,412 @@
+------- FILE 96x2_1_kernel.asm LEVEL 1 PASS 2
+      1  0000 ????			   draw_bmp_96x2_1
+      2  0000 ????
+      3  0000 ????			  -	      ifconst	bmp_96x2_1_index
+      4  0000 ????			  -	      lda	#(bmp_96x2_1_height-1)
+      5  0000 ????			  -	      sec
+      6  0000 ????			  -	      sbc	bmp_96x2_1_index
+      7  0000 ????			  -	      tay
+      8  0000 ????			  -	      sbc	#bmp_96x2_1_window
+      9  0000 ????			  -	      sta	temp1
+     10  0000 ????				      else
+96x2_1_kernel.asm (11): error: Unknown Mnemonic 'ldy'.
+     11  0000 ????				      ldy	#(bmp_96x2_1_window-1)
+96x2_1_kernel.asm (12): error: Unknown Mnemonic 'lda'.
+     12  0000 ????				      lda	#255
+96x2_1_kernel.asm (13): error: Unknown Mnemonic 'sta'.
+     13  0000 ????				      sta	temp1
+     14  0000 ????				      endif
+     15  0000 ????
+96x2_1_kernel.asm (16): error: Unknown Mnemonic 'lda'.
+     16  0000 ????				      lda	#3
+96x2_1_kernel.asm (17): error: Unknown Mnemonic 'sta'.
+     17  0000 ????				      sta	NUSIZ0	;3=Player and Missile are drawn twice 32 clocks apart
+96x2_1_kernel.asm (18): error: Unknown Mnemonic 'sta'.
+     18  0000 ????				      sta	NUSIZ1	;3=Player and Missile are drawn twice 32 clocks apart
+96x2_1_kernel.asm (19): error: Unknown Mnemonic 'lda'.
+     19  0000 ????				      lda	#0
+     20  0000 ????
+96x2_1_kernel.asm (21): error: Unknown Mnemonic 'lda'.
+     21  0000 ????				      lda	bmp_96x2_1_colors,y	;4
+     22  0000 ????			  -	      ifconst	bmp_96x2_1_fade
+     23  0000 ????			  -	      and	bmp_96x2_1_fade
+     24  0000 ????				      endif
+96x2_1_kernel.asm (25): error: Unknown Mnemonic 'sta'.
+     25  0000 ????				      sta	COLUP0	;3
+96x2_1_kernel.asm (26): error: Unknown Mnemonic 'sta'.
+     26  0000 ????				      sta	COLUP1	;3
+96x2_1_kernel.asm (27): error: Unknown Mnemonic 'sta'.
+     27  0000 ????				      sta	HMCLR	;3
+     28  0000 ????
+96x2_1_kernel.asm (29): error: Unknown Mnemonic 'lda'.
+     29  0000 ????				      lda	titleframe
+96x2_1_kernel.asm (30): error: Unknown Mnemonic 'and'.
+     30  0000 ????				      and	#1
+96x2_1_kernel.asm (31): error: Unknown Mnemonic 'beq'.
+     31  0000 ????				      beq	jmp_pf96x2_1_frame0
+96x2_1_kernel.asm (32): error: Unknown Mnemonic 'jmp'.
+     32  0000 ????				      jmp	pf96x2_1_frame1
+     33  0000 ????			   jmp_pf96x2_1_frame0
+96x2_1_kernel.asm (34): error: Unknown Mnemonic 'jmp'.
+     34  0000 ????				      jmp	pf96x2_1_frame0
+     35  0000 ????
+     36  0000 ????			   pf96x2_1_frame0
+     37  0000 ????						;postion P0 and P1
+96x2_1_kernel.asm (38): error: Unknown Mnemonic 'sta'.
+     38  0000 ????				      sta	WSYNC
+96x2_1_kernel.asm (39): error: Unknown Mnemonic 'lda'.
+     39  0000 ????				      lda	#%11100000
+96x2_1_kernel.asm (40): error: Unknown Mnemonic 'sta'.
+     40  0000 ????				      sta	HMP0
+96x2_1_kernel.asm (41): error: Unknown Mnemonic 'lda'.
+     41  0000 ????				      lda	#%00010000
+96x2_1_kernel.asm (42): error: Unknown Mnemonic 'sta'.
+     42  0000 ????				      sta	HMP1
+96x2_1_kernel.asm (43): error: Unknown Mnemonic 'sta'.
+     43  0000 ????				      sta	WSYNC
+96x2_1_kernel.asm (44): error: Unknown Mnemonic 'sleep'.
+     44  0000 ????				      sleep	28
+96x2_1_kernel.asm (45): error: Unknown Mnemonic 'sta'.
+     45  0000 ????				      sta	RESP0
+96x2_1_kernel.asm (46): error: Unknown Mnemonic 'sleep'.
+     46  0000 ????				      sleep	14
+96x2_1_kernel.asm (47): error: Unknown Mnemonic 'sta'.
+     47  0000 ????				      sta	RESP1
+96x2_1_kernel.asm (48): error: Unknown Mnemonic 'sta'.
+     48  0000 ????				      sta	WSYNC
+96x2_1_kernel.asm (49): error: Unknown Mnemonic 'sta'.
+     49  0000 ????				      sta	HMOVE
+     50  0000 ????
+96x2_1_kernel.asm (51): error: Unknown Mnemonic 'sta'.
+     51  0000 ????				      sta	WSYNC
+96x2_1_kernel.asm (52): error: Unknown Mnemonic 'sta'.
+     52  0000 ????				      sta	HMCLR
+96x2_1_kernel.asm (53): error: Unknown Mnemonic 'sta'.
+     53  0000 ????				      sta	WSYNC
+     54  0000 ????
+96x2_1_kernel.asm (55): error: Unknown Mnemonic 'sleep'.
+     55  0000 ????				      sleep	4
+96x2_1_kernel.asm (56): error: Unknown Mnemonic 'jmp'.
+     56  0000 ????				      jmp	pfline_96x2_1_frame0
+     57  0000 ????						;align so our branch doesn't unexpectedly cross a page...
+     58  0000 ????			  -	      if	>. != >[.+$70]
+     59  0000 ????			  -	      align	256
+     60  0000 ????				      endif
+     61  0000 ????
+     62  0000 ????			   pfline_96x2_1_frame0
+96x2_1_kernel.asm (63): error: Unknown Mnemonic 'lda'.
+     63  0000 ????				      lda	#$80	;2
+96x2_1_kernel.asm (64): error: Unknown Mnemonic 'sta'.
+     64  0000 ????				      sta	HMP0	;3
+96x2_1_kernel.asm (65): error: Unknown Mnemonic 'sta'.
+     65  0000 ????				      sta	HMP1	;3
+     66  0000 ????
+96x2_1_kernel.asm (67): error: Unknown Mnemonic 'lda'.
+     67  0000 ????				      lda	bmp_96x2_1_06,y	;4
+96x2_1_kernel.asm (68): error: Unknown Mnemonic 'sta'.
+     68  0000 ????				      sta	GRP1	;3
+     69  0000 ????
+96x2_1_kernel.asm (70): error: Unknown Mnemonic 'lda'.
+     70  0000 ????				      lda	bmp_96x2_1_00,y
+96x2_1_kernel.asm (71): error: Unknown Mnemonic 'sta'.
+     71  0000 ????				      sta	GRP0
+96x2_1_kernel.asm (72): error: Unknown Mnemonic 'lda'.
+     72  0000 ????				      lda	bmp_96x2_1_02,y
+96x2_1_kernel.asm (73): error: Unknown Mnemonic 'sta'.
+     73  0000 ????				      sta	GRP0
+96x2_1_kernel.asm (74): error: Unknown Mnemonic 'lda'.
+     74  0000 ????				      lda	bmp_96x2_1_04,y
+96x2_1_kernel.asm (75): error: Unknown Mnemonic 'sta'.
+     75  0000 ????				      sta	GRP0
+     76  0000 ????
+96x2_1_kernel.asm (77): error: Unknown Mnemonic 'sleep'.
+     77  0000 ????				      sleep	2
+     78  0000 ????
+96x2_1_kernel.asm (79): error: Unknown Mnemonic 'lda'.
+     79  0000 ????				      lda	bmp_96x2_1_08,y
+96x2_1_kernel.asm (80): error: Unknown Mnemonic 'sta'.
+     80  0000 ????				      sta	GRP1
+96x2_1_kernel.asm (81): error: Unknown Mnemonic 'lda'.
+     81  0000 ????				      lda	bmp_96x2_1_10,y
+96x2_1_kernel.asm (82): error: Unknown Mnemonic 'sta'.
+     82  0000 ????				      sta	GRP1
+     83  0000 ????
+96x2_1_kernel.asm (84): error: Unknown Mnemonic 'lda'.
+     84  0000 ????				      lda	bmp_96x2_1_01,y
+96x2_1_kernel.asm (85): error: Unknown Mnemonic 'sta'.
+     85  0000 ????				      sta	GRP0
+     86  0000 ????
+96x2_1_kernel.asm (87): error: Unknown Mnemonic 'sleep'.
+     87  0000 ????				      sleep	8
+     88  0000 ????
+     89  0000 ????						;sta WSYNC	;=0
+96x2_1_kernel.asm (90): error: Unknown Mnemonic 'sta'.
+     90  0000 ????				      sta	HMOVE	;3 - NORMAL HMOVE
+     91  0000 ????
+96x2_1_kernel.asm (92): error: Unknown Mnemonic 'lda'.
+     92  0000 ????				      lda	bmp_96x2_1_colors-1,y	;4 - get the title color early and store it for later
+     93  0000 ????			  -	      ifconst	bmp_96x2_1_fade
+     94  0000 ????			  -	      and	bmp_96x2_1_fade
+     95  0000 ????				      else
+96x2_1_kernel.asm (96): error: Unknown Mnemonic 'sleep'.
+     96  0000 ????				      sleep	3
+     97  0000 ????				      endif
+96x2_1_kernel.asm (98): error: Unknown Mnemonic 'tax'.
+     98  0000 ????				      tax
+     99  0000 ????
+96x2_1_kernel.asm (100): error: Unknown Mnemonic 'lda'.
+    100  0000 ????				      lda	#0	;2
+96x2_1_kernel.asm (101): error: Unknown Mnemonic 'sta'.
+    101  0000 ????				      sta	HMP0	;3
+96x2_1_kernel.asm (102): error: Unknown Mnemonic 'sta'.
+    102  0000 ????				      sta	HMP1	;3
+    103  0000 ????
+96x2_1_kernel.asm (104): error: Unknown Mnemonic 'sleep'.
+    104  0000 ????				      sleep	7
+    105  0000 ????
+96x2_1_kernel.asm (106): error: Unknown Mnemonic 'lda'.
+    106  0000 ????				      lda	bmp_96x2_1_07,y
+96x2_1_kernel.asm (107): error: Unknown Mnemonic 'sta'.
+    107  0000 ????				      sta	GRP1
+    108  0000 ????
+96x2_1_kernel.asm (109): error: Unknown Mnemonic 'lda'.
+    109  0000 ????				      lda	bmp_96x2_1_03,y	;5
+96x2_1_kernel.asm (110): error: Unknown Mnemonic 'sta'.
+    110  0000 ????				      sta	GRP0	;3 =  8
+96x2_1_kernel.asm (111): error: Unknown Mnemonic 'lda'.
+    111  0000 ????				      lda	bmp_96x2_1_05,y	;5
+96x2_1_kernel.asm (112): error: Unknown Mnemonic 'sta'.
+    112  0000 ????				      sta	GRP0	;3 =  8
+    113  0000 ????
+96x2_1_kernel.asm (114): error: Unknown Mnemonic 'sleep'.
+    114  0000 ????				      sleep	2
+    115  0000 ????
+96x2_1_kernel.asm (116): error: Unknown Mnemonic 'lda'.
+    116  0000 ????				      lda	bmp_96x2_1_09,y	;5
+96x2_1_kernel.asm (117): error: Unknown Mnemonic 'sta'.
+    117  0000 ????				      sta	GRP1	;3 =  8
+96x2_1_kernel.asm (118): error: Unknown Mnemonic 'lda'.
+    118  0000 ????				      lda	bmp_96x2_1_11,y	;5
+96x2_1_kernel.asm (119): error: Unknown Mnemonic 'sta'.
+    119  0000 ????				      sta	GRP1	;3 =  8
+    120  0000 ????
+96x2_1_kernel.asm (121): error: Unknown Mnemonic 'sleep'.
+    121  0000 ????				      sleep	2
+96x2_1_kernel.asm (122): error: Unknown Mnemonic 'stx'.
+    122  0000 ????				      stx	COLUP1
+96x2_1_kernel.asm (123): error: Unknown Mnemonic 'stx'.
+    123  0000 ????				      stx	COLUP0
+    124  0000 ????
+96x2_1_kernel.asm (125): error: Unknown Mnemonic 'sta'.
+    125  0000 ????				      sta	HMOVE	;3 - CYCLE 74 HMOVE
+96x2_1_kernel.asm (126): error: Unknown Mnemonic 'sleep'.
+    126  0000 ????				      sleep	2
+96x2_1_kernel.asm (127): error: Unknown Mnemonic 'dey'.
+    127  0000 ????				      dey
+    128  0000 ????
+96x2_1_kernel.asm (129): error: Unknown Mnemonic 'cpy'.
+    129  0000 ????				      cpy	temp1	;3
+96x2_1_kernel.asm (130): error: Unknown Mnemonic 'bne'.
+    130  0000 ????				      bne	pfline_96x2_1_frame0	;2/3
+    131  0000 ????
+    132  0000 ????			   pf96x2_1_0codeend
+    133  0000 ????						;echo "critical code #1 in 96x2_1 is ",(pf96x2_1_0codeend-pfline_96x2_1_frame0), " bytes long."
+    134  0000 ????
+96x2_1_kernel.asm (135): error: Unknown Mnemonic 'lda'.
+    135  0000 ????				      lda	#0
+96x2_1_kernel.asm (136): error: Unknown Mnemonic 'sta'.
+    136  0000 ????				      sta	GRP0
+96x2_1_kernel.asm (137): error: Unknown Mnemonic 'sta'.
+    137  0000 ????				      sta	GRP1
+96x2_1_kernel.asm (138): error: Unknown Mnemonic 'jmp'.
+    138  0000 ????				      jmp	pfdone_96x2_1
+    139  0000 ????
+    140  0000 ????
+    141  0000 ????			   pf96x2_1_frame1
+    142  0000 ????
+    143  0000 ????						;postion P0 and P1
+96x2_1_kernel.asm (144): error: Unknown Mnemonic 'sta'.
+    144  0000 ????				      sta	WSYNC
+96x2_1_kernel.asm (145): error: Unknown Mnemonic 'lda'.
+    145  0000 ????				      lda	#%00100000
+96x2_1_kernel.asm (146): error: Unknown Mnemonic 'sta'.
+    146  0000 ????				      sta	HMP0
+96x2_1_kernel.asm (147): error: Unknown Mnemonic 'lda'.
+    147  0000 ????				      lda	#0
+96x2_1_kernel.asm (148): error: Unknown Mnemonic 'lda'.
+    148  0000 ????				      lda	#%11110000
+96x2_1_kernel.asm (149): error: Unknown Mnemonic 'sta'.
+    149  0000 ????				      sta	HMP1
+96x2_1_kernel.asm (150): error: Unknown Mnemonic 'sta'.
+    150  0000 ????				      sta	WSYNC
+96x2_1_kernel.asm (151): error: Unknown Mnemonic 'sleep'.
+    151  0000 ????				      sleep	32
+96x2_1_kernel.asm (152): error: Unknown Mnemonic 'sta'.
+    152  0000 ????				      sta	RESP0
+96x2_1_kernel.asm (153): error: Unknown Mnemonic 'sleep'.
+    153  0000 ????				      sleep	12
+96x2_1_kernel.asm (154): error: Unknown Mnemonic 'sta'.
+    154  0000 ????				      sta	RESP1
+96x2_1_kernel.asm (155): error: Unknown Mnemonic 'sta'.
+    155  0000 ????				      sta	WSYNC
+96x2_1_kernel.asm (156): error: Unknown Mnemonic 'sta'.
+    156  0000 ????				      sta	HMOVE
+    157  0000 ????
+96x2_1_kernel.asm (158): error: Unknown Mnemonic 'sta'.
+    158  0000 ????				      sta	WSYNC
+96x2_1_kernel.asm (159): error: Unknown Mnemonic 'sta'.
+    159  0000 ????				      sta	HMCLR
+    160  0000 ????
+    161  0000 ????
+    162  0000 ????
+96x2_1_kernel.asm (163): error: Unknown Mnemonic 'sta'.
+    163  0000 ????				      sta	WSYNC
+96x2_1_kernel.asm (164): error: Unknown Mnemonic 'sleep'.
+    164  0000 ????				      sleep	3
+96x2_1_kernel.asm (165): error: Unknown Mnemonic 'jmp'.
+    165  0000 ????				      jmp	pfline_96x2_1_frame1
+    166  0000 ????
+    167  0000 ????						;align so our branch doesn't unexpectedly cross a page...
+    168  0000 ????			  -	      if	>. != >[.+$70]
+    169  0000 ????			  -	      align	256
+    170  0000 ????				      endif
+    171  0000 ????
+    172  0000 ????			   pfline_96x2_1_frame1
+    173  0000 ????
+96x2_1_kernel.asm (174): error: Unknown Mnemonic 'sta'.
+    174  0000 ????				      sta	HMOVE
+    175  0000 ????
+96x2_1_kernel.asm (176): error: Unknown Mnemonic 'lda'.
+    176  0000 ????				      lda	bmp_96x2_1_07,y	;4
+96x2_1_kernel.asm (177): error: Unknown Mnemonic 'sta'.
+    177  0000 ????				      sta	GRP1	;3
+    178  0000 ????
+96x2_1_kernel.asm (179): error: Unknown Mnemonic 'lda'.
+    179  0000 ????				      lda	#$0	;2
+96x2_1_kernel.asm (180): error: Unknown Mnemonic 'sta'.
+    180  0000 ????				      sta	HMP0	;3
+96x2_1_kernel.asm (181): error: Unknown Mnemonic 'sta'.
+    181  0000 ????				      sta	HMP1	;3
+    182  0000 ????
+96x2_1_kernel.asm (183): error: Unknown Mnemonic 'lda'.
+    183  0000 ????				      lda	bmp_96x2_1_01,y
+96x2_1_kernel.asm (184): error: Unknown Mnemonic 'sta'.
+    184  0000 ????				      sta.w	GRP0
+96x2_1_kernel.asm (185): error: Unknown Mnemonic 'lda'.
+    185  0000 ????				      lda	bmp_96x2_1_03,y
+96x2_1_kernel.asm (186): error: Unknown Mnemonic 'sta'.
+    186  0000 ????				      sta	GRP0
+96x2_1_kernel.asm (187): error: Unknown Mnemonic 'lda'.
+    187  0000 ????				      lda	bmp_96x2_1_05,y
+96x2_1_kernel.asm (188): error: Unknown Mnemonic 'sta'.
+    188  0000 ????				      sta	GRP0
+    189  0000 ????
+96x2_1_kernel.asm (190): error: Unknown Mnemonic 'sleep'.
+    190  0000 ????				      sleep	2
+    191  0000 ????
+96x2_1_kernel.asm (192): error: Unknown Mnemonic 'lda'.
+    192  0000 ????				      lda	bmp_96x2_1_09,y
+96x2_1_kernel.asm (193): error: Unknown Mnemonic 'sta'.
+    193  0000 ????				      sta	GRP1
+96x2_1_kernel.asm (194): error: Unknown Mnemonic 'lda'.
+    194  0000 ????				      lda	bmp_96x2_1_11,y
+96x2_1_kernel.asm (195): error: Unknown Mnemonic 'sta'.
+    195  0000 ????				      sta	GRP1
+    196  0000 ????
+96x2_1_kernel.asm (197): error: Unknown Mnemonic 'lda'.
+    197  0000 ????				      lda	bmp_96x2_1_00,y
+96x2_1_kernel.asm (198): error: Unknown Mnemonic 'sta'.
+    198  0000 ????				      sta	GRP0
+    199  0000 ????
+96x2_1_kernel.asm (200): error: Unknown Mnemonic 'sta'.
+    200  0000 ????				      sta.w	HMOVE	;3 - cycle 74
+    201  0000 ????
+    202  0000 ????						;sta WSYNC	;=0 -----------------------------------------
+    203  0000 ????
+96x2_1_kernel.asm (204): error: Unknown Mnemonic 'lda'.
+    204  0000 ????				      lda	bmp_96x2_1_06,y
+96x2_1_kernel.asm (205): error: Unknown Mnemonic 'sta'.
+    205  0000 ????				      sta	GRP1
+    206  0000 ????
+96x2_1_kernel.asm (207): error: Unknown Mnemonic 'sleep'.
+    207  0000 ????				      sleep	8
+    208  0000 ????
+96x2_1_kernel.asm (209): error: Unknown Mnemonic 'lda'.
+    209  0000 ????				      lda	bmp_96x2_1_colors-1,y	;get the title color early and store it for later
+96x2_1_kernel.asm (210): error: Unknown Mnemonic 'tax'.
+    210  0000 ????				      tax		;2
+    211  0000 ????
+96x2_1_kernel.asm (212): error: Unknown Mnemonic 'sleep'.
+    212  0000 ????				      sleep	3
+    213  0000 ????
+96x2_1_kernel.asm (214): error: Unknown Mnemonic 'lda'.
+    214  0000 ????				      lda	#$80	;2
+96x2_1_kernel.asm (215): error: Unknown Mnemonic 'sta'.
+    215  0000 ????				      sta	HMP0	;3
+96x2_1_kernel.asm (216): error: Unknown Mnemonic 'sta'.
+    216  0000 ????				      sta	HMP1	;3
+    217  0000 ????
+    218  0000 ????
+96x2_1_kernel.asm (219): error: Unknown Mnemonic 'lda'.
+    219  0000 ????				      lda	bmp_96x2_1_02,y	;5
+96x2_1_kernel.asm (220): error: Unknown Mnemonic 'sta'.
+    220  0000 ????				      sta	GRP0	;3 =  8
+    221  0000 ????
+96x2_1_kernel.asm (222): error: Unknown Mnemonic 'lda'.
+    222  0000 ????				      lda	bmp_96x2_1_04,y	;5
+96x2_1_kernel.asm (223): error: Unknown Mnemonic 'sta'.
+    223  0000 ????				      sta	GRP0	;3 =  8
+    224  0000 ????
+96x2_1_kernel.asm (225): error: Unknown Mnemonic 'sleep'.
+    225  0000 ????				      sleep	2
+    226  0000 ????
+96x2_1_kernel.asm (227): error: Unknown Mnemonic 'lda'.
+    227  0000 ????				      lda	bmp_96x2_1_08,y	;5
+96x2_1_kernel.asm (228): error: Unknown Mnemonic 'sta'.
+    228  0000 ????				      sta	GRP1	;3 =  8
+    229  0000 ????
+96x2_1_kernel.asm (230): error: Unknown Mnemonic 'lda'.
+    230  0000 ????				      lda	bmp_96x2_1_10,y	;5
+96x2_1_kernel.asm (231): error: Unknown Mnemonic 'sta'.
+    231  0000 ????				      sta	GRP1	;3 =  8
+    232  0000 ????
+96x2_1_kernel.asm (233): error: Unknown Mnemonic 'sleep'.
+    233  0000 ????				      sleep	4
+    234  0000 ????
+96x2_1_kernel.asm (235): error: Unknown Mnemonic 'dey'.
+    235  0000 ????				      dey
+    236  0000 ????
+96x2_1_kernel.asm (237): error: Unknown Mnemonic 'txa'.
+    237  0000 ????				      txa
+    238  0000 ????			  -	      ifconst	bmp_96x2_1_fade
+    239  0000 ????			  -	      and	bmp_96x2_1_fade
+    240  0000 ????				      else
+96x2_1_kernel.asm (241): error: Unknown Mnemonic 'sleep'.
+    241  0000 ????				      sleep	3
+    242  0000 ????				      endif
+96x2_1_kernel.asm (243): error: Unknown Mnemonic 'sta'.
+    243  0000 ????				      sta	COLUP1	;3
+96x2_1_kernel.asm (244): error: Unknown Mnemonic 'sta'.
+    244  0000 ????				      sta	COLUP0	;3
+    245  0000 ????
+96x2_1_kernel.asm (246): error: Unknown Mnemonic 'cpy'.
+    246  0000 ????				      cpy	temp1	;2
+96x2_1_kernel.asm (247): error: Unknown Mnemonic 'bne'.
+    247  0000 ????				      bne	pfline_96x2_1_frame1	;2/3
+    248  0000 ????
+    249  0000 ????			   pf96x2_1_1codeend
+    250  0000 ????						;echo "critical code #2 in 96x2_1 is ",(pf96x2_1_1codeend-pfline_96x2_1_frame1), " bytes long."
+    251  0000 ????
+96x2_1_kernel.asm (252): error: Unknown Mnemonic 'lda'.
+    252  0000 ????				      lda	#0
+96x2_1_kernel.asm (253): error: Unknown Mnemonic 'sta'.
+    253  0000 ????				      sta	GRP0
+96x2_1_kernel.asm (254): error: Unknown Mnemonic 'sta'.
+    254  0000 ????				      sta	GRP1
+    255  0000 ????
+    256  0000 ????			   pfdone_96x2_1
+96x2_1_kernel.asm (257): error: Unknown Mnemonic 'sta'.
+    257  0000 ????				      sta	WSYNC	; debug
+    258  0000 ????
+96x2_1_kernel.asm (259): error: Unknown Mnemonic 'rts'.
+    259  0000 ????				      rts
