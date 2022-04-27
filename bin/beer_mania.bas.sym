@@ -232,7 +232,7 @@ AUDF1                    0018
 AUDV0                    0019              (R )
 AUDV1                    001a              (R )
 aux1                     00f0                  
-aux2                     00f1              (R )
+aux2                     00f1                  
 aux3                     00f2                  
 aux4                     00f3                  
 aux5                     00f4                  

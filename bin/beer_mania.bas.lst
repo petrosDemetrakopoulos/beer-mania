@@ -1966,82 +1966,16 @@
       6  2006					      jsr	draw_bmp_96x2_1
       7  2006					      ENDM
       8  2006
-      9  2006					      MAC	draw_96x2_2
-     10  2006				   mk_96x2_2_on =	1
-     11  2006					      jsr	draw_bmp_96x2_2
-     12  2006					      ENDM
-     13  2006
-     14  2006					      MAC	draw_96x2_3
-     15  2006				   mk_96x2_3_on =	1
-     16  2006					      jsr	draw_bmp_96x2_3
-     17  2006					      ENDM
-     18  2006
-     19  2006					      MAC	draw_96x2_4
-     20  2006				   mk_96x2_4_on =	1
-     21  2006					      jsr	draw_bmp_96x2_4
-     22  2006					      ENDM
-     23  2006
-     24  2006					      MAC	draw_96x2_5
-     25  2006				   mk_96x2_5_on =	1
-     26  2006					      jsr	draw_bmp_96x2_5
-     27  2006					      ENDM
-     28  2006
-     29  2006					      MAC	draw_96x2_6
-     30  2006				   mk_96x2_6_on =	1
-     31  2006					      jsr	draw_bmp_96x2_6
-     32  2006					      ENDM
-     33  2006
-     34  2006					      MAC	draw_96x2_7
-     35  2006				   mk_96x2_7_on =	1
-     36  2006					      jsr	draw_bmp_96x2_7
-     37  2006					      ENDM
-     38  2006
-     39  2006					      MAC	draw_96x2_8
-     40  2006				   mk_96x2_8_on =	1
-     41  2006					      jsr	draw_bmp_96x2_8
-     42  2006					      ENDM
-     43  2006
-     44  2006					      MAC	draw_player
-     45  2006				   mk_player_on =	1
-     46  2006					      jsr	draw_player_display
-     47  2006					      ENDM
-     48  2006
-     49  2006					      MAC	draw_score
-     50  2006				   mk_score_on =	1
-     51  2006				   mk_48x1_X_on =	1
-     52  2006					      jsr	draw_score_display
-     53  2006					      ENDM
-     54  2006
-     55  2006					      MAC	draw_space
-     56  2006					      ldy	#{1}
-     57  2006				   .loop
-     58  2006					      sta	WSYNC
-     59  2006					      dey
-     60  2006					      bne	.loop
-     61  2006					      ENDM
-     62  2006
+      9  2006					      MAC	draw_space
+     10  2006					      ldy	#{1}
+     11  2006				   .loop
+     12  2006					      sta	WSYNC
+     13  2006					      dey
+     14  2006					      bne	.loop
+     15  2006					      ENDM
+     16  2006
 ------- FILE titlescreen/asm/titlescreen.asm
-------- FILE titlescreen/asm/dpcfix.asm LEVEL 3 PASS 2
-      0  2006					      include	"titlescreen/asm/dpcfix.asm"
-      1  2006							; reassign variables that DPC+ doesn't have
-      2  2006
-      3  2006				  -	      ifnconst	aux2
-      4  2006				  -aux2       =	player2x
-      5  2006					      endif
-      6  2006
-      7  2006				  -	      ifnconst	player0pointer
-      8  2006				  -player0pointer =	player2y
-      9  2006					      endif
-     10  2006				  -	      ifnconst	player1pointer
-     11  2006				  -player1pointer =	player2height	; to player3height
-     12  2006					      endif
-     13  2006				  -	      ifnconst	player1color
-     14  2006				  -player1color =	player4height	; to player5height
-     15  2006					      endif
-     16  2006				  -	      ifnconst	scorepointers
-     17  2006				  -scorepointers =	player6height	; to NUSIZ8
-     18  2006					      endif
-------- FILE titlescreen/asm/titlescreen.asm
+      3  2006					      include	"titlescreen/asm/dpcfix.asm"
 ------- FILE titlescreen/titlescreen_layout.asm LEVEL 3 PASS 2
       0  2006					      include	"titlescreen/titlescreen_layout.asm"
       1  2006					      MAC	titlescreenlayout
