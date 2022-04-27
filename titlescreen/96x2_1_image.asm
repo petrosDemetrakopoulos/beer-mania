@@ -195,8 +195,6 @@ bmp_96x2_1_00
 	BYTE %00000000
 	BYTE %00000000
 
-
-
    if >. != >[.+(bmp_96x2_1_height)]
       align 256
    endif
@@ -289,8 +287,6 @@ bmp_96x2_1_01
 	BYTE %00000000
 	BYTE %00000000
 	BYTE %00000000
-
-
 
    if >. != >[.+(bmp_96x2_1_height)]
       align 256
@@ -385,8 +381,6 @@ bmp_96x2_1_02
 	BYTE %00000000
 	BYTE %00000000
 
-
-
    if >. != >[.+(bmp_96x2_1_height)]
       align 256
    endif
@@ -479,8 +473,6 @@ bmp_96x2_1_03
 	BYTE %00000000
 	BYTE %00000000
 	BYTE %00000000
-
-
 
    if >. != >[.+(bmp_96x2_1_height)]
       align 256
@@ -575,8 +567,6 @@ bmp_96x2_1_04
 	BYTE %00000000
 	BYTE %00000000
 
-
-
    if >. != >[.+(bmp_96x2_1_height)]
       align 256
    endif
@@ -669,8 +659,6 @@ bmp_96x2_1_05
 	BYTE %00001111
 	BYTE %00001111
 	BYTE %00000000
-
-
 
    if >. != >[.+(bmp_96x2_1_height)]
       align 256
@@ -765,8 +753,6 @@ bmp_96x2_1_06
 	BYTE %11111100
 	BYTE %00000000
 
-
-
    if >. != >[.+(bmp_96x2_1_height)]
       align 256
    endif
@@ -859,8 +845,6 @@ bmp_96x2_1_07
 	BYTE %00000000
 	BYTE %00000000
 	BYTE %00000000
-
-
 
    if >. != >[.+(bmp_96x2_1_height)]
       align 256
@@ -955,8 +939,6 @@ bmp_96x2_1_08
 	BYTE %00000000
 	BYTE %00000000
 
-
-
    if >. != >[.+(bmp_96x2_1_height)]
       align 256
    endif
@@ -1050,8 +1032,6 @@ bmp_96x2_1_09
 	BYTE %00000000
 	BYTE %00000000
 
-
-
    if >. != >[.+(bmp_96x2_1_height)]
       align 256
    endif
@@ -1144,8 +1124,6 @@ bmp_96x2_1_10
 	BYTE %00000000
 	BYTE %00000000
 	BYTE %00000000
-
-
 
    if >. != >[.+(bmp_96x2_1_height)]
       align 256

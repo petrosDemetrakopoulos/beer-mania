@@ -8,3 +8,10 @@ As glasses of beer fall from the sky, the hero of the game simply tries to catch
 The player receives 10 points fot each glass of beer he / she catches and it has 4 lives, losing 1 life for each glass of beer that he / she misses.
 
 The .bin executable is play-ready for all known emulators (MAME, OpenEmu, Stella).
+
+## Screenshots
+Titlescreen
+![](titlescreen.png)
+
+Gameplay
+![](screenshot.png)

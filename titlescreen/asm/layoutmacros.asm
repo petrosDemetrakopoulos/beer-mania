@@ -52,12 +52,6 @@ mk_48x1_X_on = 1
  jsr draw_score_display
  ENDM
 
- MAC draw_gameselect
-mk_gameselect_on = 1
-mk_48x1_X_on = 1
- jsr draw_gameselect_display
- ENDM
-
  MAC draw_space 
  ldy #{1}
 .loop

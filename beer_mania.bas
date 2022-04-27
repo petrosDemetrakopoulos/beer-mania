@@ -51,8 +51,6 @@ titlepage
  if joy0fire || switchreset then player0y=200:goto gamestart
  goto titlepage
 
- rem *** Our fake game start. If you move the joystick it goes back to the
- rem *** title screen.
 gamestart
  _Ch0_Sound = 0
   pfscore1 = %10101010
@@ -113,20 +111,6 @@ end
   %11111100
   %11111100
   %11111100
-end
-
- player0color:
-    $84;
-    $84;
-    $84;
-    $B4;
-    $B4;
-    $B4;
-    $FE;
-    $FE;
-    $FE;
-    $FE;
-    $0E;
 end
  
  player1color:
@@ -283,6 +267,20 @@ __Game_Over_Setup
    ...XX..XX.XX..XX.XX....XX..XX...
    ...XXXXXX...XX...XXXXX.XX..XX...
    end
+
+    pfcolors:
+   $9E
+   $9E 
+   $9E
+   $9E
+   $9E
+   $9E
+   $9E
+   $9E
+   $9E
+   $9E
+   $9E
+end
 end
 
 gameover_loop
