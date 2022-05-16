@@ -6,7 +6,7 @@
  set optimization inlinerand
 
    ;  Standard used in North America and most of South America.
-   set tv ntsc
+   set tv pal
 
    ;  Clears the playfield.
    pfclear
@@ -26,7 +26,7 @@
 
  dim frame=a
  dim addvalue=b
- const logo_color=$1C
+ const logo_color=$4C
  const logo_height=75
  dim missed=d
  rem ** we define this because player 0 has multiple frames...
@@ -40,10 +40,10 @@
  dim _Ch0_Duration4 = x
 
  const pfscore = 1
- COLUP0=$B4
+ COLUP0=$5C
  pfscore1=%10101010
- scorecolor=$B4
- pfscorecolor=$B4
+ scorecolor=$5C
+ pfscorecolor=$5C
 
 titlepage
  gosub titledrawscreen bank2
@@ -76,17 +76,17 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 end
 
  pfcolors:
-   $9E
-   $9E 
-   $9E
-   $9E
-   $9E
-   $9E
-   $9E
-   $9E
-   $9E
-   $9E
-   $9E
+   $9A
+   $9A 
+   $9A
+   $9A
+   $9A
+   $9A
+   $9A
+   $9A
+   $9A
+   $9A
+   $9A
 end
 
  player0:
@@ -114,12 +114,12 @@ end
 end
  
  player1color:
-   $1C;
-   $1C;
-   $1C;
-   $1C;
-   $1C;
-   $1C;
+   $2C;
+   $2C;
+   $2C;
+   $2C;
+   $2C;
+   $2C;
    $0E;
    $0E;
 end
@@ -140,16 +140,16 @@ gameloop
    %00000000
 end
    if f = 10 then player0color:
-    $84;
-    $84;
-    $84;
     $B4;
     $B4;
     $B4;
-    $FE;
-    $FE;
-    $FE;
-    $FE;
+    $34;
+    $34;
+    $34;
+    $4E;
+    $4E;
+    $4E;
+    $4E;
 end
   if f = 20 then player0:
     %00011000
@@ -164,16 +164,16 @@ end
 	  %00000000
 end
    if f = 20 then player0color:
-    $84;
-    $84;
-    $84;
     $B4;
     $B4;
     $B4;
-    $FE;
-    $FE;
-    $FE;
-    $FE;
+    $34;
+    $34;
+    $34;
+    $4E;
+    $4E;
+    $4E;
+    $4E;
 end
 
  if f = 30 then player0:
@@ -247,7 +247,7 @@ __Clear_Ch_0
  bank 2
  _Bit0_Reset_Restrainer{0} = 1
  asm
- include "titlescreen/asm/titlescreen.asm"
+ include "titlescreen/asm/titlescreen_pal.asm"
 end
 
  bank 3
@@ -269,17 +269,17 @@ __Game_Over_Setup
    end
 
     pfcolors:
-   $9E
-   $9E 
-   $9E
-   $9E
-   $9E
-   $9E
-   $9E
-   $9E
-   $9E
-   $9E
-   $9E
+   $9C
+   $9C 
+   $9C
+   $9C
+   $9C
+   $9C
+   $9C
+   $9C
+   $9C
+   $9C
+   $9C
 end
 
 gameover_loop
